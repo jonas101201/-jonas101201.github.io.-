@@ -32,6 +32,22 @@ jobs:
             echo "::error::MATERIALS_DEPLOY_KEY fehlt. Privaten Materialzugriff einrichten."
             exit 1
           fi
+          if [[ "$MATERIALS_DEPLOY_KEY" == ssh-* ]]; then
+            echo "::error::Im Secret steht der öffentliche Schlüssel. Hier wird der vollständige private OpenSSH-Schlüssel benötigt."
+            exit 1
+          fi
+          if [[ "$MATERIALS_DEPLOY_KEY" != *"-----BEGIN OPENSSH PRIVATE KEY-----"* ]]; then
+            echo "::error::Im Secret fehlt der private OpenSSH-Schlüsselblock. Den Dateiinhalt einfügen, keinen Dateipfad oder Link."
+            exit 1
+          fi
+          key_file=$(mktemp)
+          trap 'rm -f "$key_file"' EXIT
+          printf '%s\n' "$MATERIALS_DEPLOY_KEY" | tr -d '\r' > "$key_file"
+          chmod 600 "$key_file"
+          if ! ssh-keygen -y -P '' -f "$key_file" >/dev/null 2>&1; then
+            echo "::error::Der private Schlüssel ist unvollständig oder falsch formatiert. Die gesamte Originaldatei mit allen Zeilen kopieren."
+            exit 1
+          fi
       - name: Check out private teaching materials
         if: github.event_name != 'pull_request'
         uses: actions/checkout@v4
