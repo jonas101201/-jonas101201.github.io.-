@@ -1,0 +1,74 @@
+name: Validate and deploy LernHub
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Require private-material read key
+        if: github.event_name != 'pull_request'
+        env:
+          MATERIALS_DEPLOY_KEY: ${{ secrets.MATERIALS_DEPLOY_KEY }}
+        run: |
+          if [ -z "$MATERIALS_DEPLOY_KEY" ]; then
+            echo "::error::MATERIALS_DEPLOY_KEY fehlt. Privaten Materialzugriff einrichten."
+            exit 1
+          fi
+      - name: Check out private teaching materials
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.MATERIALS_REPOSITORY || 'jonas101201/lernhub-unterrichtsmaterialien' }}
+          ref: ${{ vars.MATERIALS_REF || 'main' }}
+          ssh-key: ${{ secrets.MATERIALS_DEPLOY_KEY }}
+          path: .material-source
+          persist-credentials: false
+      - name: Prepare verified material files
+        if: github.event_name != 'pull_request'
+        run: npm run hydrate:materials
+      - run: npm run validate:files
+        if: github.event_name != 'pull_request'
+      - name: Configure Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build static site
+        env:
+          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path || '/' }}
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          path: dist
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
