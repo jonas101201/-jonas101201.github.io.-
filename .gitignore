@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.local
+
+# Unterrichtsmaterialien werden beim Build aus einem privaten Repository geladen.
+/public/materials/
+/.material-source/
