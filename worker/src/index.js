@@ -11,12 +11,21 @@ function bytes(value) {
   if (!/^[A-Za-z0-9_-]+$/.test(value)) throw new Error('Invalid base64url');
   return Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(value.length / 4) * 4, '=')), c => c.charCodeAt(0));
 }
-async function verifyAccess(request, env) {
+async function verifyAccess(request, env, ctx) {
   try {
     const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
-    if (!jwt || jwt.length > 16384 || !/^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/.test(env.ACCESS_TEAM_DOMAIN ?? '') || !env.ACCESS_AUD) return false;
+    if (!/^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/.test(env.ACCESS_TEAM_DOMAIN ?? '') || !env.ACCESS_AUD) return false;
     const allowed = (env.ALLOWED_EMAILS ?? '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
     if (!allowed.length) return false;
+    // Worker-level Access supplies a platform-verified context. It cannot be
+    // forged by request headers; always bind it to this application's audience.
+    if (ctx?.access) {
+      if (ctx.access.aud !== env.ACCESS_AUD) return false;
+      const identity = await ctx.access.getIdentity();
+      return typeof identity?.email === 'string' && allowed.includes(identity.email.toLowerCase());
+    }
+    // Hostname-based Access and older runtimes use the signed assertion header.
+    if (!jwt || jwt.length > 16384) return false;
     const parts = jwt.split('.');
     if (parts.length !== 3) return false;
     const [h, p, s] = parts;
@@ -41,11 +50,11 @@ async function verifyAccess(request, env) {
   } catch { return false; }
 }
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url), path = url.pathname.slice(1);
     if (!/^materials\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(pdf|txt|pptx|docx|zip|png)$/.test(path) || !files.has(path)) return response('Not found', 404);
     if (!['GET', 'HEAD'].includes(request.method)) return response('Method not allowed', 405);
-    if (!await verifyAccess(request, env)) return response('Unauthorized', 401);
+    if (!await verifyAccess(request, env, ctx)) return response('Unauthorized', 401);
     if (!env.GITHUB_TOKEN || !env.GITHUB_OWNER || !env.GITHUB_REPO || !env.GITHUB_REF) return response('Server configuration missing', 503);
     try {
       const upstream = await fetch('https://api.github.com/repos/' + encodeURIComponent(env.GITHUB_OWNER) + '/' + encodeURIComponent(env.GITHUB_REPO) + '/contents/' + path.split('/').map(encodeURIComponent).join('/') + '?ref=' + encodeURIComponent(env.GITHUB_REF), {

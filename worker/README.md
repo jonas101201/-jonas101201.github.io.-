@@ -15,7 +15,7 @@ LernHub bleibt auf GitHub Pages. Direkte Links öffnen den separaten Worker in e
 - `keep_vars = true` erhält Dashboard-Variablen beim Deploy; Secrets bleiben außerhalb der Konfigurationsdatei.
 - Preview-URLs sind in Wrangler deaktiviert; der Access-Schutz gilt zusätzlich für alle Worker-URLs.
 
-Der Worker prüft RS256-Signatur, Issuer, Audience, Token-Typ, Ablaufzeit, Ausgabezeit, optionales `nbf` und die E-Mail-Allowlist. Fehler bei Token-Parsing, Schlüsselladen oder Signaturprüfung verweigern Zugriff. Signaturschlüssel werden fünf Minuten im Worker zwischengespeichert.
+Bei Worker-spezifischem Access prüft der Worker den von Cloudflare verifizierten `ctx.access`-Kontext auf exakte Audience und die E-Mail-Allowlist. Unpassende oder fehlerhafte native Kontexte werden ohne Header-Fallback abgewiesen. Bei Hostname-Access und älteren Laufzeiten prüft der Worker zusätzlich die RS256-Signatur, Issuer, Audience, Token-Typ, Ablaufzeit, Ausgabezeit, optionales `nbf` und die E-Mail-Allowlist. Fehler bei Token-Parsing, Schlüsselladen oder Signaturprüfung verweigern Zugriff. Signaturschlüssel werden fünf Minuten im Worker zwischengespeichert.
 
 Nur im öffentlichen Katalog eingetragene Originale und Vorschauen können geladen werden. MIME-Typ und Dateinamen werden vom Katalog und der Dateiendung bestimmt. Antworten einschließlich Fehlern sind `private, no-store`; GitHub-Fehler und Weiterleitungen werden nicht durchgereicht. HEAD liefert keinen Body. Range-Anfragen werden aktuell als vollständige Datei beantwortet.
 
@@ -38,3 +38,5 @@ Manuell mit der realen Access-Anwendung prüfen:
 Der Entwicklungsbranch ist mit dem separaten Material-Worker verbunden; ein Push dorthin kann diesen Worker automatisch deployen. GitHub Pages deployt nur von `main`. Erst nach bestandenem Ende-zu-Ende-Test und Freigabe die Repository-Variable `MATERIALS_API_ORIGIN` auf `https://lernhub-materials-api.spathjonas.workers.dev` setzen und den Draft-PR mergen. Bei fehlender/ungültiger API-Konfiguration zeigt das Frontend einen Hinweis und erzeugt keine öffentlichen Ersatzlinks.
 
 Bereits auf der bestehenden Live-Website veröffentlichte Materialien werden durch die separate API nicht rückwirkend privat. Alte Veröffentlichungen, Caches, Repository-Historie sowie Schutzbedarf von Katalog, Lernzetteln und Metadaten müssen vor einer öffentlichen Migration gesondert geprüft werden.
+
+Referenz zum nativen Access-Kontext: https://developers.cloudflare.com/workers/configuration/cloudflare-access/#read-authenticated-user-identity-with-ctxaccess

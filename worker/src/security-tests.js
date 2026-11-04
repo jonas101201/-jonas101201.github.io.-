@@ -80,3 +80,18 @@ test('upstream failures and redirects never leak content or credentials', async 
   mock(() => {throw new Error('secret');});
   assert.equal((await gateway.fetch(request(jwt),env)).status,502);
 });
+
+test('native Worker Access context binds audience and email without trusting headers', async () => {
+  const calls = mock();
+  const context = (aud, email) => ({ access: { aud, async getIdentity() { return { email }; } } });
+  const accepted = await gateway.fetch(request(null), env, context('audience', 'ALLOWED@example.test'));
+  assert.equal(accepted.status, 200);
+  assert.equal(await accepted.text(), 'private-file');
+  const before = calls.length;
+  for (const ctx of [context('wrong', 'allowed@example.test'), context('audience', 'other@example.test'), context('audience', undefined), { access: { aud: 'audience', getIdentity() { throw new Error('unavailable'); } } }]) {
+    assert.equal((await gateway.fetch(request(await token()), env, ctx)).status, 401);
+  }
+  assert.equal(calls.length, before);
+  assert.equal((await gateway.fetch(request(null), { ...env, ALLOWED_EMAILS: '' }, context('audience', 'allowed@example.test'))).status, 401);
+  assert.equal((await gateway.fetch(request(null), env, {})).status, 401);
+});
