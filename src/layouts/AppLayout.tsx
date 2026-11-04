@@ -20,7 +20,7 @@ export function AppLayout() {
   const [menu, setMenu] = useState(false);
   const [query, setQuery] = useState('');
   const navigate = useNavigate(); const location = useLocation();
-  const { warning } = useProgress();
+  const { warning, persistenceEnabled } = useProgress();
   const main = useRef<HTMLElement>(null); const search = useRef<HTMLInputElement>(null);
   const restoreFocus = useRef(false);
   const trigger = useRef<HTMLButtonElement>(null); const sidebar = useRef<HTMLElement>(null);
@@ -71,7 +71,7 @@ export function AppLayout() {
         <Link to="/klasse" className="class-button" aria-label={`Klasse ${classroom.name} öffnen`}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{warning} <Link to="/ueber">Speicher verwalten</Link></div>}<Outlet/></main>
-      <footer className="page-footer"><span>LernHub · {classroom.name}</span><div className="footer-links"><Link to="/datenschutz">Datenschutz</Link><Link to="/ueber">Informationen &amp; Speicher</Link></div></footer>
+      <footer className="page-footer"><span>LernHub · {classroom.name}</span><div className="footer-links"><Link to="/datenschutz">Datenschutz</Link><Link to="/ueber">{persistenceEnabled ? 'Speicher verwalten' : 'Speicherung aktivieren'}</Link><Link to="/ueber">Informationen &amp; Speicher</Link></div></footer>
     </div>
   </div>;
 }
