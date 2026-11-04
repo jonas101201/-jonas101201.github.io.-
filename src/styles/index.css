@@ -659,7 +659,7 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 @media print {
   @page { size: A4; margin: 18mm; }
   :root,body { color-scheme: light; background: white!important; color: #172033!important; font-size: 10pt; }
-  .app-shell,.workspace { display: block!important; background: white!important; margin: 0!important; padding: 0!important; }
+  .app-shell,.workspace { display: block!important; width: 100%!important; background: white!important; margin: 0!important; padding: 0!important; }
   .sidebar,.topbar,.page-footer,.skip-link,.sheet-toolbar,.sheet-contents,.sheet-next,.sheet-section .material-sources,.sheet-meta,.notice { display: none!important; }
   .main-content { padding: 0!important; max-width: none!important; margin: 0!important; }
   .study-sheet-page { max-width: none; }
