@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, BarChart3, CalendarDays, ChevronRight, FileText, GraduationCap, Layers, Play, Zap } from 'lucide-react';
+import { ArrowUpRight, BarChart3, CalendarDays, BookOpen, ChevronRight, FileText, GraduationCap, Layers, Play, Zap } from 'lucide-react';
 import { catalog } from '../data/catalog';
 import { SectionHeading, SubjectCard } from '../components/ui';
 import { MaterialCard } from '../features/materials/MaterialCard';
@@ -7,6 +7,7 @@ import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 import { ClassEvents } from '../features/classroom/ClassEvents';
 const shortcuts = [
+  { title: 'Lernzettel', to: '/lernzettel', Icon: BookOpen },
   { title: 'Materialien', to: '/materialien', Icon: FileText },
   { title: 'Quizze', to: '/quizze', Icon: Play },
   { title: 'Karteikarten', to: '/karteikarten', Icon: Layers },

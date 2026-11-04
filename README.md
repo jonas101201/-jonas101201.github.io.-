@@ -303,3 +303,11 @@ Die Bereitstellung prüft alle katalogisierten Originale und PDF-Vorschauen gege
 Der vorbereitete Workflow verwendet das private Repository `jonas101201/lernhub-unterrichtsmaterialien` (überschreibbar über die Repository-Variable `MATERIALS_REPOSITORY`) und `MATERIALS_REF` für Branch oder Commit. Ein ausschließlich lesender SSH-Deploy-Key muss im privaten Repository hinterlegt sein; dessen privater Schlüssel gehört als Actions-Secret `MATERIALS_DEPLOY_KEY` ins Code-Repository. Schlüssel werden weder im Browsercode noch in Git gespeichert. Ohne eingerichteten Zugriff bricht der Produktionsworkflow ab, bevor etwas veröffentlicht wird. Pull-Request-Prüfungen kommen ohne private Materialien oder Schlüssel aus und veröffentlichen keine Website.
 
 Die Website veröffentlicht die Materialdateien weiterhin absichtlich als lesbare Downloads. Diese Trennung verbirgt die Git-Ablage, schützt jedoch nicht die Dateien auf der öffentlichen Website vor einem direkten Abruf.
+
+## Lernzettel für BK1 und BK2
+
+`src/data/study-sheets.json` enthält sechs redaktionelle Lernzettel für die belegten Lernfelder BK1 LF1–2 und BK2 LF1–4. Jeder Lernzettel hat gegliederte Abschnitte mit Unterrichtsquellen, Begriffen oder Vergleichstabellen, Merksätzen, einem ausdrücklich als eigenes Übungsbeispiel bezeichneten Fall und Kontrollfragen mit aufklappbaren Antworten. Der Stand beschreibt das Erstellungsdatum, nicht einen garantierten Prüfungsumfang.
+
+Die neue Navigation `/lernzettel` bietet Fachfilter und Volltextsuche; Detailseiten liegen unter `/lernzettel/:id`. Der Lernbereich ist zusätzlich in den Fach-/Lernfeld-Tabs, im Schnellzugriff und in der globalen Suche verfügbar. „Drucken / als PDF speichern“ verwendet den Browserdruckdialog mit einer hellen Druckansicht einschließlich Kontrollantworten und Quellenliste. Ob ein PDF-Ziel angeboten wird, bestimmt der Browser.
+
+Lernfelder ohne Unterrichtsunterlagen bleiben als solche gekennzeichnet. Beim Ergänzen eines belegten Lernfelds wird ein zugehöriger Lernzettel mit passenden Originalquellen angelegt; `validateStudySheets` prüft eindeutige IDs, Feldzuordnung, Tabellen und Quellen aus demselben Fach und Lernfeld. Originaldateien bleiben ausschließlich in der privaten Materialablage; die Zusammenfassungen werden mit dem Anwendungscode veröffentlicht.
