@@ -4,6 +4,8 @@ export function isSafeMaterialPath(path: string): boolean {
 }
 export function materialUrl(path: string, base = import.meta.env.BASE_URL): string {
   if (!isSafeMaterialPath(path)) throw new Error('Unsicherer Materialpfad');
+  const api = import.meta.env.VITE_MATERIALS_API_ORIGIN?.replace(/\/$/, '');
+  if (api) return `${api}/${path}`;
   return `${base.endsWith('/') ? base : `${base}/`}${path}`;
 }
 export function isNew(date: string, now = Date.now()): boolean {
