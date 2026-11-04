@@ -1,0 +1,932 @@
+[
+  {
+    "id": "bk1-lf1",
+    "subjectId": "bk1",
+    "learningFieldId": "bk1-lf1",
+    "title": "Professionelles Handeln & eigene Haltung",
+    "description": "Berufsrolle, Handlungskompetenz und Reflexion – die Grundlagen aus euren fünf Unterlagen.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "auftrag",
+        "title": "1. Auftrag und Berufsrolle",
+        "materialIds": [
+          "bk1-lf1-berufliche-handlungskompetenz",
+          "bk1-lf1-arbeitsfelder-rechtliche-grundlagen"
+        ],
+        "takeaway": "Professionelles Handeln verbindet eine verlässliche Beziehung mit einem fachlich begründeten Auftrag.",
+        "intro": "Bildung, Erziehung und Betreuung gehören zusammen. Fachkräfte begleiten Entwicklung, vertreten Interessen von Kindern und arbeiten mit Familien und anderen Fachkräften zusammen.",
+        "terms": [
+          {
+            "term": "Bildungsbegleitung",
+            "definition": "Beobachten, dokumentieren und analysieren, um Bildungs- und Entwicklungsprozesse zu verstehen und zu begleiten."
+          },
+          {
+            "term": "Bezugsperson",
+            "definition": "Sicherheit und Verlässlichkeit in einer professionellen Beziehung anbieten."
+          },
+          {
+            "term": "Interessenvertretung",
+            "definition": "Für die Interessen des Kindes eintreten und seine Beteiligung unterstützen."
+          },
+          {
+            "term": "Kooperation",
+            "definition": "Mit Eltern, Team und weiteren Partnern zusammenarbeiten."
+          }
+        ],
+        "points": [
+          "In unterschiedlichen Arbeitsfeldern ändern sich Zielgruppe, Rahmenbedingungen und konkrete Aufgaben. Gemeinsame Ziele sind Selbstständigkeit, Ressourcenstärkung und Teilhabe.",
+          "Mehrere Rollen können in einer Situation gleichzeitig relevant sein. Entscheidungen müssen deshalb abgewogen werden."
+        ]
+      },
+      {
+        "id": "kompetenzen",
+        "title": "2. Berufliche Handlungskompetenz",
+        "materialIds": [
+          "bk1-lf1-mindmap-professionalisierung"
+        ],
+        "takeaway": "Wissen wird erst durch begründetes Anwenden, Zusammenarbeit und Reflexion beruflich wirksam.",
+        "table": {
+          "headers": [
+            "Bereich",
+            "Worum geht es?",
+            "Beispiel"
+          ],
+          "rows": [
+            [
+              "Fachkompetenz",
+              "Wissen und Können situationsgerecht anwenden.",
+              "Ein Angebot mit Entwicklungswissen begründen."
+            ],
+            [
+              "Methodenkompetenz",
+              "Vorgehen planen und Ergebnisse auswerten.",
+              "Beobachtung und Auswertung strukturiert vorbereiten."
+            ],
+            [
+              "Sozial- und Kommunikationskompetenz",
+              "Beziehungen gestalten, zuhören und kooperieren.",
+              "Eine unterschiedliche Sicht im Team sachlich besprechen."
+            ],
+            [
+              "Selbst- und Lernkompetenz",
+              "Sich reflektieren, Verantwortung übernehmen und weiterlernen.",
+              "Eigene Unsicherheit erkennen und fachliche Unterstützung nutzen."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "haltung",
+        "title": "3. Professionelle Haltung",
+        "materialIds": [
+          "bk1-lf1-berufliche-handlungskompetenz",
+          "bk1-lf1-paedagogisches-handeln"
+        ],
+        "takeaway": "Signale wahrnehmen = Sensitivität. Passend darauf antworten = Responsivität.",
+        "terms": [
+          {
+            "term": "Ressourcenorientierung",
+            "definition": "Stärken und Entwicklungsmöglichkeiten erkennen; Schwierigkeiten dabei ernst nehmen."
+          },
+          {
+            "term": "Sensitivität",
+            "definition": "Auch leise und nicht ausdrücklich benannte Signale aufmerksam wahrnehmen."
+          },
+          {
+            "term": "Responsivität",
+            "definition": "Auf wahrgenommene Signale feinfühlig und der Situation angemessen reagieren."
+          },
+          {
+            "term": "Professionelle Nähe und Distanz",
+            "definition": "Zugewandt bleiben und zugleich die berufliche Rolle und Grenzen beachten."
+          }
+        ],
+        "points": [
+          "Pädagogisches Handeln ist zielgerichtet und ergebnisoffen: Ein begründetes Ziel gibt Orientierung, der tatsächliche Verlauf verlangt Anpassung.",
+          "Spannungsfelder sind zum Beispiel Selbstbestimmung und Schutz, individuelle Bedürfnisse und Gruppeninteressen sowie Förderung und Grenzsetzung. Es gibt dafür keine situationsunabhängige Standardlösung."
+        ]
+      },
+      {
+        "id": "reflexion",
+        "title": "4. Reflektieren statt nur nacherzählen",
+        "materialIds": [
+          "bk1-lf1-reflexion-haltung-loeser"
+        ],
+        "takeaway": "Sehen → Urteilen → Handeln: beschreiben, begründet einordnen, Konsequenzen ableiten.",
+        "points": [
+          "Sehen: Was ist konkret passiert? Beteiligte, Situation und eigenes Handeln möglichst genau beschreiben.",
+          "Urteilen: Welche Ziele, Gefühle und Annahmen spielten mit? Was gelang, was war schwierig? Fachwissen und andere Perspektiven einbeziehen.",
+          "Handeln: Was behalte ich bei? Was verändere ich konkret, und woran prüfe ich beim nächsten Mal die Wirkung?"
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Ein Kind möchte beim Aufräumen weiterbauen. Du forderst sofortiges Aufhören und bemerkst später, dass es seine Arbeit noch zeigen wollte.",
+      "analysis": "Hier treffen Gruppenablauf und individuelles Interesse aufeinander. Eine vorschnelle Forderung kann ein Bedürfnis übersehen; Sensitivität und Reflexion helfen bei der Einordnung.",
+      "action": "Das Anliegen erfragen, eine nachvollziehbare Vereinbarung finden und im Rückblick prüfen, wie das Aufräumen künftig angekündigt und beteiligt gestaltet werden kann."
+    },
+    "review": [
+      {
+        "question": "Wie unterscheiden sich Sensitivität und Responsivität?",
+        "answer": "Sensitivität betrifft das Wahrnehmen von Signalen, Responsivität die passende Reaktion darauf."
+      },
+      {
+        "question": "Warum ist ein pädagogisches Ziel mit Ergebnisoffenheit vereinbar?",
+        "answer": "Das Ziel ist fachlich begründet; das Vorgehen bleibt anpassbar, weil Kinder und Situationen nicht vollständig planbar sind."
+      },
+      {
+        "question": "Woran erkennt man Reflexion?",
+        "answer": "Sie geht über die Beschreibung hinaus, untersucht Gründe und leitet überprüfbare Konsequenzen ab."
+      }
+    ]
+  },
+  {
+    "id": "bk1-lf2",
+    "subjectId": "bk1",
+    "learningFieldId": "bk1-lf2",
+    "title": "Grundlagen der Entwicklungspsychologie",
+    "description": "Entwicklungsbereiche, Prozesse, Unterschiede und Einflussfaktoren aus euren acht Themenbereichen.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "gegenstand",
+        "title": "1. Gegenstand, Ziele und Entwicklungsbereiche",
+        "materialIds": [
+          "bk1-lf2-20-gegenstand-und-ziele-ausgefulltes-schaubild",
+          "bk1-lf2-01-entwicklungsbereiche-informationstext"
+        ],
+        "takeaway": "Entwicklung betrifft die gesamte Lebensspanne. Entwicklungsbereiche hängen zusammen.",
+        "intro": "Entwicklungspsychologie untersucht relativ überdauernde Veränderungen und Stabilitäten des Erlebens und Verhaltens sowie deren Bedingungen.",
+        "table": {
+          "headers": [
+            "Ziel",
+            "Leitfrage"
+          ],
+          "rows": [
+            [
+              "Beschreiben",
+              "Was verändert sich, was bleibt stabil?"
+            ],
+            [
+              "Erklären",
+              "Welche Bedingungen und Zusammenhänge tragen dazu bei?"
+            ],
+            [
+              "Vorhersagen",
+              "Welcher weitere Verlauf ist unter bestimmten Bedingungen zu erwarten?"
+            ],
+            [
+              "Optimieren",
+              "Wie lassen sich förderliche Bedingungen gestalten und überprüfen?"
+            ]
+          ]
+        },
+        "points": [
+          "Bereiche: körperlich, motorisch, wahrnehmungsbezogen, kognitiv, sprachlich-kommunikativ, sozial, emotional, moralisch und sexuell.",
+          "Grobmotorik betrifft große Bewegungen wie Klettern; Feinmotorik präzise Handlungen wie Auffädeln. Denken, Sprache, Gefühle und Beziehungen beeinflussen solche Tätigkeiten mit."
+        ]
+      },
+      {
+        "id": "prozesse",
+        "title": "2. Wachstum, Reifung und Lernen",
+        "materialIds": [
+          "bk1-lf2-03-wachstum-reifung-und-lernen-informationstext",
+          "bk1-lf2-06-merkmale-der-entwicklung-informationstext"
+        ],
+        "takeaway": "Wachstum, Reifung und Lernen unterscheiden sich begrifflich und wirken in Entwicklung zusammen.",
+        "terms": [
+          {
+            "term": "Wachstum",
+            "definition": "Quantitative Zunahme, etwa von Körpergröße oder Gewicht."
+          },
+          {
+            "term": "Reifung",
+            "definition": "Biologisch mitbedingte Entwicklungsprozesse."
+          },
+          {
+            "term": "Lernen",
+            "definition": "Relativ beständige Veränderungen durch Erfahrung und Übung. Der innere Prozess wird aus Veränderungen erschlossen."
+          }
+        ],
+        "points": [
+          "Differenzierung: Fähigkeiten und Erlebnisse werden genauer unterschieden. Integration: einzelne Fähigkeiten werden verbunden und gemeinsam eingesetzt.",
+          "Zentralisation: Überlegungen, Pläne, Ziele und Werte steuern Handlungen zunehmend.",
+          "Kanalisierung: Bestimmte Interessen oder Verhaltensweisen bilden sich heraus. Stabilisierung: Sie verfestigen sich beispielsweise zu Gewohnheiten oder Fertigkeiten."
+        ]
+      },
+      {
+        "id": "unterschiede",
+        "title": "3. Individuelle Entwicklungsverläufe",
+        "materialIds": [
+          "bk1-lf2-09-variabilitat-in-der-entwicklung",
+          "bk1-lf2-10-entwicklungsunterschiede-informationstext",
+          "bk1-lf2-12-entwicklungsunterschiede-zusammenfassung"
+        ],
+        "takeaway": "Gleiches Alter bedeutet keinen gleichen Entwicklungsstand in allen Bereichen.",
+        "table": {
+          "headers": [
+            "Begriff",
+            "Bedeutung"
+          ],
+          "rows": [
+            [
+              "Interindividuelle Variabilität",
+              "Unterschiede zwischen verschiedenen Kindern."
+            ],
+            [
+              "Intraindividuelle Variabilität",
+              "Unterschiede zwischen Bereichen innerhalb desselben Kindes."
+            ],
+            [
+              "Akzeleration / Verzögerung",
+              "Frühere oder schnellere / spätere oder langsamere Entwicklung."
+            ],
+            [
+              "Stillstand / Regression",
+              "Zeitweise keine erkennbaren Fortschritte / Rückgang erworbener Fähigkeiten."
+            ],
+            [
+              "Asynchrone Entwicklung",
+              "Bereiche eines Kindes entwickeln sich unterschiedlich schnell."
+            ]
+          ]
+        },
+        "points": [
+          "Beginn, Verlauf und Dauer berücksichtigen. Eine einzelne Alltagssituation reicht nicht für ein abschließendes Urteil über ein Kind."
+        ]
+      },
+      {
+        "id": "faktoren",
+        "title": "4. Anlage, Umwelt und Selbststeuerung",
+        "materialIds": [
+          "bk1-lf2-14-anlage-umwelt-selbststeuerung-informationstext",
+          "bk1-lf2-15-anlage-umwelt-selbststeuerung-ubersicht",
+          "bk1-lf2-17-anlage-und-umwelt-fallbeispiel-boris-becker",
+          "bk1-lf2-22-epigenetik-fachtext"
+        ],
+        "takeaway": "Entwicklung entsteht im Zusammenspiel. Weder Gene noch Umwelt erklären den Verlauf allein.",
+        "terms": [
+          {
+            "term": "Anlage – endogen",
+            "definition": "Genetische und biologische Voraussetzungen."
+          },
+          {
+            "term": "Umwelt – exogen",
+            "definition": "Äußere Einflüsse, etwa Beziehungen, Sprache, Bildungsangebote und materielle Bedingungen."
+          },
+          {
+            "term": "Selbststeuerung – autogen",
+            "definition": "Eigenaktivität, Interessen, Entscheidungen und Ziele des Kindes."
+          }
+        ],
+        "points": [
+          "Historische Erb- und Milieutheorien betonen jeweils eine Seite. Das Wechselwirkungsverständnis verbindet die Faktoren.",
+          "Der Epigenetik-Fachtext veranschaulicht Einflüsse der Umwelt auf die Aktivität von Genen. Daraus folgt keine beliebige Steuerbarkeit von Entwicklung und keine sichere Vorhersage für ein einzelnes Kind."
+        ]
+      },
+      {
+        "id": "praxis",
+        "title": "5. Sensible Phasen und wissenschaftliche Erkenntnisse",
+        "materialIds": [
+          "bk1-lf2-18-sensible-phasen-informationstext",
+          "bk1-lf2-23-wissenschaftliche-erkenntnisse-informationstext",
+          "bk1-lf2-25-evidenzorientierung-schaubild",
+          "bk1-lf2-26-wissenschaftliche-erkenntnisse-entwicklungsfaktoren"
+        ],
+        "takeaway": "Wissenschaftliches Wissen, Beobachtung und die Lebenssituation des Kindes gemeinsam berücksichtigen.",
+        "points": [
+          "Sensible Phasen sind Zeiträume besonderer Empfänglichkeit für bestimmte Erfahrungen. Innere Voraussetzungen und individuelle Entwicklungszeiten beachten.",
+          "Passende Erfahrungen ermöglichen, Interesse aufnehmen und Überforderung vermeiden. Aus dem Begriff allein lassen sich keine starren Fristen für jedes Kind ableiten.",
+          "Evidenzinformiertes Handeln verbindet überprüfbare Forschung mit Fachwissen, Erfahrung und den Bedürfnissen des Kindes. Entscheidungen und Wirkungen reflektieren.",
+          "Ein Roman oder Gedankenexperiment kann Fragen verdeutlichen, ersetzt aber keinen systematisch gewonnenen wissenschaftlichen Beleg."
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Zwei gleichaltrige Kinder bauen gemeinsam. Eines erklärt ausführlich seinen Plan, das andere setzt Bauteile besonders geschickt zusammen.",
+      "analysis": "Der Vergleich zeigt interindividuelle Unterschiede. Unterschiede zwischen Sprache und Feinmotorik innerhalb eines Kindes betreffen intraindividuelle Variabilität.",
+      "action": "Beide Kinder differenziert beobachten, ihre Stärken aufgreifen und passende gemeinsame Erfahrungen ermöglichen. Aus der Szene keine pauschale Rangfolge ableiten."
+    },
+    "review": [
+      {
+        "question": "Was unterscheidet Reifung von Lernen?",
+        "answer": "Reifung ist biologisch mitbedingt; Lernen beruht auf Erfahrung und Übung. Beide wirken zusammen."
+      },
+      {
+        "question": "Wie wirken die drei Entwicklungsfaktoren beim Bauen?",
+        "answer": "Biologische Voraussetzungen ermöglichen Handlungen, Material und Beziehungen eröffnen Erfahrungen, eigene Interessen und Übung gestalten den Verlauf mit."
+      },
+      {
+        "question": "Was bedeutet evidenzinformiert?",
+        "answer": "Forschung mit professionellem Wissen, Beobachtung und den konkreten Bedürfnissen verbinden und die Entscheidung reflektieren."
+      }
+    ]
+  },
+  {
+    "id": "bk2-lf1",
+    "subjectId": "bk2",
+    "learningFieldId": "bk2-lf1",
+    "title": "Selbstreflexion & Berufsrolle",
+    "description": "Selbstbild und Fremdbild verstehen, Feedback einordnen und das eigene berufliche Handeln reflektieren.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "bilder",
+        "title": "1. Selbstbild, Fremdbild und Metabild",
+        "materialIds": [
+          "bk2-lf1-1-0-zusammenhang-selbstbild-fremdbild",
+          "bk2-lf1-1-2-selbstwahrnehmung-und-fremdwahrnehmung",
+          "bk2-lf1-pp-1-berufliche-orientierung-und-professionelle-selbstreflexion"
+        ],
+        "takeaway": "Das Metabild ist eine Vermutung über andere – noch kein tatsächliches Fremdbild.",
+        "terms": [
+          {
+            "term": "Selbstbild",
+            "definition": "Meine Wahrnehmung und Einschätzung der eigenen Person."
+          },
+          {
+            "term": "Fremdbild",
+            "definition": "Die Wahrnehmung einer anderen Person von mir."
+          },
+          {
+            "term": "Metabild",
+            "definition": "Meine Vermutung darüber, wie andere mich sehen."
+          },
+          {
+            "term": "Real-Selbst / Ideal-Selbst",
+            "definition": "Meine gegenwärtige Selbsteinschätzung / mein Bild davon, wie ich sein möchte."
+          }
+        ],
+        "points": [
+          "Erlebnisse, Selbstbeobachtung und Rückmeldungen prägen das Selbstbild. Auch meine Deutung einer Erfahrung ist entscheidend.",
+          "Erwartungen von Bezugspersonen können Verhalten und Selbstbild beeinflussen. Zuschreibungen wie „Das kannst du sowieso nicht“ deshalb kritisch reflektieren."
+        ]
+      },
+      {
+        "id": "johari",
+        "title": "2. Das Johari-Fenster",
+        "materialIds": [
+          "bk2-lf1-1-3-das-johari-fenster"
+        ],
+        "takeaway": "Feedback kann den blinden Fleck verkleinern. Bewusste Selbstoffenbarung kann den geheimen Bereich verkleinern.",
+        "table": {
+          "headers": [
+            "Bereich",
+            "Mir bekannt?",
+            "Anderen bekannt?"
+          ],
+          "rows": [
+            [
+              "Öffentlich",
+              "Ja",
+              "Ja"
+            ],
+            [
+              "Geheim",
+              "Ja",
+              "Nein"
+            ],
+            [
+              "Blinder Fleck",
+              "Nein",
+              "Ja"
+            ],
+            [
+              "Unbekannt",
+              "Nein",
+              "Nein"
+            ]
+          ]
+        },
+        "points": [
+          "Das Modell hilft, unterschiedliche Wahrnehmungen zu verstehen und Zusammenarbeit zu verbessern.",
+          "Rückmeldungen eröffnen Perspektiven; sie sind nicht automatisch objektive Wahrheiten. Nach konkreten Situationen und Beispielen fragen."
+        ]
+      },
+      {
+        "id": "haltung",
+        "title": "3. Feedback und professionelle Selbstreflexion",
+        "materialIds": [
+          "bk2-lf1-1-2-selbstwahrnehmung-und-fremdwahrnehmung",
+          "bk2-lf1-pp-1-berufliche-orientierung-und-professionelle-selbstreflexion"
+        ],
+        "takeaway": "Die eigene Biografie erklärt mögliche Reaktionen; berufliches Handeln braucht zusätzlich eine fachliche Begründung.",
+        "points": [
+          "Selbst- und Fremdbild vergleichen: Übereinstimmungen, positive Abweichungen und kritische Punkte besprechen. Anschließend möglichen Änderungsbedarf prüfen.",
+          "Wertschätzung bedeutet Achtung, Wärme, Rücksichtnahme und Ermutigung. Empathie und Perspektivwechsel helfen, das Gegenüber zu verstehen.",
+          "Kongruenz meint Echtheit: Auftreten und Handeln passen zu den eigenen Überzeugungen und bleiben beruflich reflektiert.",
+          "Eigene Grenzen erkennen, Berufs- und Privatleben unterscheiden und bei Bedarf Unterstützung nutzen."
+        ]
+      },
+      {
+        "id": "beruf",
+        "title": "4. Professionalisierung und berufliche Entwicklung",
+        "materialIds": [
+          "bk2-lf1-2-0-entstehung-sozialpadagogischer-berufe",
+          "bk2-lf1-pp-2-professionalisierung-des-berufsfeldes",
+          "bk2-lf1-3-0-wege-der-beruflichen-entwicklung",
+          "bk2-lf1-3-2-beispiele-fur-weiterbildungsmoglichkeiten"
+        ],
+        "takeaway": "Berufliche Entwicklung verlangt den Vergleich von Aufgaben, Voraussetzungen und eigenen Interessen.",
+        "points": [
+          "Industrialisierung, soziale Not sowie humanitäre und religiöse Motive gehören zu den dargestellten Entstehungshintergründen. Einrichtungen bestanden häufig schon vor geregelten Ausbildungen.",
+          "Das Berufsverständnis erweitert Versorgung und Betreuung um Bildung, Partizipation, Teilhabe und individuelle Entwicklungsbegleitung.",
+          "Fachwissen, Methoden-, Sozial- und Selbstkompetenz ergänzen sich: verstehen, planen, kooperieren und reflektieren.",
+          "Berufliche Wege aus euren Aufgaben: fachliche Spezialisierung, Praxisanleitung, Fachberatung beziehungsweise systemische Beratung und Leitung. Die konkreten Voraussetzungen des jeweiligen Wegs gesondert prüfen."
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Du hältst dich für sehr ruhig. Eine Mitschülerin berichtet, dass du andere in Gruppenarbeiten häufig unterbrichst.",
+      "analysis": "Dein Selbstbild und ihr Fremdbild weichen ab. War dir das Unterbrechen nicht bewusst, kann die Rückmeldung einen blinden Fleck betreffen.",
+      "action": "Ein konkretes Beispiel erfragen, die eigene Wahrnehmung vergleichen und bewusst längere Gesprächspausen ausprobieren. Später erneut um Rückmeldung bitten."
+    },
+    "review": [
+      {
+        "question": "Wie unterscheiden sich Fremdbild und Metabild?",
+        "answer": "Fremdbild ist die tatsächliche Sicht einer anderen Person; Metabild meine Vermutung über diese Sicht."
+      },
+      {
+        "question": "Welche Bereiche verändert Selbstoffenbarung?",
+        "answer": "Etwas zuvor Geheimes wird anderen bekannt: Der geheime Bereich wird kleiner, der öffentliche größer."
+      },
+      {
+        "question": "Warum ist professionelle Haltung mehr als Freundlichkeit?",
+        "answer": "Sie umfasst reflektierte Werte, fachliche Begründung, Perspektivwechsel, Verantwortung und professionelle Grenzen."
+      }
+    ]
+  },
+  {
+    "id": "bk2-lf2",
+    "subjectId": "bk2",
+    "learningFieldId": "bk2-lf2",
+    "title": "Beobachtung & Dokumentation",
+    "description": "Sachlich beschreiben, Beobachtungen planen und pädagogisch auswerten.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "trennen",
+        "title": "1. Beobachtung, Deutung und Bewertung trennen",
+        "materialIds": [
+          "bk2-lf2-4-0-funktionen-von-beobachtung",
+          "bk2-lf2-4-3-beobachtung-deutung-bewertung"
+        ],
+        "takeaway": "Erst beschreiben, dann mögliche Erklärungen prüfen und Kriterien für Bewertungen benennen.",
+        "table": {
+          "headers": [
+            "Ebene",
+            "Beispiel",
+            "Einordnung"
+          ],
+          "rows": [
+            [
+              "Beobachtung",
+              "Mila legt den Stift weg und schaut drei Minuten aus dem Fenster.",
+              "Konkret sichtbares Verhalten."
+            ],
+            [
+              "Deutung",
+              "Vielleicht ist Mila müde oder braucht eine Pause.",
+              "Eine überprüfbare Vermutung."
+            ],
+            [
+              "Bewertung",
+              "Ich halte eine Pause unter diesen Bedingungen für sinnvoll.",
+              "Einschätzung anhand von Kriterien."
+            ]
+          ]
+        },
+        "points": [
+          "Beobachtung dient dem Kennenlernen von Kindern, ihrer Interessen, Ressourcen und Lernwege. Sie unterstützt passende Angebote, Beziehungen und Gespräche.",
+          "Etiketten wie „faul“ beschreiben kein konkretes Verhalten und unterstellen leicht eine Absicht. Zeit, Dauer, Reihenfolge und Kontext festhalten."
+        ]
+      },
+      {
+        "id": "formen",
+        "title": "2. Formen und Planung",
+        "materialIds": [
+          "bk2-lf2-4-4-formen-der-beobachtung",
+          "bk2-lf2-4-5-alltag-vs-strukturiert",
+          "bk2-lf2-4-9-planung-einer-systematische-beobachtung"
+        ],
+        "takeaway": "Die Unterscheidungen sind unabhängig: Eine Beobachtung kann zugleich offen, teilnehmend und strukturiert sein.",
+        "table": {
+          "headers": [
+            "Unterscheidung",
+            "Merkmal"
+          ],
+          "rows": [
+            [
+              "Alltäglich / systematisch",
+              "Eher nebenbei / gezielt geplant und dokumentiert."
+            ],
+            [
+              "Offen / verdeckt",
+              "Beobachtete Person weiß davon / weiß nicht davon."
+            ],
+            [
+              "Teilnehmend / nicht teilnehmend",
+              "Fachkraft ist beteiligt / beobachtet von außen."
+            ],
+            [
+              "Strukturiert / unstrukturiert",
+              "Vorgegebene Merkmale / offener Blick."
+            ],
+            [
+              "Feld / Labor",
+              "Natürlicher Alltag / stärker kontrollierte Bedingungen."
+            ]
+          ]
+        },
+        "points": [
+          "Vorab klären: Ziel und Gegenstand, beobachtende Person, Zeit, Ort, Vorgehen und Hilfsmittel.",
+          "Die Fragestellung darf die Aufmerksamkeit lenken; das Ergebnis muss offenbleiben."
+        ]
+      },
+      {
+        "id": "qualitaet",
+        "title": "3. Gütekriterien und Beobachtungsfehler",
+        "materialIds": [
+          "bk2-lf2-4-10-ubersicht-verfahren",
+          "bk2-lf2-4-15-beobachtungsfehler",
+          "bk2-lf2-4-12-grenzen-padagogischer-beobachtung"
+        ],
+        "takeaway": "Zuverlässig messen heißt nicht automatisch, das richtige Merkmal zu erfassen.",
+        "terms": [
+          {
+            "term": "Objektivität",
+            "definition": "Ergebnisse sind möglichst unabhängig von der beobachtenden oder auswertenden Person."
+          },
+          {
+            "term": "Reliabilität",
+            "definition": "Unter vergleichbaren Bedingungen entstehen zuverlässige, ähnliche Ergebnisse."
+          },
+          {
+            "term": "Validität",
+            "definition": "Das Verfahren erfasst tatsächlich das beabsichtigte Merkmal."
+          },
+          {
+            "term": "Praktikabilität",
+            "definition": "Zeit, Material und Dokumentationsaufwand passen zum pädagogischen Alltag."
+          }
+        ],
+        "points": [
+          "Voreiligkeit: Eine frühe Deutung verfestigt sich, widersprechende Beobachtungen werden zu wenig berücksichtigt.",
+          "Typisierung: Ein vorgefasster Typ bestimmt Erwartungen; Unterschiede des einzelnen Kindes geraten aus dem Blick.",
+          "Gegensteuern: Konkret protokollieren, Deutungen kennzeichnen, andere Perspektiven und weitere Situationen einbeziehen."
+        ]
+      },
+      {
+        "id": "verfahren",
+        "title": "4. Verfahren und Lerngeschichten",
+        "materialIds": [
+          "bk2-lf2-4-10-ubersicht-verfahren",
+          "bk2-lf2-4-13-bildungs-und-lerngeschichten"
+        ],
+        "takeaway": "Ein Verfahren wird passend zur Fragestellung gewählt. Ein auffälliges Ergebnis ist noch keine Diagnose.",
+        "points": [
+          "Sprachbeobachtung: SISMIK für mehrsprachig aufwachsende Kinder, SELDAK für deutschsprachig aufwachsende Kinder; BaSiK beobachtet Sprachentwicklung alltagsintegriert.",
+          "PERIK richtet den Blick auf sozial-emotionale Entwicklung. Grenzsteine können Unterstützungs- oder Abklärungsbedarf anzeigen.",
+          "Fünf Lerndispositionen: interessiert sein; engagiert sein; bei Herausforderungen standhalten; sich ausdrücken und mitteilen; an einer Lerngemeinschaft mitwirken und Verantwortung übernehmen."
+        ]
+      },
+      {
+        "id": "auswertung",
+        "title": "5. Auswertung und Grenzen",
+        "materialIds": [
+          "bk2-lf2-4-11-auswertung-von-beobachtungen",
+          "bk2-lf2-4-8-ethische-und-rechtliche-grenzen-beobachtung",
+          "bk2-lf2-4-12-grenzen-padagogischer-beobachtung"
+        ],
+        "takeaway": "Aus der Auswertung folgen konkrete pädagogische Schritte, deren Wirkung wieder beobachtet wird.",
+        "points": [
+          "Situation darstellen → Wahrnehmungen sammeln → Ressourcen herausarbeiten → Unterstützungsbedarf formulieren → Handlungsmöglichkeiten vereinbaren.",
+          "Beobachtungen bleiben situationsabhängig und von der Wahrnehmung der Fachkraft beeinflusst. Sie ersetzen keine fachzuständige Diagnostik.",
+          "Privatsphäre respektieren und personenbezogene Aufzeichnungen vertraulich sowie entsprechend den Vorgaben der Einrichtung behandeln."
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Im Protokoll steht: „Ben will nie mit anderen spielen.“ Tatsächlich wurde er einmal zehn Minuten allein am Bautisch beobachtet.",
+      "analysis": "Die Formulierung verallgemeinert eine Situation und unterstellt eine Absicht. Zunächst ist nur die konkrete Szene belegt.",
+      "action": "Zeit, Tätigkeit und Kontakte sachlich dokumentieren, mehrere Situationen berücksichtigen und kollegial alternative Erklärungen sowie Ressourcen besprechen."
+    },
+    "review": [
+      {
+        "question": "Was unterscheidet Reliabilität und Validität?",
+        "answer": "Reliabilität meint Zuverlässigkeit, Validität das Erfassen des beabsichtigten Merkmals."
+      },
+      {
+        "question": "Warum ist „offen“ nicht das Gegenteil von „teilnehmend“?",
+        "answer": "Offen betrifft das Wissen der beobachteten Person; teilnehmend die Beteiligung der Fachkraft."
+      },
+      {
+        "question": "Was folgt aus einem nicht erreichten Grenzstein?",
+        "answer": "Möglichen Unterstützungs- oder Abklärungsbedarf prüfen; daraus allein keine Entwicklungsstörung ableiten."
+      }
+    ]
+  },
+  {
+    "id": "bk2-lf3",
+    "subjectId": "bk2",
+    "learningFieldId": "bk2-lf3",
+    "title": "Kommunikation & Gesprächsführung",
+    "description": "Grundbegriffe, Gesprächsvorbereitung und der Umgang mit Beschwerden und Teamkonflikten.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "grundlagen",
+        "title": "1. Wie Kommunikation funktioniert",
+        "materialIds": [
+          "bk2-lf3-pp-5-einfuhrung-kommunikation"
+        ],
+        "takeaway": "Eine Botschaft senden bedeutet noch nicht, dass sie wie beabsichtigt verstanden wurde.",
+        "intro": "Das einfache Modell lautet Sender → Botschaft → Empfänger. Im Gespräch wechseln die Rollen. Kommunikation nutzt Zeichen und umfasst mehr als gesprochene Sprache.",
+        "points": [
+          "Ein sprachliches Zeichen verbindet Lautbild und Vorstellung. „Baum“, „tree“ und „arbre“ zeigen, dass dieselbe Vorstellung mit unterschiedlichen Lautbildern verbunden werden kann.",
+          "Auch Schweigen kann in einer Interaktion kommunikativ wirken. Welche Bedeutung es hat, lässt sich daraus allein nicht sicher ableiten.",
+          "Professionell kommunizieren heißt klar, respektvoll, situations- und adressatengerecht sowie ziel- und lösungsorientiert vorzugehen. Das schließt eine begründete andere Meinung ein."
+        ]
+      },
+      {
+        "id": "vorbereiten",
+        "title": "2. Gespräche vorbereiten",
+        "materialIds": [
+          "bk2-lf3-pp-5-einfuhrung-kommunikation"
+        ],
+        "takeaway": "Anlass, Beobachtung und Ziel klären, bevor Bewertungen das Gespräch bestimmen.",
+        "points": [
+          "Was ist der Anlass? Was soll das Gespräch erreichen?",
+          "Was habe ich konkret beobachtet, und was ist bisher nur meine Deutung?",
+          "Was möchte ich von der anderen Person erfahren?",
+          "Wann und wo lässt sich das Anliegen angemessen besprechen?",
+          "Mit welcher Haltung gehe ich hinein? Bin ich offen für eine andere Perspektive?",
+          "Gespräche mit Kindern an Alter und Entwicklungsstand anpassen: ruhig, verständlich, empathisch und auf Augenhöhe."
+        ],
+        "terms": [
+          {
+            "term": "Gesprächsanlässe mit Eltern",
+            "definition": "Zum Beispiel Aufnahme-, Entwicklungs-, Beratungs-, Informations-, Beschwerde- und Konfliktgespräche sowie kurze Tür-und-Angel-Gespräche."
+          }
+        ]
+      },
+      {
+        "id": "beschwerden",
+        "title": "3. Beschwerden klären",
+        "materialIds": [
+          "bk2-lf3-pp-5-einfuhrung-kommunikation"
+        ],
+        "takeaway": "Eine Emotion anerkennen bedeutet nicht, bereits jede Tatsachenbehauptung zu bestätigen.",
+        "table": {
+          "headers": [
+            "Schritt",
+            "Mögliche Formulierung"
+          ],
+          "rows": [
+            [
+              "Zuhören",
+              "Was ist Ihnen wichtig?"
+            ],
+            [
+              "Emotion wahrnehmen",
+              "Ich höre, dass Sie darüber besorgt sind."
+            ],
+            [
+              "Nachfragen und konkretisieren",
+              "Welche Information hat Ihnen in welcher Situation gefehlt?"
+            ],
+            [
+              "Eigene Sicht darstellen",
+              "In der Situation habe ich Folgendes beobachtet …"
+            ],
+            [
+              "Lösung suchen",
+              "Was vereinbaren wir für den nächsten Austausch?"
+            ]
+          ]
+        },
+        "points": [
+          "Offene Fragen lassen eine eigene Schilderung zu: „Wie erleben Sie Ihr Kind in ähnlichen Situationen zu Hause?“",
+          "Rechtfertigung, Gegenangriff, Schuldzuweisung, Verallgemeinerung und Abblocken können das Gespräch verschärfen."
+        ]
+      },
+      {
+        "id": "team",
+        "title": "4. Im Team sachlich bleiben",
+        "materialIds": [
+          "bk2-lf3-pp-5-einfuhrung-kommunikation"
+        ],
+        "takeaway": "Wahrnehmung → Wirkung → Wunsch: konkret beschreiben, statt die Person abzuwerten.",
+        "points": [
+          "Wahrnehmung: „Die vereinbarte Materialliste lag am Dienstag noch nicht vor.“",
+          "Wirkung: „Dadurch konnte ich die Bestellung nicht abschließen.“",
+          "Wunsch: „Bitte gib mir bis morgen Bescheid, wann du die Liste fertigstellen kannst.“",
+          "Beobachtung und Etikett unterscheiden: „hat beim Freispiel zweimal geschubst“ ist konkreter als „ist aggressiv“.",
+          "Am Gesprächsende Vereinbarung, Zuständigkeiten und gegebenenfalls den nächsten Austausch klären. Währenddessen prüfen: Höre ich zu? Frage ich nach? Bleibe ich sachlich?"
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Ein Vater sagt verärgert: „Sie informieren uns nie!“ Du erinnerst dich an mehrere Aushänge.",
+      "analysis": "„Nie“ ist eine pauschale Aussage. Sofortiges Gegenargumentieren würde das konkrete Anliegen noch nicht klären.",
+      "action": "Die Sorge aufgreifen und nach der fehlenden Information fragen. Anschließend beide Sichtweisen darstellen und einen geeigneten Informationsweg vereinbaren."
+    },
+    "review": [
+      {
+        "question": "Warum ist Schweigen nicht eindeutig?",
+        "answer": "Es kann kommunikativ wirken, aber unterschiedliche Bedeutungen haben. Die konkrete Situation muss geklärt werden."
+      },
+      {
+        "question": "Wie ist eine Ich-Botschaft aufgebaut?",
+        "answer": "Konkrete Wahrnehmung, Auswirkung und Wunsch beziehungsweise Bitte."
+      },
+      {
+        "question": "Was gehört an das Gesprächsende?",
+        "answer": "Eine konkrete Vereinbarung mit Zuständigkeiten und, falls nötig, einem Termin zum erneuten Austausch."
+      }
+    ]
+  },
+  {
+    "id": "bk2-lf4",
+    "subjectId": "bk2",
+    "learningFieldId": "bk2-lf4",
+    "title": "Spielpädagogik & Raumgestaltung",
+    "description": "Spiel verstehen, Kinder begleiten und Materialien sowie Räume passend gestalten.",
+    "updatedAt": "2026-11-04",
+    "sections": [
+      {
+        "id": "spiel",
+        "title": "1. Merkmale und Bedeutung des Spiels",
+        "materialIds": [
+          "bk2-lf4-5-0-merkmale-des-spiels",
+          "bk2-lf4-5-4-funktionen-des-spiels",
+          "bk2-lf4-5-7-das-freispiel-im-kindergarten",
+          "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung",
+          "bk2-lf4-5-28-spiel-und-kognitive-entwicklung"
+        ],
+        "takeaway": "Spielen braucht keinen äußeren Leistungszweck. Lernen kann trotzdem im Spiel entstehen.",
+        "points": [
+          "Zweckfreiheit: Das Spielen selbst steht im Mittelpunkt; eigene Ziele innerhalb des Spiels sind möglich.",
+          "Freiwilligkeit und Gegenwärtigkeit: Kinder spielen aus eigenem Antrieb und vertiefen sich in die aktuelle Tätigkeit.",
+          "Anspannung und Entspannung: Herausforderung, Erwartung, Gelingen und Erleichterung wechseln sich ab. Anforderungen sollen weder langweilen noch überfordern.",
+          "Im Freispiel entscheiden Kinder im vereinbarten Rahmen weitgehend selbst über Tätigkeit, Material, Partner und Verlauf. Die Fachkraft schafft Bedingungen und begleitet.",
+          "Spielsituationen können Sprache, Motorik, Problemlösen, Aushandlung und den Umgang mit Gefühlen fördern. Welche Erfahrungen entstehen, hängt von der konkreten Situation ab."
+        ]
+      },
+      {
+        "id": "formen",
+        "title": "2. Spielformen unterscheiden",
+        "materialIds": [
+          "bk2-lf4-5-5-spielformen",
+          "bk2-lf4-5-6-rollenspiel"
+        ],
+        "takeaway": "Die Spielform richtet sich nach dem Schwerpunkt. Übergänge und Mischformen sind möglich.",
+        "table": {
+          "headers": [
+            "Form",
+            "Kennzeichen",
+            "Beispiel"
+          ],
+          "rows": [
+            [
+              "Funktionsspiel",
+              "Freude an Tätigkeit und Wiederholung.",
+              "Ein Kind lässt einen Ball immer wieder rollen."
+            ],
+            [
+              "Konstruktionsspiel",
+              "Ein Werk oder eine Anordnung entsteht.",
+              "Aus Klötzen wird eine Brücke gebaut."
+            ],
+            [
+              "Symbol- und Rollenspiel",
+              "Etwas steht für etwas anderes; Rollen werden übernommen.",
+              "Ein Klotz wird zum Telefon, Kinder spielen eine Praxis."
+            ],
+            [
+              "Regelspiel",
+              "Vereinbarte Regeln ordnen den Ablauf.",
+              "Ein Brettspiel oder ein gemeinsam vereinbartes Fangspiel."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "schemata",
+        "title": "3. Spielschemata erkennen",
+        "materialIds": [
+          "bk2-lf4-5-8-spielschemata"
+        ],
+        "takeaway": "Wiederholung kann intensives Erkunden sein. Zuerst das Interesse hinter der Handlung beobachten.",
+        "terms": [
+          {
+            "term": "Transportieren",
+            "definition": "Dinge von einem Ort zum anderen bringen; etwa mit Körben oder Wagen."
+          },
+          {
+            "term": "Verbergen",
+            "definition": "Sich oder Dinge verstecken und wiederfinden."
+          },
+          {
+            "term": "Ordnen",
+            "definition": "Nach Größe, Farbe oder Form sortieren; Reihen und Muster bilden."
+          },
+          {
+            "term": "Verbinden",
+            "definition": "Stecken, stapeln, kleben oder verknoten und Materialeigenschaften erkunden."
+          },
+          {
+            "term": "Fallenlassen",
+            "definition": "Bewegungen, Geräusche und Unterschiede wiederholt beobachten."
+          }
+        ]
+      },
+      {
+        "id": "begleitung",
+        "title": "4. Rolle der Fachkraft und Materialauswahl",
+        "materialIds": [
+          "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft",
+          "bk2-lf4-5-11-kriterien-zur-beurteilung-von-spielzeug",
+          "bk2-lf4-5-14-spielzeugfreier-kindergarten"
+        ],
+        "takeaway": "So viel Unterstützung wie nötig; eigene Ideen und Entscheidungen der Kinder erhalten.",
+        "points": [
+          "Interessen, Beziehungen, Materialien und Schwierigkeiten beobachten. Nicht jede Unterbrechung oder Wiederholung verlangt einen Eingriff.",
+          "Offene Fragen oder eine Materialergänzung können unterstützen, ohne den Verlauf vorzugeben. Bei Gefahr, Gewalt, anhaltender Ausgrenzung oder deutlicher Überforderung ist ein Eingriff begründet.",
+          "Spielzeug nach Entwicklungsstand, Interessen, Sicherheit und vielfältigen Möglichkeiten beurteilen. Die Altersangabe allein reicht nicht.",
+          "Spielzeugfreier Kindergarten ist im Unterricht ein zeitlich begrenztes, vorbereitetes Projekt zur Förderung von Lebenskompetenzen. Es verlangt begleitende Fachkräfte, Elternarbeit und Reflexion; es ist kein pauschales Verbot von Spielzeug."
+        ]
+      },
+      {
+        "id": "raeume",
+        "title": "5. Räume, Material und Beteiligung",
+        "materialIds": [
+          "bk2-lf4-5-21-kriterien-der-raum-und-materialgestaltung",
+          "bk2-lf4-5-23-raum-und-partizipation",
+          "bk2-lf4-5-25-raumkonzepte-offen-teiloffen-und-geschlossen"
+        ],
+        "takeaway": "Räume sollen Orientierung geben und möglichst selbstständige, barrierearme Teilnahme ermöglichen.",
+        "table": {
+          "headers": [
+            "Unterrichtsmodell",
+            "Grundidee"
+          ],
+          "rows": [
+            [
+              "Geschlossen",
+              "Feste Gruppe mit Gruppenraum."
+            ],
+            [
+              "Teiloffen",
+              "Stammgruppe und zusätzliche Öffnung von Räumen oder Angeboten."
+            ],
+            [
+              "Offen",
+              "Wahl von Funktionsräumen ohne feste Stammgruppe im dargestellten Modell."
+            ]
+          ]
+        },
+        "points": [
+          "Erkennbare Bereiche und feste Materialplätze schaffen Übersicht. Geeignete Materialien möglichst selbstständig erreichbar anbieten.",
+          "Unterschiedliche Fähigkeiten und Bedürfnisse berücksichtigen, Hindernisse verringern und Rückzug sowie Bewegung ermöglichen.",
+          "Kinder bei Gestaltung und Nutzung beteiligen. Konzepte anhand der tatsächlichen Bedürfnisse und Bedingungen beurteilen, nicht nur nach ihrem Namen."
+        ]
+      },
+      {
+        "id": "besondere-spiele",
+        "title": "6. Digitale Spiele und Grenzen im Spiel",
+        "materialIds": [
+          "bk2-lf4-5-20-digitale-spiele",
+          "bk2-lf4-5-19-doktorspiele-in-der-kita"
+        ],
+        "takeaway": "Freiwilligkeit, Schutz und angemessene Begleitung gelten auch bei besonderen Spielformen.",
+        "points": [
+          "Digitale Spiele können Kreativität, Kooperation und Problemlösen ermöglichen. Inhalte, Bedienbarkeit, Schwierigkeitsgrad, Werbung, Käufe, Daten und Online-Kommunikation vor dem Einsatz prüfen.",
+          "Gemeinsam spielen, Erfahrungen besprechen, Regeln entwickeln und digitale mit analogen Tätigkeiten verbinden. Alterskennzeichnung ersetzt keine pädagogische Prüfung.",
+          "Bei Körpererkundungsspielen sind Freiwilligkeit, persönliche Grenzen und ein vergleichbarer Entwicklungsstand zentral. Niemand darf gezwungen, bestochen oder verletzt werden; es wird nichts in Körperöffnungen gesteckt.",
+          "Ein Nein und das Holen von Hilfe werden respektiert. Bei Grenzverletzungen schützt die Fachkraft das betroffene Kind und bezieht entsprechend den Unterlagen spezialisierte Unterstützung ein."
+        ]
+      }
+    ],
+    "caseStudy": {
+      "scenario": "Kinder bauen eine Tierklinik und spielen anschließend Tierärztin und Tierhalter. Ein jüngeres Kind bekommt keine Rolle.",
+      "analysis": "Das Spiel verbindet Konstruktion und Rollenspiel. Die Ausgrenzung und die Beteiligungsmöglichkeiten müssen beobachtet werden; die Spielform allein erklärt die Situation nicht.",
+      "action": "Nach den Ideen der Kinder fragen, die Perspektive des ausgeschlossenen Kindes aufnehmen und eine Beteiligungsmöglichkeit unterstützen, ohne das ganze Spiel zu übernehmen."
+    },
+    "review": [
+      {
+        "question": "Warum ist ein gebauter Turm nicht automatisch ein Rollenspiel?",
+        "answer": "Entscheidend ist der Schwerpunkt: Herstellen eines Werks ist Konstruktion; eine Als-ob-Situation mit Rollen gehört zum Symbol- und Rollenspiel."
+      },
+      {
+        "question": "Was unterscheidet Freispiel von fehlender Begleitung?",
+        "answer": "Kinder entscheiden weitgehend selbst; die Fachkraft gestaltet weiterhin den Rahmen, beobachtet, unterstützt und schützt."
+      },
+      {
+        "question": "Woran lässt sich eine gute Raumgestaltung beurteilen?",
+        "answer": "An Orientierung, Zugänglichkeit, passendem Material, Beteiligung und den tatsächlichen Bedürfnissen und Teilhabemöglichkeiten der Kinder."
+      }
+    ]
+  }
+]

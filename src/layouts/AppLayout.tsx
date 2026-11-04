@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { FileText, GraduationCap, Home, Layers, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy } from 'lucide-react';
+import { FileText, GraduationCap, Home, Layers, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 const links = [
   { to: '/', label: 'Übersicht', icon: Home },
   { to: '/faecher', label: 'Fächer', icon: Layers },
   { to: '/materialien', label: 'Materialien', icon: FileText },
+  { to: '/lernzettel', label: 'Lernzettel', icon: BookOpen },
   { to: '/quizze', label: 'Quizze', icon: Play },
   { to: '/karteikarten', label: 'Karteikarten', icon: BookCopy },
   { to: '/pruefungstraining', label: 'Prüfungstraining', icon: GraduationCap },
