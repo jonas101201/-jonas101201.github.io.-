@@ -18,7 +18,8 @@ describe('Inhaltsvalidierung', () => {
 });
 describe('Dateipfade und Basispfad',()=>{
   it.each(['../secret.pdf','materials/../secret.pdf','/materials/test.pdf','https://evil.test/a.pdf','javascript:alert(1)','materials/%2e%2e/x.pdf','materials/a\\b.pdf','materials/test.pdf?x=1','materials//test.pdf'])('blockiert %s',path=>expect(isSafeMaterialPath(path)).toBe(false));
-  it('erzeugt URLs für Projekt- und Root-Pages',()=>{expect(materialUrl('materials/bk1/a.pdf','/LernHub/')).toBe('/LernHub/materials/bk1/a.pdf');expect(materialUrl('materials/bk1/a.pdf','/')).toBe('/materials/bk1/a.pdf');expect(materialUrl('materials/bk1/a.pdf','./')).toBe('./materials/bk1/a.pdf');});
+  it('erzeugt ausschließlich HTTPS-API-URLs',()=>expect(materialUrl('materials/bk1/a.pdf','https://materials.example.test/')).toBe('https://materials.example.test/materials/bk1/a.pdf'));
+  it.each(['', '/', './', 'http://api.test', 'https://api.test/path', 'https://user:pass@api.test', 'https://api.test?x'])('bleibt bei ungültiger API-Konfiguration geschlossen: %s',origin=>expect(materialUrl('materials/bk1/a.pdf',origin)).toBeNull());
   it('wirft bei ungültigem Pfad',()=>expect(()=>materialUrl('../a.pdf','/')).toThrow());
   it('kennzeichnet neue Dateien nur innerhalb von 14 Tagen',()=>{const now=Date.parse('2026-11-03');expect(isNew('2026-11-02',now)).toBe(true);expect(isNew('2026-10-01',now)).toBe(false);expect(isNew('2026-12-01',now)).toBe(false);});
 });

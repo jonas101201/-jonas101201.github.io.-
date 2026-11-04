@@ -12,7 +12,7 @@
     "build": "npm run typecheck && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "lint": "eslint .",
-    "test": "vitest run",
+    "test": "vitest run && node --test worker/src/security-tests.js",
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run lint && npm test",
     "validate:files": "node scripts/check-materials.mjs",
