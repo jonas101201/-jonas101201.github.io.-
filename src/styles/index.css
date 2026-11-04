@@ -689,3 +689,9 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 .sheet-pending-grid>div { display: flex; flex-direction: column; gap: 5px; }
 .sheet-pending-grid strong { color: #d4def0; font-weight: 550; }
 @media(max-width:500px) { .sheet-pending-grid { grid-template-columns: 1fr; } }
+
+/* Legal information remains readable on wide and small screens. */
+.privacy-policy { max-width: 960px; }
+.privacy-policy h2:first-child { margin-top: 0; }
+.privacy-policy a { overflow-wrap: anywhere; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
