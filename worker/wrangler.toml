@@ -1,0 +1,10 @@
+name = "lernhub-materials-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+GITHUB_OWNER = "jonas101201"
+GITHUB_REPO = "lernhub-unterrichtsmaterialien"
+GITHUB_REF = "main"
+# Set exact production Pages origin and worker origin before deployment.
+ALLOWED_ORIGIN = "https://example.invalid"
