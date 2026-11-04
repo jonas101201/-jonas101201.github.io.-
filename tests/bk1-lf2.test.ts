@@ -24,7 +24,7 @@ describe('BK1 LF2: gemischte Unterrichtsdateien und Lerninhalte', () => {
       expect(m.preview?.sha256).toMatch(/^[a-f0-9]{64}$/);
       expect(m.preview?.sizeBytes).toBeGreaterThan(0);
       expect(m.pageCount).toBe(m.preview?.pageCount);
-      expect(materialUrl(m.preview!.path, '/repo/')).toBe(`/repo/${m.preview!.path}`);
+      expect(materialUrl(m.preview!.path, 'https://materials.example.test')).toBe(`https://materials.example.test/${m.preview!.path}`);
     }
     expect(materials.filter(m => m.fileType !== 'DOCX').some(m => m.preview)).toBe(false);
   });
@@ -48,7 +48,7 @@ describe('BK1 LF2: gemischte Unterrichtsdateien und Lerninhalte', () => {
     expect(evaluate(quiz.questions, answers)).toMatchObject({ score: 20, total: 20, wrongQuestionIds: [] });
   });
   it('erlaubt sichere PNG-URLs und blockiert weiterhin Traversierung', () => {
-    expect(materialUrl('materials/bk1/lf2/bild.png','/repo/')).toBe('/repo/materials/bk1/lf2/bild.png');
+    expect(materialUrl('materials/bk1/lf2/bild.png','https://materials.example.test')).toBe('https://materials.example.test/materials/bk1/lf2/bild.png');
     for (const path of ['materials/../bild.png', 'materials/%2e%2e/bild.png', 'https://fremd.test/bild.png']) expect(isSafeMaterialPath(path)).toBe(false);
   });
   it.each(['materials/../vorschau.pdf', 'materials/vorschau.docx'])('blockiert ungültige Vorschaupfade: %s', path => {

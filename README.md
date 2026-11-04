@@ -22,7 +22,7 @@ Eine kostenlose, statische Lernplattform für eine Klasse in der Erzieherausbild
 
 React 19, TypeScript mit Strict Mode und `noUncheckedIndexedAccess`, Vite, Tailwind CSS 4, React Router, Lucide Icons. Zod validiert JSON-Inhalte und gespeicherte Daten zur Laufzeit; Vitest prüft die Geschäftslogik; ESLint prüft TypeScript und React Hooks. Keine externen Schriften oder Trackingdienste.
 
-Benötigt: **Node.js 22 oder neuer**, npm und optional Git. Die konkrete Installation ist in `package-lock.json` festgehalten. Für den Betrieb genügt statisches Hosting.
+Benötigt: **Node.js 22 ab 22.12, Node.js 24 oder Node.js ab 26**, npm und optional Git. Die konkrete Installation ist in `package-lock.json` festgehalten. Für den Betrieb genügt statisches Hosting.
 
 ## Installation und Entwicklung
 
@@ -317,3 +317,7 @@ Lernfelder ohne Unterrichtsunterlagen bleiben als solche gekennzeichnet. Beim Er
 Die Bedienelemente orientieren sich an Apples [Liquid-Glass-Material](https://developer.apple.com/design/human-interface-guidelines/materials): transparente, abgesetzte Steuerflächen mit Glanzkanten, kurzen Druck-/Rückfederungsbewegungen und einem mitwandernden Lichtreflex. Gestaltung und Animation liegen in `src/styles/liquid-glass.css`; `mountLiquidGlass` ergänzt positionsabhängige Reflexe und den gleitenden Auswahlindikator für Tabs und Segment-Schalter. Es gibt keine laufende Animationsschleife, keine externen Texturen und keine zusätzlichen Abhängigkeiten. Die Originalunterlagen und Lerninhalte bleiben unverändert.
 
 Klicks und Tastaturaktionen bleiben nativ. Pointer-Cancel, Loslassen und Fokusverlust lösen Druckzustände; Observer, Listener und geplante Frames werden beim Entfernen der Oberfläche aufgeräumt. `prefers-reduced-motion`, `prefers-reduced-transparency`, hoher Kontrast und erzwungene Systemfarben erhalten passende Darstellungen. Eingaberegler haben eigene Track-/Thumb-Stile; derzeit verwendet die Anwendung Segment-Schalter und Fortschrittsanzeigen, keine numerischen Range-Eingaben. Die Lernzettel-Druckansicht bleibt von den Glaseffekten getrennt.
+
+### Entwicklungsabhängigkeiten und Sicherheit
+
+Vitest 5 behebt die gemeldeten Schwachstellen in Vitest/Mocker/Tinypool. Der gezielte npm-Override für `@typescript-eslint/typescript-estree > minimatch` verwendet die gepatchte Version ab 11.0.1 (GHSA-g3hv-75wg-m249); nach einer entsprechenden Aktualisierung des Parsers kann der Override entfernt werden. `npm audit` meldet für die aktualisierte Lockdatei derzeit keine bekannten Schwachstellen.

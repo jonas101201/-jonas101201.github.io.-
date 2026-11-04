@@ -1,0 +1,14 @@
+name = "lernhub-materials-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+preview_urls = false
+
+keep_vars = true
+
+[vars]
+GITHUB_OWNER = "jonas101201"
+GITHUB_REPO = "lernhub-unterrichtsmaterialien"
+GITHUB_REF = "main"
+ACCESS_TEAM_DOMAIN = "https://winter-sun-b4da.cloudflareaccess.com"
+ACCESS_AUD = "153f8f60c2b6f28990bdc358e9bec205b9d4feb46b53c1ee8fd66a9896e4720a"
