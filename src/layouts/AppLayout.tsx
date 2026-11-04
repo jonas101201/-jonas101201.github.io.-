@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-do
 import { FileText, GraduationCap, Home, Layers, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
+import { mountLiquidGlass } from '../utils/liquidGlass';
 const links = [
   { to: '/', label: 'Übersicht', icon: Home },
   { to: '/faecher', label: 'Fächer', icon: Layers },
@@ -14,6 +15,8 @@ const links = [
   { to: '/klasse', label: 'Klasse', icon: Users },
 ];
 export function AppLayout() {
+  const shell = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (shell.current) return mountLiquidGlass(shell.current); }, []);
   const [menu, setMenu] = useState(false);
   const [query, setQuery] = useState('');
   const navigate = useNavigate(); const location = useLocation();
@@ -53,7 +56,7 @@ export function AppLayout() {
     const close = () => { if (media.matches) setMenu(false); };
     media.addEventListener('change', close); return () => media.removeEventListener('change', close);
   }, []);
-  return <div className="app-shell">
+  return <div ref={shell} className="app-shell">
     <a href="#main-content" className="skip-link" onClick={e => {e.preventDefault();main.current?.focus();main.current?.scrollIntoView();}}>Zum Inhalt springen</a>
     {menu && <div className="nav-overlay" onClick={() => {restoreFocus.current = true; setMenu(false);}}/>}
     <aside ref={sidebar} className={`sidebar ${menu ? 'is-open' : ''}`} aria-label="Hauptnavigation">
