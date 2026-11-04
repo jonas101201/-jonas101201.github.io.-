@@ -23,53 +23,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - name: Require private-material read key
-        id: read-key
-        if: github.event_name != 'pull_request'
-        env:
-          MATERIALS_DEPLOY_KEY: ${{ secrets.MATERIALS_DEPLOY_KEY }}
-        run: |
-          python3 - <<'PYKEY'
-          import os, re, subprocess, tempfile, textwrap, uuid
-          raw = os.environ.get('MATERIALS_DEPLOY_KEY', '')
-          match = re.search(r'-----BEGIN OPENSSH PRIVATE KEY-----(.*?)-----END OPENSSH PRIVATE KEY-----', raw, re.S)
-          if not match:
-              raise SystemExit('::error::Vollständigen privaten OpenSSH-Schlüssel einfügen, keinen öffentlichen Schlüssel oder Dateipfad.')
-          body = re.sub(r'\s+', '', match.group(1).replace('\\n', '\n').replace('\\r', ''))
-          if not re.fullmatch(r'[A-Za-z0-9+/=]+', body):
-              raise SystemExit('::error::Der private Schlüssel enthält ungültige Zeichen. Originaldatei vollständig kopieren.')
-          key = '-----BEGIN OPENSSH PRIVATE KEY-----\n' + '\n'.join(textwrap.wrap(body, 70)) + '\n-----END OPENSSH PRIVATE KEY-----\n'
-          with tempfile.NamedTemporaryFile(mode='w', prefix='materials-key-') as f:
-              os.chmod(f.name, 0o600)
-              f.write(key)
-              f.flush()
-              check = subprocess.run(['ssh-keygen', '-y', '-P', '', '-f', f.name], capture_output=True, text=True)
-          if check.returncode:
-              raise SystemExit('::error::Der private Schlüssel ist unvollständig. Alle Zeichen aus der Originaldatei erneut kopieren.')
-          expected = 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICAEPtL/lqcNrKheBiO+E+86XAuTHNbfMmxdE4Koo0kt'
-          if ' '.join(check.stdout.split()[:2]) != expected:
-              raise SystemExit('::error::Privater Schlüssel passt nicht zum eingerichteten Leseschlüssel.')
-          escaped = key.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
-          print('::add-mask::' + escaped)
-          delimiter = 'KEY_' + uuid.uuid4().hex
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
-              out.write('key<<' + delimiter + '\n' + key + delimiter + '\n')
-          print('Privater Leseschlüssel geprüft.')
-          PYKEY
-      - name: Check out private teaching materials
-        if: github.event_name != 'pull_request'
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ vars.MATERIALS_REPOSITORY || 'jonas101201/lernhub-unterrichtsmaterialien' }}
-          ref: ${{ vars.MATERIALS_REF || 'main' }}
-          ssh-key: ${{ steps.read-key.outputs.key }}
-          path: .material-source
-          persist-credentials: false
-      - name: Prepare verified material files
-        if: github.event_name != 'pull_request'
-        run: npm run hydrate:materials
-      - run: npm run validate:files
-        if: github.event_name != 'pull_request'
+      # Private materials are never included in the public Pages artifact.
       - name: Configure Pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         id: pages
@@ -77,6 +31,7 @@ jobs:
       - name: Build static site
         env:
           VITE_BASE_PATH: ${{ steps.pages.outputs.base_path || '/' }}
+          VITE_MATERIALS_API_ORIGIN: ${{ vars.MATERIALS_API_ORIGIN }}
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
