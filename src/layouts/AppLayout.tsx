@@ -26,7 +26,7 @@ export function AppLayout() {
   const trigger = useRef<HTMLButtonElement>(null); const sidebar = useRef<HTMLElement>(null);
   useEffect(() => {
     main.current?.focus(); window.scrollTo(0, 0);
-    const label = links.find(l => l.to !== '/' && location.pathname.startsWith(l.to))?.label ?? (location.pathname === '/' ? 'Übersicht' : 'Informationen');
+    const label = location.pathname === '/datenschutz' ? 'Datenschutz' : links.find(l => l.to !== '/' && location.pathname.startsWith(l.to))?.label ?? (location.pathname === '/' ? 'Übersicht' : 'Informationen');
     document.title = `${label} · ${classroom.name} · LernHub`;
   }, [location.pathname]);
   useEffect(() => {
@@ -71,7 +71,7 @@ export function AppLayout() {
         <Link to="/klasse" className="class-button" aria-label={`Klasse ${classroom.name} öffnen`}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{warning} <Link to="/ueber">Speicher verwalten</Link></div>}<Outlet/></main>
-      <footer className="page-footer"><span>LernHub · {classroom.name}</span><Link to="/ueber">Datenschutz & Informationen</Link></footer>
+      <footer className="page-footer"><span>LernHub · {classroom.name}</span><div className="footer-links"><Link to="/datenschutz">Datenschutz</Link><Link to="/ueber">Informationen &amp; Speicher</Link></div></footer>
     </div>
   </div>;
 }

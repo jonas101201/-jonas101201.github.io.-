@@ -11,6 +11,7 @@ import { QuizList, QuizPage } from '../features/quizzes/QuizPages';
 import { FlashcardList, FlashcardPage } from '../features/flashcards/FlashcardPages';
 import { SearchPage } from '../pages/SearchPage';
 import { AboutPage } from '../pages/AboutPage';
+import { PrivacyPage } from '../pages/PrivacyPage';
 import { StudySheetList, StudySheetPage } from '../features/study-sheets/StudySheetPages';
 import { EmptyState } from '../components/ui';
 export function App() {
@@ -22,6 +23,7 @@ export function App() {
     <Route path="quizze" element={<QuizList/>}/><Route path="quizze/:id" element={<QuizPage/>}/>
     <Route path="karteikarten" element={<FlashcardList/>}/><Route path="karteikarten/:id" element={<FlashcardPage/>}/>
     <Route path="klasse" element={<ClassroomPage/>}/><Route path="pruefungstraining" element={<ExamPage/>}/>
+    <Route path="datenschutz" element={<PrivacyPage/>}/>
     <Route path="suche" element={<SearchPage/>}/><Route path="ueber" element={<AboutPage/>}/>
     <Route path="*" element={<EmptyState title="Seite nicht gefunden"><Link className="text-link" to="/">Zur Übersicht</Link></EmptyState>}/>
   </Route></Routes></ProgressProvider></HashRouter>;
