@@ -1,3 +1,4 @@
+import { GlassFilters } from '../components/GlassFilters';
 import { AsciiWaves } from '../components/AsciiWaves';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { useI18n } from "../i18n/context";
@@ -89,6 +90,7 @@ export function AppLayout() {
         return () => media.removeEventListener('change', close);
     }, []);
     return <div ref={shell} className="app-shell">
+    <GlassFilters/>
     <AsciiWaves paused={backgroundPaused}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     {menu && <div className="nav-overlay" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>}

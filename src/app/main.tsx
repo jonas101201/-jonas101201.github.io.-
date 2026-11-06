@@ -4,6 +4,7 @@ import { LanguageProvider } from '../i18n/LanguageProvider';
 import { ErrorScreen } from '../components/ErrorScreen';
 import '../styles/index.css';
 import '../styles/liquid-glass.css';
+import '../styles/reference-glass.css';
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
