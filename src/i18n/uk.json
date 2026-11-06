@@ -1770,5 +1770,9 @@
   "Erneut laden": "Завантажити знову",
   "Weitere Lernfelder ohne Unterlagen: {0}": "Інші поля без матеріалів: {0}",
   "Zur Übersicht": "До огляду",
-  "Lokaler Speicher ist nicht verfügbar. Du kannst ohne dauerhafte Speicherung weiterlernen.": "Локальне сховище недоступне. Ти можеш продовжувати навчання без тривалого збереження."
+  "Lokaler Speicher ist nicht verfügbar. Du kannst ohne dauerhafte Speicherung weiterlernen.": "Локальне сховище недоступне. Ти можеш продовжувати навчання без тривалого збереження.",
+  "Unterrichtsdatei": "Навчальний файл",
+  "Arbeitsblatt": "Робочий аркуш",
+  "Zusammenfassung": "Підсумок",
+  "Aufgaben": "Завдання"
 }
