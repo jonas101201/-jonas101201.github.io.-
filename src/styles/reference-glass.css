@@ -2,24 +2,24 @@
 .glass-filter-definitions { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
 @media screen {
   :root {
-    --reference-surface: linear-gradient(135deg,#ffffff16,transparent 45%,#b7d7ff09),#17233c99;
+    --reference-surface: linear-gradient(135deg,#ffffff06,transparent 45%,#b7d7ff04),#0a142b58;
     --reference-rim: #e3efff45;
-    --reference-shadow: inset 0 1px 1px #ffffff66,inset 1px 0 0 #ffffff16,inset 0 -1px 1px #d4e8ff24,0 8px 28px #02071430;
-    --reference-container-optics: blur(14px) saturate(145%);
-    --reference-button-optics: blur(9px) saturate(150%);
+    --reference-shadow: inset 0 1px 1px #ffffff52,inset 1px 0 0 #ffffff10,inset 0 -1px 1px #d4e8ff24,0 8px 28px #02071430;
+    --reference-container-optics: blur(8px) saturate(150%);
+    --reference-button-optics: blur(5px) saturate(155%);
   }
   /* Refract the backdrop, never the content of a control. */
   :is(.glass,.subject-card,.sidebar,.sheet-pending-fields,.pdf-viewer,.image-viewer) {
     background: var(--reference-surface); border-color: var(--reference-rim); box-shadow: var(--reference-shadow);
     backdrop-filter: var(--reference-container-optics); -webkit-backdrop-filter: var(--reference-container-optics);
   }
-  .sidebar { background: linear-gradient(150deg,#c9dcff0b,transparent 60%),#101a30c9; }
+  .sidebar { background: linear-gradient(150deg,#c9dcff03,transparent 60%),#081125a8; }
   .subject-card {
-    background: radial-gradient(ellipse at 90% 0%,rgba(var(--rgb),.28),transparent 75%),linear-gradient(145deg,#ffffff16,#ffffff03 50%,rgba(var(--rgb),.10)),#101b3078;
+    background: radial-gradient(ellipse at 90% 0%,rgba(var(--rgb),.26),transparent 75%),linear-gradient(145deg,#ffffff06,transparent 50%,rgba(var(--rgb),.08)),#08132652;
     border-color: rgba(var(--rgb),.65);
   }
   .app-shell :is([data-liquid="control"],button:where(:not(.flashcard)),select,textarea,.global-search,.sheet-search,.answer-option,.segmented,.content-tabs), .app-shell input:where(:not([type="radio"]):not([type="checkbox"]):not([type="range"])) {
-    background: radial-gradient(ellipse at var(--glass-x,50%) var(--glass-y,0%),#ffffff24,transparent 72%),linear-gradient(160deg,#f1f7ff14,#b9d9ff05 50%,#ffffff0b),#1e2c4378;
+    background: radial-gradient(ellipse at var(--glass-x,50%) var(--glass-y,0%),#ffffff0b,transparent 72%),linear-gradient(160deg,#e8f2ff06,#b9d9ff03 50%,#ffffff03),#0c18304d;
     border-color: var(--reference-rim); box-shadow: var(--reference-shadow);
     backdrop-filter: var(--reference-button-optics); -webkit-backdrop-filter: var(--reference-button-optics);
   }
@@ -27,42 +27,47 @@
   .app-shell .glass [data-liquid="control"] { backdrop-filter: none; -webkit-backdrop-filter: none; }
   .app-shell :is(.global-search,.sheet-search,.filters):focus-within { border-color: #d5e7ffb3; box-shadow: var(--reference-shadow),0 0 0 3px #b5cfff24; }
   .button.primary {
-    background: radial-gradient(ellipse at var(--glass-x,50%) 0%,#ffffff38,transparent 70%),linear-gradient(135deg,#9c90ed9e,#696fc293);
+    background: radial-gradient(ellipse at var(--glass-x,50%) 0%,#ffffff16,transparent 70%),linear-gradient(135deg,#8a74ed8c,#4e58b580);
     border-color: #eee7ff85; box-shadow: var(--reference-shadow),0 5px 22px #7e70d82b;
   }
-  .button.danger { background: linear-gradient(145deg,#ffd9e424,#8a365d83); border-color: #ffd1df70; }
+  .button.danger { background: linear-gradient(145deg,#ffd9e40c,#72254d78); border-color: #ffd1df70; }
   :is(.nav-link.active,.answer-option.selected,.segmented button.active,.content-tabs button.active) {
-    background: linear-gradient(140deg,#dfd2ff35,#b6d9ff18),#5c57835c;
+    background: linear-gradient(140deg,#c8b7ff24,#a6caff0a),#33286b47;
     border-color: #e8deff80; box-shadow: var(--reference-shadow); color: #fff;
   }
   .nav-link { border-color: #dceaff17; }
   .app-shell .subject-header { background: transparent; border-color: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-  .app-shell .subject-fields a { background: linear-gradient(155deg,#f5f8ff22,rgba(var(--rgb),.14)),#15243e6e; }
+  .app-shell .subject-fields a { background: linear-gradient(155deg,#f5f8ff0a,rgba(var(--rgb),.11)),#0b183d40; }
   :is(.subject-symbol,.subject-open,.feature-icon,.file-icon,.field-number,.badge,.tags span,.sheet-lf,.event-item,.sheet-takeaway,.feedback,.notice,.sheet-table-wrap,:where(.history-list>div)) {
-    background: linear-gradient(145deg,#ffffff17,#bfdcff07),rgba(var(--rgb,125,149,190),.12); border-color: #deecff3d;
-    box-shadow: inset 0 1px 0 #ffffff36,inset 0 -1px 0 #ffffff0d,0 3px 12px #02071412;
+    background: linear-gradient(145deg,#ffffff07,#bfdcff03),rgba(var(--rgb,100,135,200),.08); border-color: #deecff3d;
+    box-shadow: inset 0 1px 0 #ffffff30,inset 0 -1px 0 #ffffff0d,0 3px 12px #02071412;
   }
   .matching-inputs label { background: var(--reference-surface); border-color: var(--reference-rim); box-shadow: var(--reference-shadow); }
   .feedback.success { border-color: #a4efc768; background-color: #306f5038; }
   .feedback.incorrect,.notice.warning { border-color: #f3c19568; background-color: #80502d30; }
-  .flashcard { background: radial-gradient(ellipse at 50% 0%,#d4e9ff23,transparent 75%),#21314d8c; }
-  .flashcard.flipped { background: radial-gradient(ellipse at 50% 0%,#d2fff02a,transparent 75%),#21443d9c; border-color: #c4f2df85; }
+  .flashcard { background: radial-gradient(ellipse at 50% 0%,#d4e9ff0c,transparent 75%),#0d203f80; }
+  .flashcard.flipped { background: radial-gradient(ellipse at 50% 0%,#d2fff010,transparent 75%),#123b358a; border-color: #c4f2df85; }
   .sheet-takeaway { border-left-color: #c3adff; }
-  .segmented,.content-tabs { background-color: #111c3370; }
+  .segmented,.content-tabs { background-color: #09152d47; }
   .segmented button,.content-tabs button { backdrop-filter: none; -webkit-backdrop-filter: none; }
   [data-glass-pill] button.active { background: transparent; box-shadow: none; }
-  [data-glass-pill]::before { background: linear-gradient(145deg,#f7f5ff3d,#cee7ff14); border-color: #f1f7ff70; box-shadow: var(--reference-shadow); }
+  [data-glass-pill]::before { background: linear-gradient(145deg,#e0d8ff18,#cee7ff08); border-color: #f1f7ff70; box-shadow: var(--reference-shadow); }
   :is(.sources summary,.sheet-review summary,.sheet-pending-fields summary) { border: 1px solid #dceaff32; }
   :is(button,select,input,textarea,[data-liquid]):focus-visible { outline-color: #e7eeff; }
   input[type="radio"],input[type="checkbox"] { accent-color: #d0c4ff; }
   progress { border-color: #e0efff40; box-shadow: inset 0 1px 2px #0006,0 1px 0 #ffffff23; }
+  [data-liquid]:not(select):not(input)::before { background: radial-gradient(ellipse at var(--glass-x,50%) var(--glass-y,12%),#c3dbff0d,transparent 65%); }
+  @media (hover: hover) and (pointer: fine) {
+    .app-shell :is(.button.secondary,.icon-button):hover:not(:disabled) { background: radial-gradient(ellipse at var(--glass-x,50%) var(--glass-y,0%),#d7eaff10,transparent 72%),#10234766; }
+    .app-shell .button.primary:hover:not(:disabled) { background: radial-gradient(ellipse at var(--glass-x,50%) 0%,#ffffff18,transparent 70%),linear-gradient(135deg,#987fee9c,#5667c68c); }
+  }
   @supports (backdrop-filter: url('#btn-glass')) {
     @media (min-width: 821px) and (pointer: fine) {
-      :root { --reference-container-optics: blur(12px) saturate(145%) url('#container-glass'); --reference-button-optics: blur(7px) saturate(150%) url('#btn-glass'); }
+      :root { --reference-container-optics: blur(7px) saturate(150%) url('#container-glass'); --reference-button-optics: blur(4px) saturate(155%) url('#btn-glass'); }
     }
   }
   @media (max-width: 820px) {
-    :root { --reference-container-optics: blur(9px) saturate(140%); --reference-button-optics: blur(6px) saturate(145%); }
+    :root { --reference-container-optics: blur(5px) saturate(145%); --reference-button-optics: blur(3px) saturate(150%); }
   }
   @supports not (backdrop-filter: blur(1px)) {
     .app-shell :is(.glass,.subject-card,.sidebar,button,select,input,textarea,[data-liquid="control"],.global-search,.sheet-search,.answer-option) { background-color: #1f2d45; }
