@@ -69,7 +69,7 @@ export function mountLiquidGlass(root: HTMLElement) {
   }
   function keyUp(event: KeyboardEvent) { if (['Enter', ' ', 'Escape', 'Tab'].includes(event.key)) release(); }
   const mutations = new MutationObserver(schedule);
-  mutations.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'aria-pressed', 'disabled'] });
+  mutations.observe(root, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ['class', 'aria-pressed', 'disabled'] });
   const resize = new ResizeObserver(schedule);
   resize.observe(root);
   root.addEventListener('pointermove', light, { passive: true });
