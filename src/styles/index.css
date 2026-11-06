@@ -118,7 +118,7 @@ select { border: 1px solid var(--border); border-radius: 10px; background: #1922
 .small-subjects { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 17px; margin-top: 23px; }
 .subject-card.compact { padding: 23px 20px 17px; min-height: 159px; display: flex; flex-direction: column; }
 .subject-card.compact>svg { color: var(--accent); margin-bottom: 22px; }
-.subject-card.compact h3 { font-size: 16px; letter-spacing: -.4px; }
+.subject-card.compact h3 { font-size: 16px; letter-spacing: -.4px; overflow-wrap: anywhere; hyphens: auto; }
 .subject-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 9px; color: #c2cde2; font-size: 11px; }
 .subject-meta>svg { color: #d7ddf2b3; }
 .dashboard-shortcuts { margin: 33px 3px 30px; }
