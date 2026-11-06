@@ -1,8 +1,9 @@
+import { AsciiWaves } from '../components/AsciiWaves';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { useI18n } from "../i18n/context";
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { FileText, GraduationCap, Home, Layers, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen } from 'lucide-react';
+import { FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 import { mountLiquidGlass } from '../utils/liquidGlass';
@@ -22,6 +23,7 @@ export function AppLayout() {
     useEffect(() => { if (shell.current)
         return mountLiquidGlass(shell.current); }, []);
     const [menu, setMenu] = useState(false);
+    const [backgroundPaused, setBackgroundPaused] = useState(false);
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -87,6 +89,7 @@ export function AppLayout() {
         return () => media.removeEventListener('change', close);
     }, []);
     return <div ref={shell} className="app-shell">
+    <AsciiWaves paused={backgroundPaused}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     {menu && <div className="nav-overlay" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>}
     <aside ref={sidebar} className={`sidebar ${menu ? 'is-open' : ''}`} aria-label={tr("Hauptnavigation")}>
@@ -98,7 +101,7 @@ export function AppLayout() {
     <div className="workspace" inert={menu}>
       <header className="topbar"><button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} onClick={() => setMenu(true)}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
         <form className="global-search" role="search" onSubmit={e => { e.preventDefault(); navigate(`/suche?q=${encodeURIComponent(query)}`); }}><Search size={20}/><input ref={search} aria-label={tr("LernHub durchsuchen")} placeholder={tr("In LernHub suchen …")} value={query} onChange={e => setQuery(e.target.value)}/><kbd>{tr("Strg K")}</kbd></form>
-        <LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
+        <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => setBackgroundPaused(value => !value)}>{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</button><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{tr(warning)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<Outlet /></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
