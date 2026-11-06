@@ -12,4 +12,4 @@ export function isNew(date: string, now = Date.now()): boolean {
   const age = now - Date.parse(date);
   return age >= 0 && age <= 14 * 86400000;
 }
-export const formatDate = (date: string) => new Intl.DateTimeFormat('de-DE', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(date));
+export const formatDate = (date: string, locale = 'de-DE') => new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(date));

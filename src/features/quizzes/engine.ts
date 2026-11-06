@@ -30,12 +30,12 @@ export function evaluate(questions: Question[], answers: Record<string, Answer>)
   const wrongQuestionIds = questions.filter(q => !isCorrect(q, answers[q.id])).map(q => q.id);
   return { score: questions.length - wrongQuestionIds.length, total: questions.length, wrongQuestionIds };
 }
-export function solution(question: Question): string {
-  return question.type === 'matching' ? question.pairs.map(p => `${p.left} → ${p.right}`).join(' · ') : question.options.filter(o => question.correctOptionIds.includes(o.id)).map(o => o.text).join(' · ');
+export function solution(question: Question, tr: (text: string) => string = text => text): string {
+  return question.type === 'matching' ? question.pairs.map(p => `${tr(p.left)} → ${tr(p.right)}`).join(' · ') : question.options.filter(o => question.correctOptionIds.includes(o.id)).map(o => tr(o.text)).join(' · ');
 }
-export function describeAnswer(question: Question, answer?: Answer): string {
-  if (!answer) return 'Nicht beantwortet';
-  if (question.type === 'matching' && !Array.isArray(answer)) return question.pairs.map(p => `${p.left} → ${question.pairs.find(x => x.id === answer[p.id])?.right ?? 'Keine Zuordnung'}`).join(' · ');
-  if (question.type !== 'matching' && Array.isArray(answer)) return question.options.filter(o => answer.includes(o.id)).map(o => o.text).join(' · ');
-  return 'Ungültige Antwort';
+export function describeAnswer(question: Question, answer?: Answer, tr: (text: string) => string = text => text): string {
+  if (!answer) return tr('Nicht beantwortet');
+  if (question.type === 'matching' && !Array.isArray(answer)) return question.pairs.map(p => `${tr(p.left)} → ${tr(question.pairs.find(x => x.id === answer[p.id])?.right ?? 'Keine Zuordnung')}`).join(' · ');
+  if (question.type !== 'matching' && Array.isArray(answer)) return question.options.filter(o => answer.includes(o.id)).map(o => tr(o.text)).join(' · ');
+  return tr('Ungültige Antwort');
 }

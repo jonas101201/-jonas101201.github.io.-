@@ -695,3 +695,19 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 .privacy-policy h2:first-child { margin-top: 0; }
 .privacy-policy a { overflow-wrap: anywhere; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+
+.language-switcher { display: inline-flex; flex-shrink: 0; align-items: center; gap: 8px; color: #d9e5f9; }
+.language-switcher select { max-width: 140px; padding: 10px 28px 10px 12px; font-size: 12px; }
+:lang(uk) .nav-link { gap: 10px; font-size: 13px; }
+:lang(uk) .content-tabs button { white-space: nowrap; }
+:lang(uk) .subject-header p { font-size: 12px; }
+@media(max-width:650px) {
+  .language-switcher { gap: 0; }
+  .language-switcher>svg { display: none; }
+  .language-switcher select { max-width: 102px; padding-left: 9px; padding-right: 18px; font-size: 11px; }
+  .topbar { gap: 9px; }
+  .global-search { min-width: 0; }
+  .global-search input { min-width: 0; width: 100%; }
+  :lang(uk) .shortcut { font-size: 11px; }
+}
+@media print { .language-switcher { display: none; } }
