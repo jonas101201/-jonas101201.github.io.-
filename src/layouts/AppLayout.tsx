@@ -1,3 +1,4 @@
+import { changeWithMotion } from '../utils/motion';
 import { GlassFilters } from '../components/GlassFilters';
 import { AsciiWaves } from '../components/AsciiWaves';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
@@ -93,7 +94,7 @@ export function AppLayout() {
     <GlassFilters/>
     <AsciiWaves paused={backgroundPaused}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
-    {menu && <div className="nav-overlay" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>}
+    <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
     <aside ref={sidebar} className={`sidebar ${menu ? 'is-open' : ''}`} aria-label={tr("Hauptnavigation")}>
       <Link to="/" className="brand" onClick={() => setMenu(false)}><Sparkle size={26} fill="currentColor" strokeWidth={1}/>Lern<span>Hub</span></Link>
       <button className="icon-button mobile-close" aria-label={tr("Menü schließen")} onClick={() => { restoreFocus.current = true; setMenu(false); }}><X /></button>
@@ -103,9 +104,9 @@ export function AppLayout() {
     <div className="workspace" inert={menu}>
       <header className="topbar"><button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} onClick={() => setMenu(true)}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
         <form className="global-search" role="search" onSubmit={e => { e.preventDefault(); navigate(`/suche?q=${encodeURIComponent(query)}`); }}><Search size={20}/><input ref={search} aria-label={tr("LernHub durchsuchen")} placeholder={tr("In LernHub suchen …")} value={query} onChange={e => setQuery(e.target.value)}/><kbd>{tr("Strg K")}</kbd></form>
-        <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => setBackgroundPaused(value => !value)}>{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</button><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
+        <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => changeWithMotion(() => setBackgroundPaused(value => !value))}><span className="motion-icon">{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</span></button><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
-      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{tr(warning)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<Outlet /></main>
+      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{tr(warning)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<div key={location.pathname} className="page-enter"><Outlet /></div></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
     </div>
   </div>;
