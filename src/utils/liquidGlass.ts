@@ -10,12 +10,34 @@ export function mountLiquidGlass(root: HTMLElement) {
   let disposed = false;
   const decorated = new Set<HTMLElement>();
   const groups = new Set<HTMLElement>();
+  const revealed = new WeakSet<HTMLElement>();
+  const animations = new Set<Animation>();
+  function animate(element: HTMLElement, frames: Keyframe[], delay = 0) {
+    if (motion.matches || typeof element.animate !== 'function') return;
+    const animation = element.animate(frames, { duration: 240, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+    animations.add(animation);
+    animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
+  }
 
   function enhance() {
     frame = 0;
     if (disposed) return;
     for (const element of decorated) if (!root.contains(element)) decorated.delete(element);
     for (const group of groups) if (!root.contains(group)) groups.delete(group);
+    root.querySelectorAll<HTMLElement>('.featured-subjects, .small-subjects, .subject-grid, .field-grid, .material-grid, .recent-materials, .learning-grid, .sheet-grid, .search-results, .review-list, .event-list, .answer-options').forEach(group => {
+      let index = 0;
+      for (const child of group.children) {
+        if (!(child instanceof HTMLElement) || revealed.has(child)) continue;
+        revealed.add(child);
+        // Cap the delay so long catalogs remain immediately usable.
+        animate(child, [{ opacity: 0, translate: '0 8px' }, { opacity: 1, translate: '0 0' }], Math.min(index++, 7) * 30);
+      }
+    });
+    root.querySelectorAll<HTMLElement>('.feedback.success, .quiz-result .feature-icon, [data-motion-success]').forEach(element => {
+      if (revealed.has(element)) return;
+      revealed.add(element);
+      animate(element, [{ scale: '1' }, { scale: '1.025', offset: .45 }, { scale: '1' }]);
+    });
     root.querySelectorAll<HTMLElement>(controls).forEach(element => {
       element.dataset.liquid = element.matches('input[type="range"]') ? 'range' : element.matches('.text-link, .back-link') ? 'link' : element.matches('.flashcard, .sheet-card, .subject-card, .search-result') ? 'card' : 'control';
       decorated.add(element);
@@ -67,6 +89,7 @@ export function mountLiquidGlass(root: HTMLElement) {
     const element = control(event);
     if (element && element.matches('button, summary, a')) { release(); pressed = element; pressed.dataset.glassPressed = 'true'; }
   }
+  function motionChanged() { release(); if (motion.matches) { animations.forEach(animation => animation.cancel()); animations.clear(); } }
   function keyUp(event: KeyboardEvent) { if (['Enter', ' ', 'Escape', 'Tab'].includes(event.key)) release(); }
   const mutations = new MutationObserver(schedule);
   mutations.observe(root, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ['class', 'aria-pressed', 'disabled'] });
@@ -79,16 +102,17 @@ export function mountLiquidGlass(root: HTMLElement) {
   window.addEventListener('pointercancel', release, { passive: true });
   window.addEventListener('keyup', keyUp);
   window.addEventListener('blur', release);
-  motion.addEventListener('change', release);
+  motion.addEventListener('change', motionChanged);
   enhance();
   void document.fonts.ready.then(schedule);
   return () => {
     disposed = true;
     cancelAnimationFrame(frame); cancelAnimationFrame(pointerFrame);
     mutations.disconnect(); resize.disconnect(); release();
+    animations.forEach(animation => animation.cancel()); animations.clear();
     root.removeEventListener('pointermove', light); root.removeEventListener('pointerdown', down); root.removeEventListener('keydown', keyDown);
     window.removeEventListener('pointerup', release); window.removeEventListener('pointercancel', release); window.removeEventListener('keyup', keyUp); window.removeEventListener('blur', release);
-    motion.removeEventListener('change', release);
+    motion.removeEventListener('change', motionChanged);
     decorated.forEach(element => { delete element.dataset.liquid; element.style.removeProperty('--glass-x'); element.style.removeProperty('--glass-y'); });
     groups.forEach(group => { delete group.dataset.glassPill; ['--pill-x', '--pill-y', '--pill-width', '--pill-height'].forEach(name => group.style.removeProperty(name)); });
   };
