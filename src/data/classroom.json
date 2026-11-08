@@ -3,5 +3,41 @@
   "program": "Erzieherausbildung",
   "school": "",
   "description": "Materialien, Lernfelder und Übungen für unsere Klasse.",
-  "events": []
+  "events": [
+    {
+      "id": "gln-bk2-2026-09-28",
+      "title": "GLN BK2 · Dittberner",
+      "date": "2026-09-28",
+      "kind": "Termin",
+      "subjectId": "bk2"
+    },
+    {
+      "id": "gln-bk1-2026-11-25",
+      "title": "GLN BK1 · Diehl",
+      "date": "2026-11-25",
+      "kind": "Termin",
+      "subjectId": "bk1"
+    },
+    {
+      "id": "gln-bk2-2026-11-30",
+      "title": "GLN BK2 · Dittberner",
+      "date": "2026-11-30",
+      "kind": "Termin",
+      "subjectId": "bk2"
+    },
+    {
+      "id": "gln-sozialkunde-2026-12-10",
+      "title": "GLN Sozialkunde",
+      "date": "2026-12-10",
+      "kind": "Termin",
+      "subjectId": "sozialkunde"
+    },
+    {
+      "id": "gln-bk1-2027-01-06",
+      "title": "GLN BK1 · Diehl",
+      "date": "2027-01-06",
+      "kind": "Termin",
+      "subjectId": "bk1"
+    }
+  ]
 }
