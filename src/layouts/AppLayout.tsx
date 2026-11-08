@@ -107,7 +107,7 @@ export function AppLayout() {
         media.addEventListener('change', close);
         return () => media.removeEventListener('change', close);
     }, []);
-    return <div ref={shell} className={`app-shell ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    return <div ref={shell} className={`app-shell ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
     <GlassFilters/>
     {palette && <CommandPalette onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
     <AsciiWaves paused={backgroundPaused || focusMode}/>

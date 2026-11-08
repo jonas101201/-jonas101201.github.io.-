@@ -8,7 +8,7 @@ export function addActivity(entries: Activity[], to: string, now = new Date().to
   const entry = Entry.parse({ to, visitedAt: now });
   return [entry, ...entries.filter(e => e.to !== to)].slice(0, 20);
 }
-export function readActivity(storage: StoragePort, enabled: boolean): { activities: Activity[]; activityWritable: boolean; activityWarning: string | null } {
+export function readActivity(storage: Pick<StoragePort, 'getItem'>, enabled: boolean): { activities: Activity[]; activityWritable: boolean; activityWarning: string | null } {
   if (!enabled) return { activities: [], activityWritable: true, activityWarning: null };
   try {
     const raw = storage.getItem(ACTIVITY_KEY);

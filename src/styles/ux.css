@@ -58,6 +58,7 @@
 .focus-mode .sidebar, .focus-mode .nav-overlay, .focus-mode .mobile-menu, .focus-mode .desktop-sidebar-toggle, .focus-mode .background-motion-toggle, .focus-mode .class-button, .focus-mode .language-switcher { display: none; }
 .focus-mode .workspace { margin-left: 0; width: 100%; }
 .focus-mode .main-content { max-width: 1060px; margin-inline: auto; }
+.learning-route .topbar { flex-wrap: wrap; }
 .focus-mode .topbar { max-width: 1060px; flex-wrap: wrap; }
 .focus-toggle { flex-shrink: 0; }
 .loading-shell { padding: clamp(24px,6vw,80px); min-height: 100vh; color: var(--color-text); }

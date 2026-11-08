@@ -26,7 +26,7 @@ Grundlage sind der ausdrückliche Auftrag und die anschließend bereitgestellte 
 `feature/secure-materials-api` bei `30db7f5d491abca9e782bbfa85fe21a13f4c2902` ist bereits Vorfahr des aktuellen main (`git merge-base --is-ancestor` erfolgreich).
 Worker, Authentifizierung, Dateikatalog, `materialUrl`, Schutz vor unsicheren Pfaden und Deploy-Workflow werden nicht verändert. Die bestehende Downloaddarstellung wird in beiden Materialansichten weiterverwendet. Suche und Verlauf verlinken nur interne Inhaltsseiten. Die acht Worker-Sicherheitstests bleiben Teil von `npm test`.
 
-Der vorhandene Workflow validiert PRs; Pages-Konfiguration, Artefakt-Upload und Deployment sind auf main außerhalb von Pull Requests beschränkt. Dieser Branch und Draft-PR veröffentlichen keine Website. Kein Merge oder Deployment beauftragt oder ausgeführt.
+Der vorhandene Workflow validiert PRs; Pages-Konfiguration, Artefakt-Upload und Deployment sind auf main außerhalb von Pull Requests beschränkt. Die ursprüngliche Vorbereitung erfolgte ausschließlich als Draft ohne Veröffentlichung. Nach der ausdrücklichen Anweisung „Fix und Release“ wird der geprüfte PR über den bestehenden main-/GitHub-Pages-Workflow veröffentlicht.
 
 ## Grenzen
 
@@ -39,10 +39,10 @@ Der vorhandene Workflow validiert PRs; Pages-Konfiguration, Artefakt-Upload und 
 ## Validierung am 08.11.2026
 
 - Node 22.16.0; reproduzierbare Installation aus package-lock.json, ergänzte React-DOM-Testwerkzeuge ausschließlich als devDependencies.
-- `npm run typecheck`, `npm run lint`, `npm test`: erfolgreich; 137 Vitest-Tests in 19 Dateien plus acht Worker-Sicherheitstests. Neue Tests prüfen Suchindex/Matching, globale Ctrl-/Meta-Shortcuts, Dialogfokus, Auswahl und Navigation, leere Treffer, Filter-/Sortiererhalt, Verlauf/Reload/Einwilligung/Widerruf/Reset, zukünftige Formate, Quota-Fehler, Cross-Tab-Widerruf sowie Reduced Motion und das Abbrechen laufender Glas-Einblendungen.
+- `npm run typecheck`, `npm run lint`, `npm test`: erfolgreich; 140 Vitest-Tests in 20 Dateien plus acht Worker-Sicherheitstests. Neue Tests prüfen Suchindex/Matching, globale Ctrl-/Meta-Shortcuts, Dialogfokus, Auswahl und Navigation, leere Treffer, Filter-/Sortiererhalt, Verlauf/Reload/Einwilligung/Widerruf/Reset, zukünftige Formate, Quota-Fehler, Cross-Tab-Widerruf sowie Reduced Motion und das Abbrechen laufender Glas-Einblendungen.
 - `npm run build`: erfolgreich mit Standard-Basispfad sowie mit `VITE_BASE_PATH=/-jonas101201.github.io.-/` und bestehendem HTTPS-Material-API-Ursprung. Für `vite preview` muss derselbe VITE_BASE_PATH gesetzt sein.
 - Browser-Smoke-Test im lokalen Entwicklungsstand und fertigen Produktionsbuild: Palette mit Strg+K, fokussierte Combobox, Spielformen-Treffer aller vier Inhaltstypen, Pfeilauswahl/Escape/Enter, echte Quiznavigation, Liquid-Glass-Darstellung und gefilterte Liste (BK1/LF2/DOCX: 15 Ergebnisse). Kein Dokumentüberlauf in der geprüften Desktopansicht. Mobile Layouts wurden visuell betrachtet; die Browser-Viewport-Steuerung lieferte wechselnde tatsächliche Größen, daher keine belastbare Zusage pixelgenauer 320-/390-Pixel-Prüfungen. Ein finaler manueller Gerätetest bleibt sinnvoll.
-- `git diff --check`: erfolgreich. Keine private Materialdatei und kein Build-Artefakt wird versioniert. Kein main-Push, Merge oder Deployment.
+- `git diff --check`: erfolgreich. Keine private Materialdatei und kein Build-Artefakt wird versioniert. Die Vorabprüfung erfolgte ohne main-Push, Merge oder Deployment.
 
 
 ## Ergänzungen aus der Sieben-Punkte-Vorlage
@@ -55,4 +55,13 @@ Der vorhandene Workflow validiert PRs; Pages-Konfiguration, Artefakt-Upload und 
 - Ein zugänglich beschrifteter Liquid-Glass-Skeleton begleitet den echten asynchronen Start der App. Dekorative Platzhalter sind für Screenreader verborgen, die dezente Opazitätsanimation läuft ausschließlich ohne Reduced Motion. Bereits synchron vorhandene Kataloglisten erhalten keine künstliche Ladezeit. Bei fehlgeschlagenem Start übernimmt weiterhin der bestehende verständliche Fehlerbildschirm mit Neuladen-Schaltfläche.
 - Sichtbare, höflich angekündigte Bestätigungen nach Kartenbewertung, Mischen und Ansichtswechsel ergänzen die vorhandenen Quiz-Rückmeldungen. Sie verschieben keinen Tastaturfokus. Sämtliche neuen Texte sind auch auf Ukrainisch vorhanden.
 
-Zusätzliche Prüfungen: neue Tests für Breadcrumb-Beziehungen, gültige Fokusrouten, begrenzte/entdoppelte Vorschläge, das Einklappen samt zugänglichen Namen, Kartenstand beim Fokuswechsel, pausierten Hintergrund, sichtbare Bestätigungen sowie Skeleton-Semantik. Typecheck/Lint/137 Anwendungstests und acht Worker-Tests erfolgreich; Produktionsbuild mit Pages-Unterpfad erfolgreich. Lokaler Browser-Smoke-Test bestätigt die Beibehaltung einer geprüften Quizantwort beim Fokuswechsel, die aktive Iconnavigation und den aktuellen Quiz-Vorschlag in der leeren Palette. Keine Browserfehler im fertigen Build. Die zuvor dokumentierten Einschränkungen zu realen Geräten und privatem Materialzugriff gelten weiter.
+Zusätzliche Prüfungen: neue Tests für Breadcrumb-Beziehungen, gültige Fokusrouten, begrenzte/entdoppelte Vorschläge, das Einklappen samt zugänglichen Namen, Kartenstand beim Fokuswechsel, pausierten Hintergrund, sichtbare Bestätigungen sowie Skeleton-Semantik. Typecheck/Lint/140 Anwendungstests und acht Worker-Tests erfolgreich; Produktionsbuild mit Pages-Unterpfad erfolgreich. Lokaler Browser-Smoke-Test bestätigt die Beibehaltung einer geprüften Quizantwort beim Fokuswechsel, die aktive Iconnavigation und den aktuellen Quiz-Vorschlag in der leeren Palette. Keine Browserfehler im fertigen Build. Die zuvor dokumentierten Einschränkungen zu realen Geräten und privatem Materialzugriff gelten weiter.
+
+
+## Review-Fix vor dem Release
+
+Ein unabhängiger Subagent reproduzierte einen P2-Datenverlust: Ein fremdes Aktivitäts-StorageEvent initialisierte auch den Fortschrittszustand neu. Nach einem fehlgeschlagenen Schreibvorgang konnten dadurch nur im Tab vorhandene Quiz-/Kartendaten und die Warnung verschwinden. Aktivitätsereignisse synchronisieren nun ausschließlich den eigenen Verlaufsteil; ohne Einwilligung werden sie ignoriert. Die Leseschnittstelle akzeptiert ausschließlich `getItem`, auch ein blockierter Zugriff bleibt im bestehenden Fehlerpfad behandelt.
+
+Drei neue Regressionstests schlugen vor dem Fix fehl und bestehen danach: reguläres Aktivitätsformat, unbekannte künftige Version und Sitzung ohne Einwilligung. Sie prüfen den Erhalt von Quizversuch, Kartenbewertung und Speicherwarnung; reguläre Aktivitätsupdates werden weiterhin übernommen. Ein erneutes Subagenten-Review hat den Fix anhand von 13 gezielten Tests bestätigt und keine neuen belastbaren Findings gemeldet.
+
+Die Kopfzeile darf auf jeder gültigen Lernroute umbrechen, auch nach Verlassen des Fokusmodus. Das beseitigt die erkannte CSS-Ursache einer möglichen mobilen Überbreite; eine echte mobile Layoutmessung bleibt eine offene Prüfgrenze. Vor Veröffentlichung wurden Typecheck, Lint, alle 140 Anwendungstests, acht Worker-Sicherheitstests und der Build mit Pages-Unterpfad erfolgreich ausgeführt. Das Release nutzt den vorhandenen Workflow; der Materials-API-Migrationsbranch wird nicht verändert.

@@ -31,7 +31,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     current.current = { ...previous, progress, warning }; setSnapshot(current.current);
   }, []);
   useEffect(() => {
-    const sync = (e: StorageEvent) => { if (e.key === ACTIVITY_KEY || e.key === STORAGE_KEY || e.key === CONSENT_KEY || e.key === null) { current.current = initial(); setSnapshot(current.current); } };
+    const sync = (e: StorageEvent) => {
+      if (e.key === ACTIVITY_KEY) {
+        // A history change must never reload unrelated progress from disk: a
+        // failed write may have left the only current results in this tab.
+        if (!current.current.activityPersistenceEnabled) return;
+        const activity = readActivity({ getItem: key => window.localStorage.getItem(key) }, true);
+        current.current = { ...current.current, ...activity };
+      } else if (e.key === STORAGE_KEY || e.key === CONSENT_KEY || e.key === null) {
+        current.current = initial();
+      } else return;
+      setSnapshot(current.current);
+    };
     window.addEventListener('storage', sync); return () => window.removeEventListener('storage', sync);
   }, []);
   return <ProgressContext.Provider value={{ ...snapshot,

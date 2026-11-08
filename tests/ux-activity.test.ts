@@ -5,7 +5,7 @@ const time = '2026-11-08T12:00:00.000Z';
 function memory() { const data = new Map<string, string>(); return { getItem: (k: string) => data.get(k) ?? null, setItem: (k: string, v: string) => { data.set(k, v); }, removeItem: (k: string) => { data.delete(k); } }; }
 describe('Bounded, versioned local activity', () => {
   it('does not access storage without consent', () => {
-    expect(readActivity({ getItem: () => { throw Error('read forbidden'); }, setItem: () => { throw Error('write forbidden'); } }, false).activities).toEqual([]);
+    expect(readActivity({ getItem: () => { throw Error('read forbidden'); } }, false).activities).toEqual([]);
   });
   it('keeps the most recent unique 20 entries and stores no titles or queries', () => {
     let entries = [] as ReturnType<typeof addActivity>;
