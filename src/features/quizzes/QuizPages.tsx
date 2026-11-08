@@ -1,9 +1,10 @@
+import { LearningSessionHeader } from '../../components/LearningSessionHeader';
 import { useI18n } from "../../i18n/context";
 import { MaterialSources } from '../../components/MaterialSources';
 import { classroom } from '../../features/classroom/config';
 import { useRef, useState, useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Check, CircleCheck, RotateCcw, Sparkles, Trophy, X, Clock3 } from 'lucide-react';
+import { ArrowRight, Check, CircleCheck, RotateCcw, Sparkles, Trophy, X, Clock3 } from 'lucide-react';
 import { catalog, subjectName, fieldName } from '../../data/catalog';
 import { EmptyState, ExampleBadge, PageHeading } from '../../components/ui';
 import { useProgress } from '../../hooks/useProgress';
@@ -66,17 +67,17 @@ function QuizSession({ quiz, mode }: {
         setFinished(false);
         saved.current = false;
     }
+    const sessionHeader = <LearningSessionHeader title={tr(quiz.title)} context={`${tr(subjectName(quiz.subjectId))} / ${tr(fieldName(quiz.learningFieldId))}`} description={mode === 'learn' ? tr('Lernmodus · Direktes Feedback nach jeder Antwort.') : tr('Prüfungsmodus · Die Auswertung erhältst du am Ende.')} backTo="/quizze" backLabel={tr('Alle Quizze')} current={finished ? questions.length : index} total={questions.length} positionLabel={finished ? tr('Quiz abgeschlossen') : tr('Frage {0} von {1}', [index + 1, questions.length])} progressLabel={tr('Quizfortschritt')}>{quiz.example && <ExampleBadge/>}</LearningSessionHeader>;
     if (finished)
-        return <><Link to="/quizze" className="back-link"><ArrowLeft size={16}/>{tr("Alle Quizze")}</Link><div className="quiz-result glass"><span className="feature-icon violet"><Trophy size={30}/></span><p className="eyebrow">{tr("DEIN ERGEBNIS")}</p><h1 tabIndex={-1} ref={focus}>{Math.round(result.score / result.total * 100)}<span> %</span></h1><h2>{result.score === result.total ? tr('Alle Fragen richtig beantwortet') : tr('Quiz abgeschlossen')}</h2><p className="muted">{result.score}{tr(" von ")}{result.total}{tr(" Fragen richtig \u00B7 ")}{mode === 'exam' ? tr('Prüfungsmodus') : tr('Lernmodus')}</p><p className="muted">{tr("Das Ergebnis ist in deinem lokalen Lernverlauf erfasst.")}</p><div className="button-row centered"><button className="button primary" onClick={() => restart()}><RotateCcw size={16}/>{tr("Alles wiederholen")}</button>{result.wrongQuestionIds.length > 0 && <button className="button secondary" onClick={() => restart(true)}>{tr("Nur Fehler wiederholen (")}{result.wrongQuestionIds.length})</button>}</div></div>
+        return <div className="learning-session">{sessionHeader}<div className="quiz-result glass"><span className="feature-icon violet"><Trophy size={30}/></span><p className="eyebrow">{tr("DEIN ERGEBNIS")}</p><h2 className="result-percent" tabIndex={-1} ref={focus}>{Math.round(result.score / result.total * 100)}<span> %</span></h2><h2>{result.score === result.total ? tr('Alle Fragen richtig beantwortet') : tr('Quiz abgeschlossen')}</h2><p className="muted">{result.score}{tr(" von ")}{result.total}{tr(" Fragen richtig \u00B7 ")}{mode === 'exam' ? tr('Prüfungsmodus') : tr('Lernmodus')}</p><p className="muted">{tr("Das Ergebnis ist in deinem lokalen Lernverlauf erfasst.")}</p><div className="button-row centered"><button className="button primary" onClick={() => restart()}><RotateCcw size={16}/>{tr("Alles wiederholen")}</button>{result.wrongQuestionIds.length > 0 && <button className="button secondary" onClick={() => restart(true)}>{tr("Nur Fehler wiederholen (")}{result.wrongQuestionIds.length})</button>}</div></div>
       {result.wrongQuestionIds.length > 0 && <><h2 className="review-heading">{tr("Falsch beantwortete Fragen")}</h2><div className="review-list">{questions.filter(q => result.wrongQuestionIds.includes(q.id)).map(q => <article key={q.id} className="glass review-card"><h3>{tr(q.prompt)}</h3><p><strong>{tr("Deine Antwort:")}</strong> {describeAnswer(q, answers[q.id], tr)}</p><p className="correct"><strong>{tr("Richtige Antwort:")}</strong> {solution(q, tr)}</p><p className="muted">{tr(q.explanation)}</p><MaterialSources ids={q.materialIds}/></article>)}</div></>}
-      <Sources quiz={quiz}/></>;
+      <Sources quiz={quiz}/></div>;
     if (!question)
         return <EmptyState title={tr("Keine Fragen vorhanden")}/>;
     const answer = answers[question.id];
     const correct = checked && isCorrect(question, answer);
     const isLast = index === questions.length - 1;
-    return <><Link to="/quizze" className="back-link"><ArrowLeft size={16}/>{tr("Quiz verlassen")}</Link><PageHeading eyebrow={tr("{0} / {1}", [tr(subjectName(quiz.subjectId)), tr(fieldName(quiz.learningFieldId)) ?? ''])} title={tr(quiz.title)} description={mode === 'learn' ? tr('Lernmodus · Direktes Feedback nach jeder Antwort.') : tr('Prüfungsmodus · Die Auswertung erhältst du am Ende.')}>{quiz.example && <ExampleBadge />}</PageHeading>
-    <div className="quiz-progress"><span>{tr("Frage ")}{index + 1}{tr(" von ")}{questions.length}</span><span>{Math.round(index / questions.length * 100)}{tr(" % abgeschlossen")}</span></div><progress value={index} max={questions.length} aria-label={tr("Quizfortschritt")}/>
+    return <div className="learning-session">{sessionHeader}
     <section className="question-card glass"><p className="eyebrow">{tr({ single: 'EINE ANTWORT', multiple: 'MEHRERE ANTWORTEN MÖGLICH', boolean: 'RICHTIG ODER FALSCH', matching: 'ZUORDNUNG' }[question.type])}</p><h2 ref={focus} tabIndex={-1}>{tr(question.prompt)}</h2>
       <AnswerInputs key={question.id} question={question} answer={answer} disabled={checked} onChange={a => setAnswers(p => ({ ...p, [question.id]: a }))}/>
       {checked && <div role="status" className={`feedback ${correct ? 'success' : 'incorrect'}`}><strong>{correct ? <CircleCheck size={20}/> : <X size={20}/>} {correct ? tr('Richtig beantwortet!') : tr('Noch nicht ganz.')}</strong>{!correct && <p>{tr("Richtige Antwort: ")}{solution(question, tr)}</p>}<p>{tr(question.explanation)}</p><MaterialSources ids={question.materialIds}/></div>}
@@ -88,7 +89,7 @@ function QuizSession({ quiz, mode }: {
                     setChecked(false);
                 }
             }}>{isLast ? tr('Ergebnis anzeigen') : tr('Nächste Frage')}<ArrowRight size={17}/></button>}</div>
-    </section><Sources quiz={quiz}/></>;
+    </section><Sources quiz={quiz}/></div>;
 }
 function AnswerInputs({ question: q, answer, disabled, onChange }: {
     question: Question;

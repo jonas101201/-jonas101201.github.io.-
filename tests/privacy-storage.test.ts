@@ -1,3 +1,4 @@
+import { ACTIVITY_KEY } from '../src/features/activity/storage';
 import { describe, expect, it } from 'vitest';
 import { CONSENT_KEY, grantProgressStorage, readConsentedProgress, revokeProgressStorage, type PrivacyStoragePort } from '../src/utils/privacyStorage';
 import { STORAGE_KEY } from '../src/utils/storage';
@@ -19,7 +20,7 @@ describe('Freiwillige Fortschrittsspeicherung', () => {
   it('lädt Fortschritte erst nach ausdrücklicher Aktivierung und merkt Textversion und Zeitpunkt', () => {
     const storage = memory(); storage.setItem(STORAGE_KEY, JSON.stringify(emptyProgress()));
     expect(grantProgressStorage(storage)).toBe(true);
-    expect(JSON.parse(storage.getItem(CONSENT_KEY)!)).toMatchObject({ version: 1, grantedAt: expect.any(String) });
+    expect(JSON.parse(storage.getItem(CONSENT_KEY)!)).toMatchObject({ version: 1, grantedAt: expect.any(String), activity: { version: 1, grantedAt: expect.any(String) } });
     expect(readConsentedProgress(storage).persistenceEnabled).toBe(true);
   });
   it.each(['{}', 'null', '{kaputt', '{"version":1,"grantedAt":"ungültig"}', '{"version":2,"grantedAt":"2026-11-05T00:00:00Z"}'])('wertet ungültige Zustimmungen nicht als Freigabe: %s', record => {
@@ -27,9 +28,9 @@ describe('Freiwillige Fortschrittsspeicherung', () => {
     expect(readConsentedProgress(storage).persistenceEnabled).toBe(false);
   });
   it('entfernt beim Widerruf sowohl Einwilligung als auch Verlauf', () => {
-    const storage = memory(); grantProgressStorage(storage); storage.setItem(STORAGE_KEY, '{}');
+    const storage = memory(); grantProgressStorage(storage); storage.setItem(STORAGE_KEY, '{}'); storage.setItem(ACTIVITY_KEY, '{}');
     expect(revokeProgressStorage(storage)).toBe(true);
-    expect(storage.getItem(CONSENT_KEY)).toBeNull(); expect(storage.getItem(STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(ACTIVITY_KEY)).toBeNull(); expect(storage.getItem(CONSENT_KEY)).toBeNull(); expect(storage.getItem(STORAGE_KEY)).toBeNull();
     expect(readConsentedProgress(storage).persistenceEnabled).toBe(false);
   });
   it('meldet gesperrten Speicher und versucht bei Löschfehlern trotzdem beide Schlüssel', () => {
@@ -37,6 +38,6 @@ describe('Freiwillige Fortschrittsspeicherung', () => {
     const storage: PrivacyStoragePort = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); }, removeItem: key => { removed.push(key); throw new Error('blocked'); } };
     expect(readConsentedProgress(storage).persistenceEnabled).toBe(false);
     expect(grantProgressStorage(storage)).toBe(false);
-    expect(revokeProgressStorage(storage)).toBe(false); expect(removed).toEqual([CONSENT_KEY, STORAGE_KEY]);
+    expect(revokeProgressStorage(storage)).toBe(false); expect(removed).toEqual([CONSENT_KEY, STORAGE_KEY, ACTIVITY_KEY]);
   });
 });

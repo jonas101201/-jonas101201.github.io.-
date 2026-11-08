@@ -45,3 +45,8 @@ export function SubjectCard({ subject, featured = false }: {
     return <Link to={`/faecher/${subject.id}`} className={`subject-card compact ${subject.color}`}><SubjectIcon subjectId={subject.id} size={31}/><h3>{tr(subject.title)}</h3><div className="subject-meta"><span>{countText(count, 'materials')}</span><ChevronRight size={18}/></div></Link>;
 }
 export function ExampleBadge() { const { tr } = useI18n(); return <span className="badge example">{tr("Beispielinhalt")}</span>; }
+
+/** Consistent title, content kind and destination affordance for discovery/resume. */
+export function ContentLink({ to, title, kind }: { to: string; title: string; kind: string }) {
+    return <Link className="search-result glass" to={to}><div><small className="muted">{kind}</small><h3>{title}</h3></div><ArrowUpRight size={20}/></Link>;
+}
