@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
-import { buildSearchIndex, moveSelection, searchIndex } from './index';
-export function CommandPalette({ onClose }: { onClose: () => void }) {
+import { buildSearchIndex, commandSuggestions, moveSelection, searchIndex } from './index';
+export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => void; recentRoutes?: readonly string[] }) {
   const { tr, language } = useI18n();
   const navigate = useNavigate();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -11,7 +11,7 @@ export function CommandPalette({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState(0);
   const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
-  const results = useMemo(() => searchIndex(index, query), [index, query]);
+  const results = useMemo(() => query.trim() ? searchIndex(index, query) : commandSuggestions(index, recentRoutes), [index, query, recentRoutes]);
   const active = Math.min(selected, Math.max(0, results.length - 1));
   useEffect(() => {
     const previous = document.activeElement;
@@ -36,8 +36,9 @@ export function CommandPalette({ onClose }: { onClose: () => void }) {
       if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key) && (!['Home', 'End'].includes(e.key) || e.ctrlKey || e.metaKey)) { e.preventDefault(); setSelected(moveSelection(active, e.key, results.length)); }
       if (e.key === 'Enter') { e.preventDefault(); choose(active); }
     }}/></div>
+    {!query.trim() && <p className="muted command-count">{tr(recentRoutes.length ? 'Zuletzt besucht und Schnellzugriffe' : 'Schnellzugriffe')}</p>}
     <p role="status" className="muted command-count">{results.length} {tr('Treffer')}</p>
-    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={() => setSelected(i)} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{result.kind}</small></li>)}</ul>
+    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={() => setSelected(i)} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{!query.trim() && recentRoutes.includes(result.to) ? `${tr('Zuletzt besucht')} · ` : ''}{result.kind}</small></li>)}</ul>
     {!results.length && <p className="empty-state">{tr('Keine Treffer')}</p>}
     <p id="command-help" className="command-help muted">{tr('↑ ↓ auswählen · Eingabe öffnen · Esc schließen')}</p>
   </dialog>;

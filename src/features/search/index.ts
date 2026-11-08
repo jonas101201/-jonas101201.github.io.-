@@ -34,3 +34,12 @@ export function moveSelection(current: number, key: string, length: number) {
   if (key === 'End') return length - 1;
   return (current + (key === 'ArrowUp' ? -1 : 1) + length) % length;
 }
+
+/** Reuse consent-aware content history; never store a second navigation trail. */
+export function commandSuggestions(index: SearchEntry[], recentRoutes: readonly string[]) {
+  const recent = [...new Set(recentRoutes)].flatMap(to => {
+    const entry = index.find(e => e.to === to && /^(material|sheet|quiz|cards):/.test(e.id));
+    return entry ? [{ ...entry, recent: true }] : [];
+  }).slice(0, 6);
+  return [...recent, ...searchIndex(index, '').map(entry => ({ ...entry, recent: false }))];
+}

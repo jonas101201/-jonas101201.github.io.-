@@ -1795,5 +1795,22 @@
   "Für Weiterlernen werden höchstens 20 Inhalts-IDs mit dem Zeitpunkt des letzten Öffnens gespeichert. Suchanfragen, Antworten und Materialdateien werden dafür nicht gespeichert. Alte Einwilligungen aktivieren diesen neuen Verlauf nicht automatisch.": "Для продовження навчання зберігаються щонайбільше 20 ідентифікаторів вмісту з часом останнього відкриття. Пошукові запити, відповіді та файли матеріалів не зберігаються. Попередні згоди не активують цю нову історію автоматично.",
   "Wenn du die Speicherung aktivierst, werden Quiz-Ergebnisse, Zeitpunkte, Kartenbewertungen und die letzten 20 geöffneten Lerninhalte ausschließlich in diesem Browser gespeichert. Vorhandene lokale Lerndaten können dann wieder geladen werden. Es gibt keine Übermittlung an den Betreiber und keine Verknüpfung mit deiner Login-E-Mail. Einzelheiten stehen in der": "Якщо активувати зберігання, результати тестів, час, оцінки карток і останні 20 відкритих навчальних матеріалів зберігатимуться лише в цьому браузері. Наявні локальні дані можна буде завантажити знову. Вони не передаються оператору та не пов’язуються з адресою електронної пошти для входу. Докладніше в",
   "Weiterlernen merkt sich in diesem Tab höchstens 20 zuletzt geöffnete Materialien, Lernzettel, Quizze und Kartensets als Inhalts-ID und Zeitpunkt. Dauerhaft gespeichert wird dieser Verlauf erst nach freiwilliger Aktivierung unter Informationen & Speicher. Eine ältere Einwilligung für Quiz-Ergebnisse und Kartenbewertungen aktiviert ihn nicht automatisch. Suchanfragen, Materialdateien und Login-Adressen werden dafür nicht gespeichert oder übertragen. Zurücksetzen und Widerrufen löschen auch diesen Verlauf; ohne Aktivierung endet er beim Neuladen.": "У цій вкладці історія навчання містить щонайбільше 20 останніх відкритих матеріалів, конспектів, тестів і наборів карток як ідентифікатор вмісту та час. Постійне зберігання починається лише після добровільної активації в розділі «Інформація та сховище». Попередня згода на зберігання результатів тестів і оцінок карток не активує історію автоматично. Пошукові запити, файли матеріалів та адреси входу не зберігаються й не передаються. Скидання та відкликання згоди також видаляють цю історію; без активації вона зникає після перезавантаження.",
-  "Alle lokalen Quiz-Ergebnisse, Kartenbewertungen und geöffneten Lerninhalte endgültig löschen?": "Остаточно видалити всі локальні результати тестів, оцінки карток та історію відкритих навчальних матеріалів?"
+  "Alle lokalen Quiz-Ergebnisse, Kartenbewertungen und geöffneten Lerninhalte endgültig löschen?": "Остаточно видалити всі локальні результати тестів, оцінки карток та історію відкритих навчальних матеріалів?",
+  "Brotkrümelnavigation": "Навігаційний шлях",
+  "{0} % abgeschlossen": "{0} % завершено",
+  "LernHub wird geladen": "LernHub завантажується",
+  "LernHub wird geladen …": "LernHub завантажується …",
+  "Karte {0} von {1}": "Картка {0} з {1}",
+  "Lernrundenfortschritt": "Прогрес навчального раунду",
+  "Frage {0} von {1}": "Запитання {0} з {1}",
+  "Zuletzt besucht": "Нещодавно відвідані",
+  "Zuletzt besucht und Schnellzugriffe": "Нещодавно відвідані та швидкий доступ",
+  "Schnellzugriffe": "Швидкий доступ",
+  "Seitenleiste ausklappen": "Розгорнути бічну панель",
+  "Seitenleiste einklappen": "Згорнути бічну панель",
+  "Fokusmodus verlassen": "Вийти з режиму зосередження",
+  "Fokusmodus aktivieren": "Увімкнути режим зосередження",
+  "Karten neu gemischt.": "Картки перемішано.",
+  "Listenansicht aktiviert.": "Увімкнено вигляд списку.",
+  "Kartenansicht aktiviert.": "Увімкнено вигляд карток."
 }

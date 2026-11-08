@@ -28,3 +28,18 @@ it('opens from global Ctrl+K and Cmd+K, closes with the shortcut, and resumes a 
   fireEvent.keyDown(window, { key: 'k', ctrlKey: true });
   await user.keyboard('{Control>}k{/Control}'); expect(screen.queryByRole('dialog')).toBeNull();
 });
+
+it('collapses the desktop sidebar with accessible labels and shows the actual field breadcrumb', async () => {
+  window.location.hash = '#/faecher/bk1/lernfelder/bk1-lf2';
+  const user = userEvent.setup(); const { container } = render(<LanguageProvider><App/></LanguageProvider>);
+  const breadcrumbs = screen.getByRole('navigation', { name: 'Brotkrümelnavigation' });
+  expect(breadcrumbs.querySelector('[aria-current="page"]')?.textContent).toBe('Lernfeld 2');
+  expect(breadcrumbs.querySelector('a[href="#/faecher/bk1"]')?.textContent).toBe('BK1');
+  const collapse = screen.getByRole('button', { name: 'Seitenleiste einklappen' });
+  expect(collapse.getAttribute('aria-controls')).toBe('main-sidebar'); await user.click(collapse);
+  expect(container.querySelector('.sidebar-collapsed')).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Seitenleiste ausklappen' }).getAttribute('aria-expanded')).toBe('false');
+  expect(screen.getByRole('navigation', { name: 'LernHub' }).querySelector('a[aria-label="Materialien"]')).toBeTruthy();
+  await user.click(screen.getByRole('button', { name: 'Seitenleiste ausklappen' }));
+  expect(container.querySelector('.sidebar-collapsed')).toBeNull();
+});
