@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { LanguageProvider } from '../i18n/LanguageProvider';
 import { ErrorScreen } from '../components/ErrorScreen';
 import '../styles/index.css';
+import '../styles/tokens.css';
 import '../styles/liquid-glass.css';
 import '../styles/reference-glass.css';
 import '../styles/motion.css';
+import '../styles/ux.css';
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

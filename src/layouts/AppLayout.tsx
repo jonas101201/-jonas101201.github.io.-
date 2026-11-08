@@ -1,10 +1,12 @@
+import { CommandPalette } from '../features/search/CommandPalette';
+import { buildSearchIndex } from '../features/search';
 import { changeWithMotion } from '../utils/motion';
 import { GlassFilters } from '../components/GlassFilters';
 import { AsciiWaves } from '../components/AsciiWaves';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { useI18n } from "../i18n/context";
-import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
@@ -20,18 +22,27 @@ const links = [
     { to: '/klasse', label: 'Klasse', icon: Users },
 ];
 export function AppLayout() {
-    const { tr } = useI18n();
+    const { tr, language } = useI18n();
     const shell = useRef<HTMLDivElement>(null);
     useEffect(() => { if (shell.current)
         return mountLiquidGlass(shell.current); }, []);
     const [menu, setMenu] = useState(false);
     const [backgroundPaused, setBackgroundPaused] = useState(false);
-    const [query, setQuery] = useState('');
-    const navigate = useNavigate();
+    const [palette, setPalette] = useState(false);
+    const closePalette = useCallback(() => setPalette(false), []);
+    const searchIndex = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
     const location = useLocation();
-    const { warning, persistenceEnabled } = useProgress();
+    const { warning, activityWarning, persistenceEnabled, trackActivity } = useProgress();
     const main = useRef<HTMLElement>(null);
-    const search = useRef<HTMLInputElement>(null);
+    const lastActivityPath = useRef('');
+    const activityTracker = useRef(trackActivity);
+    activityTracker.current = trackActivity;
+    useEffect(() => {
+        if (lastActivityPath.current === location.pathname) return;
+        lastActivityPath.current = location.pathname;
+        const entry = searchIndex.find(e => e.to === location.pathname && /^(material|sheet|quiz|cards):/.test(e.id));
+        if (entry) activityTracker.current(entry.to);
+    }, [location.pathname, searchIndex]);
     const restoreFocus = useRef(false);
     const trigger = useRef<HTMLButtonElement>(null);
     const sidebar = useRef<HTMLElement>(null);
@@ -45,9 +56,9 @@ export function AppLayout() {
     }, [location.pathname, tr]);
     useEffect(() => {
         function keys(e: KeyboardEvent) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && !e.repeat) {
                 e.preventDefault();
-                search.current?.focus();
+                setMenu(false); setPalette(value => !value);
             }
             if (e.key === 'Escape' && menu) {
                 restoreFocus.current = true;
@@ -92,6 +103,7 @@ export function AppLayout() {
     }, []);
     return <div ref={shell} className="app-shell">
     <GlassFilters/>
+    {palette && <CommandPalette onClose={closePalette}/>}
     <AsciiWaves paused={backgroundPaused}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
@@ -103,10 +115,10 @@ export function AppLayout() {
     </aside>
     <div className="workspace" inert={menu}>
       <header className="topbar"><button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} onClick={() => setMenu(true)}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
-        <form className="global-search" role="search" onSubmit={e => { e.preventDefault(); navigate(`/suche?q=${encodeURIComponent(query)}`); }}><Search size={20}/><input ref={search} aria-label={tr("LernHub durchsuchen")} placeholder={tr("In LernHub suchen …")} value={query} onChange={e => setQuery(e.target.value)}/><kbd>{tr("Strg K")}</kbd></form>
+        <button className="global-search command-trigger" aria-haspopup="dialog" onClick={() => setPalette(true)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
         <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => changeWithMotion(() => setBackgroundPaused(value => !value))}><span className="motion-icon">{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</span></button><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
-      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{warning && <div role="status" className="notice warning">{tr(warning)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<div key={location.pathname} className="page-enter"><Outlet /></div></main>
+      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<div key={location.pathname} className="page-enter"><Outlet /></div></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
     </div>
   </div>;

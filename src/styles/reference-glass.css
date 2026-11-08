@@ -1,13 +1,7 @@
 /* Shared glassContainer / glassBtn treatment, using the supplied SVG optics. */
 .glass-filter-definitions { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
 @media screen {
-  :root {
-    --reference-surface: linear-gradient(135deg,#ffffff06,transparent 45%,#b7d7ff04),#0a142b58;
-    --reference-rim: #e3efff45;
-    --reference-shadow: inset 0 1px 1px #ffffff52,inset 1px 0 0 #ffffff10,inset 0 -1px 1px #d4e8ff24,0 8px 28px #02071430;
-    --reference-container-optics: blur(8px) saturate(150%);
-    --reference-button-optics: blur(5px) saturate(155%);
-  }
+
   /* Refract the backdrop, never the content of a control. */
   :is(.glass,.subject-card,.sidebar,.sheet-pending-fields,.pdf-viewer,.image-viewer) {
     background: var(--reference-surface); border-color: var(--reference-rim); box-shadow: var(--reference-shadow);

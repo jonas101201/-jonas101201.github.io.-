@@ -24,7 +24,7 @@ export function mountLiquidGlass(root: HTMLElement) {
     if (disposed) return;
     for (const element of decorated) if (!root.contains(element)) decorated.delete(element);
     for (const group of groups) if (!root.contains(group)) groups.delete(group);
-    root.querySelectorAll<HTMLElement>('.featured-subjects, .small-subjects, .subject-grid, .field-grid, .material-grid, .recent-materials, .learning-grid, .sheet-grid, .search-results, .review-list, .event-list, .answer-options').forEach(group => {
+    root.querySelectorAll<HTMLElement>('.featured-subjects, .small-subjects, .subject-grid, .field-grid, .material-grid, .material-list, .continue-grid, .recent-materials, .learning-grid, .sheet-grid, .search-results, .review-list, .event-list, .answer-options').forEach(group => {
       let index = 0;
       for (const child of group.children) {
         if (!(child instanceof HTMLElement) || revealed.has(child)) continue;
