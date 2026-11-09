@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { catalog } from '../src/data/catalog';
-import { sheetSearchText, studySheets, validateStudySheets } from '../src/features/study-sheets/data';
+import { sheetSearchText, studySheets, studyTopics, topicPath, validateStudySheets } from '../src/features/study-sheets/data';
 
 describe('Lernzettel aus den Unterrichtsunterlagen', () => {
   it('deckt jedes belegte BK-Lernfeld ohne erfundene Lernfelder ab', () => {
     const available = new Set(catalog.materials.filter(m => ['bk1', 'bk2'].includes(m.subjectId) && !m.example).map(m => m.learningFieldId));
     expect(new Set(studySheets.map(s => s.learningFieldId))).toEqual(available);
-    expect(studySheets.every(s => s.sections.length >= 4 && s.review.length >= 3)).toBe(true);
+    expect(studySheets.every(s => s.sections.length >= 4)).toBe(true);
   });
   it('weist fehlende, fremde und fachfremde Unterrichtsquellen zurück', () => {
     for (const ref of ['fehlt', 'bk2-lf1-1-0-zusammenhang-selbstbild-fremdbild']) {
@@ -43,8 +43,8 @@ describe('Ausgearbeitete Themen aus dem Quellenabgleich', () => {
     const sheet = studySheets.find(s => s.id === id)!;
     const text = sheetSearchText(sheet);
     for (const topic of topics) expect(text, `${id}: ${topic}`).toContain(topic);
-    expect(sheet.review.length).toBeGreaterThanOrEqual(6);
-    expect(new Set(sheet.review.map(r => r.question)).size).toBe(sheet.review.length);
+    expect(sheet).not.toHaveProperty('review');
+    expect(sheet.sections.every(topic => topic.intro && topic.caseStudy.scenario && topic.caseStudy.analysis && topic.caseStudy.action)).toBe(true);
   });
   it('vergleicht alle acht Beobachtungsverfahren mit Zweck und Grenze', () => {
     const sheet = studySheets.find(s => s.id === 'bk2-lf2')!;
@@ -79,6 +79,30 @@ describe('Ausgearbeitete Themen aus dem Quellenabgleich', () => {
     for (const [id, anchors] of originalAnchors) {
       const sectionIds = studySheets.find(s => s.id === id)!.sections.map(s => s.id);
       expect(sectionIds).toEqual(expect.arrayContaining(anchors));
+    }
+  });
+});
+
+
+describe('Eigenständige Unterthemen ohne Check-up', () => {
+  it('ordnet jeden Lernzettel genau einem Oberthema und einer eindeutigen Route zu', () => {
+    expect(studyTopics).toHaveLength(studySheets.reduce((sum, sheet) => sum + sheet.sections.length, 0));
+    expect(new Set(studyTopics.map(t => t.to)).size).toBe(studyTopics.length);
+    for (const topic of studyTopics) {
+      const parent = studySheets.find(s => s.id === topic.parentId)!;
+      expect(parent.sections).toContain(topic.topic);
+      expect(topic.to).toBe(topicPath(parent, topic.topic));
+      expect(topic.learningFieldId).toBe(parent.learningFieldId);
+    }
+  });
+  it('weist das alte Check-up-Format zurück statt es nur zu verstecken', () => {
+    const legacy = studySheets.map(s => ({ ...s, review: [{ question: 'Check-up', answer: 'Antwort' }] }));
+    expect(() => validateStudySheets(legacy)).toThrow();
+  });
+  it('ergänzt die zentralen Beobachtungsbegriffe der PDF-Vorlage', () => {
+    const sheet = studySheets.find(s => s.id === 'bk2-lf2')!;
+    for (const term of ['operationalisierung', 'indikatoren', 'zeitstichprobe', 'ereignisstichprobe', 'narrative', 'erleben', 'ebene a', 'ebene b', 'ebene c']) {
+      expect(sheetSearchText(sheet), term).toContain(term);
     }
   });
 });

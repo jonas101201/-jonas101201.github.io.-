@@ -1,5 +1,5 @@
 import { catalog, subjectName, fieldName } from '../../data/catalog';
-import { studySheets, sheetSearchText } from '../study-sheets/data';
+import { studySheets, sheetSearchText, studyTopics, topicSearchText } from '../study-sheets/data';
 import { translateTree, type Language } from '../../i18n/translate';
 export interface SearchEntry { id: string; title: string; kind: string; to: string; text: string }
 export const destinations = [
@@ -20,6 +20,7 @@ export function buildSearchIndex(tr: (s: string | undefined) => string, language
     ...catalog.materials.map(m => entry(`material:${m.id}`, m.title, 'Materialien', `/materialien/${m.id}`, `${meta(m)} ${m.description} ${tr(m.description)} ${m.tags.join(' ')} ${m.originalFilename ?? ''}`)),
     ...catalog.quizzes.map(m => entry(`quiz:${m.id}`, m.title, 'Quizze', `/quizze/${m.id}`, `${meta(m)} ${m.description} ${tr(m.description)} ${m.questions.map(q => q.prompt + ' ' + tr(q.prompt)).join(' ')}`)),
     ...catalog.flashcardSets.map(m => entry(`cards:${m.id}`, m.title, 'Karteikarten', `/karteikarten/${m.id}`, `${meta(m)} ${m.description} ${tr(m.description)} ${m.cards.map(c => `${c.front} ${c.back} ${tr(c.front)} ${tr(c.back)}`).join(' ')}`)),
+    ...studyTopics.map(s => entry(`sheet:${s.id}`, s.title, 'Lernzettel', s.to, `${meta(s)} ${tr(s.parentTitle)} ${topicSearchText(s.topic)} ${topicSearchText(translateTree(s.topic, language))}`)),
     ...studySheets.map(s => entry(`sheet:${s.id}`, s.title, 'Lernzettel', `/lernzettel/${s.id}`, `${meta(s)} ${sheetSearchText(s)} ${sheetSearchText(translateTree(s, language))}`)),
   ];
 }

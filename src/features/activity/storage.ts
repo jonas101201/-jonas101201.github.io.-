@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import type { StoragePort } from '../../utils/storage';
 export const ACTIVITY_KEY = 'lernhub:activity:v1';
-const Entry = z.object({ to: z.string().regex(/^\/(materialien|lernzettel|quizze|karteikarten)\/[a-z0-9-]+$/), visitedAt: z.iso.datetime() });
+const Entry = z.object({ to: z.string().regex(/^\/(?:(?:materialien|quizze|karteikarten)\/[a-z0-9-]+|lernzettel\/[a-z0-9-]+(?:\/[a-z0-9-]+)?)$/), visitedAt: z.iso.datetime() });
 const Envelope = z.object({ version: z.literal(1), entries: z.array(Entry).max(20) });
 export type Activity = z.infer<typeof Entry>;
 export function addActivity(entries: Activity[], to: string, now = new Date().toISOString()): Activity[] {

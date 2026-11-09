@@ -21,7 +21,7 @@ export function App() {
     <Route index element={<Dashboard/>}/><Route path="faecher" element={<SubjectsPage/>}/>
     <Route path="faecher/:subjectId" element={<SubjectPage/>}/><Route path="faecher/:subjectId/lernfelder/:fieldId" element={<SubjectPage/>}/>
     <Route path="materialien" element={<MaterialsPage/>}/><Route path="materialien/:id" element={<MaterialPage/>}/>
-    <Route path="lernzettel" element={<StudySheetList/>}/><Route path="lernzettel/:id" element={<StudySheetPage/>}/>
+    <Route path="lernzettel" element={<StudySheetList/>}/><Route path="lernzettel/:id" element={<StudySheetPage/>}/><Route path="lernzettel/:id/:topicId" element={<StudySheetPage/>}/>
     <Route path="quizze" element={<QuizList/>}/><Route path="quizze/:id" element={<QuizPage/>}/>
     <Route path="karteikarten" element={<FlashcardList/>}/><Route path="karteikarten/:id" element={<FlashcardPage/>}/>
     <Route path="klasse" element={<ClassroomPage/>}/><Route path="pruefungstraining" element={<ExamPage/>}/>

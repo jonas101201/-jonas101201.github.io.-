@@ -720,3 +720,47 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 @media (prefers-reduced-motion: reduce) { .background-motion-toggle { display: none; } }
 @media (prefers-contrast: more), (prefers-reduced-transparency: reduce) { .ascii-waves { display: none; } }
 @media print { .ascii-waves,.background-motion-toggle { display: none !important; } }
+
+/* Topic study sheets: preserve the glass surfaces and existing motion rules. */
+.sheet-topic-links { list-style: none; padding: 0; margin: 6px 0 16px; }
+.sheet-topic-links li+li { border-top: 1px solid var(--border); }
+.sheet-topic-links a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; line-height: 1.6; font-size: 13px; }
+.sheet-topic-links svg { flex-shrink: 0; }
+.sheet-topic-directory>ol { padding: 0; margin: 22px 0; list-style: none; display: grid; gap: 16px; }
+.sheet-topic-card { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 24px; border-radius: var(--radius-card, 20px); }
+.sheet-topic-card>div { min-width: 0; }
+.sheet-topic-card h3 { font-size: 18px; line-height: 1.5; }
+.sheet-topic-card p { color: var(--muted); line-height: 1.8; margin: 10px 0; }
+.sheet-topic-card svg { flex-shrink: 0; margin-top: 5px; }
+.sheet-topic-card:hover h3,.sheet-topic-links a:hover { color: var(--purple); }
+.sheet-core { padding: 22px 26px; border-left: 3px solid var(--purple); margin-bottom: 22px; border-radius: 0 16px 16px 0; }
+.sheet-core strong { text-transform: uppercase; font-size: 12px; letter-spacing: .08em; color: #c5afff; }
+.sheet-core p { margin: 8px 0 0; line-height: 1.8; }
+.sheet-topic-title { margin: 32px 0 20px; font-size: 26px; }
+.sheet-parent-link { display: inline-block; margin-top: 12px; }
+.sheet-topic-pagination { display: grid; grid-template-columns: 1fr 1fr; padding: 22px; gap: 24px; margin: 24px 0; border-radius: 18px; }
+.sheet-topic-pagination a { line-height: 1.65; }
+.sheet-topic-pagination a:last-child { text-align: right; }
+.sheet-topic-pagination span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+@media(max-width:650px) {
+  .sheet-topic-card { padding: 20px 18px; gap: 12px; }
+  .sheet-core { padding: 18px; }
+  .sheet-topic-pagination { padding: 18px; gap: 15px; font-size: 13px; }
+}
+@media print {
+  .sheet-topic-pagination,.sheet-parent-link { display: none!important; }
+  .sheet-core { background: #f3f0fa!important; color: #172033!important; box-shadow: none; backdrop-filter: none; border-color: #795caf; padding: 12px 16px; break-inside: avoid; }
+  .sheet-core strong,.sheet-core p { color: #273348!important; }
+  .sheet-collection .sheet-topic { break-before: page; }
+  .sheet-collection .sheet-topic:first-of-type { break-before: auto; }
+  .sheet-topic-title { color: #172033!important; break-after: avoid; }
+  .sheet-at-glance { break-inside: avoid; }
+  .sheet-topic .sheet-section { break-inside: auto; }
+  .sheet-topic-directory { display: none; }
+}
+.sheet-print-sources { display: none; }
+@media print {
+  .sheet-print-sources { display: block; font-size: 8pt; margin-top: 12px; }
+  .sheet-print-sources ul { padding-left: 16px; line-height: 1.5; }
+  .sheet-print-sources li { color: #273348!important; }
+}

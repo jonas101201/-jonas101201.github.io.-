@@ -43,3 +43,16 @@ it('collapses the desktop sidebar with accessible labels and shows the actual fi
   await user.click(screen.getByRole('button', { name: 'Seitenleiste ausklappen' }));
   expect(container.querySelector('.sidebar-collapsed')).toBeNull();
 });
+
+it('resumes a visited standalone topic through Weiterlernen without implicit persistent storage', async () => {
+  window.location.hash = '#/lernzettel/bk2-lf2/hypothesen';
+  const user = userEvent.setup(); render(<LanguageProvider><App/></LanguageProvider>);
+  expect(screen.getByRole('heading', { name: /Hypothese, Operationalisierung und Indikatoren/, level: 1 })).toBeTruthy();
+  const breadcrumbs = screen.getByRole('navigation', { name: 'Brotkrümelnavigation' });
+  expect(breadcrumbs.querySelector('a[href="#/lernzettel/bk2-lf2"]')).toBeTruthy();
+  fireEvent.keyDown(window, { key: 'k', ctrlKey: true });
+  await user.type(screen.getByRole('combobox', { name: 'Suchbegriff' }), 'Übersicht'); await user.keyboard('{Enter}');
+  expect(screen.getByRole('heading', { name: 'Weiterlernen' })).toBeTruthy();
+  expect(screen.getByRole('link', { name: /Lernzettel.*Hypothese, Operationalisierung und Indikatoren/ }).getAttribute('href')).toBe('#/lernzettel/bk2-lf2/hypothesen');
+  expect(localStorage.getItem('lernhub:activity:v1')).toBeNull();
+});
