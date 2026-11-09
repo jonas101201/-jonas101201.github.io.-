@@ -34,3 +34,14 @@ describe('Bounded, versioned local activity', () => {
     grantProgressStorage(storage); expect(hasActivityConsent(storage)).toBe(true);
   });
 });
+
+it('stores topic routes alongside previous v1 entries without allowing arbitrary nested paths', () => {
+  const storage = memory();
+  const old = addActivity([], '/lernzettel/bk2-lf2', time);
+  const next = addActivity(old, '/lernzettel/bk2-lf2/hypothesen', time);
+  expect(writeActivity(storage, next)).toBe(true);
+  expect(readActivity(storage, true).activities.map(e => e.to)).toEqual(['/lernzettel/bk2-lf2/hypothesen', '/lernzettel/bk2-lf2']);
+  for (const route of ['/quizze/test/extra', '/materialien/test/file', '/lernzettel/bk2-lf2/hypothesen/extra', '/lernzettel/bk2-lf2/../private', '/lernzettel/bk2-lf2/hypothesen?q=private']) {
+    expect(() => addActivity([], route, time)).toThrow();
+  }
+});

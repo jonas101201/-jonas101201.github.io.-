@@ -1,6 +1,6 @@
 # Deutsch und Ukrainisch
 
-Die Sprachwahl in der Kopfzeile bietet Deutsch und Українська. Die manuell erstellte ukrainische Fassung umfasst Navigation und Bedienung, sechs Lernzettel, sieben Quizze und sieben Kartensätze einschließlich Antworten, Erklärungen, Tabellen und Kontrollfragen. Die Originaldateien, ihre Dateinamen und URLs bleiben unverändert; beim Öffnen wird in der ukrainischen Ansicht auf die deutschsprachigen Originale hingewiesen. Es gibt keine externe Übersetzungs-API.
+Die Sprachwahl in der Kopfzeile bietet Deutsch und Українська. Die manuell erstellte ukrainische Fassung umfasst Navigation und Bedienung, 56 Unterthemen-Lernzettel in sechs Oberthemen, sieben Quizze und sieben Kartensätze einschließlich Erklärungen, Tabellen und Anwendungsbeispielen sowie aller Quizantworten. Die Originaldateien, ihre Dateinamen und URLs bleiben unverändert; beim Öffnen wird in der ukrainischen Ansicht auf die deutschsprachigen Originale hingewiesen. Es gibt keine externe Übersetzungs-API.
 
 Die Sprachwahl liegt unter `lernhub:language:v1` getrennt vom Lernfortschritt im Browser. Ein Sprachwechsel verändert weder Frage-/Karten-IDs noch Antworten, Reihenfolge und Bewertungen einer laufenden Sitzung. `html lang`, Seitentitel, Datumsdarstellung und Mengenformen folgen der Auswahl. Die Suche berücksichtigt deutsche und ukrainische Lerntexte. Bei gesperrtem Speicher funktioniert die Umschaltung für die laufende Sitzung; unbekannte Speicherwerte fallen auf Deutsch zurück.
 

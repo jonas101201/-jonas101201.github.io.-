@@ -15,7 +15,7 @@
           "bk1-lf1-arbeitsfelder-rechtliche-grundlagen"
         ],
         "takeaway": "Professionelles Handeln verbindet eine verlässliche Beziehung mit einem fachlich begründeten Auftrag.",
-        "intro": "Bildung, Erziehung und Betreuung gehören zusammen. Fachkräfte begleiten Entwicklung, vertreten Interessen von Kindern und arbeiten mit Familien und anderen Fachkräften zusammen.",
+        "intro": "Der pädagogische Auftrag verbindet Bildung, Erziehung und Betreuung. Die Berufsrolle beschreibt, welche Verantwortung eine Fachkraft dabei übernimmt und wie sie Beziehungen, Gruppen und Zusammenarbeit gestaltet.",
         "terms": [
           {
             "term": "Bildungsbegleitung",
@@ -38,7 +38,12 @@
           "In unterschiedlichen Arbeitsfeldern ändern sich Zielgruppe, Rahmenbedingungen und konkrete Aufgaben. Gemeinsame Ziele sind Selbstständigkeit, Ressourcenstärkung und Teilhabe.",
           "Mehrere Rollen können in einer Situation gleichzeitig relevant sein. Entscheidungen müssen deshalb abgewogen werden.",
           "Als Gruppenleitung koordiniere ich Abläufe, ermögliche Aushandlung und schütze einzelne Kinder. In der Beratung kläre ich Anliegen, entwickle mit Familien Handlungsmöglichkeiten und erkenne die Grenzen der eigenen Zuständigkeit. Beratung bedeutet nicht, Familien ungefragt eine fertige Lösung vorzuschreiben."
-        ]
+        ],
+        "caseStudy": {
+          "scenario": "Ein Kind möchte allein eine Jacke schließen, während die Gruppe schon hinausgehen will.",
+          "analysis": "Betreuung betrifft die sichere Organisation des Übergangs; Bildungsbegleitung unterstützt das eigene Ausprobieren; Gruppenleitung berücksichtigt die wartenden Kinder. Diese Rollen müssen gemeinsam abgewogen werden.",
+          "action": "Zeit für einen eigenen Versuch ermöglichen, bei Bedarf passende Hilfe anbieten und die Gruppe verlässlich begleiten. Im Team prüfen, ob Übergänge ausreichend Zeit für Selbstständigkeit lassen."
+        }
       },
       {
         "id": "arbeitsfelder",
@@ -54,7 +59,13 @@
           "Offene Kinder- und Jugendarbeit: Freiwillige Angebote wie Jugendtreffs orientieren sich an Interessen und Lebenswelten. Fachkräfte ermöglichen Beteiligung, beraten und entwickeln mit Jugendlichen Projekte; ein offener Zugang verlangt flexible Planung.",
           "Inklusive Einrichtungen, Schulbegleitung und Förderschule: Barrieren erkennen, Kommunikation ermöglichen und selbstbestimmte Teilhabe unterstützen. Auch Erwachsene mit Behinderungen können zur Zielgruppe gehören; Unterstützung richtet sich nach Person und Auftrag, nicht allein nach einer Diagnose.",
           "Beim Vergleich immer fragen: Wer wird begleitet? Welcher Bildungs-, Erziehungs- oder Unterstützungsauftrag gilt? Wer ist Träger, wie sind Zeiten, Team und Kooperation organisiert? Öffentliche, freie oder private Träger können unterschiedliche Konzepte haben; aus dem Trägernamen allein folgt keine bestimmte Qualität."
-        ]
+        ],
+        "intro": "Ein Arbeitsfeld ist ein institutioneller Bereich pädagogischer Tätigkeit. Zielgruppe, Auftrag, Träger, Tagesstruktur und Kooperationspartner prägen die Aufgaben; deshalb lässt sich eine Methode nicht unverändert auf jede Einrichtung übertragen.",
+        "caseStudy": {
+          "scenario": "Eine Fachkraft wechselt vom Hort in eine Wohngruppe für Jugendliche.",
+          "analysis": "Beziehungsarbeit bleibt zentral. In der Wohngruppe kommt jedoch die umfassendere Alltagsgestaltung hinzu; Hilfeziele, Zuständigkeiten und Kooperation können anders organisiert sein als im schulbezogenen Nachmittag.",
+          "action": "Vorhandene Erfahrungen nutzen, zugleich Konzept, Zielgruppe, vereinbarte Aufgaben und Abläufe kennenlernen. Neue Anforderungen gezielt mit Anleitung oder Weiterbildung bearbeiten."
+        }
       },
       {
         "id": "kompetenzen",
@@ -94,7 +105,13 @@
         },
         "points": [
           "Die Mindmap unterscheidet sechs Bereiche: Fachkompetenz ist Wissen und Können; Methodenkompetenz die begründete Wahl des Vorgehens; Sozialkompetenz gelingende Zusammenarbeit; kommunikative Kompetenz verständliches Sprechen und Zuhören; Selbstkompetenz verantwortliches Handeln und Umgang mit eigenen Grenzen; Lernkompetenz das selbstständige Erschließen und Prüfen neuer Erkenntnisse. Die Tabelle bündelt verwandte Bereiche, ersetzt diese Unterscheidung aber nicht."
-        ]
+        ],
+        "intro": "Berufliche Handlungskompetenz ist die Fähigkeit, Anforderungen fachlich begründet, verantwortungsbewusst und situationsgerecht zu bewältigen. Wissen, Können, persönliche Haltung und Zusammenarbeit werden im Handeln miteinander verbunden.",
+        "caseStudy": {
+          "scenario": "Für eine neue Gruppe soll ein Bewegungsangebot vorbereitet werden.",
+          "analysis": "Entwicklungswissen ist Fachkompetenz; die Planung geeigneter Stationen Methodenkompetenz; Absprachen mit dem Team Sozial- und Kommunikationskompetenz. Eigene Unsicherheiten wahrzunehmen betrifft Selbstkompetenz.",
+          "action": "Voraussetzungen beobachten, begründet planen, Unterstützung organisieren und nach dem Angebot die Wirkung prüfen. Neue Erkenntnisse für die nächste Planung nutzen: So wird Lernkompetenz praktisch sichtbar."
+        }
       },
       {
         "id": "haltung",
@@ -126,7 +143,13 @@
           "Pädagogisches Handeln ist zielgerichtet und ergebnisoffen: Ein begründetes Ziel gibt Orientierung, der tatsächliche Verlauf verlangt Anpassung.",
           "Spannungsfelder sind zum Beispiel Selbstbestimmung und Schutz, individuelle Bedürfnisse und Gruppeninteressen sowie Förderung und Grenzsetzung. Es gibt dafür keine situationsunabhängige Standardlösung.",
           "Professionelles Handeln ist situations- und adressatenbezogen: Ein erschöpftes Kind benötigt vielleicht Ruhe statt einer weiteren Lernaufgabe. Es ist beziehungsorientiert, fachlich und ethisch begründet, institutionell eingebettet und überprüfbar. „Das machen wir immer so“ reicht als Begründung nicht; Kindesinteressen, Beteiligung, Schutz, Ziel und beobachtete Wirkung müssen zusammenpassen."
-        ]
+        ],
+        "intro": "Professionelle Haltung ist die reflektierte Art, Menschen wahrzunehmen, Beziehungen zu gestalten und Entscheidungen zu begründen. Sie zeigt sich im konkreten Umgang mit Würde, Beteiligung, Schutz, Nähe und eigenen Vorannahmen.",
+        "caseStudy": {
+          "scenario": "Ein stilles Kind zieht sich während eines lauten Angebots zurück.",
+          "analysis": "Sensitivität bedeutet, den Rückzug wahrzunehmen, statt ihn als Desinteresse abzuwerten. Responsivität betrifft die angemessene Antwort. Ob Lärm, Müdigkeit oder ein anderer Grund dahintersteht, bleibt zunächst offen.",
+          "action": "Kontakt ohne Druck anbieten, das Bedürfnis klären und eine ruhigere Beteiligung ermöglichen. Die eigene Erwartung prüfen, dass alle Kinder auf dieselbe Weise teilnehmen müssten."
+        }
       },
       {
         "id": "verantwortung",
@@ -142,7 +165,13 @@
           "Vertraulichkeit: Informationen über Kinder und Familien gehören nicht in private Chats oder Gespräche mit unbeteiligten Eltern. Fachlich notwendiger Austausch erfolgt über vorgesehene, geschützte Wege. Ob eine besondere gesetzliche Schweigepflicht greift und welche Weitergabe zulässig ist, hängt von Funktion und Rechtsgrundlage ab; nicht jede pädagogische Tätigkeit fällt automatisch unter § 203 StGB.",
           "Datenschutz praktisch: Nur für den Zweck notwendige Angaben festhalten, Zugriff begrenzen und zugelassene Speicherwege verwenden. Fotos nicht auf eigene Geräte übernehmen oder ungeprüft veröffentlichen. Vor Erhebung oder Weitergabe müssen Zweck, Rechtsgrundlage, Zuständigkeit und gegebenenfalls Einwilligung geklärt sein; eine pauschale Zustimmung ersetzt diese Prüfung nicht.",
           "Die Unterrichtsfälle sind Lernanlässe, keine vollständigen Rechtsprüfungen. Schutzkonzept, Trägervorgaben und fachliche Beratung konkretisieren das Vorgehen; Verantwortung wird nicht durch bloßes Verweisen auf eine Kollegin abgegeben."
-        ]
+        ],
+        "intro": "Rechtliche und ethische Verantwortung setzt dem pädagogischen Handeln einen verbindlichen Rahmen. Aufsicht, Schutzauftrag, Vertraulichkeit und Datenschutz betreffen unterschiedliche Aufgaben und müssen in der konkreten Situation gemeinsam berücksichtigt werden.",
+        "caseStudy": {
+          "scenario": "Ein Elternteil fragt beim Abholen, warum ein anderes Kind häufig von einer Beratungsstelle abgeholt wird.",
+          "analysis": "Ein Interesse an Abläufen begründet keinen Anspruch auf persönliche Angaben über eine andere Familie. Eine beiläufige Auskunft könnte sensible Informationen offenlegen und Vertrauen verletzen.",
+          "action": "Keine Einzelfalldaten weitergeben. Allgemeine Abläufe erklären, soweit dies zulässig ist, und bei fachlich notwendigem Austausch die zuständigen geschützten Wege nutzen."
+        }
       },
       {
         "id": "reflexion",
@@ -155,38 +184,13 @@
           "Sehen: Was ist konkret passiert? Beteiligte, Situation und eigenes Handeln möglichst genau beschreiben.",
           "Urteilen: Welche Ziele, Gefühle und Annahmen spielten mit? Was gelang, was war schwierig? Fachwissen und andere Perspektiven einbeziehen.",
           "Handeln: Was behalte ich bei? Was verändere ich konkret, und woran prüfe ich beim nächsten Mal die Wirkung?"
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Ein Kind möchte beim Aufräumen weiterbauen. Du forderst sofortiges Aufhören; das Kind weint und sagt, es wolle sein Bauwerk erst zeigen. Die Gruppe wartet auf das Mittagessen.",
-      "analysis": "Sehen: Festhalten, was gesagt und getan wurde, statt „ungehorsam“ zu schreiben. Urteilen: Das Bedürfnis nach Anerkennung trifft auf den Gruppenablauf. Eigener Zeitdruck hat die Reaktion beeinflusst. Beteiligung und verlässliche Orientierung sind beide wichtig; eine ungesicherte Einzelbetreuung nebenbei wäre keine gute Lösung.",
-      "action": "Handeln: Gefühl anerkennen, kurz das Werk zeigen lassen und gemeinsam klären, ob es an einem sicheren Platz bleiben kann. Den Übergang künftig rechtzeitig ankündigen und mit Kindern vereinbaren. Nach einer Woche prüfen: Gelingen Übergänge ruhiger? Konnten Kinder ihre Anliegen einbringen? Falls nicht, Zeitplanung und Absprachen im Team anpassen."
-    },
-    "review": [
-      {
-        "question": "Wie unterscheiden sich Sensitivität und Responsivität?",
-        "answer": "Sensitivität betrifft das Wahrnehmen von Signalen, Responsivität die passende Reaktion darauf."
-      },
-      {
-        "question": "Warum ist ein pädagogisches Ziel mit Ergebnisoffenheit vereinbar?",
-        "answer": "Das Ziel ist fachlich begründet; das Vorgehen bleibt anpassbar, weil Kinder und Situationen nicht vollständig planbar sind."
-      },
-      {
-        "question": "Woran erkennt man Reflexion?",
-        "answer": "Sie geht über die Beschreibung hinaus, untersucht Gründe und leitet überprüfbare Konsequenzen ab."
-      },
-      {
-        "question": "Wie verändert das Arbeitsfeld den Auftrag?",
-        "answer": "Im Hort stehen unter anderem Freizeit und Schulkooperation im Vordergrund, in einer Wohngruppe zusätzlich Alltagsgestaltung und vereinbarte Hilfeziele. Beziehungsarbeit bleibt wichtig, konkrete Aufgaben und Organisation unterscheiden sich."
-      },
-      {
-        "question": "Warum sind Aufsicht und Selbstständigkeit kein einfacher Gegensatz?",
-        "answer": "Angemessene Aufsicht schafft einen sicheren Rahmen für eigenständige Erfahrungen. Sie wird an Kind und Situation angepasst; sowohl unbegleitete Gefährdung als auch unnötige Dauerkontrolle können pädagogische Ziele verfehlen."
-      },
-      {
-        "question": "Eine Kollegin möchte ein Kinderfoto im privaten Gruppenchat teilen. Wie gehst du vor?",
-        "answer": "Zunächst nicht weitergeben. Zweck, berechtigte Empfänger, Rechtsgrundlage und zugelassenen Übermittlungsweg klären. Bequemlichkeit ist keine ausreichende Grundlage; im Zweifel die zuständige Person für Datenschutz einbeziehen."
+        ],
+        "intro": "Reflexion untersucht eine konkrete Handlung mit Abstand: Was geschah, warum wurde so gehandelt und welche fachlich begründete Konsequenz folgt daraus? Sie verbindet Beschreibung, Einordnung und überprüfbare Veränderung.",
+        "caseStudy": {
+          "scenario": "Ein Kind möchte beim Aufräumen weiterbauen. Du forderst sofortiges Aufhören; das Kind weint und sagt, es wolle sein Bauwerk erst zeigen. Die Gruppe wartet auf das Mittagessen.",
+          "analysis": "Sehen: Festhalten, was gesagt und getan wurde, statt „ungehorsam“ zu schreiben. Urteilen: Das Bedürfnis nach Anerkennung trifft auf den Gruppenablauf. Eigener Zeitdruck hat die Reaktion beeinflusst. Beteiligung und verlässliche Orientierung sind beide wichtig; eine ungesicherte Einzelbetreuung nebenbei wäre keine gute Lösung.",
+          "action": "Handeln: Gefühl anerkennen, kurz das Werk zeigen lassen und gemeinsam klären, ob es an einem sicheren Platz bleiben kann. Den Übergang künftig rechtzeitig ankündigen und mit Kindern vereinbaren. Nach einer Woche prüfen: Gelingen Übergänge ruhiger? Konnten Kinder ihre Anliegen einbringen? Falls nicht, Zeitplanung und Absprachen im Team anpassen."
+        }
       }
     ]
   },
@@ -206,7 +210,7 @@
           "bk1-lf2-01-entwicklungsbereiche-informationstext"
         ],
         "takeaway": "Entwicklung betrifft die gesamte Lebensspanne. Entwicklungsbereiche hängen zusammen.",
-        "intro": "Entwicklungspsychologie untersucht relativ überdauernde Veränderungen und Stabilitäten des Erlebens und Verhaltens sowie deren Bedingungen.",
+        "intro": "Entwicklungspsychologie beschreibt und erklärt Veränderungen sowie Stabilitäten von Erleben und Verhalten über die Lebensspanne. Ihr Wissen hilft, pädagogische Bedingungen zu verstehen, begründet zu gestalten und ihre Wirkung zu prüfen.",
         "table": {
           "headers": [
             "Ziel",
@@ -234,7 +238,12 @@
         "points": [
           "Bereiche: körperlich, motorisch, wahrnehmungsbezogen, kognitiv, sprachlich-kommunikativ, sozial, emotional, moralisch und sexuell.",
           "Grobmotorik betrifft große Bewegungen wie Klettern; Feinmotorik präzise Handlungen wie Auffädeln. Denken, Sprache, Gefühle und Beziehungen beeinflussen solche Tätigkeiten mit."
-        ]
+        ],
+        "caseStudy": {
+          "scenario": "Ein Kind zieht sich nach einem Gruppenwechsel häufiger zurück.",
+          "analysis": "Beschreiben heißt, den Verlauf festzuhalten. Erklären prüft mögliche Bedingungen, etwa neue Beziehungen. Vorhersagen bleibt bedingt und darf kein festes Urteil über die Zukunft werden.",
+          "action": "Verlässliche Kontakte und überschaubare Einstiege anbieten. Im Verlauf prüfen, ob das Kind sich sicherer beteiligt; bei Bedarf die Unterstützung verändern."
+        }
       },
       {
         "id": "entwicklungsbereiche",
@@ -255,7 +264,13 @@
           "Moralische Entwicklung: Vorstellungen von richtig und falsch sowie die Begründung von Regeln verändern sich. Ein Kind erklärt, warum alle beim Verteilen von Material berücksichtigt werden sollen.",
           "Sexuelle Entwicklung: Körperwahrnehmung, Identität, Nähe und persönliche Grenzen entwickeln sich. Körperteile sachlich benennen, eigene Grenzen äußern und Grenzen anderer achten sind passende pädagogische Anlässe; kindliche Entwicklung wird nicht mit erwachsener Sexualität gleichgesetzt.",
           "Wechselwirkung: Beim gemeinsamen Bauen greifen Denken und Feinmotorik ineinander. Sprache erleichtert Absprachen, emotionale Sicherheit ermöglicht neue Versuche, soziale Regeln helfen beim Teilen. Förderung sollte deshalb keine isolierte Fähigkeit ohne ihren Kontext betrachten."
-        ]
+        ],
+        "intro": "Entwicklungsbereiche gliedern die vielfältigen Veränderungen eines Menschen. Sie sind analytische Perspektiven auf dieselbe Person und wirken im Alltag zusammen; kein Kind besteht aus voneinander unabhängigen Einzelfähigkeiten.",
+        "caseStudy": {
+          "scenario": "Beim Tischdecken zählt ein Kind Teller, trägt sie zum Tisch und fragt andere nach ihrem Platz.",
+          "analysis": "Zählen betrifft Denken, Tragen Motorik und Körperkoordination, Fragen Sprache und Kooperation. Eine Alltagshandlung verbindet mehrere Entwicklungsbereiche.",
+          "action": "Die Handlung ganzheitlich beobachten und Unterstützung gezielt dosieren. Motorische Hilfe darf beispielsweise nicht dazu führen, dem Kind auch alle sprachlichen Entscheidungen abzunehmen."
+        }
       },
       {
         "id": "prozesse",
@@ -284,7 +299,13 @@
           "Zentralisation: Überlegungen, Pläne, Ziele und Werte steuern Handlungen zunehmend.",
           "Kanalisierung: Bestimmte Interessen oder Verhaltensweisen bilden sich heraus. Stabilisierung: Sie verfestigen sich beispielsweise zu Gewohnheiten oder Fertigkeiten.",
           "Vergleich am Fahrradfahren: Längere Beine sind Wachstum; die zunehmende Funktionsreife von Nervensystem und Bewegungssteuerung ist biologisch mitbedingt; Lenken und Bremsen werden durch Erfahrung und Übung gelernt. Kein Faktor wirkt allein: Ein größeres Fahrrad erzeugt keine Fahrkompetenz, und Übung muss zu den Voraussetzungen passen."
-        ]
+        ],
+        "intro": "Wachstum, Reifung und Lernen bezeichnen verschiedene Prozesse: quantitative Zunahme, biologisch mitbedingte Funktionsentwicklung und erfahrungsabhängige Veränderung. In realen Entwicklungsverläufen ergänzen und beeinflussen sie sich.",
+        "caseStudy": {
+          "scenario": "Ein Kind erreicht nun die Pedale eines Fahrzeugs, kann aber noch nicht sicher lenken.",
+          "analysis": "Wachstum verändert die Reichweite. Für koordiniertes Fahren sind weitere körperliche Voraussetzungen und Lernerfahrungen nötig. Erreichen der Pedale ist daher kein Nachweis sicherer Fahrkompetenz.",
+          "action": "Einen passenden sicheren Übungsrahmen schaffen, einzelne Handlungen erproben lassen und Überforderung vermeiden. Entwicklung weder allein durch Abwarten noch allein durch Training erklären."
+        }
       },
       {
         "id": "merkmale",
@@ -301,7 +322,13 @@
           "Verlaufsformen: Geradlinig bedeutet ungefähr gleichmäßigen Zuwachs, beschleunigt einen zunehmenden und verlangsamt einen abnehmenden Zuwachs im betrachteten Zeitraum. Ein langsamer werdender Lernzuwachs ist kein Verlust und nicht automatisch eine Entwicklungsstörung; die Darstellung hängt vom beobachteten Merkmal ab.",
           "Differenzierung: Ein Kind unterscheidet zunehmend Ärger, Enttäuschung und Trauer statt nur „schlecht“. Integration: Es verbindet Blick, Griff und Sprache, um gemeinsam Material anzufordern. Zentralisation: Es plant erst den Unterbau, bevor es weiterbaut.",
           "Kanalisierung: Aus vielfältigem Ausprobieren entsteht ein besonderes Interesse am Bauen. Stabilisierung: Wiederholtes sicheres Handeln festigt eine Fertigkeit oder Gewohnheit. Eine stabile Vorliebe schließt spätere Veränderungen nicht aus."
-        ]
+        ],
+        "intro": "Entwicklungsmerkmale beschreiben typische Zusammenhänge im Aufbau und Verlauf von Fähigkeiten. Sie helfen beim Einordnen, sind aber keine festen Stufenpläne mit identischen Wegen und Fristen für alle Menschen.",
+        "caseStudy": {
+          "scenario": "Beim Bauen plant ein Kind zunehmend voraus, statt jedes Teil spontan aufzusetzen.",
+          "analysis": "Planung kann Zentralisation zeigen: Ziele und Überlegungen steuern die Handlung stärker. Dass einzelne Bauversuche weiter misslingen, widerlegt diese Entwicklung nicht.",
+          "action": "Mehrere Versuche und die Erklärungen des Kindes betrachten. Mit offenen Fragen begleiten, statt eine fertige Planungsstrategie aufzuzwingen."
+        }
       },
       {
         "id": "unterschiede",
@@ -344,7 +371,13 @@
           "Beginn, Verlauf und Dauer berücksichtigen. Eine einzelne Alltagssituation reicht nicht für ein abschließendes Urteil über ein Kind.",
           "Beispiele: Ein Kind beginnt früher als andere mit längeren Sätzen (Akzeleration), ein anderes später (Verzögerung; in älteren Unterlagen „Retardation“). Ein über Wochen unveränderter beobachteter Wortschatz kann wie Stillstand wirken; benutzt das Kind zuvor sicher verwendete Wörter nicht mehr, muss ein möglicher Rückgang genauer geklärt werden. Eine Momentaufnahme erlaubt weder Diagnose noch Ursache.",
           "Ein Kind kann sprachlich weit und beim Balancieren noch unsicher sein: intraindividuelle Unterschiede beziehungsweise asynchroner Verlauf. Unterstützungsbedarf wird bereichsspezifisch, über Zeit und im Austausch mit zuständigen Fachpersonen geklärt; „insgesamt zurück“ wäre eine unzulässige Vereinfachung."
-        ]
+        ],
+        "intro": "Entwicklung variiert zwischen Menschen und zwischen Bereichen derselben Person. Unterschiede in Beginn, Tempo und Verlauf werden getrennt beschrieben, damit aus einer einzelnen Stärke oder Schwierigkeit kein pauschales Urteil entsteht.",
+        "caseStudy": {
+          "scenario": "Ein Kind erzählt ausführlich, braucht beim Ausschneiden aber noch viel Unterstützung.",
+          "analysis": "Sprache und Feinmotorik zeigen unterschiedliche Ausprägungen innerhalb desselben Kindes. Das ist intraindividuelle Variabilität und kein Widerspruch; andere Kinder können ein anderes Profil haben.",
+          "action": "Bereichsspezifisch unterstützen, geeignete Materialien anbieten und Veränderungen über Zeit betrachten. Von der sprachlichen Stärke nicht automatisch auf feinmotorische Sicherheit schließen."
+        }
       },
       {
         "id": "faktoren",
@@ -373,7 +406,13 @@
         "points": [
           "Historische Erb- und Milieutheorien betonen jeweils eine Seite. Das Wechselwirkungsverständnis verbindet die Faktoren.",
           "Der Epigenetik-Fachtext veranschaulicht Einflüsse der Umwelt auf die Aktivität von Genen. Daraus folgt keine beliebige Steuerbarkeit von Entwicklung und keine sichere Vorhersage für ein einzelnes Kind."
-        ]
+        ],
+        "intro": "Anlage, Umwelt und Selbststeuerung sind miteinander verflochtene Entwicklungsfaktoren. Biologische Voraussetzungen, soziale und materielle Bedingungen sowie eigene Interessen und Entscheidungen beeinflussen die jeweiligen Entwicklungsmöglichkeiten.",
+        "caseStudy": {
+          "scenario": "Zwei gleichaltrige Kinder bauen eine Brücke. Mira erklärt lange Pläne und bittet häufig um Hilfe beim Verbinden. Sam spricht wenig in der Gruppe, verbindet die Teile sicher und probiert nach einem Einsturz eine neue Stütze.",
+          "analysis": "Zwischen den Kindern liegen interindividuelle Unterschiede vor; unterschiedliche Stärken innerhalb eines Kindes zeigen intraindividuelle Variabilität. Motorische Voraussetzungen gehören zur Anlage, erreichbares Material und sprachliche Begleitung zur Umwelt, Sams eigene Versuche zur Selbststeuerung. Die Szene zeigt Wechselwirkungen, beweist aber weder genetische Ursachen noch eine Sprachverzögerung.",
+          "action": "Beide Kinder über mehrere Situationen beobachten, auch in vertrauten Sprach- und Spielkontexten. Unterschiedliche Verbindungsmaterialien und Möglichkeiten zum Zeigen, Sprechen und gemeinsamen Planen anbieten. Nach vereinbarter Zeit vergleichen, ob Beteiligung und selbstständiges Problemlösen zunehmen. Bleiben Fragen, mit Familie und zuständigen Fachpersonen weitere Schritte abstimmen."
+        }
       },
       {
         "id": "praxis",
@@ -387,7 +426,13 @@
           "Sensible Phasen sind Zeiträume besonderer Empfänglichkeit für bestimmte Erfahrungen. Innere Voraussetzungen und individuelle Entwicklungszeiten beachten.",
           "Passende Erfahrungen ermöglichen, Interesse aufnehmen und Überforderung vermeiden. Aus dem Begriff allein lassen sich keine starren Fristen für jedes Kind ableiten.",
           "Anwendung sensibler Phasen: Zeigt ein Kind großes Interesse an Lauten und Wörtern, bieten Gespräche, Reime und gemeinsames Lesen passende Erfahrungen. Daraus folgt weder eine exakte Frist für alle Kinder noch, dass späteres Lernen unmöglich wäre. Fehlende Gelegenheit ist ein Anlass, Zugänge zu schaffen, kein Grund für Schuldzuweisungen."
-        ]
+        ],
+        "intro": "Sensible Phasen sind Zeiträume besonderer Empfänglichkeit für bestimmte Erfahrungen. Sie begründen passende Anregungen und aufmerksame Begleitung, aber weder einheitliche Lernfristen noch die Behauptung, späteres Lernen sei ausgeschlossen.",
+        "caseStudy": {
+          "scenario": "Ein Kind wiederholt Reime und interessiert sich für Anfangslaute.",
+          "analysis": "Das Interesse bietet einen aktuellen Zugang zu sprachlichen Erfahrungen. Es sagt nicht, dass alle gleichaltrigen Kinder dasselbe Interesse zeigen müssen oder eine Frist abläuft.",
+          "action": "Reime, Gespräche und Vorlesen freiwillig anbieten, Signale des Kindes aufnehmen und Anforderungen anpassen. Interesse unterstützen, ohne Leistungsdruck zu erzeugen."
+        }
       },
       {
         "id": "wissenschaft",
@@ -404,42 +449,13 @@
           "Ein Roman oder Gedankenexperiment kann Fragen verdeutlichen, ersetzt aber keinen systematisch gewonnenen wissenschaftlichen Beleg.",
           "Wissenschaftliche Erkenntnisse helfen, Verhalten zu verstehen, Entscheidungen zu begründen, Alternativen zu vergleichen und Qualität zu prüfen. Praktisches Vorgehen: eine Frage formulieren, geeignete Erkenntnisse heranziehen, auf die konkrete Lebenslage beziehen, handeln und die Wirkung beobachten. Forschungsergebnisse beschreiben häufig Gruppen; sie sagen nicht den Einzelfall sicher voraus.",
           "Beispiel für eine überprüfbare Praxisfrage: Beteiligt sich ein Kind eher, wenn Material selbstständig erreichbar ist? Beobachtungen vor und nach der Veränderung sammeln, ähnliche Bedingungen beachten und alternative Erklärungen mitdenken. Ein günstiger Verlauf allein beweist noch keine allgemeine Ursache-Wirkungs-Beziehung."
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Zwei gleichaltrige Kinder bauen eine Brücke. Mira erklärt lange Pläne und bittet häufig um Hilfe beim Verbinden. Sam spricht wenig in der Gruppe, verbindet die Teile sicher und probiert nach einem Einsturz eine neue Stütze.",
-      "analysis": "Zwischen den Kindern liegen interindividuelle Unterschiede vor; unterschiedliche Stärken innerhalb eines Kindes zeigen intraindividuelle Variabilität. Motorische Voraussetzungen gehören zur Anlage, erreichbares Material und sprachliche Begleitung zur Umwelt, Sams eigene Versuche zur Selbststeuerung. Die Szene zeigt Wechselwirkungen, beweist aber weder genetische Ursachen noch eine Sprachverzögerung.",
-      "action": "Beide Kinder über mehrere Situationen beobachten, auch in vertrauten Sprach- und Spielkontexten. Unterschiedliche Verbindungsmaterialien und Möglichkeiten zum Zeigen, Sprechen und gemeinsamen Planen anbieten. Nach vereinbarter Zeit vergleichen, ob Beteiligung und selbstständiges Problemlösen zunehmen. Bleiben Fragen, mit Familie und zuständigen Fachpersonen weitere Schritte abstimmen."
-    },
-    "review": [
-      {
-        "question": "Was unterscheidet Reifung von Lernen?",
-        "answer": "Reifung ist biologisch mitbedingt; Lernen beruht auf Erfahrung und Übung. Beide wirken zusammen."
-      },
-      {
-        "question": "Wie wirken die drei Entwicklungsfaktoren beim Bauen?",
-        "answer": "Biologische Voraussetzungen ermöglichen Handlungen, Material und Beziehungen eröffnen Erfahrungen, eigene Interessen und Übung gestalten den Verlauf mit."
-      },
-      {
-        "question": "Was bedeutet evidenzinformiert?",
-        "answer": "Forschung mit professionellem Wissen, Beobachtung und den konkreten Bedürfnissen verbinden und die Entscheidung reflektieren."
-      },
-      {
-        "question": "Warum beweist weniger sichtbarer Fortschritt keine Regression?",
-        "answer": "Verlangsamung betrifft die Geschwindigkeit des Zuwachses, Regression den Rückgang bereits erworbener Fähigkeiten. Außerdem kann eine Fähigkeit in einer Situation verborgen bleiben. Deshalb Verlauf, Bedingungen und mehrere Beobachtungen prüfen."
-      },
-      {
-        "question": "Erkläre Integration an einer Alltagssituation.",
-        "answer": "Beim gemeinsamen Tischdecken verbindet ein Kind Greifen, räumliche Orientierung, Sprache und Absprachen. Integration bedeutet das Zusammenwirken von Fähigkeiten, Differenzierung dagegen ihre feinere Unterscheidung."
-      },
-      {
-        "question": "Warum lässt sich aus einem sensiblen Zeitraum keine starre Lernfrist ableiten?",
-        "answer": "Besondere Empfänglichkeit ist keine einheitliche Deadline. Voraussetzungen, Erfahrungen und Entwicklungswege unterscheiden sich; passende Anregungen sind sinnvoll, Druck und die Behauptung „jetzt oder nie“ dagegen nicht."
-      },
-      {
-        "question": "Wie erkennst du die Grenzen einer Entwicklungserklärung?",
-        "answer": "Wenn eine einzige Ursache alles erklären soll, fehlt meist die Wechselwirkung. Eine plausible Deutung muss mit Beobachtungen vereinbar sein, Alternativen zulassen und darf Gruppenbefunde nicht als sichere Einzelfallprognose ausgeben."
+        ],
+        "intro": "Evidenzinformiertes pädagogisches Handeln verbindet geeignete Forschungserkenntnisse mit professioneller Erfahrung, konkreter Beobachtung und den Bedürfnissen des Kindes. Aussagen werden auf Qualität, Passung und ihre Grenzen geprüft.",
+        "caseStudy": {
+          "scenario": "Ein Team möchte wissen, ob ein neu gestalteter Baubereich die Beteiligung verbessert.",
+          "analysis": "Ein positiver Eindruck reicht nicht als Beleg. Beteiligung muss beschrieben und unter vergleichbaren Bedingungen beobachtet werden; gleichzeitig können Gruppenzusammensetzung oder Tagesform mitwirken.",
+          "action": "Eine konkrete Frage und Beobachtungsmerkmale vereinbaren, passende Erkenntnisse heranziehen und vor sowie nach der Veränderung beobachten. Ergebnisse vorsichtig einordnen und bei Bedarf weiter anpassen."
+        }
       }
     ]
   },
@@ -481,7 +497,13 @@
         "points": [
           "Erlebnisse, Selbstbeobachtung und Rückmeldungen prägen das Selbstbild. Auch meine Deutung einer Erfahrung ist entscheidend.",
           "Erwartungen von Bezugspersonen können Verhalten und Selbstbild beeinflussen. Zuschreibungen wie „Das kannst du sowieso nicht“ deshalb kritisch reflektieren."
-        ]
+        ],
+        "intro": "Selbstbild, Fremdbild und Metabild beschreiben unterschiedliche Wahrnehmungsperspektiven. Sie beeinflussen Erwartungen und Zusammenarbeit, dürfen aber nicht als unveränderliche Eigenschaften oder objektive Gesamturteile über eine Person verstanden werden.",
+        "caseStudy": {
+          "scenario": "Eine Lernende meint, alle hielten sie für unzuverlässig, obwohl niemand dies ausgesprochen hat.",
+          "analysis": "Ihre Vermutung ist ein Metabild. Ein tatsächliches Fremdbild benötigt eine Rückmeldung anderer; auch diese beschreibt eine Perspektive und muss konkretisiert werden.",
+          "action": "Gezielt nach beobachtbaren Beispielen und auch nach gelungenen Situationen fragen. Eigene Erwartungen mit tatsächlichen Rückmeldungen vergleichen, ohne Kritik oder Anerkennung pauschal zu verallgemeinern."
+        }
       },
       {
         "id": "selbstkonzept",
@@ -496,7 +518,13 @@
           "Vier im Unterricht genannte Säulen: bewusst leben heißt, Wahrnehmungen und Gefühle aufmerksam zu prüfen; Selbstverantwortung heißt, den eigenen beeinflussbaren Anteil zu übernehmen; Zielorientierung heißt, realistische Schritte zu planen; Integrität heißt, Werte und Handeln in Einklang zu bringen. Beispiel: einen eigenen Fehler benennen, Unterstützung organisieren und eine Zusage verlässlich nachholen.",
           "Biografische Reflexion: Eine Lebenslinie kann bedeutsame Erfahrungen, unterstützende Personen und Rollen sichtbar machen. Fragen: Welche Regeln habe ich als Kind erlebt? Welche Erwartungen übernehme ich? Was möchte ich fachlich begründet verändern? Persönliche Erfahrungen werden freiwillig und geschützt bearbeitet; niemand muss belastende private Erlebnisse in der Gruppe offenlegen.",
           "Vom Erzogenen zur erziehenden Person: Vertraute Muster sind nicht automatisch fachlich passend. Wer als Kind „nicht widersprechen“ lernte, kann Beteiligung heute bewusst ermöglichen. Eigene Reaktionen reflektieren, ohne daraus vorschnell die Biografie oder Motive einer Familie abzuleiten."
-        ]
+        ],
+        "intro": "Selbstkonzept umfasst Wissen und Vorstellungen über die eigene Person; Selbstwert deren Bewertung. Biografische Reflexion macht Erfahrungen und Muster bewusst und ermöglicht eine begründete Weiterentwicklung der beruflichen Haltung.",
+        "caseStudy": {
+          "scenario": "Nach einem schwierigen Elterngespräch sagt eine Fachkraft: „Ich bin für diesen Beruf ungeeignet.“",
+          "analysis": "Ein einzelnes Ergebnis wird zum Urteil über die gesamte Person. Selbstverantwortung bedeutet, den eigenen Anteil zu prüfen, nicht den eigenen Wert an jeder gelungenen Handlung festzumachen.",
+          "action": "Die Gesprächssituation sachlich auswerten, Stärken und Lernbedarf benennen und einen konkreten nächsten Schritt planen. Unterstützung nutzen und private Offenlegung freiwillig halten."
+        }
       },
       {
         "id": "johari",
@@ -537,7 +565,13 @@
         "points": [
           "Das Modell hilft, unterschiedliche Wahrnehmungen zu verstehen und Zusammenarbeit zu verbessern.",
           "Rückmeldungen eröffnen Perspektiven; sie sind nicht automatisch objektive Wahrheiten. Nach konkreten Situationen und Beispielen fragen."
-        ]
+        ],
+        "intro": "Das Johari-Fenster ordnet Wissen über eine Person danach, ob es ihr selbst und anderen bekannt ist. Es veranschaulicht Chancen von Feedback und freiwilliger Selbstoffenbarung, ohne die Persönlichkeit vollständig zu erklären.",
+        "caseStudy": {
+          "scenario": "Im Team fällt auf, dass eine Kollegin in Zeitnot schneller spricht; ihr selbst ist das nicht bewusst.",
+          "analysis": "Die Sprechweise kann im blinden Fleck liegen. Eine konkrete Rückmeldung macht sie besprechbar; die Vermutung über Zeitdruck sollte die Kollegin selbst bestätigen oder korrigieren können.",
+          "action": "Beobachtung und Wirkung respektvoll rückmelden, nach der eigenen Wahrnehmung fragen und eine Veränderung erproben. Niemanden zu persönlichen Erklärungen drängen."
+        }
       },
       {
         "id": "feedbackpraxis",
@@ -552,7 +586,13 @@
           "Annehmen: Erst zuhören, bei Unklarheit nach Beispielen fragen, das Verstandene zusammenfassen und eigene Sicht ergänzen. Nicht sofort rechtfertigen, aber auch nicht jede Zuschreibung übernehmen. Rückmeldungen aus unterschiedlichen Situationen helfen zu erkennen, ob ein Muster oder ein einzelner Eindruck vorliegt.",
           "Johari anwenden: Eine Kollegin bemerkt meine hektische Sprechweise, die mir nicht auffällt — ein möglicher blinder Fleck. Teile ich freiwillig mit, dass mich Zeitdruck belastet, wird etwas bisher Geheimes öffentlich. Das Unbekannte wird nicht allein dadurch sichtbar, dass andere über mich urteilen; das Modell ist eine Reflexionshilfe, kein Persönlichkeitstest.",
           "Auswertung: Eine konkrete Änderung vereinbaren, etwa in der nächsten Besprechung bewusst ausreden lassen. Danach erneut Rückmeldung erfragen. Empathie bedeutet, die Perspektive nachzuvollziehen; Wertschätzung respektiert die Person; Kongruenz verlangt glaubwürdiges, zugleich rollenbewusstes Handeln. Keines davon verpflichtet zur grenzenlosen Selbstoffenbarung."
-        ]
+        ],
+        "intro": "Feedback ist eine Rückmeldung zu wahrgenommenem Verhalten und seiner Wirkung. Es unterstützt Lernen, wenn es konkret, respektvoll, nachvollziehbar und auf veränderbares Handeln bezogen ist.",
+        "caseStudy": {
+          "scenario": "Du hältst dich in Gruppen für ruhig und unterstützend. Eine Mitschülerin sagt nach einer Aufgabe: „Du hast zweimal meinen Satz beendet und dann deine Lösung vorgeschlagen.“ Du hattest vermutet, dass alle dich als gute Zuhörerin erleben.",
+          "analysis": "Das Selbstbild betrifft deine eigene Einschätzung, das Fremdbild ihre Wahrnehmung. Die Vermutung über alle war dein Metabild. Das unbemerkte Unterbrechen kann ein blinder Fleck sein; eine einzelne Rückmeldung ist dennoch kein Beweis einer festen Eigenschaft. Vielleicht hat Zeitdruck eine Rolle gespielt.",
+          "action": "Nach dem konkreten Moment fragen, die Wirkung zusammenfassen und den eigenen Zeitdruck erklären, ohne ihn als Entschuldigung zu benutzen. Für die nächste Gruppenarbeit vereinbaren: erst ausreden lassen, dann nachfragen und Beiträge zusammenfassen. Anschließend Rückmeldung vergleichen und eine gelungene Veränderung ebenso bewusst wahrnehmen wie weiteren Lernbedarf."
+        }
       },
       {
         "id": "haltung",
@@ -567,7 +607,13 @@
           "Wertschätzung bedeutet Achtung, Wärme, Rücksichtnahme und Ermutigung. Empathie und Perspektivwechsel helfen, das Gegenüber zu verstehen.",
           "Kongruenz meint Echtheit: Auftreten und Handeln passen zu den eigenen Überzeugungen und bleiben beruflich reflektiert.",
           "Eigene Grenzen erkennen, Berufs- und Privatleben unterscheiden und bei Bedarf Unterstützung nutzen."
-        ]
+        ],
+        "intro": "Professionelle Selbstreflexion verbindet die Kenntnis eigener Erfahrungen, Werte und Grenzen mit dem fachlichen Auftrag. Empathie, Wertschätzung und Kongruenz unterstützen Beziehungen, benötigen jedoch Rollenbewusstsein und verantwortliche Grenzsetzung.",
+        "caseStudy": {
+          "scenario": "Eine Fachkraft möchte einer belasteten Familie jederzeit auch privat erreichbar sein.",
+          "analysis": "Zugewandtheit ist wichtig; grenzenlose private Verfügbarkeit kann jedoch Rollen und Zuständigkeiten verwischen und verlässliche institutionelle Hilfe ersetzen.",
+          "action": "Das Anliegen empathisch aufnehmen, professionelle Kontaktwege und Zeiten klären und passende Unterstützung vermitteln. Eigene Belastung im Team reflektieren und verbindliche Absprachen einhalten."
+        }
       },
       {
         "id": "geschichte",
@@ -582,7 +628,13 @@
           "Fröbels Kindergartenidee im 19. Jahrhundert betonte Spiel und kindliche Tätigkeit. Mit Ausbildungsgängen und Fachschulen wurden Wissen und berufliche Anforderungen systematischer vermittelt. Pädagogik begann jedoch nicht erst mit einer einzelnen Person oder Einrichtung.",
           "In der zweiten Hälfte des 20. Jahrhunderts wurden Ausbildung und Aufgaben weiter ausdifferenziert. Kinder- und Jugendhilfe sowie spätere Bildungsdebatten stärkten Bildung, Rechte, Beteiligung und Qualitätsentwicklung als Bezugspunkte. Heute sind Beziehungsarbeit, Inklusion, wissenschaftliche Orientierung und kontinuierliche Weiterbildung wichtige Anforderungen.",
           "Prüfungsbezug: Eine historische Veränderung mit einer heutigen Anforderung verbinden, etwa vom vorwiegenden Beaufsichtigen zum fachlich begründeten Begleiten und Beteiligen. Zugleich bedenken, dass Aufgaben und Bedingungen je nach Epoche und Einrichtung unterschiedlich waren."
-        ]
+        ],
+        "intro": "Die Entwicklung sozialpädagogischer Berufe hängt mit gesellschaftlichen Veränderungen und der Entstehung von Einrichtungen und Ausbildung zusammen. Professionalisierung bezeichnet die zunehmende fachliche Begründung, Qualifizierung und Reflexion der Arbeit.",
+        "caseStudy": {
+          "scenario": "In einer historischen Darstellung steht die Versorgung der Kinder im Vordergrund; ein heutiges Konzept betont zusätzlich Beteiligung.",
+          "analysis": "Aufgaben und gesellschaftliche Erwartungen verändern sich. Daraus folgt nicht, dass es früher überall nur Versorgung oder heute automatisch überall gelungene Partizipation gibt.",
+          "action": "Den historischen Kontext benennen und die heutige Anforderung an einem konkreten Beispiel zeigen, etwa an gemeinsam vereinbarten Regeln. Pauschale Fortschrittserzählungen vermeiden."
+        }
       },
       {
         "id": "beruf",
@@ -599,7 +651,13 @@
           "Das Berufsverständnis erweitert Versorgung und Betreuung um Bildung, Partizipation, Teilhabe und individuelle Entwicklungsbegleitung.",
           "Fachwissen, Methoden-, Sozial- und Selbstkompetenz ergänzen sich: verstehen, planen, kooperieren und reflektieren.",
           "Berufliche Wege aus euren Aufgaben: fachliche Spezialisierung, Praxisanleitung, Fachberatung beziehungsweise systemische Beratung und Leitung. Die konkreten Voraussetzungen des jeweiligen Wegs gesondert prüfen."
-        ]
+        ],
+        "intro": "Berufliche Entwicklung verbindet fachliche Weiterbildung, reflektierte Erfahrung und mögliche Veränderungen der Aufgaben. Die Wahl eines Weges setzt einen Vergleich von Interessen, Tätigkeiten, Voraussetzungen und Rahmenbedingungen voraus.",
+        "caseStudy": {
+          "scenario": "Eine Fachkraft möchte mehr Verantwortung übernehmen und erwägt eine Leitungsaufgabe.",
+          "analysis": "Eine Leitungsrolle verändert den Anteil von Personal-, Organisations- und Konzeptarbeit. Mehr Verantwortung ist daher nicht automatisch mehr unmittelbare Arbeit mit Kindern.",
+          "action": "Aufgabenprofil, Anforderungen und eigene Ziele vergleichen, Einblicke ermöglichen lassen und konkrete Qualifikationsvoraussetzungen beim zuständigen Anbieter oder Träger prüfen."
+        }
       },
       {
         "id": "berufswege",
@@ -616,38 +674,13 @@
           "Fachberatung oder systemische Beratung: Einrichtungen beziehungsweise Ratsuchende bei Qualitätsfragen und Veränderungsprozessen unterstützen. Fachberatung und systemische Beratung sind unterschiedliche Profile; Beratungsmethoden, Rollenklärung und Kenntnis der eigenen Zuständigkeit sind wesentlich.",
           "Leitung: Personal, Organisation, Konzeptentwicklung und Qualität verantworten. Neben pädagogischem Wissen sind Gesprächsführung, Entscheidungsfähigkeit und organisatorische Kompetenzen nötig. Mehr Verantwortung bedeutet nicht automatisch mehr direkte pädagogische Arbeit.",
           "Weiterbildung oder Studium vergleichen: Welche Tätigkeit möchte ich ausüben? Welche Zugangsvoraussetzungen und Anerkennungen gelten beim jeweiligen Anbieter und Arbeitgeber? Wie passen Zeit, Kosten und Lernform zu meiner Situation? Eine Fortbildung verleiht nicht automatisch eine Leitungsstelle oder eine andere geschützte Berufsbezeichnung."
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Du hältst dich in Gruppen für ruhig und unterstützend. Eine Mitschülerin sagt nach einer Aufgabe: „Du hast zweimal meinen Satz beendet und dann deine Lösung vorgeschlagen.“ Du hattest vermutet, dass alle dich als gute Zuhörerin erleben.",
-      "analysis": "Das Selbstbild betrifft deine eigene Einschätzung, das Fremdbild ihre Wahrnehmung. Die Vermutung über alle war dein Metabild. Das unbemerkte Unterbrechen kann ein blinder Fleck sein; eine einzelne Rückmeldung ist dennoch kein Beweis einer festen Eigenschaft. Vielleicht hat Zeitdruck eine Rolle gespielt.",
-      "action": "Nach dem konkreten Moment fragen, die Wirkung zusammenfassen und den eigenen Zeitdruck erklären, ohne ihn als Entschuldigung zu benutzen. Für die nächste Gruppenarbeit vereinbaren: erst ausreden lassen, dann nachfragen und Beiträge zusammenfassen. Anschließend Rückmeldung vergleichen und eine gelungene Veränderung ebenso bewusst wahrnehmen wie weiteren Lernbedarf."
-    },
-    "review": [
-      {
-        "question": "Wie unterscheiden sich Fremdbild und Metabild?",
-        "answer": "Fremdbild ist die tatsächliche Sicht einer anderen Person; Metabild meine Vermutung über diese Sicht."
-      },
-      {
-        "question": "Welche Bereiche verändert Selbstoffenbarung?",
-        "answer": "Etwas zuvor Geheimes wird anderen bekannt: Der geheime Bereich wird kleiner, der öffentliche größer."
-      },
-      {
-        "question": "Warum ist professionelle Haltung mehr als Freundlichkeit?",
-        "answer": "Sie umfasst reflektierte Werte, fachliche Begründung, Perspektivwechsel, Verantwortung und professionelle Grenzen."
-      },
-      {
-        "question": "Warum ist ein Metabild keine Rückmeldung?",
-        "answer": "Es ist meine Vermutung über die Sicht anderer. Erst eine tatsächliche Äußerung liefert ein Fremdbild; auch dieses bleibt eine perspektivische Wahrnehmung und sollte an Beispielen geprüft werden."
-      },
-      {
-        "question": "Wie kann Biografiearbeit die professionelle Haltung verbessern?",
-        "answer": "Sie macht vertraute Regeln und Auslöser bewusst. Ich kann prüfen, ob meine spontane Reaktion zur heutigen Situation und zum fachlichen Auftrag passt, und eine Alternative wählen. Das ersetzt keine Fachkenntnis und verlangt keine öffentliche Offenlegung privater Belastungen."
-      },
-      {
-        "question": "Was unterscheidet Praxisanleitung von Leitung?",
-        "answer": "Praxisanleitung konzentriert sich auf die Lernbegleitung und Bewertung in der Ausbildung. Leitung trägt weitergehende organisatorische und personelle Verantwortung. Beide benötigen Reflexion und Gesprächskompetenz, haben aber verschiedene Aufgaben und Voraussetzungen."
+        ],
+        "intro": "Spezialisierung, Praxisanleitung, Beratung und Leitung sind unterschiedliche berufliche Profile. Sie verlangen jeweils besondere Kenntnisse und Zuständigkeiten; eine Weiterbildung muss zu dem tatsächlich angestrebten Aufgabenbereich passen.",
+        "caseStudy": {
+          "scenario": "Eine Kollegin interessiert sich für Sprachbildung und begleitet zugleich gern Auszubildende.",
+          "analysis": "Eine Sprachspezialisierung vertieft ein pädagogisches Thema; Praxisanleitung konzentriert sich auf Lernbegleitung und Beurteilung in der Ausbildung. Die Interessen passen zu verschiedenen Aufgaben.",
+          "action": "Tätigkeiten und Lernziele priorisieren, geeignete Angebote sowie Anerkennung und Zeitbedarf prüfen. Ein Zertifikat nicht mit einer automatisch verliehenen Stelle gleichsetzen."
+        }
       }
     ]
   },
@@ -656,12 +689,31 @@
     "subjectId": "bk2",
     "learningFieldId": "bk2-lf2",
     "title": "Beobachtung & Dokumentation",
-    "description": "Beobachtungsfunktionen, Formen, Gütekriterien und Fehler verstehen; acht Verfahren auswählen, dokumentieren und auswerten.",
+    "description": "Pädagogische Beobachtung: Grundlagen, Verhalten und Erleben, Hypothesen, Formen und Stichproben, Planung, Fehler, Verfahren und Auswertung – als einzelne Lernzettel.",
     "updatedAt": "2026-11-09",
     "sections": [
       {
+        "id": "grundlagen",
+        "title": "1. Definition und Bedeutung pädagogischer Beobachtung",
+        "takeaway": "Geplant wahrnehmen, sachlich festhalten und begründet auswerten.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Beobachtung richtet die Aufmerksamkeit auf wahrnehmbares Verhalten in einer konkreten Situation. Professionelles Beobachten macht Ziel, Vorgehen und Dokumentation nachvollziehbar; es ergänzt die alltägliche Aufmerksamkeit, statt jede spontane Wahrnehmung für wertlos zu erklären.",
+          "Beobachtungsbereiche sind beispielsweise Kommunikation, Emotionen im sichtbaren Ausdruck, soziales Miteinander, Lernen, Spielen und Motorik. Die Auswahl folgt der Fragestellung. Auch die Umgebung und das Verhalten der Erwachsenen können zum Verständnis wichtig sein.",
+          "Die vier Schritte des Unterrichtsmodells sind Planung, Durchführung, Dokumentation/Beschreibung und Deutung. Nach der Deutung folgen pädagogische Konsequenzen und erneute Beobachtung. Dokumentieren und Interpretieren bleiben unterscheidbar, auch wenn beide im Alltag eng aufeinander folgen."
+        ],
+        "intro": "Pädagogische Beobachtung ist eine gezielte, planvolle Wahrnehmung und Registrierung von Verhalten im jeweiligen Kontext. Sie verbindet sachliches Erfassen mit dokumentierter Auswertung und bildet eine Grundlage für begründetes erzieherisches Handeln.",
+        "caseStudy": {
+          "scenario": "Eine Fachkraft bemerkt, dass ein Kind am Maltisch oft nur zusieht.",
+          "analysis": "Der Alltagseindruck kann eine Frage anstoßen, erklärt aber noch keine Ursache. Erreichbarkeit der Materialien, Interesse, Gruppengröße und Kommunikation können relevant sein.",
+          "action": "Eine konkrete Frage planen, mehrere Situationen sachlich dokumentieren und erst danach mögliche Gründe sowie passende Unterstützung besprechen."
+        }
+      },
+      {
         "id": "funktionen",
-        "title": "1. Sechs Funktionen von Beobachtung",
+        "title": "2. Sechs Funktionen von Beobachtung",
         "materialIds": [
           "bk2-lf2-4-0-funktionen-von-beobachtung",
           "bk2-lf2-4-15-merkzettel-funktionen"
@@ -674,11 +726,36 @@
           "Individuelle Verläufe und Übergänge erkennen: Wiederholte Beobachtungen zeigen Veränderungen, etwa beim Ankommen in einer neuen Gruppe. Entscheidend ist der Verlauf des Kindes und nicht nur der Vergleich mit anderen.",
           "Ressourcen entdecken: Interessen, Strategien und hilfreiche Beziehungen werden Ausgangspunkte der Unterstützung. Eine Stärke zu nutzen bedeutet nicht, Schwierigkeiten zu übersehen.",
           "Bildungsprozesse verstehen: Nicht nur das fertige Werk, sondern Versuche, Fragen, Kooperation und Änderungen des Vorgehens beachten. Daraus lassen sich passende nächste Erfahrungsgelegenheiten ableiten."
-        ]
+        ],
+        "intro": "Beobachtung hilft, ein Kind in seiner konkreten Lebens- und Lernsituation zu verstehen. Sie schafft eine begründete Grundlage für Beziehung, pädagogische Planung, Entwicklungsbegleitung und Austausch, statt sich auf spontane Eindrücke zu verlassen.",
+        "caseStudy": {
+          "scenario": "Ein Kind gilt als „unruhig“, beschäftigt sich im Baubereich aber lange mit einer eigenen Konstruktion.",
+          "analysis": "Die Beobachtung macht eine Ressource und passende Bedingungen sichtbar. Sie kann ein pauschales Vorurteil korrigieren und erklären helfen, unter welchen Umständen Vertiefung gelingt.",
+          "action": "Auch gelingende Situationen dokumentieren und Material, Raum sowie Gruppengröße berücksichtigen. Aus den Erkenntnissen passende Angebote ableiten und ihre Wirkung beobachten."
+        }
+      },
+      {
+        "id": "verhalten-erleben",
+        "title": "3. Verhalten und Erleben unterscheiden",
+        "takeaway": "Verhalten ist von außen wahrnehmbar; Erleben wird daraus nicht unmittelbar sichtbar.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Verhalten umfasst äußerlich wahrnehmbare Äußerungen wie Bewegungen, Worte, Gestik oder Mimik. Erleben umfasst innere Vorgänge wie Gedanken, Erinnerungen, Wünsche und Gefühle. Selbstbeobachtung kann Zugang zum eigenen Erleben eröffnen; Fremdbeobachtung erfasst dessen mögliche äußere Anzeichen.",
+          "Beide hängen zusammen, aber ein sichtbares Signal kann verschiedene Bedeutungen haben. Weinen kann etwa mit Schmerz, Enttäuschung oder Überforderung verbunden sein. Die Ursache wird nicht allein aus dem Signal bewiesen.",
+          "Auch eine Aussage wie „Ich habe Angst“ ist zunächst eine beobachtbare Äußerung über das eigene Erleben. Sie ist ernst zu nehmen und im Kontext zu verstehen; Beobachtende können das innere Erleben einer anderen Person nicht vollständig unmittelbar erfassen."
+        ],
+        "intro": "Verhalten ist äußerlich wahrnehmbar, Erleben umfasst innere Vorgänge. Beobachtbare Signale können Hinweise auf Erleben geben, erlauben aber keinen unmittelbaren und eindeutigen Zugang zu den Gedanken oder Gefühlen eines anderen Menschen.",
+        "caseStudy": {
+          "scenario": "Ein Kind schaut weg und antwortet nicht auf eine Frage.",
+          "analysis": "Das Verhalten ist beschreibbar. Ob das Kind nachdenkt, müde ist, die Frage nicht verstanden hat oder keinen Kontakt möchte, bleibt zunächst offen.",
+          "action": "Antwortzeit geben, verständlich nachfragen und Kommunikationsmöglichkeiten anbieten. Keine sichere Absicht wie „ignoriert mich absichtlich“ unterstellen."
+        }
       },
       {
         "id": "trennen",
-        "title": "2. Beobachtung, Deutung und Bewertung trennen",
+        "title": "4. Beobachtung, Deutung und Bewertung trennen",
         "materialIds": [
           "bk2-lf2-4-0-funktionen-von-beobachtung",
           "bk2-lf2-4-3-beobachtung-deutung-bewertung"
@@ -711,11 +788,37 @@
         "points": [
           "Beobachtung dient dem Kennenlernen von Kindern, ihrer Interessen, Ressourcen und Lernwege. Sie unterstützt passende Angebote, Beziehungen und Gespräche.",
           "Etiketten wie „faul“ beschreiben kein konkretes Verhalten und unterstellen leicht eine Absicht. Zeit, Dauer, Reihenfolge und Kontext festhalten."
-        ]
+        ],
+        "intro": "Beschreibung hält fest, was tatsächlich wahrnehmbar war. Deutung formuliert mögliche Bedeutungen oder Ursachen; Bewertung beurteilt etwas anhand von Kriterien. Diese Ebenen müssen erkennbar getrennt bleiben, damit Schlussfolgerungen überprüfbar sind.",
+        "caseStudy": {
+          "scenario": "Im Protokoll steht: „Lena ist wütend und will ihre Freundin ärgern.“",
+          "analysis": "Gefühl und Absicht werden als Tatsachen dargestellt, obwohl nur Verhalten von außen beobachtet wurde. Ein genauer Eintrag müsste die Handlung, Worte und Situation nennen.",
+          "action": "Beispielsweise notieren: „Lena schiebt den Becher weg und sagt ,Nein‘.“ Vermutungen über Ärger oder Konflikt getrennt festhalten und durch weitere Beobachtung oder ein passendes Gespräch prüfen."
+        }
+      },
+      {
+        "id": "hypothesen",
+        "title": "5. Hypothese, Operationalisierung und Indikatoren",
+        "takeaway": "Eine Vermutung braucht klare beobachtbare Merkmale und muss widerlegbar bleiben.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Eine Beobachtungshypothese ist eine begründete, konkrete und überprüfbare Vermutung über Verhalten unter bestimmten Bedingungen. „In kleinen Gruppen macht A häufiger eigene Spielvorschläge als in großen“ ist überprüfbarer als „A ist unsicher“. Sie wird nicht schon durch das Formulieren wahr.",
+          "Operationalisierung bestimmt, wie ein theoretischer Begriff in der Beobachtung erfasst wird. Für „Beteiligung“ könnten eigene Vorschläge, Reaktionen auf andere und übernommene Aufgaben beschrieben werden. Diese Auswahl grenzt ein, was die Ergebnisse aussagen können.",
+          "Indikatoren sind wahrnehmbare Anzeiger für einen nicht direkt beobachtbaren Sachverhalt. Die Zahl der Vorschläge kann ein Indikator für einen Teil von Beteiligung sein; sie beweist weder Wohlbefinden noch soziale Kompetenz insgesamt. Wenig Lautsprache darf andere Ausdrucksformen nicht unsichtbar machen.",
+          "Bei der Überprüfung vergleichbare Zeiträume, Situationen und Unterstützung beachten. Gegenbeispiele suchen und die Hypothese gegebenenfalls ändern. Beobachtung allein beweist häufig keine Ursache; ein Zusammenhang kann mehrere Erklärungen haben."
+        ],
+        "intro": "Hypothesen geben Beobachtungen eine überprüfbare Richtung. Operationalisierung übersetzt abstrakte Begriffe in konkrete Erfassungsregeln; Indikatoren sind die ausgewählten wahrnehmbaren Anzeichen. Ihre Aussagekraft bleibt an diese Auswahl gebunden.",
+        "caseStudy": {
+          "scenario": "Die Vermutung lautet: „In kleiner Runde bringt A häufiger eigene Ideen ein.“",
+          "analysis": "„Eigene Idee“ muss vorab erkennbar beschrieben werden, etwa ein neuer verbaler oder gezeigter Spielvorschlag. Nur gesprochene Beiträge zu zählen würde andere Ausdrucksformen übergehen.",
+          "action": "Vergleichbare Beobachtungszeiten und Bedingungen wählen, die festgelegten Anzeichen erfassen und auch Gegenbeispiele dokumentieren. Die Vermutung nach Auswertung beibehalten, einschränken oder verwerfen."
+        }
       },
       {
         "id": "formen",
-        "title": "3. Formen und Planung",
+        "title": "6. Formen und Planung",
         "materialIds": [
           "bk2-lf2-4-4-formen-der-beobachtung",
           "bk2-lf2-4-5-alltag-vs-strukturiert",
@@ -763,11 +866,55 @@
           "Die Fragestellung darf die Aufmerksamkeit lenken; das Ergebnis muss offenbleiben.",
           "Eine offene, nichtteilnehmende Feldbeobachtung kann zugleich systematisch geplant und ohne standardisierten Bogen protokolliert werden. „Unstrukturiert“ bedeutet deshalb nicht automatisch „unprofessionell“. Die sieben Gegensatzpaare benennen unterschiedliche Aspekte; in den Unterrichtsbeispielen treten bestimmte Kombinationen häufig gemeinsam auf.",
           "„Verdeckt“ ist eine beschreibende Kategorie, keine Empfehlung für heimliche Aufnahmen. Transparenz, Persönlichkeitsrechte und die Vorgaben der Einrichtung müssen gewahrt bleiben; Foto-, Ton- und Videoaufzeichnungen benötigen eine gesonderte Prüfung."
-        ]
+        ],
+        "intro": "Beobachtungsformen beschreiben, wer was unter welchen Bedingungen wahrnimmt. Die verschiedenen Unterscheidungen betreffen Beteiligung, Transparenz, Planung, Struktur und Umgebung und können miteinander kombiniert werden.",
+        "caseStudy": {
+          "scenario": "Eine Fachkraft kündigt an, beim Bauen zuzusehen, und notiert vom Rand aus vereinbarte Merkmale.",
+          "analysis": "Die Beobachtung ist offen, nichtteilnehmend, im Feld und bei klarer Planung systematisch. Ob sie strukturiert ist, hängt zusätzlich von den vorgegebenen Kategorien ab.",
+          "action": "Jede Dimension einzeln benennen und das Vorgehen zur Fragestellung passend wählen. Auch bei nichtteilnehmender Beobachtung bleiben Schutzpflichten bestehen; bei Gefahr wird eingegriffen."
+        }
+      },
+      {
+        "id": "narrativ",
+        "title": "7. Freie und narrative Beobachtung",
+        "takeaway": "Frei bezeichnet die Offenheit der Auswahl; narrativ die fortlaufende beschreibende Darstellung.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Freie Beobachtung lässt Raum, neue Themen und unerwartete Handlungen zu entdecken. Es gibt keine enge vorgegebene Merkmalsliste. Trotzdem können Ort, Zeit, Ziel und Dokumentationsweise geplant sein; offen bedeutet nicht beliebig oder ohne Verantwortung.",
+          "Narrative Beobachtung beschreibt eine konkrete Situation ausführlich, meist in zeitlicher Reihenfolge. Handlungen, Äußerungen, beteiligte Personen und Kontext bleiben nachvollziehbar. Eine Geschichte in diesem Sinn ist ein sachlicher Bericht und keine erfundene Erklärung innerer Motive.",
+          "Beides lässt sich kombinieren: Eine frei gewählte Spielszene wird narrativ protokolliert. Beschreibung und spätere Deutung werden getrennt. Wird nur zusammenfassend „spielte schön“ notiert, gehen Handlungsschritte und mögliche Lernstrategien verloren."
+        ],
+        "intro": "Freie Beobachtung hält die Merkmalsauswahl offen; narrative Beobachtung stellt den beobachteten Ablauf ausführlich und beschreibend dar. Beide können Teil eines geplanten, transparenten und fachlich verantworteten Vorgehens sein.",
+        "caseStudy": {
+          "scenario": "Ein Kind baut einen Turm, verändert nach jedem Einsturz die Basis und erklärt die Änderungen.",
+          "analysis": "Ein chronologischer Bericht zeigt Versuche und Strategien besser als die pauschale Notiz „hat gebaut“. Die spätere Erklärung des Lernprozesses ist von der Beschreibung zu trennen.",
+          "action": "Handlungen und Äußerungen in Reihenfolge notieren, Kontext ergänzen und anschließend mögliche Lernstrategien reflektieren. Erfundenen Gedanken des Kindes keinen Platz im Beobachtungsbericht geben."
+        }
+      },
+      {
+        "id": "stichproben",
+        "title": "8. Zeitstichprobe und Ereignisstichprobe",
+        "takeaway": "Zeitstichprobe legt fest, wann beobachtet wird; Ereignisstichprobe, welches Auftreten erfasst wird.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Bei einer Zeitstichprobe werden vorher vereinbarte Zeitpunkte oder Intervalle genutzt, beispielsweise kurze Beobachtungsfenster während des Freispiels. So kann Aufmerksamkeit verteilt und die Erfassung vergleichbar organisiert werden. Ereignisse außerhalb der Fenster können unbemerkt bleiben.",
+          "Bei einer Ereignisstichprobe wird jedes Auftreten eines vorher definierten Ereignisses innerhalb eines festgelegten Beobachtungszeitraums dokumentiert, etwa ein Kontaktangebot. Das Ereignis muss klar beschrieben sein, damit verschiedene Beobachtende ähnlich zuordnen können.",
+          "Die Wahl hängt von der Frage ab. Häufigkeiten ohne Beobachtungsdauer sind kaum vergleichbar: Drei Ereignisse in fünf Minuten bedeuten etwas anderes als drei im ganzen Vormittag. Seltene Ereignisse können lange Erhebungszeiten verlangen; Schutz und sonstige Aufgaben bleiben gesichert."
+        ],
+        "intro": "Stichproben legen fest, welche Ausschnitte einer Situation erfasst werden. Zeitstichproben orientieren sich an vorher bestimmten Zeitfenstern, Ereignisstichproben am Auftreten eines klar definierten Verhaltens innerhalb eines festgelegten Zeitraums.",
+        "caseStudy": {
+          "scenario": "Ein Team möchte Kontaktangebote während des Freispiels erfassen.",
+          "analysis": "Beobachtung jede fünfte Minute ist eine Zeitstichprobe. Die Erfassung jedes definierten Kontaktangebots während einer halben Stunde ist eine Ereignisstichprobe. Beide erfassen nicht automatisch dasselbe.",
+          "action": "Frage, Dauer und Erfassungsregel vorab festhalten. Ergebnisse nur unter Berücksichtigung der Beobachtungszeit und möglicher verpasster Ereignisse vergleichen."
+        }
       },
       {
         "id": "planung",
-        "title": "4. Planung und sachliches Protokoll",
+        "title": "9. Planung und sachliches Protokoll",
         "materialIds": [
           "bk2-lf2-4-9-planung-einer-systematische-beobachtung",
           "bk2-lf2-4-7-freie-beobachtung-fallbeispiel-anna",
@@ -779,11 +926,17 @@
           "Protokollvorlage: Datum, Uhrzeit und Dauer; pseudonymisierte Kennung; Ort und Rahmen; beteiligte Personen; beobachtbare Handlungsfolge und wörtliche Aussagen; eigene Eingriffe. Getrennte Felder für Deutungen, offene Fragen und vereinbarte nächste Schritte verwenden. Nur notwendige Angaben erfassen.",
           "Sachlicher Eintrag: „9:10–9:12: A reicht B einen Klotz und sagt: ,Für deine Brücke.‘ B nimmt ihn. A setzt sich daneben.“ Deutung getrennt: „Möglicherweise Kontaktaufnahme über Material.“ Daraus folgt nicht, dass A in jeder Situation sicher Kontakt aufnimmt.",
           "Dokumentation geschützt ablegen, Zugriff auf zuständige Personen begrenzen und institutionelle Lösch- und Aufbewahrungsregeln beachten. Eine Kennung ist noch keine Anonymisierung, wenn die Zuordnung möglich bleibt. Ergebnisse mit Blick auf ihren Zweck auswerten und nicht unbegrenzt sammeln."
-        ]
+        ],
+        "intro": "Geplante Beobachtung legt Ziel, Gegenstand und Bedingungen vorab fest. Ein nachvollziehbares Protokoll trennt die Erhebung von späteren Erklärungen und macht sichtbar, wie aus Beobachtungen pädagogische Entscheidungen entstehen.",
+        "caseStudy": {
+          "scenario": "Untersucht werden soll, wie ein Kind im Freispiel Kontakt zu anderen aufnimmt.",
+          "analysis": "„Ist sozial kompetent“ wäre zu unbestimmt. Beobachtbar sind etwa Ansprache, Zeigen, Anbieten von Material und Reaktionen anderer; mehrere Situationen ergeben ein differenzierteres Bild.",
+          "action": "Zeit, Ort, Zuständigkeit, Merkmale und Dokumentation festlegen, andere Aufgaben absichern und Beobachtungsnotizen geschützt ablegen. Ergebnisse kollegial prüfen, bevor eine Maßnahme vereinbart wird."
+        }
       },
       {
         "id": "qualitaet",
-        "title": "5. Gütekriterien und Beobachtungsfehler",
+        "title": "10. Gütekriterien und Beobachtungsfehler",
         "materialIds": [
           "bk2-lf2-4-10-ubersicht-verfahren",
           "bk2-lf2-4-15-beobachtungsfehler",
@@ -813,11 +966,17 @@
           "Typisierung: Ein vorgefasster Typ bestimmt Erwartungen; Unterschiede des einzelnen Kindes geraten aus dem Blick.",
           "Gegensteuern: Konkret protokollieren, Deutungen kennzeichnen, andere Perspektiven und weitere Situationen einbeziehen.",
           "Anwendung: Zwei Fachkräfte nutzen dieselben klaren Kategorien (Objektivität). Bei vergleichbaren Bedingungen stimmen wiederholte Erfassungen ausreichend überein (Reliabilität). Eine Frage nach Sprachverständnis wird nicht allein über die Lautstärke des Sprechens beurteilt (Validität). Ein kurzer geeigneter Bogen passt zum Dienstplan (Praktikabilität). Ein leicht ausfüllbarer Bogen ist damit noch nicht automatisch gültig."
-        ]
+        ],
+        "intro": "Gütekriterien helfen einzuschätzen, ob ein Verfahren nachvollziehbare und geeignete Ergebnisse liefert. Objektivität, Reliabilität, Validität und Praktikabilität beantworten verschiedene Fragen und dürfen nicht gleichgesetzt werden.",
+        "caseStudy": {
+          "scenario": "Ein Bogen zählt zuverlässig, wie oft ein Kind spricht, soll aber Sprachverständnis beurteilen.",
+          "analysis": "Wiederholte ähnliche Zählungen können zuverlässig sein. Die Häufigkeit allein erfasst jedoch nicht ausreichend, ob das Kind Äußerungen versteht: Hier ist die Validität fraglich.",
+          "action": "Prüfen, welches Merkmal tatsächlich erfasst wird, und ein passendes Verfahren wählen. Klare Kriterien und geschulte Anwendung unterstützen die Qualität, garantieren aber keine fehlerfreie Beobachtung."
+        }
       },
       {
         "id": "fehler",
-        "title": "6. Fünf Beobachtungsfehler erkennen",
+        "title": "11. Fünf Beobachtungsfehler erkennen",
         "materialIds": [
           "bk2-lf2-4-15-beobachtungsfehler",
           "bk2-lf2-4-16-arbeitsblatt-beobachtungsfehler"
@@ -829,11 +988,37 @@
           "Typisierung: Ein Kind wird einem vermeintlichen Typ zugeordnet, etwa „typisches Einzelkind, kann nicht teilen“. Gegenmaßnahme: Gruppenzuschreibungen durch individuelle, konkrete Verhaltensbeschreibungen ersetzen.",
           "Subjektivismus: Eigene Vorlieben oder Erfahrungen werden zum Maßstab, etwa ruhiges Verhalten grundsätzlich höher zu bewerten als lebhaftes. Gegenmaßnahme: eigene Normen offenlegen, fachliche Kriterien verwenden und andere Perspektiven einbeziehen.",
           "Logischer Fehler: Von einer Eigenschaft wird ohne Beleg auf eine andere geschlossen, etwa „Wer gut spricht, löst auch alle sozialen Konflikte gut“. Gegenmaßnahme: jeden relevanten Bereich eigenständig beobachten; eine plausible Verbindung ist noch kein Nachweis."
-        ]
+        ],
+        "intro": "Beobachtungsfehler entstehen, wenn Erwartungen, voreilige Urteile oder eigene Maßstäbe Wahrnehmung und Auswertung verzerren. Sie werden durch systematisches Vorgehen, Selbstreflexion und den Vergleich unterschiedlicher Perspektiven begrenzt.",
+        "caseStudy": {
+          "scenario": "Ein Kind bekommt keine schwierigen Bauaufgaben, weil eine Fachkraft es für ungeschickt hält.",
+          "analysis": "Die Erwartung reduziert Lerngelegenheiten. Bleiben Fortschritte aus, wirkt dies scheinbar wie eine Bestätigung; das eigene Verhalten trägt jedoch zur Situation bei.",
+          "action": "Reale Versuchsmöglichkeiten mit angemessener Unterstützung anbieten, eigene Eingriffe protokollieren und andere Situationen einbeziehen. Die Zuschreibung an konkreten Gegenbeispielen überprüfen."
+        }
+      },
+      {
+        "id": "leu",
+        "title": "12. Drei Beobachtungsperspektiven nach Leu",
+        "takeaway": "Kind verstehen, Entwicklung nachvollziehen und Risiken erkennen sind verschiedene Blickrichtungen.",
+        "materialIds": [
+          "bk2-lf2-pp-4-beobachtung"
+        ],
+        "points": [
+          "Ebene A richtet den Blick auf das einzelne Kind: Interessen, Bedürfnisse, Kompetenzen und individuelle Bildungs- und Lernwege. Eine ausführliche Spielbeobachtung kann zeigen, welche Fragen das Kind verfolgt und wie es Lösungen sucht.",
+          "Ebene B betrachtet Entwicklungsstand und Entwicklungsverlauf in ausgewählten Bereichen. Wiederholte Beobachtungen machen Veränderungen sichtbar. Altersbezogene Orientierungen werden mit individuellen Voraussetzungen und Kontext verbunden, nicht als vollständige Bewertung der Person verwendet.",
+          "Ebene C dient dem frühen Erkennen möglicher Entwicklungsrisiken. Hinweise können eine genauere Abklärung anstoßen. Ein auffälliger Wert oder eine einzelne Szene stellt keine medizinische oder psychologische Diagnose dar.",
+          "Die Perspektiven ergänzen sich. Die pädagogische Fragestellung entscheidet, welcher Blick und welches Verfahren gerade sinnvoll ist. Ein risikoorientiertes Screening ersetzt weder das Verstehen eines Lernprozesses noch eine vollständige Beschreibung aller Ressourcen."
+        ],
+        "intro": "Das Unterrichtsmodell nach Hans Rudolf Leu unterscheidet drei Beobachtungsperspektiven: das Kind und seine Lernwege verstehen, Entwicklung in Bereichen nachvollziehen und mögliche Entwicklungsrisiken früh erkennen. Die Perspektiven sind ergänzend, nicht austauschbar.",
+        "caseStudy": {
+          "scenario": "Beim Bauen interessiert sich ein Kind für besonders hohe Türme; zugleich liegen Fragen zu seiner motorischen Entwicklung vor.",
+          "analysis": "Perspektive A fragt nach Interesse und Lernstrategie, B nach beobachteten motorischen Veränderungen. C wäre auf mögliche Risikohinweise gerichtet und nicht aus dem Spielinteresse allein abzuleiten.",
+          "action": "Die Fragen getrennt bearbeiten und passende Verfahren wählen. Ressourcen sichtbar halten; möglichen Abklärungsbedarf mit den zuständigen Fachpersonen besprechen statt selbst eine Diagnose zu vergeben."
+        }
       },
       {
         "id": "verfahren",
-        "title": "7. Verfahren und Lerngeschichten",
+        "title": "13. Verfahren und Lerngeschichten",
         "materialIds": [
           "bk2-lf2-4-10-ubersicht-verfahren",
           "bk2-lf2-4-13-bildungs-und-lerngeschichten"
@@ -892,11 +1077,17 @@
               "Einschätzung braucht Übung und Kontext; geringe Engagiertheit ist keine feste Eigenschaft des Kindes."
             ]
           ]
+        },
+        "intro": "Beobachtungsverfahren ordnen Wahrnehmungen mit unterschiedlichen Zielen. Ein Überblick über Entwicklung, die Beobachtung bestimmter Kompetenzen, das Verstehen von Lernprozessen und ein Screening erfüllen nicht denselben Zweck.",
+        "caseStudy": {
+          "scenario": "Ein Team fragt, warum ein Kind in einer bestimmten Lernumgebung kaum vertieft spielt.",
+          "analysis": "Die Frage betrifft Lernbedingungen und Engagiertheit. Ein bloßer Entwicklungsmeilenstein beantwortet sie nicht; ein prozessorientierter Blick kann besser passen.",
+          "action": "Fragestellung und Einsatzbedingungen mit dem Manual des Verfahrens abgleichen. Bei Engagiertheit etwa den Leuvener Ansatz prüfen; bei Sprache ein dazu passendes Verfahren wählen und Grenzen beachten."
         }
       },
       {
         "id": "lerngeschichten",
-        "title": "8. Lerndispositionen und pädagogischer Kreislauf",
+        "title": "14. Lerndispositionen und pädagogischer Kreislauf",
         "materialIds": [
           "bk2-lf2-4-13-bildungs-und-lerngeschichten",
           "bk2-lf2-4-11-auswertung-von-beobachtungen"
@@ -906,11 +1097,17 @@
           "Eigenes Übungsbeispiel: Kinder bauen eine Regenrinne für Wasser. Interesse zeigt sich am genauen Beobachten des Wasserlaufs; Engagement am vertieften Weiterbauen; Standhalten am erneuten Versuch nach einem Leck; Ausdruck am Erklären und Zeigen der Idee; Mitwirken an der Lerngemeinschaft am Abstimmen und Helfen. Jede Zuordnung benötigt eine konkrete Beobachtung, nicht nur ein Lobwort.",
           "Vorgehen: Zuerst sachlich beobachten, anschließend Lerndispositionen und Kontext deuten, kollegial alternative Perspektiven prüfen und eine verständliche Geschichte für das Kind schreiben. Gemeinsam besprechen: „Wie hast du die undichte Stelle gefunden?“ Seine Sicht ergänzt die Erwachsenenperspektive.",
           "Nächste Schritte aus Interessen ableiten, etwa andere Verbindungsmaterialien bereitstellen, statt sofort eine fertige Lösung zu demonstrieren. Später prüfen, welche Strategien das Kind erprobt und welche Unterstützung hilfreich war. Lerngeschichten verstehen Prozesse; ein Screening sucht nach Hinweisen auf weiteren Abklärungsbedarf. Beide Zwecke dürfen nicht verwechselt werden."
-        ]
+        ],
+        "intro": "Bildungs- und Lerngeschichten machen individuelle Interessen, Strategien und Lerndispositionen sichtbar. Die schriftliche Geschichte verbindet belegbare Beobachtungen mit einer reflektierten Deutung und dem Gespräch mit dem Kind.",
+        "caseStudy": {
+          "scenario": "Kinder reparieren gemeinsam einen undichten Wasserlauf und erklären ihre Versuche.",
+          "analysis": "Erneutes Ausprobieren kann Standhalten zeigen, das Erklären Ausdruck und das Abstimmen gemeinschaftliches Lernen. Eine Lerndisposition wird an Handlungen und Aussagen belegt, nicht nur behauptet.",
+          "action": "Eine verständliche Geschichte mit konkreten Szenen schreiben, die Sicht der Kinder einbeziehen und weitere Materialien aus ihrem Interesse ableiten. Später prüfen, welche neuen Strategien sichtbar werden."
+        }
       },
       {
         "id": "auswertung",
-        "title": "9. Auswertung und Grenzen",
+        "title": "15. Auswertung und Grenzen",
         "materialIds": [
           "bk2-lf2-4-11-auswertung-von-beobachtungen",
           "bk2-lf2-4-8-ethische-und-rechtliche-grenzen-beobachtung",
@@ -921,42 +1118,13 @@
           "Situation darstellen → Wahrnehmungen sammeln → Ressourcen herausarbeiten → Unterstützungsbedarf formulieren → Handlungsmöglichkeiten vereinbaren.",
           "Beobachtungen bleiben situationsabhängig und von der Wahrnehmung der Fachkraft beeinflusst. Sie ersetzen keine fachzuständige Diagnostik.",
           "Privatsphäre respektieren und personenbezogene Aufzeichnungen vertraulich sowie entsprechend den Vorgaben der Einrichtung behandeln."
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Im Protokoll steht: „Ben will nie mit anderen spielen.“ Beobachtet wurden am Dienstag von 9:00 bis 9:10 nur zehn Minuten: Ben baut allein, schaut zweimal zu zwei Kindern und hält einen Klotz hoch. Die anderen reagieren nicht sichtbar.",
-      "analysis": "„Nie“ ist voreilig, „will nicht“ eine unbelegte Absichtszuschreibung. Das Hochhalten könnte Kontaktaufnahme, Zeigen oder etwas anderes bedeuten. Seine Konzentration und Bauideen sind Ressourcen. Für die Frage nach Kontaktverhalten eignet sich eine geplante Alltagsbeobachtung; aus dieser Szene allein ist kein Screeningbefund ableitbar.",
-      "action": "Protokoll korrigieren, mögliche Deutungen getrennt notieren und in weiteren Situationen Kontaktangebote und Reaktionen beobachten. Ben nach seiner Idee fragen, wenn es passt. Im Team eine zugängliche gemeinsame Baugelegenheit planen; nach einer Woche Beteiligung und hilfreiche Bedingungen vergleichen. Ergebnisse zweckgebunden dokumentieren und keine Diagnose aus dem Etikett ableiten."
-    },
-    "review": [
-      {
-        "question": "Was unterscheidet Reliabilität und Validität?",
-        "answer": "Reliabilität meint Zuverlässigkeit, Validität das Erfassen des beabsichtigten Merkmals."
-      },
-      {
-        "question": "Warum ist „offen“ nicht das Gegenteil von „teilnehmend“?",
-        "answer": "Offen betrifft das Wissen der beobachteten Person; teilnehmend die Beteiligung der Fachkraft."
-      },
-      {
-        "question": "Was folgt aus einem nicht erreichten Grenzstein?",
-        "answer": "Möglichen Unterstützungs- oder Abklärungsbedarf prüfen; daraus allein keine Entwicklungsstörung ableiten."
-      },
-      {
-        "question": "Welches Verfahren passt zur Frage nach Lernengagement, welches zu Sprache?",
-        "answer": "Für Lernengagement kann die Leuvener Engagiertheitsskala helfen; für Sprache je nach Zielgruppe und Zweck SISMIK, SELDAK oder BaSiK. Entscheidend ist die Fragestellung; kein Verfahren beantwortet alle Entwicklungsfragen."
-      },
-      {
-        "question": "Wie unterscheidest du logischen Fehler und Typisierung?",
-        "answer": "Beim logischen Fehler wird von einem Merkmal unbelegt auf ein anderes geschlossen. Bei Typisierung steuert eine Gruppenschablone das Urteil. In beiden Fällen braucht es konkrete individuelle Beobachtungen statt scheinbar plausibler Zuschreibungen."
-      },
-      {
-        "question": "Ist eine freie Beobachtung ohne vorgegebenen Bogen immer unsystematisch?",
-        "answer": "Nein. Fragestellung, Zeit, Ort und Vorgehen können geplant sein, während die Beschreibung offen bleibt. Strukturiertheit und Systematik betreffen unterschiedliche Aspekte."
-      },
-      {
-        "question": "Woran erkennst du „Standhalten“ in einer Lerngeschichte?",
-        "answer": "An beobachtbaren Handlungen nach einer Schwierigkeit, etwa einer neuen Dichtung nach einem Leck. „War toll“ reicht nicht. Die Deutung wird durch konkrete Versuche und Aussagen begründet und mit der Sicht des Kindes abgeglichen."
+        ],
+        "intro": "Auswertung verwandelt Beobachtungsdaten in begründete pädagogische Entscheidungen. Sie prüft Ressourcen, mögliche Erklärungen und Bedingungen, bezieht andere Perspektiven ein und bleibt sich der Grenzen der Daten bewusst.",
+        "caseStudy": {
+          "scenario": "Im Protokoll steht: „Ben will nie mit anderen spielen.“ Beobachtet wurden am Dienstag von 9:00 bis 9:10 nur zehn Minuten: Ben baut allein, schaut zweimal zu zwei Kindern und hält einen Klotz hoch. Die anderen reagieren nicht sichtbar.",
+          "analysis": "„Nie“ ist voreilig, „will nicht“ eine unbelegte Absichtszuschreibung. Das Hochhalten könnte Kontaktaufnahme, Zeigen oder etwas anderes bedeuten. Seine Konzentration und Bauideen sind Ressourcen. Für die Frage nach Kontaktverhalten eignet sich eine geplante Alltagsbeobachtung; aus dieser Szene allein ist kein Screeningbefund ableitbar.",
+          "action": "Protokoll korrigieren, mögliche Deutungen getrennt notieren und in weiteren Situationen Kontaktangebote und Reaktionen beobachten. Ben nach seiner Idee fragen, wenn es passt. Im Team eine zugängliche gemeinsame Baugelegenheit planen; nach einer Woche Beteiligung und hilfreiche Bedingungen vergleichen. Ergebnisse zweckgebunden dokumentieren und keine Diagnose aus dem Etikett ableiten."
+        }
       }
     ]
   },
@@ -975,12 +1143,17 @@
           "bk2-lf3-pp-5-einfuhrung-kommunikation"
         ],
         "takeaway": "Eine Botschaft senden bedeutet noch nicht, dass sie wie beabsichtigt verstanden wurde.",
-        "intro": "Das einfache Modell lautet Sender → Botschaft → Empfänger. Im Gespräch wechseln die Rollen. Kommunikation nutzt Zeichen und umfasst mehr als gesprochene Sprache.",
+        "intro": "Kommunikation ist ein wechselseitiger Verständigungsprozess. Menschen teilen mit Worten, Stimme und Verhalten etwas mit; was eine andere Person daraus versteht, wird durch Situation, Erfahrungen und Erwartungen mitbestimmt.",
         "points": [
           "Ein sprachliches Zeichen verbindet Lautbild und Vorstellung. „Baum“, „tree“ und „arbre“ zeigen, dass dieselbe Vorstellung mit unterschiedlichen Lautbildern verbunden werden kann.",
           "Auch Schweigen kann in einer Interaktion kommunikativ wirken. Welche Bedeutung es hat, lässt sich daraus allein nicht sicher ableiten.",
           "Professionell kommunizieren heißt klar, respektvoll, situations- und adressatengerecht sowie ziel- und lösungsorientiert vorzugehen. Das schließt eine begründete andere Meinung ein."
-        ]
+        ],
+        "caseStudy": {
+          "scenario": "Eine Fachkraft sagt knapp „Gleich“, als ein Kind Hilfe sucht.",
+          "analysis": "Gemeint sein kann eine kurze Wartezeit; das Kind kann sich dennoch abgewiesen fühlen. Wort, Tonfall und bisherige Erfahrungen wirken zusammen.",
+          "action": "Die Zusage konkretisieren, Kontakt signalisieren und verlässlich zurückkommen. Bei Missverständnissen nachfragen und die eigene Wirkung reflektieren."
+        }
       },
       {
         "id": "verstaendigung",
@@ -994,7 +1167,13 @@
           "Im einfachen Sender-Botschaft-Empfänger-Modell formuliert eine Person eine Mitteilung, eine andere deutet sie im jeweiligen Kontext. Störgeräusche, Vorwissen, Erwartungen, Sprachbarrieren und Gefühle können das Verstehen verändern. Rückfragen und Rückmeldungen machen aus bloßem Senden einen Austausch.",
           "Verbale, nonverbale und paraverbale Signale wirken zusammen: Wortwahl, Blick und Körperhaltung sowie Tonfall, Lautstärke und Sprechtempo. Ein leises „Ist schon gut“ mit abgewandtem Blick kann unterschiedlich gemeint sein. Wahrnehmen und nachfragen, statt aus Körpersprache sicher auf ein Gefühl zu schließen.",
           "Der im Unterricht aufgegriffene Gedanke „Man kann nicht nicht kommunizieren“ lenkt den Blick auf die Wirkung auch von Schweigen oder Wegsehen. Er liefert keine eindeutige Übersetzung jedes Verhaltens. Professionell ist, die eigene Deutung als Vermutung zu behandeln und Verständigung zu ermöglichen."
-        ]
+        ],
+        "intro": "Verständigung gelingt, wenn Beteiligte Bedeutungen ausreichend teilen und ihr Verständnis prüfen können. Das einfache Kommunikationsmodell hilft, zwischen gemeinter Botschaft, übermittelten Signalen und der Deutung durch die empfangende Person zu unterscheiden.",
+        "caseStudy": {
+          "scenario": "Im Gespräch wird gesagt, ein Kind brauche „mehr Förderung“, ohne dies zu erläutern.",
+          "analysis": "Der Begriff kann für Familie und Fachkraft unterschiedliche Vorstellungen auslösen. Eine scheinbar klare Nachricht ist deshalb noch kein geteiltes Verständnis.",
+          "action": "Konkrete Beobachtungen und passende Unterstützung beschreiben, Fachwörter erklären und die Sicht der Familie erfragen. Gemeinsam zusammenfassen, was vereinbart wurde."
+        }
       },
       {
         "id": "zuhoeren",
@@ -1008,7 +1187,13 @@
           "Offene Fragen ermöglichen Erzählungen: „Was hat Ihnen gefehlt?“ Geschlossene Fragen klären gezielt Fakten: „Ging es um den Ausflug am Dienstag?“ Suggestivfragen wie „Sie haben den Aushang wohl wieder nicht gelesen?“ enthalten bereits einen Vorwurf und erschweren die Klärung.",
           "Mit Kindern: Auf Augenhöhe sprechen, kurze verständliche Sätze und ausreichend Antwortzeit anbieten. Gefühle anerkennen, ohne Verhalten ungeprüft zu billigen: „Du bist wütend. Ich lasse nicht zu, dass du schlägst. Zeig mir, was du brauchst.“ Gesten, Bilder oder andere Kommunikationshilfen können Beteiligung eröffnen.",
           "Gesprächskultur im Team: Kritik an überprüfbarem Verhalten ausrichten, Nachfragen ermöglichen und keine Diagnose über Motive stellen. Die drei W — Wahrnehmung, Wirkung, Wunsch — sind hier eine Struktur für eine Ich-Botschaft; sie sind nicht automatisch ein vollständiges Modell Gewaltfreier Kommunikation."
-        ]
+        ],
+        "intro": "Aktives Zuhören richtet die Aufmerksamkeit auf Inhalt, Anliegen und wahrgenommene Gefühle. Paraphrasieren, offene Fragen und behutsames Klären machen Verständnis überprüfbar; Zuhören ist weder automatisches Zustimmen noch vorschnelles Beraten.",
+        "caseStudy": {
+          "scenario": "Eine Mutter sagt: „Mein Kind erzählt zu Hause gar nichts von der Kita.“",
+          "analysis": "Dahinter kann eine Sorge um Wohlbefinden, Information oder Beziehung stehen. Die Aussage allein benennt das genaue Anliegen noch nicht.",
+          "action": "Zusammenfassen und offen fragen: „Sie wünschen sich mehr Einblick. Was würde Ihnen dabei besonders helfen?“ Anschließend konkrete Beobachtungen und geeignete Informationswege besprechen."
+        }
       },
       {
         "id": "vorbereiten",
@@ -1030,7 +1215,13 @@
             "term": "Gesprächsanlässe mit Eltern",
             "definition": "Zum Beispiel Aufnahme-, Entwicklungs-, Beratungs-, Informations-, Beschwerde- und Konfliktgespräche sowie kurze Tür-und-Angel-Gespräche."
           }
-        ]
+        ],
+        "intro": "Gesprächsvorbereitung klärt Anlass, Ziel, Beobachtungsgrundlage, offene Fragen, Rahmen und eigene Haltung. Sie schafft Orientierung, ohne die Antworten oder die gemeinsame Lösung bereits vorwegzunehmen.",
+        "caseStudy": {
+          "scenario": "Ein Entwicklungsgespräch soll stattfinden, weil ein Kind selten an großen Gruppenangeboten teilnimmt.",
+          "analysis": "Nur Schwierigkeiten zu sammeln würde ein einseitiges Bild erzeugen. Auch gelingende Situationen, Interessen und die Sicht der Familie sind relevant.",
+          "action": "Sachliche Beispiele, Stärken und offene Fragen vorbereiten, Zeit und ruhigen Raum vereinbaren und mögliche nächste Schritte offen halten. Nach dem Gespräch Zuständigkeiten und Überprüfung festlegen."
+        }
       },
       {
         "id": "gespraechsarten",
@@ -1045,7 +1236,13 @@
           "Beschwerdegespräch: Unzufriedenheit konkretisieren, Perspektiven klären und eine überprüfbare Abhilfe vereinbaren. Konfliktgespräch: unterschiedliche Interessen und Grenzen bearbeiten, ohne Personen abzuwerten. Ein Gespräch kann mehrere Anlässe verbinden; das Ziel sollte deshalb zu Beginn gemeinsam geklärt werden.",
           "Vorbereitung anhand von sechs Fragen: Was ist der Anlass? Was möchte ich erreichen? Welche konkreten Beobachtungen liegen vor? Welche offenen Fragen habe ich? Welcher Ort, Zeitpunkt und welche Beteiligten passen? Mit welcher Haltung gehe ich hinein? Bei einem Entwicklungsgespräch etwa nicht nur Schwierigkeiten sammeln, sondern Ressourcen und die Perspektive der Familie einplanen.",
           "Abschluss: Vereinbarung in eigenen Worten zusammenfassen, Zuständigkeiten und Zeitpunkt der Rückmeldung festlegen, Einverständnis prüfen und notwendige Ergebnisse geschützt dokumentieren. Eine Zusage wie „Wir kümmern uns“ ist ohne konkrete Handlung schwer überprüfbar."
-        ]
+        ],
+        "intro": "Gesprächsarten werden nach ihrem Anlass und Zweck unterschieden. Aufnahme, Entwicklung, Beratung, Information, Beschwerde und Konflikt verlangen jeweils einen passenden Rahmen; kurze Alltagsabsprachen ersetzen keine geschützte ausführliche Besprechung.",
+        "caseStudy": {
+          "scenario": "Beim Abholen möchte ein Elternteil vor mehreren wartenden Familien über eine belastende Entwicklungssorge sprechen.",
+          "analysis": "Das Anliegen ist wichtig, aber der Türbereich bietet wenig Vertraulichkeit und Zeit. Bei akutem Schutzbedarf darf ein Terminangebot jedoch keine notwendige unmittelbare Hilfe verzögern.",
+          "action": "Dringlichkeit kurz klären, das Anliegen ernst nehmen und zeitnah einen ruhigen Rahmen vereinbaren. Sensible Einzelheiten vor Unbeteiligten vermeiden."
+        }
       },
       {
         "id": "beschwerden",
@@ -1085,7 +1282,13 @@
         "points": [
           "Offene Fragen lassen eine eigene Schilderung zu: „Wie erleben Sie Ihr Kind in ähnlichen Situationen zu Hause?“",
           "Rechtfertigung, Gegenangriff, Schuldzuweisung, Verallgemeinerung und Abblocken können das Gespräch verschärfen."
-        ]
+        ],
+        "intro": "Beschwerden benennen erlebte Unzufriedenheit und können Hinweise auf Verbesserungsbedarf geben. Professionelle Bearbeitung verbindet Zuhören und Anerkennen von Emotionen mit sachlicher Klärung, eigener Perspektive und einer überprüfbaren Lösung.",
+        "caseStudy": {
+          "scenario": "Ein Vater sagt beim Abholen vor anderen Eltern: „Sie informieren uns nie! Meine Tochter stand ohne Regenjacke beim Ausflug da.“ Du erinnerst dich an einen Aushang und fühlst dich angegriffen.",
+          "analysis": "„Dann müssen Sie eben lesen“ wäre ein Gegenangriff und klärt weder Informationsweg noch Versorgung des Kindes. „Nie“ ist eine Verallgemeinerung, hinter der eine konkrete Sorge liegen kann. Zunächst das aktuelle Wohlergehen des Kindes klären und für die weitere Besprechung einen geschützten Rahmen anbieten.",
+          "action": "„Ich höre, dass Sie besorgt sind. Welche Nachricht hat Sie zum Ausflug erreicht?“ Nach seiner Antwort zusammenfassen, dann eigene Beobachtung sachlich ergänzen: „Wir hatten einen Aushang; offenbar hat er Sie nicht erreicht.“ Vereinbaren: Die zuständige Fachkraft prüft bis morgen den vereinbarten Informationsweg und meldet sich zurück. Für den nächsten Ausflug wird geklärt, wie notwendige Ausrüstung zuverlässig organisiert ist. Nach dem Termin gemeinsam prüfen, ob die Absprache funktioniert."
+        }
       },
       {
         "id": "team",
@@ -1100,42 +1303,13 @@
           "Wunsch: „Bitte gib mir bis morgen Bescheid, wann du die Liste fertigstellen kannst.“",
           "Beobachtung und Etikett unterscheiden: „hat beim Freispiel zweimal geschubst“ ist konkreter als „ist aggressiv“.",
           "Am Gesprächsende Vereinbarung, Zuständigkeiten und gegebenenfalls den nächsten Austausch klären. Währenddessen prüfen: Höre ich zu? Frage ich nach? Bleibe ich sachlich?"
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Ein Vater sagt beim Abholen vor anderen Eltern: „Sie informieren uns nie! Meine Tochter stand ohne Regenjacke beim Ausflug da.“ Du erinnerst dich an einen Aushang und fühlst dich angegriffen.",
-      "analysis": "„Dann müssen Sie eben lesen“ wäre ein Gegenangriff und klärt weder Informationsweg noch Versorgung des Kindes. „Nie“ ist eine Verallgemeinerung, hinter der eine konkrete Sorge liegen kann. Zunächst das aktuelle Wohlergehen des Kindes klären und für die weitere Besprechung einen geschützten Rahmen anbieten.",
-      "action": "„Ich höre, dass Sie besorgt sind. Welche Nachricht hat Sie zum Ausflug erreicht?“ Nach seiner Antwort zusammenfassen, dann eigene Beobachtung sachlich ergänzen: „Wir hatten einen Aushang; offenbar hat er Sie nicht erreicht.“ Vereinbaren: Die zuständige Fachkraft prüft bis morgen den vereinbarten Informationsweg und meldet sich zurück. Für den nächsten Ausflug wird geklärt, wie notwendige Ausrüstung zuverlässig organisiert ist. Nach dem Termin gemeinsam prüfen, ob die Absprache funktioniert."
-    },
-    "review": [
-      {
-        "question": "Warum ist Schweigen nicht eindeutig?",
-        "answer": "Es kann kommunikativ wirken, aber unterschiedliche Bedeutungen haben. Die konkrete Situation muss geklärt werden."
-      },
-      {
-        "question": "Wie ist eine Ich-Botschaft aufgebaut?",
-        "answer": "Konkrete Wahrnehmung, Auswirkung und Wunsch beziehungsweise Bitte."
-      },
-      {
-        "question": "Was gehört an das Gesprächsende?",
-        "answer": "Eine konkrete Vereinbarung mit Zuständigkeiten und, falls nötig, einem Termin zum erneuten Austausch."
-      },
-      {
-        "question": "Ist aktives Zuhören dasselbe wie Zustimmen?",
-        "answer": "Nein. Ich prüfe, ob ich Anliegen und Gefühl verstanden habe. Tatsachen und unterschiedliche Sichtweisen können anschließend geklärt werden. „Sie sind besorgt“ bestätigt ein wahrgenommenes Gefühl, nicht jede Behauptung."
-      },
-      {
-        "question": "Formuliere eine offene Frage statt eines Vorwurfs.",
-        "answer": "Statt „Warum lesen Sie nie unsere Nachrichten?“: „Wie erhalten Sie unsere Informationen bisher, und was wäre für Sie gut nutzbar?“ Die Frage ermöglicht eine eigene Schilderung und sucht eine Lösung statt Schuld."
-      },
-      {
-        "question": "Wie reagierst du auf ein sensibles Thema im Tür-und-Angel-Gespräch?",
-        "answer": "Anliegen ernst nehmen, gegebenenfalls akuten Handlungsbedarf klären und einen zeitnahen geschützten Termin vereinbaren. Details vor anderen Familien auszubreiten würde Vertraulichkeit und konzentrierte Klärung erschweren."
-      },
-      {
-        "question": "Warum ist Körpersprache kein eindeutiger Gefühlsbeweis?",
-        "answer": "Derselbe Blick oder dieselbe Haltung kann verschiedene Gründe haben. Ich beschreibe meine Wahrnehmung und frage behutsam nach, statt aus einem Signal sichere Motive abzuleiten."
+        ],
+        "intro": "Sachliche Teamkommunikation richtet Kritik auf konkrete Handlungen und ihre Wirkung. Wahrnehmung, Wirkung und Wunsch strukturieren eine Ich-Botschaft; faire Zusammenarbeit erfordert zusätzlich Zuhören, Aushandlung und verlässliche Vereinbarungen.",
+        "caseStudy": {
+          "scenario": "Eine abgesprochene Materialliste liegt zum Bestelltermin nicht vor.",
+          "analysis": "„Du bist unzuverlässig“ bewertet die Person. Die fehlende Liste und die verzögerte Bestellung sind konkrete und klärbare Aspekte.",
+          "action": "Wahrnehmung und Wirkung benennen, nach Hindernissen fragen und einen realistischen neuen Termin vereinbaren. Zuständigkeiten klären, statt nur einen Vorwurf stehen zu lassen."
+        }
       }
     ]
   },
@@ -1164,7 +1338,13 @@
           "Anspannung und Entspannung: Herausforderung, Erwartung, Gelingen und Erleichterung wechseln sich ab. Anforderungen sollen weder langweilen noch überfordern.",
           "Im Freispiel entscheiden Kinder im vereinbarten Rahmen weitgehend selbst über Tätigkeit, Material, Partner und Verlauf. Die Fachkraft schafft Bedingungen und begleitet.",
           "Spielsituationen können Sprache, Motorik, Problemlösen, Aushandlung und den Umgang mit Gefühlen fördern. Welche Erfahrungen entstehen, hängt von der konkreten Situation ab."
-        ]
+        ],
+        "intro": "Spiel ist eine aus eigenem Antrieb gestaltete Tätigkeit, deren Sinn vor allem im Spielen selbst liegt. Dabei können Kinder Erfahrungen verarbeiten, Beziehungen gestalten und neue Fähigkeiten erproben, ohne dass jede Spielsituation ein vorgegebenes Lernziel erfüllen muss.",
+        "caseStudy": {
+          "scenario": "Ein Kind gießt wiederholt Wasser zwischen zwei Behältern um.",
+          "analysis": "Das Wiederholen kann Freude und intensives Erkunden verbinden. Es muss nicht erst durch eine erwachsene Rechenaufgabe „sinnvoll“ werden; mögliche Erfahrungen betreffen Menge, Bewegung und Material.",
+          "action": "Sicheren Rahmen und passende Gefäße anbieten, Interesse beobachten und auf Fragen eingehen. Das eigene Lernergebnis nicht an die Stelle der Spielidee setzen."
+        }
       },
       {
         "id": "formen",
@@ -1202,6 +1382,12 @@
               "Ein Brettspiel oder ein gemeinsam vereinbartes Fangspiel."
             ]
           ]
+        },
+        "intro": "Spielformen unterscheiden den Schwerpunkt einer Tätigkeit: Funktion und Wiederholung, Herstellen eines Werks, symbolische Bedeutungen und Rollen oder vereinbarte Regeln. Sie können ineinander übergehen und innerhalb einer Szene zusammenwirken.",
+        "caseStudy": {
+          "scenario": "Kinder bauen eine Kasse aus Kartons und spielen anschließend einen Laden.",
+          "analysis": "Das Herstellen ist Konstruktionsspiel; die Als-ob-Situation mit Käufer- und Verkäuferrollen gehört zum Symbol- und Rollenspiel. Das Objekt allein bestimmt die Spielform nicht.",
+          "action": "Nach dem jeweiligen Handlungsschwerpunkt beschreiben und Raum für Übergänge lassen. Material und Unterstützung so anbieten, dass die Kinder eigene Bedeutungen entwickeln können."
         }
       },
       {
@@ -1237,7 +1423,13 @@
           "Untersuchen: Kinder prüfen, wie etwas funktioniert, etwa welche Gegenstände rollen oder wie ein Verschluss aufgeht. Unterschiedliche sichere Alltagsmaterialien und Zeit zum Vergleichen anbieten, statt die Lösung sofort vorzuführen.",
           "Gleichgewicht: Balancieren, Gewichte ausgleichen oder den eigenen Körper in wechselnden Lagen erleben. Niedrige sichere Balancierwege und passende Unterstützung ermöglichen Erfahrungen mit Stabilität und Körperlage. Herausforderung an Fähigkeiten und Umgebung anpassen.",
           "Lerninteressen und Material verbinden: Beim Verbergen wird Verschwinden und Wiederfinden mit Tüchern oder Behältern erkundet; beim Fallenlassen Ursache, Bewegung und Geräusch mit geeigneten weichen Gegenständen; beim Transportieren Raum und Menge mit Körben; beim Verbinden Zusammenhalt mit großen Steckteilen; beim Ordnen Gemeinsamkeiten und Unterschiede mit Sortiermaterial. Verschluckbare Teile, Sturzrisiken und andere Gefahren jeweils berücksichtigen."
-        ]
+        ],
+        "intro": "Spielschemata sind wiederkehrende Handlungsmuster, mit denen Kinder Eigenschaften und Zusammenhänge erkunden. Entscheidend ist das beobachtete Interesse hinter der Wiederholung; ein Schema ist keine starre Diagnose oder feste Persönlichkeitseigenschaft.",
+        "caseStudy": {
+          "scenario": "Ein Kind trägt mehrfach Gegenstände in einen Korb und verteilt sie wieder im Raum.",
+          "analysis": "Transportieren kann Erfahrungen mit Raum, Menge, Gewicht und Beziehungen zwischen Orten ermöglichen. Die Tätigkeit ist nicht allein deshalb störend, weil kein fertiges Produkt entsteht.",
+          "action": "Geeignete Körbe und einen sicheren Transportbereich anbieten, Gruppenbedürfnisse berücksichtigen und genauer beobachten, welche Materialien oder Wege das Kind untersucht."
+        }
       },
       {
         "id": "begleitung",
@@ -1253,7 +1445,13 @@
           "Offene Fragen oder eine Materialergänzung können unterstützen, ohne den Verlauf vorzugeben. Bei Gefahr, Gewalt, anhaltender Ausgrenzung oder deutlicher Überforderung ist ein Eingriff begründet.",
           "Spielzeug nach Entwicklungsstand, Interessen, Sicherheit und vielfältigen Möglichkeiten beurteilen. Die Altersangabe allein reicht nicht.",
           "Spielzeugfreier Kindergarten ist im Unterricht ein zeitlich begrenztes, vorbereitetes Projekt zur Förderung von Lebenskompetenzen. Es verlangt begleitende Fachkräfte, Elternarbeit und Reflexion; es ist kein pauschales Verbot von Spielzeug."
-        ]
+        ],
+        "intro": "Spielbegleitung schafft Bedingungen für eigenständiges Spielen und reagiert auf die tatsächliche Situation. Fachkräfte wechseln begründet zwischen Beobachten, Unterstützen, Mitspielen und schützendem Eingreifen, ohne das Spiel unnötig zu übernehmen.",
+        "caseStudy": {
+          "scenario": "Zwei Kinder kommen bei einer Konstruktion nicht weiter, probieren aber konzentriert verschiedene Lösungen.",
+          "analysis": "Eine Schwierigkeit verlangt nicht automatisch die fertige Erwachsenenlösung. Vertieftes Ausprobieren kann ein produktiver Lernprozess sein, solange Sicherheit und Belastbarkeit gegeben sind.",
+          "action": "Zunächst beobachten, bei Bedarf eine offene Frage oder Materialergänzung anbieten und Hilfe dosieren. Bei Gefahr, Zwang oder anhaltender Ausgrenzung klar eingreifen."
+        }
       },
       {
         "id": "spielzeug",
@@ -1270,7 +1468,13 @@
           "Material, Verarbeitung und Gestaltung: Stabilität, sichere Kanten, passende Oberflächen, übersichtliche Form und Farbe sowie Reinigungs- und Reparaturmöglichkeiten betrachten. Reizfülle ist nicht automatisch anregend. Sicherheit umfasst auch vorhersehbare Nutzung durch jüngere Kinder, nicht nur das vorgesehene Hauptspiel.",
           "Nachhaltigkeit und Menge: Haltbarkeit, Herkunft und Umweltbelastung, Austauschbarkeit, Kosten und vorhandenen Bestand abwägen. Weniger gut ausgewähltes, erreichbares Material kann übersichtlicher sein als übervolle Regale; zu wenig Material kann jedoch Beteiligung verhindern.",
           "Spielzeugfreies Projekt: Vorbereitete begrenzte Phase mit Elterninformation, Beteiligung der Kinder, geeigneten Alltagsmaterialien und begleitender Reflexion. Beobachten, welche neuen Ideen, Konflikte und Bedürfnisse entstehen. Der Abbau von Spielzeug allein erzeugt weder Kreativität noch Resilienz; benötigte Hilfsmittel und sichere Zugänge bleiben zu berücksichtigen."
-        ]
+        ],
+        "intro": "Spielzeugqualität ergibt sich aus der Passung zu Kindern, Spielideen und Nutzungssituation. Entwicklungsangemessenheit, Spielwert, sichere Verarbeitung, Gestaltung, Haltbarkeit und Nachhaltigkeit müssen gemeinsam beurteilt werden.",
+        "caseStudy": {
+          "scenario": "Ein buntes Lernspiel verspricht viele Fähigkeiten, lässt aber nur eine feste Tastenfolge zu.",
+          "analysis": "Werbung und Reizfülle beweisen keinen hohen Spielwert. Ein begrenzter Ablauf kann Spaß machen, eröffnet aber andere Möglichkeiten als offen nutzbares Material.",
+          "action": "Tatsächliche Nutzung beobachten und mit Interessen sowie Möglichkeiten der Kinder abgleichen. Sicherheit, Handhabbarkeit, Reparatur und Alternativen in die Auswahl einbeziehen."
+        }
       },
       {
         "id": "wettbewerb",
@@ -1285,7 +1489,13 @@
           "Glücksspiele und Fertigkeitsspiele unterscheiden: Beim Würfeln bestimmt Zufall viel, beim Zielwerfen spielt Können stärker mit. Wiederholtes Verlieren kann bei ungleichen Voraussetzungen entmutigen. Schwierigkeitsgrad, Teams, Material oder Regeln gemeinsam anpassen, ohne Kinder öffentlich als „schwach“ zu markieren.",
           "Verlieren begleiten: Gefühl benennen, Trost oder Pause anbieten und nach Beruhigung Regeln und nächsten Versuch besprechen. „Ist doch nur ein Spiel“ kann das Erleben abwerten. Gewinner dürfen sich freuen, ohne andere auszulachen; ein Sieg ist kein Maß für den Wert einer Person.",
           "Kooperative Alternative: Gemeinsam eine Strecke oder Bauaufgabe bewältigen statt einzelne Kinder ausscheiden zu lassen. Auch hier auf faire Beteiligung achten, damit nicht ein Kind alles entscheidet. Weder absichtlich inszenierte Niederlagen noch ständiges Gewinnenlassen ersetzen das Lernen eines angemessenen Umgangs mit Ergebnissen."
-        ]
+        ],
+        "intro": "Wettbewerb vergleicht Ergebnisse, Kooperation richtet Handlungen auf ein gemeinsames Ziel. Beide Formen können anregen; pädagogisch entscheidend sind faire Beteiligung, verständliche Regeln und ein respektvoller Umgang mit Erfolg und Enttäuschung.",
+        "caseStudy": {
+          "scenario": "Beim Zielwerfen verlieren jüngere Kinder wiederholt und möchten aufhören.",
+          "analysis": "Unterschiedliche Voraussetzungen können das Ergebnis stark prägen. Wiederholte Überforderung wird nicht dadurch hilfreich, dass man „Verlieren lernen“ verlangt.",
+          "action": "Gefühle anerkennen, Entfernungen oder Material anpassen und gegebenenfalls ein gemeinsames Gruppenziel anbieten. Ergebnisse von persönlichem Wert trennen und niemanden beschämen."
+        }
       },
       {
         "id": "schiessspiele",
@@ -1300,7 +1510,13 @@
           "Teilnahme muss freiwillig bleiben; ein Stoppsignal gilt sofort. Nicht beteiligte oder verängstigte Kinder werden geschützt. Gefährliche Gegenstände, Drohungen, Zwang und tatsächliche Verletzungen erfordern Eingreifen. „Ist nur gespielt“ hebt reale Grenzen nicht auf.",
           "Mit Kindern alternative Rollen und Handlungen entwickeln, etwa retten, versorgen, verhandeln oder Schutzräume bauen. Team und Eltern sollen Regeln und Beobachtungen nachvollziehen können; Schutzkonzept und institutionelle Vereinbarungen sind einzuhalten. Belastende Erfahrungen nicht vor der Gruppe ausfragen.",
           "Die Vorlage enthält eine bestimmte pädagogische Position. Daraus lässt sich weder ableiten, dass solche Spiele immer Aggression abbauen, noch dass jedes Waffensymbol verboten werden muss. Die Entscheidung braucht Kontext, Beobachtung, klare Grenzen und fachliche Reflexion."
-        ]
+        ],
+        "intro": "Schieß- und Kriegsspiele können symbolische Rollen, Medienerfahrungen oder Themen von Macht und Angst aufgreifen. Ihre Begleitung braucht eine kontextbezogene Beobachtung, klare Schutzgrenzen und die Regeln der Einrichtung.",
+        "caseStudy": {
+          "scenario": "Ein Kind zielt mit einem Bauklotz auf ein anderes, das „Stopp“ sagt und sich abwendet.",
+          "analysis": "Spätestens hier ist die Freiwilligkeit nicht mehr gegeben. Das Spielsymbol erklärt das Geschehen nicht vollständig und rechtfertigt keine Angst oder Grenzverletzung.",
+          "action": "Stoppsignal durchsetzen, betroffenes Kind schützen und mit Beteiligten Regeln sowie alternative Spielhandlungen klären. Weitere Beobachtung und Teamabsprachen am konkreten Verlauf orientieren."
+        }
       },
       {
         "id": "raeume",
@@ -1337,7 +1553,13 @@
           "Kinder bei Gestaltung und Nutzung beteiligen. Konzepte anhand der tatsächlichen Bedürfnisse und Bedingungen beurteilen, nicht nur nach ihrem Namen.",
           "Sicherheit, Licht, Farbe und Akustik mitprüfen: Verkehrswege freihalten, Gefahrenstellen sichern, ausreichend blendarmes Licht ermöglichen, ruhige und bewegte Bereiche entzerren und Lärm begrenzen. Farben sollen Orientierung unterstützen; pauschale Aussagen wie „Blau beruhigt jedes Kind“ sind keine tragfähige Planungsgrundlage.",
           "Raumgestaltung gemeinsam überprüfen: Kinder nach Lieblingsorten und Hindernissen fragen, Nutzung beobachten, Veränderungen erproben und erneut bewerten. Ein ruhiger Bereich ist nur hilfreich, wenn er erreichbar und nicht als Strafe besetzt ist. In offenen und teiloffenen Konzepten müssen Zuständigkeiten, Orientierung und verlässliche Beziehungen klar bleiben. Konkrete Einrichtungen können von den vereinfachten Unterrichtsmodellen abweichen."
-        ]
+        ],
+        "intro": "Räume und Materialien beeinflussen, welche Tätigkeiten, Begegnungen und Rückzugsmöglichkeiten erreichbar sind. Pädagogische Gestaltung verbindet Orientierung, Sicherheit, sinnliche Bedingungen, Zugänglichkeit und Beteiligung; ein Raumkonzept allein garantiert keine Qualität.",
+        "caseStudy": {
+          "scenario": "Der Rückzugsbereich liegt direkt neben einer lauten Bewegungsfläche und wird kaum genutzt.",
+          "analysis": "Der Name „Ruheecke“ erzeugt noch keine Ruhe. Akustik, Lage, Wege und das Erleben der Kinder bestimmen die tatsächliche Nutzbarkeit.",
+          "action": "Kinder nach Bedürfnissen fragen, Nutzung beobachten und Lage oder Schallschutz verändern. Anschließend prüfen, ob Rückzug nun selbstständig und ohne Ausgrenzung möglich ist."
+        }
       },
       {
         "id": "besondere-spiele",
@@ -1355,7 +1577,13 @@
           "Ein Nein und das Holen von Hilfe werden respektiert. Bei Grenzverletzungen schützt die Fachkraft das betroffene Kind und bezieht entsprechend den Unterlagen spezialisierte Unterstützung ein.",
           "Digitale Anwendung: Ein gemeinsames Bau- oder Gestaltungsspiel auswählen, Onlinekontakte und Kaufmöglichkeiten vorher prüfen, Bedienung gemeinsam erproben und Spielideen anschließend analog weiterführen. Bei ständiger Frustration, Ausschluss oder unerwünschten Inhalten das Angebot anpassen oder beenden. Das Gerät allein macht ein Angebot weder bildend noch schädlich.",
           "Bei Körpererkundung genügt ein ähnliches Alter allein nicht: Entwicklungsstand, Machtverhältnisse, Freiwilligkeit und mögliche Überforderung beachten. Ein Kind darf jederzeit aussteigen und Hilfe holen. Bei Übergriffen ruhig schützen, Beobachtungen sachlich festhalten und das Schutzverfahren mit zuständigen Fachpersonen nutzen, ohne das betroffene Kind zu beschuldigen oder eine eigene Diagnostik zu versuchen."
-        ]
+        ],
+        "intro": "Auch bei digitalen Spielen und Körpererkundung gelten Freiwilligkeit, Würde, Schutz und passende Begleitung. Die besonderen Bedingungen müssen ausdrücklich betrachtet werden; weder Technik noch ein spielerischer Rahmen heben persönliche Grenzen auf.",
+        "caseStudy": {
+          "scenario": "Ein digitales Gestaltungsspiel fordert nach kurzer Zeit einen Kauf und Zugriff auf persönliche Daten.",
+          "analysis": "Eine passende Spielidee reicht zur Auswahl nicht aus. Werbung, Käufe und Datenverarbeitung können die pädagogische Nutzung beeinträchtigen und müssen vorab geprüft werden.",
+          "action": "Angebot unterbrechen, sichere geeignete Alternative prüfen und Erfahrungen mit Kindern besprechen. Regeln und Einstellungen vor dem nächsten Einsatz klären; Schutz bei Körpererkundung zusätzlich anhand von Freiwilligkeit und Machtverhältnissen beurteilen."
+        }
       },
       {
         "id": "resilienz",
@@ -1373,7 +1601,13 @@
           "Soziale Kompetenz: Kontakt, Kooperation, Perspektivübernahme und Aushandlung entwickeln. In einem gemeinsamen Rollenspiel Rollen verteilen und ein ausgeschlossenes Kind beim Einstieg unterstützen. Kooperation verlangt Beteiligung statt bloßer Anpassung an dominante Kinder.",
           "Aktive Bewältigung: Belastungen erkennen, hilfreiche Strategien wählen und Unterstützung holen. Beim schwierigen Balancieren Hilfe anfordern, einen leichteren Weg wählen oder eine Pause nutzen. Hilfeholen ist eine Ressource, kein Versagen.",
           "Problemlösen: Ein Problem erkennen, Ideen entwickeln, ausprobieren und das Ergebnis prüfen. Eine einstürzende Brücke mit verschiedenen Unterbauten testen. Fehler werden als Rückmeldung behandelt; die Aufgabe muss bewältigbar bleiben. Kein einzelnes Spiel garantiert Resilienz."
-        ]
+        ],
+        "intro": "Resilienz bezeichnet die dynamische Bewältigung von Belastungen mithilfe eigener und sozialer Ressourcen. Im Spiel können Schutzfaktoren gestärkt werden, wenn Beziehungen, Mitbestimmung und bewältigbare Herausforderungen verlässlich vorhanden sind.",
+        "caseStudy": {
+          "scenario": "Ein Bauwerk stürzt ein; ein Kind ist enttäuscht, bittet um Hilfe und versucht eine andere Basis.",
+          "analysis": "Gefühle wahrnehmen betrifft Selbstwahrnehmung, Hilfeholen aktive Bewältigung, der neue Versuch Problemlösen. Das Erleben eigener wirksamer Ideen kann Selbstwirksamkeit unterstützen.",
+          "action": "Trost und dosierte Unterstützung anbieten, eigene Lösungsversuche ermöglichen und den konkreten Weg würdigen. Das Kind nicht durch absichtliche Überforderung „abhärten“."
+        }
       },
       {
         "id": "inklusion",
@@ -1389,7 +1623,13 @@
           "Barrieren abbauen: Bildkarten, Gebärden oder andere Kommunikationshilfen, erreichbare Materialien, angepasste Bewegungswege und flexible Regeln anbieten. Kinder nach hilfreicher Unterstützung fragen; eine Behinderung, Sprache oder Familienform darf nicht als automatische Begründung für Ausschluss dienen.",
           "Vorurteilsbewusst gestalten: Bücher, Figuren und Rollenspielmaterial sollen unterschiedliche Lebensweisen zeigen, ohne Menschen auf Klischees zu reduzieren. Abwertungen klar unterbrechen und mit Kindern über faire Beteiligung sprechen. Nicht nur die betroffene Person muss sich gegen Ausgrenzung behaupten.",
           "Feinfühlig begleiten: zunächst beobachten, Kontakt aufnehmen, bei Bedarf Spielabsichten übersetzen oder einen Einstieg unterstützen und sich wieder zurücknehmen, sobald gemeinsames Spielen gelingt. Eigene Erwartungen reflektieren: Übersehe ich leise Signale? Gebe ich manchen Kindern weniger anspruchsvolle Aufgaben?"
-        ]
+        ],
+        "intro": "Inklusive Spielbegleitung ermöglicht wirksame Zugehörigkeit: Kinder können eigene Ideen ausdrücken, Rollen wählen und Entscheidungen mitgestalten. Barrieren in Regeln, Kommunikation, Material und Umgebung werden erkannt und verändert.",
+        "caseStudy": {
+          "scenario": "Kinder bauen eine Tierklinik und spielen Tierärztin und Tierhalter. Ein Kind mit wenig deutscher Lautsprache steht daneben und zeigt auf einen Verband. Ein anderes sagt: „Du kannst nicht mitreden, du darfst nicht mitspielen.“ Später fällt ein Teil der Klinik um.",
+          "analysis": "Konstruktion und Rollenspiel verbinden sich. Das Zeigen kann eine Spielabsicht ausdrücken; fehlende deutsche Lautsprache ist kein Beleg fehlender Ideen. Die Abwertung erzeugt eine Teilhabebarriere. Beim Wiederaufbau sind Problemlösen und Selbstwirksamkeit möglich, wenn die Kinder mitentscheiden und Unterstützung erhalten.",
+          "action": "Die Abwertung klar stoppen, das Kind nach seiner Idee fragen und Möglichkeiten zum Zeigen oder mit Bildkarten anbieten. Gemeinsam mehrere sinnvolle Rollen und zugängliches Material entwickeln, ohne eine Nebenrolle aufzuzwingen. Beim Einsturz Gefühle aufgreifen, nach Stützideen fragen und Versuche ermöglichen. Danach beobachten: Beteiligt sich das Kind mit eigenen Ideen? Werden Rollen fair ausgehandelt? Bei anhaltendem Ausschluss Teamreflexion und weitere Anpassungen vereinbaren."
+        }
       },
       {
         "id": "spielplanung",
@@ -1405,50 +1645,13 @@
           "Beispiel „Brücke für alle“: Eine Kleingruppe baut aus großen geeigneten Bauteilen eine Brücke für eine Spielfigur. Kinder entscheiden über Bauideen und Rollen; es gibt keinen Zeitvergleich. Material wird erreichbar verteilt, Ideen können gezeigt, gesprochen oder mit Bildern mitgeteilt werden. Bei Bedarf leichtere Verbindungsteile und zusätzliche Zeit anbieten.",
           "Lernmöglichkeiten begründen: Stabilität prüfen ist kognitives Problemlösen, Teile verbinden beansprucht Motorik, Rollen aushandeln soziale Kompetenz, nach einem Einsturz weiterprobieren Selbstregulation und Bewältigung. Das sind mögliche Erfahrungen, keine automatisch erreichten Wirkungen.",
           "Auswertung mit Kindern: Was habt ihr versucht? Was hat geholfen? Konnte jede Person etwas entscheiden? Fachkraft prüft zusätzlich Sicherheit, Beteiligung und eigene Eingriffe. Eine nächste Variante gemeinsam entwickeln, statt jedes freie Spiel nachträglich in eine Leistungsprüfung zu verwandeln."
-        ]
-      }
-    ],
-    "caseStudy": {
-      "scenario": "Kinder bauen eine Tierklinik und spielen Tierärztin und Tierhalter. Ein Kind mit wenig deutscher Lautsprache steht daneben und zeigt auf einen Verband. Ein anderes sagt: „Du kannst nicht mitreden, du darfst nicht mitspielen.“ Später fällt ein Teil der Klinik um.",
-      "analysis": "Konstruktion und Rollenspiel verbinden sich. Das Zeigen kann eine Spielabsicht ausdrücken; fehlende deutsche Lautsprache ist kein Beleg fehlender Ideen. Die Abwertung erzeugt eine Teilhabebarriere. Beim Wiederaufbau sind Problemlösen und Selbstwirksamkeit möglich, wenn die Kinder mitentscheiden und Unterstützung erhalten.",
-      "action": "Die Abwertung klar stoppen, das Kind nach seiner Idee fragen und Möglichkeiten zum Zeigen oder mit Bildkarten anbieten. Gemeinsam mehrere sinnvolle Rollen und zugängliches Material entwickeln, ohne eine Nebenrolle aufzuzwingen. Beim Einsturz Gefühle aufgreifen, nach Stützideen fragen und Versuche ermöglichen. Danach beobachten: Beteiligt sich das Kind mit eigenen Ideen? Werden Rollen fair ausgehandelt? Bei anhaltendem Ausschluss Teamreflexion und weitere Anpassungen vereinbaren."
-    },
-    "review": [
-      {
-        "question": "Warum ist ein gebauter Turm nicht automatisch ein Rollenspiel?",
-        "answer": "Entscheidend ist der Schwerpunkt: Herstellen eines Werks ist Konstruktion; eine Als-ob-Situation mit Rollen gehört zum Symbol- und Rollenspiel."
-      },
-      {
-        "question": "Was unterscheidet Freispiel von fehlender Begleitung?",
-        "answer": "Kinder entscheiden weitgehend selbst; die Fachkraft gestaltet weiterhin den Rahmen, beobachtet, unterstützt und schützt."
-      },
-      {
-        "question": "Woran lässt sich eine gute Raumgestaltung beurteilen?",
-        "answer": "An Orientierung, Zugänglichkeit, passendem Material, Beteiligung und den tatsächlichen Bedürfnissen und Teilhabemöglichkeiten der Kinder."
-      },
-      {
-        "question": "Wie unterscheiden sich Selbstwirksamkeit und bloßes Lob?",
-        "answer": "Selbstwirksamkeit entsteht aus dem Erleben, mit eigenem Handeln etwas beeinflussen zu können, etwa durch eine selbst gewählte stabile Stütze. Konkrete Rückmeldung kann das begleiten; pauschales Lob ersetzt die eigene Erfahrung nicht."
-      },
-      {
-        "question": "Wie begleitest du ein Kind, das nach einer Niederlage weint?",
-        "answer": "Gefühl anerkennen, Trost oder Pause anbieten und später gemeinsam auf Regeln und nächste Möglichkeiten schauen. Nicht beschämen und nicht den Personenwert mit dem Ergebnis verbinden. Bei dauernder Überforderung Spielbedingungen verändern."
-      },
-      {
-        "question": "Welche Grenze gilt auch im symbolischen Schießspiel?",
-        "answer": "Freiwilligkeit und Stoppsignale gelten verbindlich. Unbeteiligte werden geschützt; Drohungen, Zwang und reale Verletzungen werden nicht mit „nur gespielt“ gerechtfertigt. Kontext und institutionelle Regeln bestimmen die weitere Begleitung."
-      },
-      {
-        "question": "Warum reicht Anwesenheit für Inklusion nicht aus?",
-        "answer": "Ein Kind muss eigene Ideen einbringen, Rollen wählen und Entscheidungen mitgestalten können. Dafür können Regeln, Kommunikation, Räume und Material verändert werden müssen. Eine ständig aufgezwungene Nebenrolle schafft keine gleichberechtigte Teilhabe."
-      },
-      {
-        "question": "Wie wird aus einem digitalen Spiel ein begründetes Angebot?",
-        "answer": "Zielgruppe, Inhalt, Bedienung, Beteiligung und Schutz prüfen, gemeinsam begleiten und Erfahrungen reflektieren. Alterskennzeichnung allein genügt nicht; Werbung, Käufe, Daten und Kontakte müssen ebenso berücksichtigt werden wie analoge Ergänzungen."
-      },
-      {
-        "question": "Wie hängen Resilienz und soziale Bedingungen zusammen?",
-        "answer": "Fähigkeiten wie Selbstregulation helfen, brauchen aber verlässliche Beziehungen und Unterstützung. Belastende Bedingungen dürfen nicht einfach durch die Forderung „Sei resilient“ an das Kind delegiert werden; auch Umgebung und Hilfeangebote sind zu verändern."
+        ],
+        "intro": "Eine Spielplanung ordnet Ziele, Zielgruppe, Material, Ablauf, Sicherheit und Beteiligung nachvollziehbar. Sie bleibt anpassbar, weil Kinder eigene Ideen einbringen und tatsächliche Spielverläufe von der Vorbereitung abweichen können.",
+        "caseStudy": {
+          "scenario": "Geplant ist ein gemeinsamer Brückenbau; die Kinder möchten daraus einen Hafen entwickeln.",
+          "analysis": "Wenn die grundlegenden Bedingungen passen, kann die neue Idee Beteiligung und Problemlösen ebenso ermöglichen. Das ursprüngliche Produkt ist nicht wichtiger als der begründete pädagogische Prozess.",
+          "action": "Ziele und Sicherheit prüfen, passende Materialien ergänzen und den veränderten Verlauf dokumentieren. Mit Kindern auswerten, was gelang, wer beteiligt war und was als Nächstes sinnvoll ist."
+        }
       }
     ]
   }

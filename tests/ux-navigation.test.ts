@@ -31,3 +31,13 @@ describe('Navigation hierarchy and suggestions', () => {
     expect(commandSuggestions(index, []).every(e => !e.recent)).toBe(true);
   });
 });
+
+it('includes the real parent topic in nested study-sheet breadcrumbs and recent suggestions', () => {
+  const route = '/lernzettel/bk2-lf2/hypothesen';
+  const crumbs = breadcrumbsFor(route);
+  expect(crumbs.at(-2)?.to).toBe('/lernzettel/bk2-lf2');
+  expect(crumbs.at(-1)?.to).toBe(route);
+  const index = buildSearchIndex(s => s ?? '', 'de');
+  expect(commandSuggestions(index, [route])[0]).toMatchObject({ to: route, recent: true });
+  expect(breadcrumbsFor('/lernzettel/bk2-lf2/does-not-exist')).toEqual([]);
+});

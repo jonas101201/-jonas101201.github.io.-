@@ -26,3 +26,15 @@ describe('Shared metadata search', () => {
     expect(moveSelection(0, 'ArrowDown', 0)).toBe(0);
   });
 });
+
+it('finds standalone topics directly, including translated text and recent topic suggestions', () => {
+  const results = searchIndex(index, 'Operationalisierung');
+  expect(results.some(e => e.to === '/lernzettel/bk2-lf2/hypothesen')).toBe(true);
+  expect(index.find(e => e.to === '/lernzettel/bk2-lf2/hypothesen')?.id).toBe('sheet:bk2-lf2/hypothesen');
+});
+
+it('searches new topics in Ukrainian while retaining their stable routes', async () => {
+  const { translateText } = await import('../src/i18n/translate');
+  const uk = buildSearchIndex(s => translateText(s, 'uk'), 'uk');
+  expect(searchIndex(uk, 'операціоналізація').some(e => e.to === '/lernzettel/bk2-lf2/hypothesen')).toBe(true);
+});
