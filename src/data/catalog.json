@@ -302,6 +302,12 @@
       "subjectId": "bk1",
       "learningFieldId": "bk1-lf2",
       "title": "Wissenschaftliche Erkenntnisse und pädagogische Praxis"
+    },
+    {
+      "id": "bk1-lf3-resilienz",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "Resilienz"
     }
   ],
   "materials": [
@@ -2328,6 +2334,29 @@
       "sizeBytes": 137353,
       "sha256": "1dade72a5495cbe0b60e33a8f75a9bce8fc7c590675e3e4e77a29d35d23a9c95",
       "pageCount": 2
+    },
+    {
+      "id": "bk1-lf3-01-resilienz-professionelle-arbeit",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-resilienz",
+      "title": "01 · Resilienz in der professionellen Arbeit mit Kindern in den ersten drei Lebensjahren",
+      "description": "Fachtext von Marion Brandl zur Resilienz in der Arbeit mit Kindern unter drei Jahren (KiTa Fachtexte).",
+      "kind": "Unterrichtsdatei",
+      "fileType": "PDF",
+      "path": "materials/bk1/lf3/bk1-lf3-01-resilienz-professionelle-arbeit.pdf",
+      "tags": [
+        "Resilienz",
+        "Krippe",
+        "Frühpädagogik",
+        "Fachtext"
+      ],
+      "publishedAt": "2026-11-14",
+      "example": false,
+      "originalFilename": "01_Resilienz in der professionellen Arbeit mit Kita Kindern.pdf",
+      "pageCount": 18,
+      "sizeBytes": 770644,
+      "sha256": "d63fdb5011c0411b226c7cfad1b29a9015a7bef93c67d1aaf11a01e6b9d24265"
     }
   ],
   "quizzes": [

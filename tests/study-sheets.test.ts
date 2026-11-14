@@ -3,9 +3,10 @@ import { catalog } from '../src/data/catalog';
 import { sheetSearchText, studySheets, studyTopics, topicPath, validateStudySheets } from '../src/features/study-sheets/data';
 
 describe('Lernzettel aus den Unterrichtsunterlagen', () => {
-  it('deckt jedes belegte BK-Lernfeld ohne erfundene Lernfelder ab', () => {
+  it('verknüpft bestehende Lernzettel nur mit belegten BK-Lernfeldern', () => {
     const available = new Set(catalog.materials.filter(m => ['bk1', 'bk2'].includes(m.subjectId) && !m.example).map(m => m.learningFieldId));
-    expect(new Set(studySheets.map(s => s.learningFieldId))).toEqual(available);
+    expect(studySheets).toHaveLength(6);
+    for (const sheet of studySheets) expect(available.has(sheet.learningFieldId)).toBe(true);
     expect(studySheets.every(s => s.sections.length >= 4)).toBe(true);
   });
   it('weist fehlende, fremde und fachfremde Unterrichtsquellen zurück', () => {
@@ -105,4 +106,9 @@ describe('Eigenständige Unterthemen ohne Check-up', () => {
       expect(sheetSearchText(sheet), term).toContain(term);
     }
   });
+});
+
+it('erstellt für BK1 LF3 trotz neuer Materialien noch keinen Lernzettel', () => {
+  expect(catalog.materials.some(m => m.learningFieldId === 'bk1-lf3')).toBe(true);
+  expect(studySheets.some(s => s.learningFieldId === 'bk1-lf3')).toBe(false);
 });
