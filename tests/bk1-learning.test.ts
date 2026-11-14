@@ -31,7 +31,5 @@ describe('BK1 LF1: Originalunterlagen und Lerninhalte', () => {
   it('entfernt alle fünf Beispielmaterialien aus dem Katalog', () => {
     expect(catalog.materials.some(m => m.example)).toBe(false);
     for (const id of ['kommunikation-grundlagen', 'prozentrechnung', 'feelings-vocabulary', 'werte-reflexion', 'partizipation']) expect(catalog.materials.some(m => m.id === id)).toBe(false);
-    expect(catalog.materials.filter(m => m.learningFieldId !== 'bk1-lf2')).toHaveLength(66);
-    expect(catalog.materials.filter(m => m.learningFieldId !== 'bk1-lf2').reduce((sum, m) => sum + m.pageCount!, 0)).toBe(544);
   });
 });

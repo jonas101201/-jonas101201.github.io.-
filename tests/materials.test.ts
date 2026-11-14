@@ -26,3 +26,12 @@ describe('BK2-Unterrichtsmaterialien', () => {
   });
   it.each(['../geheim.pdf','ordner/datei.pdf','datei\n.pdf'])('verhindert unsichere Originaldateinamen: %s',originalFilename=>expect(MaterialSchema.safeParse({...lf1[0],originalFilename}).success).toBe(false));
 });
+
+describe('BK1 LF3 – zunächst nur Unterrichtsmaterial', () => {
+  it('ordnet die unveränderte 18-seitige Originaldatei dem gewünschten Lernfeld zu', () => {
+    const material = catalog.materials.find(m => m.id === 'bk1-lf3-01-resilienz-professionelle-arbeit');
+    expect(material).toMatchObject({ subjectId: 'bk1', learningFieldId: 'bk1-lf3', fileType: 'PDF', pageCount: 18, sizeBytes: 770644, sha256: 'd63fdb5011c0411b226c7cfad1b29a9015a7bef93c67d1aaf11a01e6b9d24265', example: false });
+    expect(catalog.quizzes.filter(q => q.learningFieldId === 'bk1-lf3')).toEqual([]);
+    expect(catalog.flashcardSets.filter(s => s.learningFieldId === 'bk1-lf3')).toEqual([]);
+  });
+});
