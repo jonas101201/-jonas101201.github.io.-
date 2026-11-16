@@ -110,7 +110,7 @@ describe('Eigenständige Unterthemen ohne Check-up', () => {
 
 it('verknüpft den BK1-LF3-Lernzettel mit der neuen Bindungsunterlage', () => {
   expect(catalog.materials.some(m => m.learningFieldId === 'bk1-lf3')).toBe(true);
-  expect(studySheets.find(s => s.learningFieldId === 'bk1-lf3')?.sections).toHaveLength(10);
+  expect(studySheets.find(s => s.learningFieldId === 'bk1-lf3')?.sections).toHaveLength(11);
 });
 
 
@@ -122,8 +122,9 @@ describe('BK1 LF3 – vollständige Faktoren ohne Quellenkommentare im Lerntext'
       expect(risks.rows.some(row => row[0] === term), term).toBe(true);
     }
     const resources = sheet.sections.find(s => s.id === 'schutzfaktoren')!.table!;
-    expect(resources.rows.filter(row => row[0] === 'Kind')).toHaveLength(3);
-    expect(resources.rows.filter(row => row[0] === 'Bezugspersonen')).toHaveLength(3);
+    expect(resources.rows.filter(row => row[0] === 'Kind')).toHaveLength(4);
+    expect(resources.rows.filter(row => row[0] === 'Bezugspersonen')).toHaveLength(9);
+    expect(resources.rows.filter(row => row[0] === 'Sozial und institutionell')).toHaveLength(6);
     for (const row of resources.rows) expect(row[2]!.trim().length).toBeGreaterThan(0);
   });
   it('nennt die vier Merkmale emotionaler Verfügbarkeit ausdrücklich', () => {
@@ -133,4 +134,15 @@ describe('BK1 LF3 – vollständige Faktoren ohne Quellenkommentare im Lerntext'
   it('formuliert eigenständige Lerntexte ohne Kommentare über die hochgeladene Datei', () => {
     expect(sheetSearchText(sheet)).not.toMatch(/dein(?:e|er|en)? (?:datei|notizen|unterlage)|laut (?:tabelle|notizen)|in der vorlage|das arbeitsblatt|die tabelle nennt/);
   });
+});
+
+// New Diehl materials contain concrete risk conditions and named developmental phases.
+it('bewahrt konkrete Risiken und die vier benannten Bindungsphasen', () => {
+  const sheet = studySheets.find(s => s.id === 'bk1-lf3')!;
+  const risks = sheet.sections.find(s => s.id === 'risikofaktoren')!.points!.join(' ').toLowerCase();
+  for (const term of ['frühgeburtlichkeit', 'vernachlässigung', 'reizbarkeit', 'armut', 'betreuungspersonen', 'psychische belastungen']) expect(risks).toContain(term);
+  const phases = sheet.sections.find(s => s.id === 'bindungsphasen')!.table!;
+  expect(phases.rows.map(row => row[0])).toEqual(['1. Vorbindungsphase', '2. Beginnende Bindungsphase', '3. Eindeutige Bindung', '4. Reziproke (wechselseitige) Beziehung']);
+  expect(phases.rows.slice(1).map(row => row[1])).toEqual(['2–8 Monate', '8 Monate bis 3 Jahre', 'Ab 3 Jahren']);
+  expect(sheet.sections.find(s => s.id === 'bindung-exploration')!.points!.join(' ')).toContain('Soziale Rückversicherung');
 });
