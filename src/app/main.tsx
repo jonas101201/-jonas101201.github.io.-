@@ -1,3 +1,4 @@
+import { applyTheme, currentTheme } from '../theme/theme';
 import { LoadingSkeleton } from '../components/LoadingSkeleton';
 import { StrictMode, Component, type ErrorInfo, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -9,6 +10,8 @@ import '../styles/liquid-glass.css';
 import '../styles/reference-glass.css';
 import '../styles/motion.css';
 import '../styles/ux.css';
+import '../styles/light-theme.css';
+applyTheme(currentTheme());
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

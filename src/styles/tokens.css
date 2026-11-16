@@ -1,5 +1,5 @@
 /* Semantic aliases for the existing Liquid Glass palette and SVG optics.
-   reference-glass.css applies these unchanged optical values; no alternate theme. */
+   reference-glass.css applies the optics; light-theme.css supplies the optional light palette. */
 :root {
   --color-text: #f2f3fb;
   --color-muted: #a5b2ce;
