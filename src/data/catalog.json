@@ -308,6 +308,12 @@
       "subjectId": "bk1",
       "learningFieldId": "bk1-lf3",
       "title": "Resilienz"
+    },
+    {
+      "id": "bk1-lf3-bindung",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "Bindung und Beziehungsgestaltung"
     }
   ],
   "materials": [
@@ -2357,6 +2363,28 @@
       "pageCount": 18,
       "sizeBytes": 770644,
       "sha256": "d63fdb5011c0411b226c7cfad1b29a9015a7bef93c67d1aaf11a01e6b9d24265"
+    },
+    {
+      "id": "bk1-lf3-02-bindung-und-erziehung",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "02 · Bindung und Erziehung · Unterrichtsnotizen",
+      "description": "Deine Pages-Unterlage einschließlich der eingebetteten Arbeitsblätter. Das ZIP enthält das unveränderte Pages-Original.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "ZIP",
+      "path": "materials/bk1/lf3/bk1-lf3-02-bindung-und-erziehung.zip",
+      "tags": [
+        "Bindung",
+        "Feinfühligkeit",
+        "Beziehung",
+        "Resilienz"
+      ],
+      "publishedAt": "2026-11-16",
+      "example": false,
+      "originalFilename": "Bindung-und-Erziehung-BK-I-LF3.zip",
+      "sizeBytes": 5652645,
+      "sha256": "7e573763c78f379a00621c59f2c2619e6eb196a487f6c230ece761aa3f715a8e"
     }
   ],
   "quizzes": [
@@ -6178,6 +6206,509 @@
           "explanation": "Der Text kennzeichnet die Geschichte ausdrücklich als fiktives Gedankenexperiment. Wissenschaftliche Aussagen benötigen systematisch gewonnene und überprüfbare Befunde.",
           "materialIds": [
             "bk1-lf2-26-wissenschaftliche-erkenntnisse-entwicklungsfaktoren"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bk1-lf3-bindung-quiz",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "Bindung und Erziehung – Wissen und Anwendung",
+      "description": "18 Fragen zu Bindung, Feinfühligkeit, Exploration, professionellen Grenzen und Resilienz. Mit Begründungen und Fallanwendung.",
+      "example": false,
+      "sources": [],
+      "materialIds": [
+        "bk1-lf3-02-bindung-und-erziehung"
+      ],
+      "questions": [
+        {
+          "id": "bindung-definition",
+          "type": "single",
+          "prompt": "Was kennzeichnet Bindung nach Bowlby am besten?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Jeder kurzfristige freundliche Kontakt"
+            },
+            {
+              "id": "a2",
+              "text": "Eine besondere emotionale Beziehung mit Schutzfunktion, die über Raum und Zeit fortbesteht"
+            },
+            {
+              "id": "a3",
+              "text": "Nur eine Beziehung zwischen biologischen Verwandten"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Bindung ist eine besonders bedeutsame, relativ stabile Beziehung zu vertrauten Bezugspersonen; sie ist nicht auf einen momentanen Kontakt begrenzt.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "spiel-bindung",
+          "type": "boolean",
+          "prompt": "Wenn ein Kind selbstständig spielt, besteht in diesem Moment keine Bindung zu seiner Bezugsperson.",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Richtig"
+            },
+            {
+              "id": "a2",
+              "text": "Falsch"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Die Bindung bleibt bestehen, auch wenn gerade kein sichtbares Nähe-Suchverhalten auftritt. Bindung und Bindungsverhalten sind zu unterscheiden.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "signale",
+          "type": "multiple",
+          "prompt": "Welche Handlungen können Bindungsverhalten ausdrücken?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Bei Angst eine vertraute Person aufsuchen"
+            },
+            {
+              "id": "a2",
+              "text": "Nach einer Bezugsperson rufen"
+            },
+            {
+              "id": "a3",
+              "text": "Allein aus der Haarfarbe auf Vertrauen schließen"
+            },
+            {
+              "id": "a4",
+              "text": "Blickkontakt und Nähe suchen"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a2",
+            "a4"
+          ],
+          "explanation": "Nähe-Suchen, Rufen und Blickkontakt können Signale sein. Ihre Bedeutung muss im jeweiligen Zusammenhang verstanden werden.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "komponenten",
+          "type": "multiple",
+          "prompt": "Welche vier Komponenten gehören zur Feinfühligkeit nach Ainsworth?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Signale wahrnehmen"
+            },
+            {
+              "id": "a2",
+              "text": "Signale richtig interpretieren"
+            },
+            {
+              "id": "a3",
+              "text": "Immer jeden Wunsch erfüllen"
+            },
+            {
+              "id": "a4",
+              "text": "Angemessen antworten"
+            },
+            {
+              "id": "a5",
+              "text": "Zeitnah reagieren"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a2",
+            "a4",
+            "a5"
+          ],
+          "explanation": "Feinfühligkeit verbindet Wahrnehmung, richtige Deutung, passende Antwort und Promptheit. Sie bedeutet nicht grenzenloses Erfüllen jedes Wunsches.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "keks",
+          "type": "single",
+          "prompt": "Ein Kind sucht weinend Nähe. Die Fachkraft bemerkt es sofort und gibt ohne weitere Klärung einen Keks. Was lässt sich sicher sagen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Alle vier Komponenten sind dadurch sicher erfüllt"
+            },
+            {
+              "id": "a2",
+              "text": "Das Kind hat damit sicher eine unsichere Bindung"
+            },
+            {
+              "id": "a3",
+              "text": "Die Reaktion ist schnell; passende Deutung und Antwort sind damit noch nicht gesichert"
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Schnelligkeit allein reicht nicht. Vielleicht braucht das Kind Trost; die Bedeutung seines Signals muss geklärt werden.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "koerperkontakt",
+          "type": "boolean",
+          "prompt": "Feinfühligkeit verlangt, ein Kind auch gegen seinen Willen zu umarmen.",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Richtig"
+            },
+            {
+              "id": "a2",
+              "text": "Falsch"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Körperliche Nähe wird angeboten und an Signale und Grenzen des Kindes angepasst. Erzwungene Nähe ist keine angemessene Antwort.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "feinfuehligkeit-zuordnung",
+          "type": "matching",
+          "prompt": "Ordne den Handlungen die Komponente der Feinfühligkeit zu.",
+          "pairs": [
+            {
+              "id": "wahrnehmen",
+              "left": "Das leise Rufen bemerken",
+              "right": "Wahrnehmung"
+            },
+            {
+              "id": "deuten",
+              "left": "Prüfen, ob das Kind Angst statt Hunger zeigt",
+              "right": "Interpretation"
+            },
+            {
+              "id": "antwort",
+              "left": "Passende Hilfe anbieten, ohne alles zu übernehmen",
+              "right": "Angemessene Antwort"
+            },
+            {
+              "id": "prompt",
+              "left": "Auf das Signal ohne unnötige Verzögerung reagieren",
+              "right": "Promptheit"
+            }
+          ],
+          "explanation": "Die vier Komponenten betrachten unterschiedliche Aspekte derselben Interaktion und müssen zusammenwirken.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "hafen-basis",
+          "type": "single",
+          "prompt": "Emma sucht nach einem Schreck Trost und beginnt anschließend wieder zu spielen. Welche Zuordnung passt?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Trost: sicherer Hafen; erneute Erkundung: sichere Basis"
+            },
+            {
+              "id": "a2",
+              "text": "Trost: sichere Basis; erneute Erkundung: kein Beziehungsbezug"
+            },
+            {
+              "id": "a3",
+              "text": "Beide Begriffe bedeuten ausschließlich körperliches Festhalten"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Der Hafen bietet Schutz bei Belastung; die Basis gibt Sicherheit für Exploration. Dieselbe Bezugsperson kann beide Funktionen erfüllen.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "verfuegbarkeit",
+          "type": "multiple",
+          "prompt": "Was spricht für emotionale Verfügbarkeit im pädagogischen Alltag?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Signale beachten und angemessen darauf eingehen"
+            },
+            {
+              "id": "a2",
+              "text": "Jede Spielhandlung ungefragt steuern"
+            },
+            {
+              "id": "a3",
+              "text": "Orientierung geben und Eigenaktivität respektieren"
+            },
+            {
+              "id": "a4",
+              "text": "Grenzen ohne Drohung und Abwertung setzen"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3",
+            "a4"
+          ],
+          "explanation": "Sensitivität, Strukturierung, Nicht-Intrusivität und Nicht-Feindseligkeit verbinden Unterstützung mit Respekt vor dem Kind.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "exploration",
+          "type": "boolean",
+          "prompt": "Trost kann einem Kind helfen, sich zu beruhigen und anschließend wieder selbstständig zu erkunden.",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Richtig"
+            },
+            {
+              "id": "a2",
+              "text": "Falsch"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Sicherheit und Exploration unterstützen einander. Nähe-Suchen ist nicht automatisch ein Hindernis für Selbstständigkeit.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "harlow-aufbau",
+          "type": "single",
+          "prompt": "Welche Versuchsanordnung beschreibt die Vorlage zu Harlow?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Zwei identische Stofffiguren mit gleicher Milchversorgung"
+            },
+            {
+              "id": "a2",
+              "text": "Eine milchgebende Drahtfigur und eine weiche Stofffigur ohne Milch"
+            },
+            {
+              "id": "a3",
+              "text": "Ein Vergleich verschiedener Schulformen"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Die Anordnung trennt Nahrungsversorgung von weichem Kontaktkomfort. Die Tiere bevorzugten den Kontakt zur Stofffigur.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "harlow-grenzen",
+          "type": "multiple",
+          "prompt": "Welche Schlussfolgerungen zum Harlow-Versuch sind angemessen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Emotionale Geborgenheit lässt sich nicht auf Nahrungsversorgung reduzieren"
+            },
+            {
+              "id": "a2",
+              "text": "Jede menschliche Bindung ist damit vollständig erklärt"
+            },
+            {
+              "id": "a3",
+              "text": "Die Belastungen und die Trennung der Tiere sind ethisch zu kritisieren"
+            },
+            {
+              "id": "a4",
+              "text": "Tierversuch und menschliche Alltagssituation sind zu unterscheiden"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3",
+            "a4"
+          ],
+          "explanation": "Die pädagogische Bedeutung liegt in der zusätzlichen Rolle von Kontakt. Künstliche Versuchsbedingungen und Tierleid begrenzen und problematisieren die Übertragung.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "asymmetrie",
+          "type": "single",
+          "prompt": "Was bedeutet professionelle Asymmetrie?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Das Kind muss das Wohlbefinden der Fachkraft sichern"
+            },
+            {
+              "id": "a2",
+              "text": "Das Kind hat weniger Würde"
+            },
+            {
+              "id": "a3",
+              "text": "Die Fachkraft trägt Beziehungsverantwortung, ohne emotionale Gegenleistung zu verlangen"
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Ungleiche Verantwortung bedeutet nicht ungleiche Würde. Das Kind muss die Fachkraft weder trösten noch Zuwendung verdienen.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "resilienz-allein",
+          "type": "boolean",
+          "prompt": "Ein resilientes Kind braucht bei Belastungen grundsätzlich keine Unterstützung.",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Richtig"
+            },
+            {
+              "id": "a2",
+              "text": "Falsch"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Resilienz umfasst eigene Fähigkeiten und soziale Unterstützung. Sie ist veränderlich und situationsabhängig.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "risiko",
+          "type": "multiple",
+          "prompt": "Welche Gesichtspunkte gehören zur Einschätzung von Belastungen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Kumulation mehrerer Risiken"
+            },
+            {
+              "id": "a2",
+              "text": "Dauer und Intensität"
+            },
+            {
+              "id": "a3",
+              "text": "Verfügbare Unterstützung und Bewältigungsmöglichkeiten"
+            },
+            {
+              "id": "a4",
+              "text": "Eine sichere Vorhersage allein aus einem Risikofaktor"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a2",
+            "a3"
+          ],
+          "explanation": "Risiken erhöhen Wahrscheinlichkeiten. Ihre Wirkung wird zusammen mit Belastungsdauer, Stärke und vorhandenen Ressourcen betrachtet.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "kompensation",
+          "type": "boolean",
+          "prompt": "Neue verlässliche Beziehungen können belastende Beziehungserfahrungen teilweise abmildern, ohne Vergangenes ungeschehen zu machen.",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Richtig"
+            },
+            {
+              "id": "a2",
+              "text": "Falsch"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Kompensatorische Erfahrungen ermöglichen neue Erwartungen. Sie sind keine Garantie einer vollständigen Reparatur.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "marie-analyse",
+          "type": "single",
+          "prompt": "Marie meldet sich lange; die Fachkraft reagiert erst spät und sehr knapp. Welche Analyse ist am besten begründet?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Die Szene beweist einen bestimmten Bindungstyp"
+            },
+            {
+              "id": "a2",
+              "text": "Wahrnehmung und zeitnahe Antwort sind eingeschränkt; die Passung der Reaktion muss am Anliegen geprüft werden"
+            },
+            {
+              "id": "a3",
+              "text": "Das Wort „Wow“ erfüllt automatisch alle Komponenten"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Die Analyse stützt sich auf sichtbare Handlungen. Ein kurzes Lob reicht nicht für eine umfassende Antwort und erlaubt keine Bindungsdiagnose.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "marie-alternative",
+          "type": "single",
+          "prompt": "Welche Alternative passt zum Bedürfnis von Marie nach Beteiligung?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Ihr Melden bestätigen, Unterbrechungen begrenzen und an ihre Erzählung mit einer konkreten Frage anknüpfen"
+            },
+            {
+              "id": "a2",
+              "text": "Sie wegen ihres langen Meldens beschämen"
+            },
+            {
+              "id": "a3",
+              "text": "Ohne Rückkehr zu ihrem Thema ausschließlich die eigene Geschichte erzählen"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Die Alternative verbindet Wahrnehmung, passende Antwort und Gesprächsorganisation. Andere Kinder bleiben dabei ebenfalls zu berücksichtigen.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
           ]
         }
       ]
