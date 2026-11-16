@@ -110,5 +110,27 @@ describe('Eigenständige Unterthemen ohne Check-up', () => {
 
 it('verknüpft den BK1-LF3-Lernzettel mit der neuen Bindungsunterlage', () => {
   expect(catalog.materials.some(m => m.learningFieldId === 'bk1-lf3')).toBe(true);
-  expect(studySheets.find(s => s.learningFieldId === 'bk1-lf3')?.sections).toHaveLength(7);
+  expect(studySheets.find(s => s.learningFieldId === 'bk1-lf3')?.sections).toHaveLength(10);
+});
+
+
+describe('BK1 LF3 – vollständige Faktoren ohne Quellenkommentare im Lerntext', () => {
+  const sheet = studySheets.find(s => s.id === 'bk1-lf3')!;
+  it('unterscheidet sämtliche benannten Belastungskriterien und Ressourcen', () => {
+    const risks = sheet.sections.find(s => s.id === 'risikofaktoren')!.table!;
+    for (const term of ['Kumulation', 'Dauer', 'Intensität', 'Unterstützung', 'Bewältigungsmöglichkeiten']) {
+      expect(risks.rows.some(row => row[0] === term), term).toBe(true);
+    }
+    const resources = sheet.sections.find(s => s.id === 'schutzfaktoren')!.table!;
+    expect(resources.rows.filter(row => row[0] === 'Kind')).toHaveLength(3);
+    expect(resources.rows.filter(row => row[0] === 'Bezugspersonen')).toHaveLength(3);
+    for (const row of resources.rows) expect(row[2]!.trim().length).toBeGreaterThan(0);
+  });
+  it('nennt die vier Merkmale emotionaler Verfügbarkeit ausdrücklich', () => {
+    const text = sheetSearchText(sheet);
+    for (const term of ['sensitivität', 'strukturierung', 'nicht-intrusivität', 'nicht-feindseligkeit']) expect(text).toContain(term);
+  });
+  it('formuliert eigenständige Lerntexte ohne Kommentare über die hochgeladene Datei', () => {
+    expect(sheetSearchText(sheet)).not.toMatch(/dein(?:e|er|en)? (?:datei|notizen|unterlage)|laut (?:tabelle|notizen)|in der vorlage|das arbeitsblatt|die tabelle nennt/);
+  });
 });
