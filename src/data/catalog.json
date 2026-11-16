@@ -2385,6 +2385,28 @@
       "originalFilename": "Bindung-und-Erziehung-BK-I-LF3.zip",
       "sizeBytes": 5652645,
       "sha256": "7e573763c78f379a00621c59f2c2619e6eb196a487f6c230ece761aa3f715a8e"
+    },
+    {
+      "id": "bk1-lf3-03-bindung-diehl",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "03 · Bindung · Diehl · Unterrichtsmaterialien",
+      "description": "Original-ZIP mit elf PDF-Unterlagen zu Bindung, Exploration, Feinfühligkeit, Beziehungsformen und weiteren bindungstheoretischen Themen.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "ZIP",
+      "path": "materials/bk1/lf3/bk1-lf3-03-bindung-diehl.zip",
+      "tags": [
+        "Bindung",
+        "Exploration",
+        "Feinfühligkeit",
+        "Resilienz"
+      ],
+      "publishedAt": "2026-11-16",
+      "example": false,
+      "originalFilename": "Bindung-20261116.zip",
+      "sizeBytes": 3531547,
+      "sha256": "f0942babbc1e47d4096c016e6ebfd7a316e2d6d8ebafafdc9774558cac59ee5a"
     }
   ],
   "quizzes": [
