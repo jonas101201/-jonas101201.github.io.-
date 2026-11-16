@@ -6343,25 +6343,25 @@
         {
           "id": "keks",
           "type": "single",
-          "prompt": "Ein Kind sucht weinend Nähe. Die Fachkraft bemerkt es sofort und gibt ohne weitere Klärung einen Keks. Was lässt sich sicher sagen?",
+          "prompt": "Das Arbeitsblatt nennt Füttern, obwohl ein Kind Nähe sucht. Welche Komponente wird dabei vor allem verfehlt?",
           "options": [
             {
               "id": "a1",
-              "text": "Alle vier Komponenten sind dadurch sicher erfüllt"
+              "text": "Das rechtzeitige Bemerken ist damit sicher bewiesen"
             },
             {
               "id": "a2",
-              "text": "Das Kind hat damit sicher eine unsichere Bindung"
+              "text": "Die Reaktion ist automatisch passend"
             },
             {
               "id": "a3",
-              "text": "Die Reaktion ist schnell; passende Deutung und Antwort sind damit noch nicht gesichert"
+              "text": "Das Signal wird nicht passend interpretiert und beantwortet"
             }
           ],
           "correctOptionIds": [
             "a3"
           ],
-          "explanation": "Schnelligkeit allein reicht nicht. Vielleicht braucht das Kind Trost; die Bedeutung seines Signals muss geklärt werden.",
+          "explanation": "Die Vorlage nennt dies als Fehlinterpretation: Das Bedürfnis nach Nähe wird mit einer Nahrungsantwort verfehlt.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6369,7 +6369,7 @@
         {
           "id": "koerperkontakt",
           "type": "boolean",
-          "prompt": "Feinfühligkeit verlangt, ein Kind auch gegen seinen Willen zu umarmen.",
+          "prompt": "Nicht-Intrusivität bedeutet laut Tabelle, die Eigenaktivität und Autonomie des Kindes zu respektieren.",
           "options": [
             {
               "id": "a1",
@@ -6381,9 +6381,9 @@
             }
           ],
           "correctOptionIds": [
-            "a2"
+            "a1"
           ],
-          "explanation": "Körperliche Nähe wird angeboten und an Signale und Grenzen des Kindes angepasst. Erzwungene Nähe ist keine angemessene Antwort.",
+          "explanation": "Als Beispiel nennt die Tabelle: beobachten und nicht ständig eingreifen.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6528,23 +6528,23 @@
         {
           "id": "harlow-grenzen",
           "type": "multiple",
-          "prompt": "Welche Schlussfolgerungen zum Harlow-Versuch sind angemessen?",
+          "prompt": "Welche Aussagen stehen in deinen Notizen zum Harlow-Versuch?",
           "options": [
             {
               "id": "a1",
-              "text": "Emotionale Geborgenheit lässt sich nicht auf Nahrungsversorgung reduzieren"
+              "text": "Nähe und Geborgenheit sind neben Nahrung wichtig"
             },
             {
               "id": "a2",
-              "text": "Jede menschliche Bindung ist damit vollständig erklärt"
+              "text": "Die Stoffmutter gab Milch"
             },
             {
               "id": "a3",
-              "text": "Die Belastungen und die Trennung der Tiere sind ethisch zu kritisieren"
+              "text": "Die Trennung von den Müttern belastete die Tiere"
             },
             {
               "id": "a4",
-              "text": "Tierversuch und menschliche Alltagssituation sind zu unterscheiden"
+              "text": "Die Affen bevorzugten die Stoffmutter"
             }
           ],
           "correctOptionIds": [
@@ -6552,7 +6552,7 @@
             "a3",
             "a4"
           ],
-          "explanation": "Die pädagogische Bedeutung liegt in der zusätzlichen Rolle von Kontakt. Künstliche Versuchsbedingungen und Tierleid begrenzen und problematisieren die Übertragung.",
+          "explanation": "Die Datei hält die Bevorzugung der Stoffmutter, die Bedeutung von Nähe und die Kritik an den Trennungsfolgen fest.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6578,7 +6578,7 @@
           "correctOptionIds": [
             "a3"
           ],
-          "explanation": "Ungleiche Verantwortung bedeutet nicht ungleiche Würde. Das Kind muss die Fachkraft weder trösten noch Zuwendung verdienen.",
+          "explanation": "Laut Notizen bietet die Fachkraft Zuwendung und Sicherheit. Das Kind muss keine entsprechende Gegenleistung erbringen und ist nicht für ihr Wohlbefinden verantwortlich.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6654,7 +6654,7 @@
           "correctOptionIds": [
             "a1"
           ],
-          "explanation": "Kompensatorische Erfahrungen ermöglichen neue Erwartungen. Sie sind keine Garantie einer vollständigen Reparatur.",
+          "explanation": "Deine Datei beschreibt eine teilweise Kompensation früherer belastender Erfahrungen und neue Erwartungen an Beziehungen.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6680,7 +6680,7 @@
           "correctOptionIds": [
             "a2"
           ],
-          "explanation": "Die Analyse stützt sich auf sichtbare Handlungen. Ein kurzes Lob reicht nicht für eine umfassende Antwort und erlaubt keine Bindungsdiagnose.",
+          "explanation": "Im Fall werden spätes Bemerken, verzögerte Antworten und knappe Reaktionen beschrieben. Die vier Leitfragen verlangen eine Einordnung anhand dieser Stellen.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6688,25 +6688,25 @@
         {
           "id": "marie-alternative",
           "type": "single",
-          "prompt": "Welche Alternative passt zum Bedürfnis von Marie nach Beteiligung?",
+          "prompt": "Was erzählt Marie in dem abgebildeten Fall?",
           "options": [
             {
               "id": "a1",
-              "text": "Ihr Melden bestätigen, Unterbrechungen begrenzen und an ihre Erzählung mit einer konkreten Frage anknüpfen"
+              "text": "Vom selbstständigen Klingeln und vom Geburtstag ihres Bruders"
             },
             {
               "id": "a2",
-              "text": "Sie wegen ihres langen Meldens beschämen"
+              "text": "Vom Harlow-Versuch"
             },
             {
               "id": "a3",
-              "text": "Ohne Rückkehr zu ihrem Thema ausschließlich die eigene Geschichte erzählen"
+              "text": "Von einer neuen Kita"
             }
           ],
           "correctOptionIds": [
             "a1"
           ],
-          "explanation": "Die Alternative verbindet Wahrnehmung, passende Antwort und Gesprächsorganisation. Andere Kinder bleiben dabei ebenfalls zu berücksichtigen.",
+          "explanation": "Beide Themen stehen im eingebetteten Arbeitsblatt. Die Fachkraft greift sie nur knapp auf.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]

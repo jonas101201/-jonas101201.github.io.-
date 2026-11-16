@@ -4,7 +4,7 @@ import { catalog } from '../../data/catalog';
 
 const text = z.string().trim().min(1);
 const references = z.array(text).min(1);
-const CaseSchema = z.object({ scenario: text, analysis: text, action: text });
+const CaseSchema = z.object({ scenario: text, analysis: text, action: text, sourceBased: z.boolean().optional() });
 const SectionSchema = z.object({
   id: text, title: text, intro: text, points: z.array(text).optional(),
   terms: z.array(z.object({ term: text, definition: text })).optional(),
