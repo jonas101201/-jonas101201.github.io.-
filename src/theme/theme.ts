@@ -1,0 +1,15 @@
+export type Theme = 'dark' | 'light';
+export const THEME_KEY = 'lernhub:theme:v1';
+
+export function readTheme(storage: Pick<Storage, 'getItem'>): Theme {
+  try { return storage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark'; }
+  catch { return 'dark'; }
+}
+export function currentTheme(): Theme {
+  try { return readTheme(window.localStorage); } catch { return 'dark'; }
+}
+export function applyTheme(theme: Theme) {
+  document.documentElement.dataset.theme = theme;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f3f5fc' : '#0b101c');
+  document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]')?.setAttribute('content', theme === 'light' ? 'default' : 'black-translucent');
+}
