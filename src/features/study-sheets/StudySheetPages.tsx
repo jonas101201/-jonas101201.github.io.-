@@ -54,7 +54,20 @@ function TopicContent({ topic, collection = false }: { topic: StudyTopic; collec
       <section className="sheet-section glass"><Heading>{tr("Begriff und Bedeutung")}</Heading><p>{tr(topic.intro)}</p>
         {topic.terms && <dl className="sheet-terms">{topic.terms.map(item => <div key={item.term}><dt>{tr(item.term)}</dt><dd>{tr(item.definition)}</dd></div>)}</dl>}
       </section>
-      {topic.table && <section className="sheet-section glass"><Heading>{tr("Vergleich und Übersicht")}</Heading><div className="sheet-table-wrap" role="region" tabIndex={0} aria-label={tr("Tabelle: {0}", [tr(topic.title)])}><table><caption className="sr-only">{tr(topic.title)}</caption><thead><tr>{topic.table.headers.map(header => <th scope="col" key={header}>{tr(header)}</th>)}</tr></thead><tbody>{topic.table.rows.map((row, i) => <tr key={i}>{row.map((cell, index) => index === 0 ? <th scope="row" key={index}>{tr(cell)}</th> : <td key={index}>{tr(cell)}</td>)}</tr>)}</tbody></table></div></section>}
+      {topic.table && <section className="sheet-section glass">
+        <Heading>{tr("Vergleich und Übersicht")}</Heading>
+        <div className="sheet-table-wrap" role="region" tabIndex={0} aria-label={tr("Tabelle: {0}", [tr(topic.title)])}>
+          <table role="table">
+            <caption className="sr-only">{tr(topic.title)}</caption>
+            <thead role="rowgroup"><tr role="row">{topic.table.headers.map(header => <th role="columnheader" scope="col" key={header}>{tr(header)}</th>)}</tr></thead>
+            <tbody role="rowgroup">{topic.table.rows.map((row, i) => <tr role="row" key={i}>
+              {row.map((cell, index) => index === 0
+                ? <th role="rowheader" scope="row" key={index}>{tr(cell)}</th>
+                : <td role="cell" key={index}><span className="sheet-cell-label" aria-hidden="true">{tr(topic.table!.headers[index]!)}</span>{tr(cell)}</td>)}
+            </tr>)}</tbody>
+          </table>
+        </div>
+      </section>}
       {topic.points && <section className="sheet-section glass"><Heading>{tr("Zusammenhänge und Einordnung")}</Heading><ul className="sheet-points">{topic.points.map(point => <li key={point}>{tr(point)}</li>)}</ul></section>}
       <section className="sheet-section sheet-case glass"><Heading>{tr("Praxisbeispiel mit Einordnung")}</Heading><p className="eyebrow">{tr(topic.caseStudy.sourceBased ? "Fallbeispiel aus der Unterlage" : "Eigenes Anwendungsbeispiel")}</p><p>{tr(topic.caseStudy.scenario)}</p><dl className="sheet-terms"><div><dt>{tr("Einordnen")}</dt><dd>{tr(topic.caseStudy.analysis)}</dd></div><div><dt>{tr("Begründet handeln")}</dt><dd>{tr(topic.caseStudy.action)}</dd></div></dl></section>
       <section className="sheet-section sheet-at-glance glass"><Heading>{tr("Auf einen Blick")}</Heading><dl className="sheet-terms"><div><dt>{tr("Grundgedanke")}</dt><dd>{tr(topic.takeaway)}</dd></div><div><dt>{tr("Praxisbezug")}</dt><dd>{tr(topic.caseStudy.action)}</dd></div></dl><MaterialSources ids={topic.materialIds} title={tr("Grundlagen dieses Lernzettels")}/><div className="sheet-print-sources"><p><strong>{tr("Grundlagen dieses Lernzettels")}</strong></p><ul>{topic.materialIds.map(id => <li key={id}>{tr(catalog.materials.find(m => m.id === id)!.title)}</li>)}</ul></div></section>
