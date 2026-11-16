@@ -1825,5 +1825,161 @@
         }
       }
     ]
+  },
+  {
+    "id": "bk1-lf3",
+    "subjectId": "bk1",
+    "learningFieldId": "bk1-lf3",
+    "title": "Bindung und Erziehung",
+    "description": "Bindung, Feinfühligkeit, professionelle Beziehungsgestaltung und Resilienz anhand deiner Unterrichtsnotizen.",
+    "updatedAt": "2026-11-16",
+    "sections": [
+      {
+        "id": "bindung",
+        "title": "1. Bindung, Beziehung und Bindungsverhalten",
+        "intro": "Bindung wird in deinen Notizen nach Bowlby als besondere emotionale Beziehung zu primären Bezugspersonen definiert, die über Raum und Zeit hinweg Bestand hat. Im Vergleich zur allgemeinen Beziehung stehen Vertrauen, Sicherheit und Schutz besonders im Mittelpunkt.",
+        "points": [
+          "Beziehung: allgemeine Verbindung zwischen Menschen; sie kann oberflächlich oder tief gehend sein, relativ leicht entstehen und sich verändern. Die Tabelle nennt Kommunikation, Zusammenarbeit und soziale Kontakte als Funktionen sowie Freundschaften und Kind-Erzieher-Beziehungen als Beispiele.",
+          "Bindung: besonders emotional bedeutsame und relativ stabile Beziehung, die sich über längere Zeit entwickelt. Sie ist durch das Bedürfnis nach Nähe und Sicherheit gekennzeichnet und hilft bei Angst und Unsicherheit. Ein Kind kann laut Tabelle zu mehreren Personen eine Bindung aufbauen.",
+          "Die Video-Notizen nennen vier Bindungsphasen: Signale zur Bedürfnisbefriedigung; Unterscheiden von Vertrauten und Fremden; aktives, zielgerichtetes Bindungsverhalten; Verfestigung von Beziehung und Bindung durch zunehmende Kompetenz. Altersangaben stehen dazu nicht in deiner Datei.",
+          "Sichere und unsichere Bindung werden in der Begriffsliste erwähnt, aber nicht ausführlich verglichen. Dieser Lernzettel ergänzt deshalb keine fremde Bindungstypologie oder zusätzliche Altersstufen."
+        ],
+        "takeaway": "Bindung bleibt bestehen; Bindungsverhalten zeigt sich situationsabhängig. Nicht jede Beziehung ist eine Bindung.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Im Fallbeispiel sucht Emma bei Gefahr Nähe und Trost bei der emotional verfügbaren Erzieherin und geht danach zurück zum Spiel.",
+          "analysis": "Die Notizen ordnen Trost und Nähe dem sicheren Hafen zu; die Sicherheit für erneutes Erkunden gehört zur sicheren Basis.",
+          "action": "Emmas Bedürfnisse wahrnehmen, Sicherheit und Trost anbieten und ihre anschließende Rückkehr zum Erkunden unterstützen.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "feinfuehligkeit",
+        "title": "2. Vier Komponenten der Feinfühligkeit",
+        "intro": "Das eingebettete Arbeitsblatt erklärt Feinfühligkeit nach Mary Ainsworth anhand von vier Komponenten: Signale wahrnehmen, richtig interpretieren, angemessen antworten und prompt reagieren. Zusammen vermitteln sie Sicherheit, Verlässlichkeit und Vertrauen.",
+        "points": [
+          "Wahrnehmung: Die Bezugsperson bemerkt Signale wie Weinen, Lächeln, Körperbewegungen und Blickkontakt. Das Arbeitsblatt beschreibt als Bedeutung: Das Kind erlebt, dass es gesehen wird und seine Bedürfnisse wichtig sind.",
+          "Interpretation: Die Bezugsperson versteht, was das Kind ausdrückt, beispielsweise Hunger, Müdigkeit, Angst, Nähe- oder Erkundungsbedürfnis. Das Arbeitsblatt nennt als Fehlinterpretationen: Weinen als Trotz statt Angst verstehen oder füttern, obwohl das Kind Nähe sucht.",
+          "Angemessenheit: Die Antwort soll passend und kindgerecht sein – weder zu stark noch zu schwach. Das Arbeitsblatt stellt ständige Einmischung und emotionale Kälte als problematische Gegensätze gegenüber. Eine passende Reaktion vermittelt, dass eigene Signale Hilfe auslösen können.",
+          "Promptheit: Die Reaktion erfolgt zeitnah, sodass das Kind die Verbindung zwischen Signal und Antwort erkennt. Langsame, unvorhersehbare oder ausbleibende Antworten werden im Arbeitsblatt mit Unsicherheit verbunden."
+        ],
+        "takeaway": "Wahrnehmen → deuten → angemessen antworten → zeitnah reagieren. Jede Komponente muss am konkreten Verhalten begründet werden.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Im Arbeitsblatt meldet sich Marie lange im Erzählkreis. Die Fachkraft bemerkt sie spät und reagiert auf ihre Erzählungen nur knapp.",
+          "analysis": "Das Arbeitsblatt lässt Wahrnehmung, Interpretation, Antwort und Promptheit getrennt untersuchen. Die Notizen nennen verspätetes Wahrnehmen und eine wenig passende, verzögerte Antwort.",
+          "action": "Die Leitfragen der Vorlage anwenden: Werden Maries Signale bemerkt, richtig gedeutet, angemessen beantwortet und zeitnah aufgegriffen?",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "sicherheit-exploration",
+        "title": "3. Sicherer Hafen, sichere Basis und Exploration",
+        "intro": "Deine Notizen verbinden emotionale Verfügbarkeit mit Sicherheit, sicherer Basis, sicherem Hafen und Exploration. Das Kind erlebt, dass seine Signale wahrgenommen werden und bei Hilfebedarf jemand da ist.",
+        "points": [
+          "Sicherer Hafen: Bei Gefahr oder Verunsicherung sucht das Kind Nähe und Trost. Sichere Basis: Das Kind kann die Umwelt erkunden, weil es sich auf die Bezugsperson verlassen kann. Im Fall Emma erfüllt die Erzieherin beide Funktionen.",
+          "Die dargestellte Abfolge lautet: emotionale Verfügbarkeit → Sicherheit und Vertrauen → sichere Basis und sicherer Hafen → Exploration. Nach Beruhigung kann das Kind wieder erkunden. Bindungs- und Explorationsbedürfnis werden im Fall Emma aufeinander bezogen.",
+          "Die Tabelle nennt vier Aspekte: Signale und Gefühle wahrnehmen und angemessen beantworten; Orientierung und Unterstützung geben; Nicht-Intrusivität als Respekt vor Eigenaktivität und Autonomie; Nicht-Feindseligkeit als wertschätzende Reaktion ohne Abwertung oder Drohung.",
+          "Beispiele aus der Tabelle: ein weinendes Kind trösten; beim Klettern helfen, ohne alles abzunehmen; beobachten statt ständig einzugreifen; ruhig Grenzen setzen. Diese Beispiele bleiben am jeweiligen Aspekt der Beziehungsgestaltung orientiert."
+        ],
+        "takeaway": "Hafen: Schutz bei Belastung. Basis: Sicherheit für Erkundung. Feinfühlige Nähe kann Selbstständigkeit unterstützen.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Im Fallbeispiel sucht Emma bei Gefahr Nähe und Trost bei der emotional verfügbaren Erzieherin und geht danach zurück zum Spiel.",
+          "analysis": "Die Notizen ordnen Trost und Nähe dem sicheren Hafen zu; die Sicherheit für erneutes Erkunden gehört zur sicheren Basis.",
+          "action": "Emmas Bedürfnisse wahrnehmen, Sicherheit und Trost anbieten und ihre anschließende Rückkehr zum Erkunden unterstützen.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "harlow",
+        "title": "4. Harlows Versuch: Nahrung und Kontaktkomfort",
+        "intro": "Deine Datei beschreibt Harlows Versuch mit zwei Ersatzmüttern für Affen: Die weiche Stoffmutter gab keine Milch; die Drahtmutter gab Milch. Die Affen bevorzugten die Stoffmutter und suchten die Drahtmutter zum Trinken auf.",
+        "points": [
+          "Versuchsaufbau und Ergebnis auseinanderhalten: Der Aufbau unterscheidet Milchversorgung und weichen Kontakt. Als Ergebnis halten deine Notizen die Bevorzugung der Stoffmutter fest.",
+          "Bedeutung laut deinen Notizen: Essen und Trinken allein reichen nicht aus; emotionale Nähe, Zuwendung und Geborgenheit sind ebenfalls wichtig. Die Bezugsperson soll erkennen, was das Kind braucht, und ihm etwa bei Angst oder Traurigkeit helfen.",
+          "Kritik aus deiner Datei: Die Affen wurden von ihren Müttern getrennt, litten unter der Trennung und trugen teilweise schwere psychische Schäden davon. Diese Belastungen sind Teil der im Unterricht formulierten Kritik."
+        ],
+        "takeaway": "Harlow in der Vorlage: Stoffkontakt wird bevorzugt; Nähe und Geborgenheit sind neben Nahrung wichtig. Die Trennung belastete die Tiere.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Im beschriebenen Versuch bietet nur die Drahtmutter Milch; die Stoffmutter bietet weichen Kontakt.",
+          "analysis": "Die Affen bevorzugen nach den Notizen die Stoffmutter und gehen zur Drahtmutter, wenn sie Hunger haben.",
+          "action": "Für die Auswertung Aufbau, Ergebnis, Bedeutung von Nähe und den genannten Kritikpunkt getrennt erläutern.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "professionelle-beziehung",
+        "title": "5. Professionelle Beziehung, Asymmetrie und Grenzen",
+        "intro": "Die Tabellen und Notizen vergleichen familiale Bindungsbeziehungen, weitere persönliche Beziehungen und professionelle pädagogische Beziehungen. Für die Fachkraft sind beruflicher Auftrag, institutionelle Rahmung und Verantwortung ohne Gegenleistung des Kindes zentral.",
+        "points": [
+          "Familiale Bindungsbeziehung: Die Tabelle nennt Schutz, Trost und Erkundung als Bedeutung für die frühkindliche Entwicklung. Erwachsene tragen Verantwortung; die zeitliche Perspektive wird als lebenslang beziehungsweise unbestimmt beschrieben.",
+          "Weitere persönliche Beziehungen: Die Tabelle nennt Freundschaft, Zugehörigkeit und geteilte Interessen. Sie beschreibt diese Beziehungen als grundsätzlich freiwillig und stärker durch ein gleichberechtigtes Geben und Nehmen geprägt.",
+          "Professionelle Beziehung: Entwicklung fördern, unterstützen und schützen. Die Tabelle nennt eine begrenzte Dauer, etwa bis zum Kita-Wechsel oder Ende der Betreuung. Asymmetrie bedeutet: Die Fachkraft bietet Zuwendung, Unterstützung und Sicherheit, ohne dass das Kind eine entsprechende Gegenleistung erbringen muss.",
+          "Grenzverletzungen aus deiner Tabelle: Die Fachkraft sucht Ersatz für eigene Bedürfnisse in der Nähe zum Kind, demonstriert exklusive Nähe, überschreitet pädagogisch begründeten Körperkontakt oder gibt Informationen außerhalb des zulässigen Rahmens weiter. Die zugehörigen Begriffe sind Rollenklarheit, Verantwortung und institutionelle Rahmung."
+        ],
+        "takeaway": "Die Fachkraft trägt Verantwortung und bietet Beziehung ohne emotionale Gegenleistung. Nähe bleibt kindorientiert und beruflich begründet.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Die Tabelle nennt als problematischen Fall, dass persönliche Bedürfnisbefriedigung der Fachkraft zum Motiv der Beziehung wird.",
+          "analysis": "Deine Notizen erklären: Das Kind soll sich verlassen können, ohne für Bedürfnisse oder Wohlbefinden der Fachkraft verantwortlich zu sein.",
+          "action": "Die Beziehung am beruflichen Auftrag, an Unterstützung und Schutz des Kindes sowie an der beschriebenen professionellen Asymmetrie ausrichten.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "resilienz",
+        "title": "6. Resilienz, Risiko- und Schutzfaktoren",
+        "intro": "Deine Datei definiert Resilienz als Fähigkeit, belastende Lebensumstände und Krisen mithilfe eigener Fähigkeiten und sozialer Unterstützung zu bewältigen. Sie entsteht in der Wechselwirkung von Kind und Umwelt, verändert sich in der Entwicklung und ist situationsabhängig.",
+        "points": [
+          "Risikofaktoren: Ihr Vorhandensein kann die Wahrscheinlichkeit gesunder Entwicklung senken und das Risiko psychischer oder körperlicher Beeinträchtigungen erhöhen. Bezogen auf Bindung können sie die Entwicklung einer sicheren Beziehung erschweren.",
+          "Die fünf Prüffragen aus deinen Notizen: Kumulation – treten mehrere Belastungen gleichzeitig auf? Dauer – wie lange? Intensität – wie stark? Unterstützung – wer entlastet? Bewältigungsmöglichkeiten – welche Ressourcen stehen Kind und Familie zur Verfügung?",
+          "Schutzfaktoren: Bedingungen und Ressourcen, die gesunde Entwicklung und sichere Bindung unterstützen und Auswirkungen von Risiken abmildern können. Kindbezogen nennt deine Datei Emotions- und Selbstregulation, soziale Kompetenzen sowie das Suchen und Annehmen von Unterstützung.",
+          "Familiäre beziehungsweise bezugspersonenbezogene Ressourcen: feinfühliges Wahrnehmen und richtiges Deuten der Signale, angemessene und zeitnahe Antworten sowie emotionale Verfügbarkeit. Neue verlässliche Beziehungserfahrungen können laut Notizen frühere belastende Erfahrungen teilweise kompensieren und neue Erwartungen ermöglichen."
+        ],
+        "takeaway": "Risiken sind Wahrscheinlichkeiten, Schutzfaktoren sind Ressourcen. Resilienz entsteht im Zusammenspiel mit Unterstützung und verlässlichen Beziehungen.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Deine Notizen nennen neue, verlässliche Beziehungserfahrungen als möglichen Schutzfaktor nach früheren belastenden oder unsicheren Erfahrungen.",
+          "analysis": "Dies wird als kompensatorische Beziehungserfahrung bezeichnet: Frühere Erfahrungen können teilweise ausgeglichen und neue Erwartungen an Beziehungen ermöglicht werden.",
+          "action": "Bei der Einordnung sowohl Belastungen als auch Ressourcen und die in der Vorlage genannte soziale Unterstützung berücksichtigen.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "marie",
+        "title": "7. Fallanalyse Marie: vom Signal zur Handlung",
+        "intro": "Im abgebildeten Arbeitsblatt meldet sich die dreijährige Marie im unruhigen Erzählkreis. Sie möchte von bedeutsamen Alltagserfahrungen erzählen. Die Fachkraft bemerkt sie spät, antwortet knapp und wendet sich rasch wieder anderen Kindern beziehungsweise eigenen Themen zu.",
+        "points": [
+          "Wahrnehmung: Marie meldet sich bereits eine Weile, bevor die Erzieherin sie bemerkt. Auch später wird das erneute Melden erst verzögert aufgegriffen.",
+          "Interpretation und Antwort: Marie erzählt vom selbstständigen Klingeln und vom Geburtstag ihres Bruders. Die Fachkraft antwortet mit kurzem Blickkontakt und knappen Bemerkungen und vertieft Maries Thema nicht.",
+          "Promptheit: Im Arbeitsblatt und in deinen Notizen werden deutliche Verzögerungen beschrieben. Die Analyse fragt ausdrücklich, ob die Reaktion zeitnah erfolgt.",
+          "Auswertung nach Arbeitsauftrag: Zu jeder der vier Komponenten anhand der Fallbeschreibung begründen, ob und inwiefern die Erzieherin feinfühlig reagiert. Nicht nur ein allgemeines Urteil abgeben, sondern die konkrete Stelle benennen."
+        ],
+        "takeaway": "Marie anhand der vier Fragen des Arbeitsblatts untersuchen: Wahrnehmung, Interpretation, Antwort und Promptheit.",
+        "materialIds": [
+          "bk1-lf3-02-bindung-und-erziehung"
+        ],
+        "caseStudy": {
+          "scenario": "Im Arbeitsblatt meldet sich Marie lange im Erzählkreis. Die Fachkraft bemerkt sie spät und reagiert auf ihre Erzählungen nur knapp.",
+          "analysis": "Das Arbeitsblatt lässt Wahrnehmung, Interpretation, Antwort und Promptheit getrennt untersuchen. Die Notizen nennen verspätetes Wahrnehmen und eine wenig passende, verzögerte Antwort.",
+          "action": "Die Leitfragen der Vorlage anwenden: Werden Maries Signale bemerkt, richtig gedeutet, angemessen beantwortet und zeitnah aufgegriffen?",
+          "sourceBased": true
+        }
+      }
+    ]
   }
 ]

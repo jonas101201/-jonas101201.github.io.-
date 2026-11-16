@@ -5,7 +5,7 @@ import { sheetSearchText, studySheets, studyTopics, topicPath, validateStudyShee
 describe('Lernzettel aus den Unterrichtsunterlagen', () => {
   it('verknüpft bestehende Lernzettel nur mit belegten BK-Lernfeldern', () => {
     const available = new Set(catalog.materials.filter(m => ['bk1', 'bk2'].includes(m.subjectId) && !m.example).map(m => m.learningFieldId));
-    expect(studySheets).toHaveLength(6);
+    expect(studySheets).toHaveLength(7);
     for (const sheet of studySheets) expect(available.has(sheet.learningFieldId)).toBe(true);
     expect(studySheets.every(s => s.sections.length >= 4)).toBe(true);
   });
@@ -108,7 +108,7 @@ describe('Eigenständige Unterthemen ohne Check-up', () => {
   });
 });
 
-it('erstellt für BK1 LF3 trotz neuer Materialien noch keinen Lernzettel', () => {
+it('verknüpft den BK1-LF3-Lernzettel mit der neuen Bindungsunterlage', () => {
   expect(catalog.materials.some(m => m.learningFieldId === 'bk1-lf3')).toBe(true);
-  expect(studySheets.some(s => s.learningFieldId === 'bk1-lf3')).toBe(false);
+  expect(studySheets.find(s => s.learningFieldId === 'bk1-lf3')?.sections).toHaveLength(7);
 });
