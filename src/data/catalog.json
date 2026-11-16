@@ -2370,7 +2370,7 @@
       "learningFieldId": "bk1-lf3",
       "topicId": "bk1-lf3-bindung",
       "title": "02 · Bindung und Erziehung · Unterrichtsnotizen",
-      "description": "Deine Pages-Unterlage einschließlich der eingebetteten Arbeitsblätter. Das ZIP enthält das unveränderte Pages-Original.",
+      "description": "Pages-Unterrichtsunterlage zu Bindung und Erziehung mit eingebetteten Arbeitsblättern. Das ZIP enthält das unveränderte Original.",
       "kind": "Unterrichtsdatei",
       "fileType": "ZIP",
       "path": "materials/bk1/lf3/bk1-lf3-02-bindung-und-erziehung.zip",
@@ -6216,7 +6216,7 @@
       "learningFieldId": "bk1-lf3",
       "topicId": "bk1-lf3-bindung",
       "title": "Bindung und Erziehung – Wissen und Anwendung",
-      "description": "18 Fragen zu Bindung, Feinfühligkeit, Exploration, professionellen Grenzen und Resilienz. Mit Begründungen und Fallanwendung.",
+      "description": "20 Fragen zu Bindung, Feinfühligkeit, emotionaler Verfügbarkeit, professionellen Beziehungen und sämtlichen Risiko- und Schutzfaktoren.",
       "example": false,
       "sources": [],
       "materialIds": [
@@ -6343,7 +6343,7 @@
         {
           "id": "keks",
           "type": "single",
-          "prompt": "Das Arbeitsblatt nennt Füttern, obwohl ein Kind Nähe sucht. Welche Komponente wird dabei vor allem verfehlt?",
+          "prompt": "Ein Kind sucht Nähe, erhält aber Nahrung. Welche Komponente der Feinfühligkeit wird dabei vor allem verfehlt?",
           "options": [
             {
               "id": "a1",
@@ -6361,7 +6361,7 @@
           "correctOptionIds": [
             "a3"
           ],
-          "explanation": "Die Vorlage nennt dies als Fehlinterpretation: Das Bedürfnis nach Nähe wird mit einer Nahrungsantwort verfehlt.",
+          "explanation": "Eine Fehlinterpretation liegt vor: Das Bedürfnis nach Nähe wird mit einer Nahrungsantwort verfehlt.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6369,7 +6369,7 @@
         {
           "id": "koerperkontakt",
           "type": "boolean",
-          "prompt": "Nicht-Intrusivität bedeutet laut Tabelle, die Eigenaktivität und Autonomie des Kindes zu respektieren.",
+          "prompt": "Nicht-Intrusivität bedeutet, die Eigenaktivität und Autonomie des Kindes zu respektieren.",
           "options": [
             {
               "id": "a1",
@@ -6383,7 +6383,7 @@
           "correctOptionIds": [
             "a1"
           ],
-          "explanation": "Als Beispiel nennt die Tabelle: beobachten und nicht ständig eingreifen.",
+          "explanation": "Nicht-Intrusivität zeigt sich daran: beobachten und nicht ständig eingreifen.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6502,7 +6502,7 @@
         {
           "id": "harlow-aufbau",
           "type": "single",
-          "prompt": "Welche Versuchsanordnung beschreibt die Vorlage zu Harlow?",
+          "prompt": "Wie war Harlows Versuch aufgebaut?",
           "options": [
             {
               "id": "a1",
@@ -6528,7 +6528,7 @@
         {
           "id": "harlow-grenzen",
           "type": "multiple",
-          "prompt": "Welche Aussagen stehen in deinen Notizen zum Harlow-Versuch?",
+          "prompt": "Welche Aussagen beschreiben Harlows Versuch und seine Bedeutung?",
           "options": [
             {
               "id": "a1",
@@ -6552,7 +6552,7 @@
             "a3",
             "a4"
           ],
-          "explanation": "Die Datei hält die Bevorzugung der Stoffmutter, die Bedeutung von Nähe und die Kritik an den Trennungsfolgen fest.",
+          "explanation": "Die Affen bevorzugten die Stoffmutter. Nähe war neben Nahrung bedeutsam; die Trennung belastete die Tiere.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6578,7 +6578,7 @@
           "correctOptionIds": [
             "a3"
           ],
-          "explanation": "Laut Notizen bietet die Fachkraft Zuwendung und Sicherheit. Das Kind muss keine entsprechende Gegenleistung erbringen und ist nicht für ihr Wohlbefinden verantwortlich.",
+          "explanation": "Die Fachkraft bietet die Fachkraft Zuwendung und Sicherheit. Das Kind muss keine entsprechende Gegenleistung erbringen und ist nicht für ihr Wohlbefinden verantwortlich.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6654,7 +6654,7 @@
           "correctOptionIds": [
             "a1"
           ],
-          "explanation": "Deine Datei beschreibt eine teilweise Kompensation früherer belastender Erfahrungen und neue Erwartungen an Beziehungen.",
+          "explanation": "Neue verlässliche Erfahrungen können frühere belastende Erfahrungen teilweise kompensieren und neue Erwartungen an Beziehungen ermöglichen.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]
@@ -6688,7 +6688,7 @@
         {
           "id": "marie-alternative",
           "type": "single",
-          "prompt": "Was erzählt Marie in dem abgebildeten Fall?",
+          "prompt": "Wovon möchte Marie im Erzählkreis berichten?",
           "options": [
             {
               "id": "a1",
@@ -6706,7 +6706,79 @@
           "correctOptionIds": [
             "a1"
           ],
-          "explanation": "Beide Themen stehen im eingebetteten Arbeitsblatt. Die Fachkraft greift sie nur knapp auf.",
+          "explanation": "Marie erzählt von beiden Themen; die Fachkraft greift sie nur knapp auf.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "verfuegbarkeit-merkmale",
+          "type": "matching",
+          "prompt": "Ordne die vier Merkmale emotionaler Verfügbarkeit ihrer Bedeutung zu.",
+          "pairs": [
+            {
+              "id": "p1",
+              "left": "Sensitivität",
+              "right": "Signale und Gefühle wahrnehmen und beantworten"
+            },
+            {
+              "id": "p2",
+              "left": "Strukturierung",
+              "right": "Orientieren und helfen, ohne alles abzunehmen"
+            },
+            {
+              "id": "p3",
+              "left": "Nicht-Intrusivität",
+              "right": "Eigenaktivität und Autonomie respektieren"
+            },
+            {
+              "id": "p4",
+              "left": "Nicht-Feindseligkeit",
+              "right": "Ohne Abwertung oder Drohung reagieren"
+            }
+          ],
+          "explanation": "Die Faktoren werden einzeln unterschieden; ihre jeweilige Bedeutung darf nicht durch einen allgemeinen Sammelbegriff ersetzt werden.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "schutzfaktoren-einzeln",
+          "type": "matching",
+          "prompt": "Ordne jeden Schutzfaktor seiner Bedeutung zu.",
+          "pairs": [
+            {
+              "id": "p1",
+              "left": "Emotions- und Selbstregulation",
+              "right": "Zunehmender Umgang mit Gefühlen und eigenem Verhalten"
+            },
+            {
+              "id": "p2",
+              "left": "Soziale Kompetenzen",
+              "right": "Fähigkeiten im Umgang mit anderen Menschen"
+            },
+            {
+              "id": "p3",
+              "left": "Unterstützung suchen und annehmen",
+              "right": "Verfügbare Hilfe zugänglich machen und nutzen"
+            },
+            {
+              "id": "p4",
+              "left": "Feinfühlig wahrnehmen und richtig deuten",
+              "right": "Signal bemerken und Bedürfnis verstehen"
+            },
+            {
+              "id": "p5",
+              "left": "Angemessen und zeitnah reagieren",
+              "right": "Passende Antwort ohne vermeidbare Verzögerung"
+            },
+            {
+              "id": "p6",
+              "left": "Emotionale Verfügbarkeit",
+              "right": "Bei Signalen und Hilfebedarf ansprechbar sein"
+            }
+          ],
+          "explanation": "Die Faktoren werden einzeln unterschieden; ihre jeweilige Bedeutung darf nicht durch einen allgemeinen Sammelbegriff ersetzt werden.",
           "materialIds": [
             "bk1-lf3-02-bindung-und-erziehung"
           ]

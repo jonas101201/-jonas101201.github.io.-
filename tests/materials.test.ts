@@ -31,7 +31,7 @@ describe('BK1 LF3 – Unterrichtsmaterial und Bindungsquiz', () => {
   it('ordnet die unveränderte 18-seitige Originaldatei dem gewünschten Lernfeld zu', () => {
     const material = catalog.materials.find(m => m.id === 'bk1-lf3-01-resilienz-professionelle-arbeit');
     expect(material).toMatchObject({ subjectId: 'bk1', learningFieldId: 'bk1-lf3', fileType: 'PDF', pageCount: 18, sizeBytes: 770644, sha256: 'd63fdb5011c0411b226c7cfad1b29a9015a7bef93c67d1aaf11a01e6b9d24265', example: false });
-    expect(catalog.quizzes.find(q => q.learningFieldId === 'bk1-lf3')?.questions).toHaveLength(18);
+    expect(catalog.quizzes.find(q => q.learningFieldId === 'bk1-lf3')?.questions).toHaveLength(20);
     expect(catalog.flashcardSets.filter(s => s.learningFieldId === 'bk1-lf3')).toEqual([]);
   });
 });
