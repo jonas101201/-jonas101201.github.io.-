@@ -26,7 +26,13 @@
 
   .app-shell .mobile-dock-shell .mobile-dock>.dock-item,:root[data-theme="light"] .app-shell .mobile-dock-shell .mobile-dock>.dock-item { position: relative; z-index: 3; min-height: 52px; border-radius: 26px; background: transparent; color: var(--dock-ink); text-shadow: none; font-size: 12px; font-weight: 600; }
   .app-shell .mobile-dock-shell .mobile-dock>.dock-item.active,:root[data-theme="light"] .app-shell .mobile-dock-shell .mobile-dock>.dock-item.active { background: transparent; color: var(--dock-active-ink); box-shadow: none; }
-  .mobile-dock .dock-selection { position: absolute; z-index: 2; left: 7px; top: 7px; bottom: 7px; width: calc((100% - 14px) / 4); border-radius: 27px; background: linear-gradient(145deg,#cfbfff2e,#b0c6f51a); border: 1px solid #ffffff26; box-shadow: inset 0 1px 0 #ffffff24,0 2px 8px #02071410; transform: translateX(var(--dock-slider-x,0px)) scaleX(var(--dock-stretch,1)); transition: transform 180ms cubic-bezier(.22,1,.36,1); pointer-events: none; }
+  .mobile-dock .dock-selection { position: absolute; z-index: 2; left: 7px; top: 7px; bottom: 7px; width: calc((100% - 14px) / 4); border-radius: var(--dock-shape,27px); background: linear-gradient(145deg,#cfbfff2e,#b0c6f51a); border: 1px solid #ffffff26; box-shadow: inset 0 1px 0 #ffffff24,0 2px 8px #02071410; translate: var(--dock-slider-x,0px) 0; transform: scale(var(--dock-stretch,1),var(--dock-squash,1)) rotate(var(--dock-tilt,0deg)); transition: translate 300ms cubic-bezier(.22,1,.36,1),transform 460ms cubic-bezier(.2,.85,.25,1),border-radius 460ms ease-out; pointer-events: none; }
+  /* A short, damped settle after release. While held, the shape follows the
+     pointer directly; a new gesture interrupts the compositor transition. */
+  @supports (transition-timing-function: linear(0,1)) {
+    .mobile-dock .dock-selection { transition-timing-function: cubic-bezier(.22,1,.36,1),linear(0,.2 7%,.65 16%,1.08 30%,1.18 42%,1.04 58%,.975 74%,1.005 90%,1),ease-out; }
+  }
+  .mobile-dock[data-dock-pressed] .dock-selection { transition: none; }
   .dock-selection:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
   .mobile-dock[data-selecting] .dock-selection { transition: none; box-shadow: inset 0 1px 2px #ffffffb3,inset 0 -1px 1px #a6bde766,0 2px 12px #728cc329; }
   .mobile-dock[data-selecting] .dock-refraction { opacity: .78; }
@@ -44,7 +50,7 @@
   .app-shell .dock-dropup .dock-background-toggle { display: flex; align-items: center; gap: 12px; min-height: 44px; width: 100%; padding: 11px 12px; border: 0; background: transparent; box-shadow: none; font-size: 12px; color: var(--color-muted); }
   .dock-enabled .workspace { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   @keyframes dropup-enter { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
-  @media(prefers-reduced-motion:reduce) { .dock-dropup { animation: none; } }
+  @media(prefers-reduced-motion:reduce) { .dock-dropup { animation: none; } .mobile-dock .dock-selection { transform: none; border-radius: 27px; transition: none; } }
   @media(prefers-reduced-transparency:reduce), (prefers-contrast:more) {
     .mobile-dock-shell .dock-refraction { display: none; }
     .app-shell .mobile-dock-shell .mobile-dock { background: var(--dock-scene-base); }

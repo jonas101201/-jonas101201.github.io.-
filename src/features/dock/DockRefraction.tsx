@@ -23,7 +23,7 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
       const source = document.querySelector<HTMLElement>('.workspace .main-content');
       const glass = element.querySelector<HTMLElement>('.mobile-dock');
       if (!source || !glass) return;
-      let frame = 0, updateFrame = 0, lastWidth = 0, lastHeight = 0, lastSelection = -1, waveFrame = 0, previousWave = 0;
+      let frame = 0, updateFrame = 0, lastWidth = 0, lastHeight = 0, lastSelection = '', waveFrame = 0, previousWave = 0;
       const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
       let copy: HTMLElement | null = null;
       function glassRect() {
@@ -53,13 +53,18 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
           copy.dataset.scrollSync = 'true';
         } else delete copy.dataset.scrollSync;
         warp.current?.setAttribute('scale', glass.dataset.selecting ? '30' : '22');
-        const selection = glass.querySelector<HTMLElement>('.dock-selection')?.getBoundingClientRect();
+        const selectionElement = glass.querySelector<HTMLElement>('.dock-selection');
+        const selection = selectionElement?.getBoundingClientRect();
         const selectionX = selection ? Math.round((selection.left - rect.left) / 6) * 6 : 0;
-        if (lastWidth !== rect.width || lastHeight !== rect.height || lastSelection !== selectionX) {
-          lastWidth = rect.width; lastHeight = rect.height; lastSelection = selectionX;
+        const selectionShape = selection ? [selectionX, selection.top - rect.top, selection.width, selection.height].map(value => Math.round(value / 2) * 2).join(':') : '';
+        if (lastWidth !== rect.width || lastHeight !== rect.height || lastSelection !== selectionShape) {
+          lastWidth = rect.width; lastHeight = rect.height; lastSelection = selectionShape;
           map.current?.setAttribute('href', lensMap(rect.width, rect.height, 32, selection ? { x: selectionX, y: selection.top - rect.top, width: selection.width, height: selection.height } : undefined));
         }
         paintWaves();
+        // Keep the lens attached to the moving, deforming pill during its short
+        // release spring. Stop sampling as soon as the compositor settles.
+        if (!motion.matches && selectionElement?.getAnimations().some(animation => animation.playState === 'running')) frame = requestAnimationFrame(position);
       }
       function paintWaves() {
         const original = document.querySelector<HTMLCanvasElement>('.ascii-waves');
