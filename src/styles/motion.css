@@ -1,17 +1,17 @@
 /* Shared motion: ease-out entrances, symmetric moves and 20% shorter exits. */
 @media screen {
   :root {
-    --motion-enter: 200ms;
-    --motion-exit: 160ms;
+    --motion-enter: 180ms;
+    --motion-exit: 144ms;
     --motion-out: cubic-bezier(.22,1,.36,1);
     --motion-move: cubic-bezier(.45,0,.55,1);
   }
-  .page-enter { animation: page-enter 240ms var(--motion-out) backwards; }
-  .page-heading { animation: page-enter 240ms var(--motion-out) backwards; }
-  .page-heading .muted { animation: page-enter 240ms var(--motion-out) 60ms backwards; }
-  @keyframes page-enter { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+  .page-enter { animation: page-enter var(--motion-enter) var(--motion-out) backwards; }
+  .page-heading,.page-heading .muted { animation: none; }
+  .page-enter:has(.material-grid,.material-list,.learning-grid,.sheet-grid,.featured-subjects,.field-grid,.search-results,.answer-options) { animation: none; }
+  @keyframes page-enter { from { opacity: .65; translate: 0 4px; } to { opacity: 1; translate: 0 0; } }
   .feedback { animation: feedback-reveal var(--motion-enter) var(--motion-out) backwards; }
-  @keyframes feedback-reveal { from { opacity: 0; clip-path: inset(0 0 100%); } to { opacity: 1; clip-path: inset(0); } }
+  @keyframes feedback-reveal { from { opacity: .5; translate: 0 3px; } to { opacity: 1; translate: 0 0; } }
   /* Keep native disclosure semantics and keyboard interaction. Unsupported engines
      retain instant native disclosures. The reveal originates at the summary. */
   @supports (interpolate-size: allow-keywords) {
@@ -41,14 +41,13 @@
 }
 @media screen and (prefers-reduced-motion: no-preference) {
   :root { view-transition-name: none; }
-  .flash-front, .flash-back { view-transition-name: flashcard-content; }
   .motion-icon { display: inline-flex; view-transition-name: background-motion-icon; }
-  ::view-transition-old(flashcard-content), ::view-transition-old(background-motion-icon) {
+  ::view-transition-old(background-motion-icon) {
     animation: state-out var(--motion-exit) ease-in both;
   }
-  ::view-transition-new(flashcard-content), ::view-transition-new(background-motion-icon) {
+  ::view-transition-new(background-motion-icon) {
     animation: state-in var(--motion-enter) var(--motion-out) both;
   }
-  @keyframes state-out { to { opacity: 0; filter: blur(2px); } }
-  @keyframes state-in { from { opacity: 0; filter: blur(2px); } }
+  @keyframes state-out { to { opacity: 0; } }
+  @keyframes state-in { from { opacity: 0; } }
 }

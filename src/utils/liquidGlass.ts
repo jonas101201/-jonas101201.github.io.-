@@ -3,6 +3,7 @@ const controls = 'button, select, input[type="range"], summary, .answer-option, 
 /** Progressive visual enhancement. Native clicks, keys and form behavior stay intact. */
 export function mountLiquidGlass(root: HTMLElement) {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const enterDuration = parseFloat(getComputedStyle(root).getPropertyValue('--motion-enter')) || 180;
   let frame = 0;
   let pointerFrame = 0;
   let pointer: { element: HTMLElement; x: number; y: number } | undefined;
@@ -14,7 +15,7 @@ export function mountLiquidGlass(root: HTMLElement) {
   const animations = new Set<Animation>();
   function animate(element: HTMLElement, frames: Keyframe[], delay = 0) {
     if (motion.matches || typeof element.animate !== 'function') return;
-    const animation = element.animate(frames, { duration: 240, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+    const animation = element.animate(frames, { duration: enterDuration, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
     animations.add(animation);
     animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
   }
@@ -31,10 +32,10 @@ export function mountLiquidGlass(root: HTMLElement) {
         if (!(child instanceof HTMLElement) || revealed.has(child)) continue;
         revealed.add(child);
         // Cap the delay so long catalogs remain immediately usable.
-        animate(child, [{ opacity: 0, translate: '0 8px' }, { opacity: 1, translate: '0 0' }], Math.min(index++, 7) * 30);
+        animate(child, [{ opacity: .7, translate: '0 4px' }, { opacity: 1, translate: '0 0' }], Math.min(index++, 3) * 30);
       }
     });
-    root.querySelectorAll<HTMLElement>('.feedback.success, .quiz-result .feature-icon, [data-motion-success]').forEach(element => {
+    root.querySelectorAll<HTMLElement>('.quiz-result .feature-icon, [data-motion-success]').forEach(element => {
       if (element.closest('[data-dock-replica]')) return;
       if (revealed.has(element)) return;
       revealed.add(element);

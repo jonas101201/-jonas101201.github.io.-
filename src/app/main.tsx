@@ -13,6 +13,7 @@ import '../styles/ux.css';
 import '../styles/light-theme.css';
 import '../styles/home-design.css';
 import '../styles/dock-liquid.css';
+import '../styles/site-design.css';
 applyTheme(currentTheme());
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
