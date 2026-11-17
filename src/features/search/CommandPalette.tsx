@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
 import { buildSearchIndex, commandSuggestions, moveSelection, searchIndex } from './index';
+import { lockPageScroll } from '../../utils/scrollLock';
 export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => void; recentRoutes?: readonly string[] }) {
   const { tr, language } = useI18n();
   const navigate = useNavigate();
   const dialog = useRef<HTMLDialogElement>(null);
   const input = useRef<HTMLInputElement>(null);
+  const resultsRegion = useRef<HTMLDivElement>(null);
+  const navigating = useRef(false);
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState(0);
   const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
@@ -16,15 +19,36 @@ export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => 
   useEffect(() => {
     const previous = document.activeElement;
     const element = dialog.current!;
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    element.showModal(); input.current?.focus();
-    return () => { element.close(); document.body.style.overflow = overflow; if (previous instanceof HTMLElement && previous.isConnected) previous.focus(); };
+    const unlock = lockPageScroll();
+    element.showModal(); input.current?.focus({ preventScroll: true });
+    const viewport = window.visualViewport;
+    const fitViewport = () => {
+      element.style.setProperty('--search-viewport-height', `${viewport?.height ?? window.innerHeight}px`);
+      element.style.setProperty('--search-viewport-top', `${viewport?.offsetTop ?? 0}px`);
+    };
+    fitViewport();
+    viewport?.addEventListener('resize', fitViewport);
+    viewport?.addEventListener('scroll', fitViewport);
+    window.addEventListener('resize', fitViewport);
+    return () => {
+      viewport?.removeEventListener('resize', fitViewport);
+      viewport?.removeEventListener('scroll', fitViewport);
+      window.removeEventListener('resize', fitViewport);
+      element.close(); unlock(!navigating.current);
+      if (!navigating.current && previous instanceof HTMLElement && previous.isConnected) previous.focus({ preventScroll: true });
+    };
   }, []);
-  useEffect(() => { dialog.current?.querySelector(`#command-option-${active}`)?.scrollIntoView({ block: 'nearest' }); }, [active]);
+  useEffect(() => {
+    const region = resultsRegion.current;
+    const option = dialog.current?.querySelector(`#command-option-${active}`);
+    if (!region || !option) return;
+    const area = region.getBoundingClientRect(), item = option.getBoundingClientRect();
+    if (item.top < area.top) region.scrollTop += item.top - area.top;
+    else if (item.bottom > area.bottom) region.scrollTop += item.bottom - area.bottom;
+  }, [active, results]);
   function choose(position: number) {
     const result = results[position];
-    if (result) { onClose(); navigate(result.to); }
+    if (result) { navigating.current = true; onClose(); navigate(result.to); }
   }
   return <dialog ref={dialog} className="command-palette glass" aria-labelledby="command-title" onCancel={e => { e.preventDefault(); onClose(); }} onClick={e => { if (e.target === dialog.current) { const r = dialog.current.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose(); } }} onKeyDown={e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); e.stopPropagation(); onClose(); }
@@ -36,10 +60,12 @@ export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => 
       if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key) && (!['Home', 'End'].includes(e.key) || e.ctrlKey || e.metaKey)) { e.preventDefault(); setSelected(moveSelection(active, e.key, results.length)); }
       if (e.key === 'Enter') { e.preventDefault(); choose(active); }
     }}/></div>
-    {!query.trim() && <p className="muted command-count">{tr(recentRoutes.length ? 'Zuletzt besucht und Schnellzugriffe' : 'Schnellzugriffe')}</p>}
+    <div className="command-meta">{!query.trim() && <p className="muted command-count">{tr(recentRoutes.length ? 'Zuletzt besucht und Schnellzugriffe' : 'Schnellzugriffe')}</p>}
     <p role="status" className="muted command-count">{results.length} {tr('Treffer')}</p>
-    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={() => setSelected(i)} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{!query.trim() && recentRoutes.includes(result.to) ? `${tr('Zuletzt besucht')} · ` : ''}{result.kind}</small></li>)}</ul>
+    </div><div ref={resultsRegion} className="command-results-region">
+    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={e => { if (e.pointerType === 'mouse') setSelected(i); }} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{!query.trim() && recentRoutes.includes(result.to) ? `${tr('Zuletzt besucht')} · ` : ''}{result.kind}</small></li>)}</ul>
     {!results.length && <p className="empty-state">{tr('Keine Treffer')}</p>}
+    </div>
     <p id="command-help" className="command-help muted">{tr('↑ ↓ auswählen · Eingabe öffnen · Esc schließen')}</p>
   </dialog>;
 }

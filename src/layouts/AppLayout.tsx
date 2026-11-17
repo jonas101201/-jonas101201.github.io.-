@@ -58,7 +58,7 @@ export function AppLayout() {
     const menuTrigger = useRef<HTMLButtonElement | null>(null);
     const sidebar = useRef<HTMLElement>(null);
     useEffect(() => {
-        main.current?.focus();
+        main.current?.focus({ preventScroll: true });
         window.scrollTo(0, 0);
     }, [location.pathname]);
     useEffect(() => {
