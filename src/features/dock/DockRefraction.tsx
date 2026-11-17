@@ -23,17 +23,35 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
       const source = document.querySelector<HTMLElement>('.workspace .main-content');
       const glass = element.querySelector<HTMLElement>('.mobile-dock');
       if (!source || !glass) return;
-      let frame = 0, updateTimer = 0, lastWidth = 0, lastHeight = 0, lastSelection = -1, waveFrame = 0, previousWave = 0;
+      let frame = 0, updateFrame = 0, lastWidth = 0, lastHeight = 0, lastSelection = -1, waveFrame = 0, previousWave = 0;
       const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
       let copy: HTMLElement | null = null;
+      function glassRect() {
+        const rect = glass!.getBoundingClientRect();
+        return { left: rect.left + glass!.clientLeft, top: rect.top + glass!.clientTop, width: glass!.clientWidth, height: glass!.clientHeight };
+      }
       function position() {
-        frame = 0;
+        cancelAnimationFrame(frame); frame = 0;
         if (!copy || !element || !glass || !source) return;
-        const rect = glass.getBoundingClientRect(), src = source.getBoundingClientRect();
+        const rect = glassRect(), src = source.getBoundingClientRect();
         if (!rect.width || !rect.height) return;
         const zoom = glass.dataset.selecting ? 1.075 : 1.035;
         copy.style.width = `${src.width}px`;
-        copy.style.transform = `translate(${32 + (src.left - rect.left - rect.width / 2) * zoom + rect.width / 2}px,${32 + (src.top - rect.top - rect.height / 2) * zoom + rect.height / 2}px) scale(${zoom})`;
+        const x = 32 + (src.left - rect.left - rect.width / 2) * zoom + rect.width / 2;
+        const y = 32 + (src.top - rect.top - rect.height / 2) * zoom + rect.height / 2;
+        copy.style.transform = `translate(${x}px,${y}px) scale(${zoom})`;
+        const scroller = document.scrollingElement ?? document.documentElement;
+        const scrollRange = scroller.scrollHeight - scroller.clientHeight;
+        if (CSS.supports('animation-timeline', 'scroll(root block)') && scrollRange > 0) {
+          let top = 0;
+          for (let node: HTMLElement | null = source; node; node = node.offsetParent as HTMLElement | null) top += node.offsetTop;
+          const start = 32 + (top - rect.top - rect.height / 2) * zoom + rect.height / 2;
+          copy.style.setProperty('--lens-x', `${x}px`);
+          copy.style.setProperty('--lens-y-start', `${start}px`);
+          copy.style.setProperty('--lens-y-end', `${start - scrollRange * zoom}px`);
+          copy.style.setProperty('--lens-zoom', String(zoom));
+          copy.dataset.scrollSync = 'true';
+        } else delete copy.dataset.scrollSync;
         warp.current?.setAttribute('scale', glass.dataset.selecting ? '30' : '22');
         const selection = glass.querySelector<HTMLElement>('.dock-selection')?.getBoundingClientRect();
         const selectionX = selection ? Math.round((selection.left - rect.left) / 6) * 6 : 0;
@@ -48,7 +66,7 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
         const target = waveCopy.current;
         const ctx = target?.getContext('2d');
         if (!original || !target || !ctx || !glass) return;
-        const rect = glass.getBoundingClientRect(), waves = original.getBoundingClientRect();
+        const rect = glassRect(), waves = original.getBoundingClientRect();
         const width = Math.ceil(rect.width + 64), height = Math.ceil(rect.height + 64);
         if (target.width !== width) target.width = width;
         if (target.height !== height) target.height = height;
@@ -84,21 +102,29 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
         const replica = visualCopy(source!) as HTMLElement;
         replica.classList.add('dock-scene-copy'); replica.dataset.dockReplica = 'true';
         replica.setAttribute('aria-hidden', 'true'); replica.inert = true;
+        const sourceStyle = getComputedStyle(source!);
+        replica.style.fontFamily = sourceStyle.fontFamily; replica.style.fontSize = sourceStyle.fontSize;
+        replica.style.fontWeight = sourceStyle.fontWeight; replica.style.color = sourceStyle.color; replica.style.letterSpacing = sourceStyle.letterSpacing;
+        // Preserve proportional inheritance: a computed 21px root line-height
+        // must not force 11px tags to inherit a fixed 21px line-height.
+        const ratio = parseFloat(sourceStyle.lineHeight) / parseFloat(sourceStyle.fontSize);
+        replica.style.lineHeight = Number.isFinite(ratio) ? String(ratio) : 'normal';
         host!.replaceChildren(replica); copy = replica;
-        queue();
+        // Never paint a fresh copy at its default, unaligned document position.
+        position();
       }
-      function changed() { window.clearTimeout(updateTimer); updateTimer = window.setTimeout(snapshot, 80); }
+      function changed() { if (!updateFrame) updateFrame = requestAnimationFrame(() => { updateFrame = 0; snapshot(); }); }
       snapshot(); resumeWaves();
       document.addEventListener('visibilitychange', resumeWaves); motion.addEventListener('change', resumeWaves);
       const mutations = new MutationObserver(changed);
       mutations.observe(source, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class', 'open', 'aria-pressed', 'value'] });
-      const resize = new ResizeObserver(queue); resize.observe(source); resize.observe(glass);
-      window.addEventListener('scroll', queue, { passive: true });
+      const resize = new ResizeObserver(() => { queue(); changed(); }); resize.observe(source); resize.observe(glass);
+      window.addEventListener('scroll', position, { passive: true });
       window.addEventListener('resize', queue, { passive: true });
       element.addEventListener('dockmove', queue); glass.addEventListener('transitionend', queue);
       disposeScene = () => {
-        cancelAnimationFrame(frame); cancelAnimationFrame(waveFrame); document.removeEventListener('visibilitychange', resumeWaves); motion.removeEventListener('change', resumeWaves); window.clearTimeout(updateTimer); mutations.disconnect(); resize.disconnect();
-        window.removeEventListener('scroll', queue); window.removeEventListener('resize', queue); element.removeEventListener('dockmove', queue); glass.removeEventListener('transitionend', queue);
+        cancelAnimationFrame(frame); cancelAnimationFrame(waveFrame); document.removeEventListener('visibilitychange', resumeWaves); motion.removeEventListener('change', resumeWaves); cancelAnimationFrame(updateFrame); mutations.disconnect(); resize.disconnect();
+        window.removeEventListener('scroll', position); window.removeEventListener('resize', queue); element.removeEventListener('dockmove', queue); glass.removeEventListener('transitionend', queue);
         host.replaceChildren();
       };
     }

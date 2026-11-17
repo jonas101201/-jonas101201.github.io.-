@@ -16,13 +16,21 @@
   .dock-refraction-scene { z-index: 1; }
   .dock-refraction-crop .dock-scene-copy { position: absolute!important; top: 0!important; left: 0!important; max-width: none!important; margin: 0!important; transform-origin: 0 0; pointer-events: none!important; user-select: none; }
   .dock-scene-copy,.dock-scene-copy *,.dock-scene-copy *::before,.dock-scene-copy *::after { animation: none!important; transition: none!important; backdrop-filter: none!important; -webkit-backdrop-filter: none!important; }
+  /* Alignment follows the actual root scroll timeline in the compositor. This
+     is spatial tracking, so it must also work when decorative motion is reduced. */
+  .dock-refraction-crop .dock-scene-copy[data-scroll-sync] { animation: dock-scroll-sync 1s linear both!important; animation-timeline: scroll(root block)!important; }
+  @keyframes dock-scroll-sync {
+    from { transform: translate(var(--lens-x),var(--lens-y-start)) scale(var(--lens-zoom)); }
+    to { transform: translate(var(--lens-x),var(--lens-y-end)) scale(var(--lens-zoom)); }
+  }
+
   .app-shell .mobile-dock-shell .mobile-dock>.dock-item,:root[data-theme="light"] .app-shell .mobile-dock-shell .mobile-dock>.dock-item { position: relative; z-index: 3; min-height: 52px; border-radius: 26px; background: transparent; color: var(--dock-ink); text-shadow: 0 1px 5px var(--dock-scene-base); }
   .app-shell .mobile-dock-shell .mobile-dock>.dock-item.active,:root[data-theme="light"] .app-shell .mobile-dock-shell .mobile-dock>.dock-item.active { background: transparent; color: var(--color-accent); box-shadow: none; }
   .mobile-dock .dock-selection { position: absolute; z-index: 2; left: 7px; top: 7px; bottom: 7px; width: calc((100% - 14px) / 4); border-radius: 27px; background: linear-gradient(145deg,#d8ceff30,#b0c6f518); border: 1px solid #ffffff4d; box-shadow: inset 0 1px 2px #ffffff66,inset 0 -1px 1px #8d9dc433,0 2px 8px #02071412; transform: translateX(var(--dock-slider-x,0px)) scaleX(var(--dock-stretch,1)); transition: transform 180ms cubic-bezier(.22,1,.36,1); pointer-events: none; }
   .dock-selection:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
   .mobile-dock[data-selecting] .dock-selection { transition: none; box-shadow: inset 0 1px 2px #ffffffb3,inset 0 -1px 1px #a6bde766,0 2px 12px #728cc329; }
   .mobile-dock[data-selecting] .dock-refraction { opacity: .98; }
-  .mobile-dock .dock-item { user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
+  .mobile-dock .dock-item { user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; }
   .dock-dropup { position: absolute; z-index: 6; bottom: calc(100% + 12px); right: 0; width: min(330px,100%); max-height: min(65dvh,var(--dropup-max-height,460px)); overflow-y: auto; overscroll-behavior: contain; padding: 12px; border-radius: 25px; border: 1px solid var(--reference-rim); background: var(--dropup-surface); box-shadow: var(--reference-shadow),0 14px 40px #02071433; backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); transform-origin: 88% 100%; animation: dropup-enter 180ms cubic-bezier(.22,1,.36,1) both; }
   .dock-dropup[data-placement="below"] { bottom: auto; top: calc(100% + 12px); transform-origin: 88% 0; }
   .dock-dropup>header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 4px 8px 10px; }

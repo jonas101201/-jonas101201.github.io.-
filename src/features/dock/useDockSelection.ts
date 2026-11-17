@@ -43,7 +43,7 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
     navProps: {
       onPointerDown(event: PointerEvent<HTMLElement>) {
         suppressClick.current = false;
-        if (event.button !== 0 || !event.isPrimary || !(event.target instanceof Element) || !event.target.closest('.dock-item')) return;
+        if (event.button !== 0 || !event.isPrimary || !(event.target instanceof Element)) return;
         gesture.current = { id: event.pointerId, x: event.clientX, y: event.clientY, active: false, index: activeRef.current };
       },
       onPointerMove(event: PointerEvent<HTMLElement>) {
@@ -66,7 +66,11 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
       },
       onPointerUp: (event: PointerEvent<HTMLElement>) => finish(event, true),
       onPointerCancel: (event: PointerEvent<HTMLElement>) => finish(event, false),
-      onLostPointerCapture: (event: PointerEvent<HTMLElement>) => finish(event, false),
+      onLostPointerCapture(event: PointerEvent<HTMLElement>) {
+        // Touch implicitly captures on the pressed child first. Its bubbling loss
+        // during transfer to the nav must not cancel the new nav-owned gesture.
+        if (event.target === event.currentTarget) finish(event, false);
+      },
       onClickCapture(event: MouseEvent<HTMLElement>) { if (suppressClick.current && event.detail !== 0) { event.preventDefault(); event.stopPropagation(); suppressClick.current = false; } },
     },
     onSliderKeyDown(event: KeyboardEvent<HTMLElement>) {
