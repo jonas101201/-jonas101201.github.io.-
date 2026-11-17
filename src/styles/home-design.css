@@ -3,7 +3,9 @@
 .home-mobile-brand,.mobile-dock { display: none; }
 .home-language-choice { padding: 0 10px 18px; }
 @media screen {
-  .home-route .ascii-waves,.home-route .background-motion-toggle { display: none; }
+  .home-route .background-motion-toggle { display: none; }
+  .home-route .ascii-waves { display: block; opacity: .55; }
+  :root[data-theme="light"] .home-route .ascii-waves { opacity: .3; }
   .home-route.app-shell { background: radial-gradient(ellipse 850px 700px at 95% 0%,#6760b51c,transparent 75%),radial-gradient(ellipse 700px 650px at 5% 95%,#3d80901a,transparent 75%),#0b1220; }
   :root[data-theme="light"] .home-route.app-shell { background: radial-gradient(ellipse 850px 700px at 95% 0%,#e2ddfc85,transparent 75%),radial-gradient(ellipse 750px 650px at 5% 95%,#dceff380,transparent 75%),#f7f8fc; }
   .home-route .topbar,.home-route .main-content { max-width: 1200px; }

@@ -25,6 +25,7 @@ export function mountLiquidGlass(root: HTMLElement) {
     for (const element of decorated) if (!root.contains(element)) decorated.delete(element);
     for (const group of groups) if (!root.contains(group)) groups.delete(group);
     root.querySelectorAll<HTMLElement>('.featured-subjects, .small-subjects, .subject-grid, .field-grid, .material-grid, .material-list, .continue-grid, .recent-materials, .learning-grid, .sheet-grid, .search-results, .review-list, .event-list, .answer-options').forEach(group => {
+      if (group.closest('[data-dock-replica]')) return;
       let index = 0;
       for (const child of group.children) {
         if (!(child instanceof HTMLElement) || revealed.has(child)) continue;
@@ -34,15 +35,18 @@ export function mountLiquidGlass(root: HTMLElement) {
       }
     });
     root.querySelectorAll<HTMLElement>('.feedback.success, .quiz-result .feature-icon, [data-motion-success]').forEach(element => {
+      if (element.closest('[data-dock-replica]')) return;
       if (revealed.has(element)) return;
       revealed.add(element);
       animate(element, [{ scale: '1' }, { scale: '1.025', offset: .45 }, { scale: '1' }]);
     });
     root.querySelectorAll<HTMLElement>(controls).forEach(element => {
+      if (element.closest('[data-dock-replica]')) return;
       element.dataset.liquid = element.matches('input[type="range"]') ? 'range' : element.matches('.text-link, .back-link') ? 'link' : element.matches('.flashcard, .sheet-card, .subject-card, .search-result') ? 'card' : 'control';
       decorated.add(element);
     });
     root.querySelectorAll<HTMLElement>('.segmented, .content-tabs').forEach(group => {
+      if (group.closest('[data-dock-replica]')) return;
       groups.add(group);
       const active = group.querySelector<HTMLElement>('button[aria-pressed="true"], button.active');
       if (!active) { delete group.dataset.glassPill; return; }
