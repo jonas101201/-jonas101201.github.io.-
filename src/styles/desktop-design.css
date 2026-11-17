@@ -1,0 +1,91 @@
+/* One desktop frame: the navigation rail, header, content and footer share
+   dimensions. All mobile layouts and the floating dock keep their own rules. */
+@media screen and (min-width:821px) {
+  .app-shell { --desktop-rail: 232px; --desktop-gutter: 32px; --desktop-width: 1240px; }
+  .app-shell.sidebar-collapsed { --desktop-rail: 80px; }
+  .app-shell.focus-mode { --desktop-rail: 0px; }
+  .app-shell .sidebar { width: var(--desktop-rail); height: 100dvh; padding: 24px 16px 20px; }
+  .app-shell .workspace { width: calc(100% - var(--desktop-rail)); margin-left: var(--desktop-rail); min-height: 100dvh; display: flex; flex-direction: column; }
+  .app-shell.focus-mode .workspace { width: 100%; margin-left: 0; }
+  .app-shell .topbar,.app-shell .main-content,.app-shell .page-footer { width: 100%; max-width: var(--desktop-width); margin-inline: auto; padding-left: var(--desktop-gutter); padding-right: var(--desktop-gutter); }
+  .app-shell .topbar { min-height: 88px; padding-block: 20px; gap: 12px; flex-shrink: 0; }
+  .app-shell .main-content { padding-top: 24px; padding-bottom: 32px; min-height: 0; flex: 1; }
+  .app-shell .page-footer { padding-top: 20px; padding-bottom: 24px; margin-top: 0; border-top: 1px solid var(--color-border); flex-wrap: wrap; font-size: 12px; }
+  .app-shell .topbar .command-trigger { flex: 1; min-width: 44px; width: auto; max-width: 600px; margin: 0 auto 0 0; min-height: 46px; }
+  .app-shell .topbar .command-trigger span { text-align: left; font-size: 13px; }
+  .app-shell .topbar .class-button { flex-shrink: 0; min-height: 44px; }
+  .app-shell .topbar .language-switcher { flex-shrink: 0; min-width: 0; gap: 8px; }
+  .app-shell .topbar .language-switcher select { width: 132px; max-width: 132px; font-size: 13px; }
+  .app-shell .sidebar .brand { padding: 8px 12px; }
+  .app-shell .sidebar .main-nav { margin-top: 28px; }
+  .app-shell .sidebar .nav-link { margin-bottom: 5px; }
+  .app-shell .sidebar .sidebar-bottom { padding: 24px 0 0; }
+  .app-shell .sidebar-class { padding: 18px 12px 12px; }
+  .app-shell .sidebar .mobile-close,.app-shell .topbar .mobile-menu { display: none; }
+  .app-shell.sidebar-collapsed .sidebar { padding-inline: 10px; }
+  .app-shell.sidebar-collapsed .sidebar .brand { padding-inline: 0; }
+  .app-shell.sidebar-collapsed .sidebar .nav-link { padding-inline: 8px; }
+  .app-shell .breadcrumbs { margin-bottom: 20px; }
+  .app-shell .page-heading { margin-top: 0; margin-bottom: 28px; align-items: flex-start; }
+  .app-shell .page-heading h1 { font-size: clamp(28px,2.5vw,34px); line-height: 1.3; }
+  .app-shell .material-grid,.app-shell .recent-materials { grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); gap: 20px; }
+  .app-shell .learning-grid,.app-shell .featured-subjects { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+  .app-shell .subject-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,150px),1fr)); gap: 16px; }
+  .app-shell .subject-card.compact { padding: 22px 20px; min-height: 156px; }
+  .app-shell .subject-card.compact h3 { font-size: 15px; overflow-wrap: break-word; }
+  .app-shell .subject-header { gap: 16px; }
+  .app-shell .subject-header > div { min-width: 0; }
+  .app-shell .subject-header p { max-width: none; font-size: 12px; overflow-wrap: break-word; }
+  .app-shell .field-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,170px),1fr)); gap: 12px; }
+  .app-shell .content-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); width: 100%; gap: 4px; }
+  .app-shell .content-tabs button { min-width: 0; justify-content: center; white-space: normal; text-wrap: balance; hyphens: auto; padding: 12px; }
+  .app-shell .home-dashboard { max-width: none; margin: 0; }
+  .app-shell .home-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 24px; }
+  .app-shell .home-heading .home-eyebrow { margin: 0; font-size: 11px; letter-spacing: .1em; }
+  .app-shell .home-heading h1 { font-size: 14px; line-height: 1.6; }
+  .app-shell .home-main-grid { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .app-shell .home-resume-card { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 0 28px; min-height: 156px; padding: 24px 28px; }
+  .app-shell .home-resume-card h2.home-card-label { grid-column: 1; justify-self: start; padding: 0; margin-bottom: 8px; background: transparent; font-size: 10px; letter-spacing: .1em; }
+  .app-shell .home-resume-card h3 { grid-column: 1; font-size: 24px; line-height: 1.4; letter-spacing: -.4px; margin-bottom: 6px; }
+  .app-shell .home-resume-card p { grid-column: 1; margin: 0; font-size: 13px; }
+  .app-shell .home-resume-action { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 12px 16px; min-height: 46px; border: 1px solid var(--color-border); border-radius: 14px; background: #a594d514; font-size: 14px; }
+  .app-shell .home-resume-action svg { width: 18px; height: 18px; }
+  .app-shell .home-bk-groups { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+  .app-shell .home-bk-group { padding: 20px; }
+  .app-shell .home-bk-heading { margin-bottom: 16px; }
+  .app-shell .home-bk-heading h3 { font-size: 14px; overflow-wrap: break-word; }
+  .app-shell .home-bk-fields { gap: 10px; }
+  .app-shell .home-bk-fields a { min-height: 46px; font-size: 13px; }
+  .app-shell .home-section-heading { align-items: center; margin-bottom: 16px; min-height: 32px; }
+  .app-shell .home-quick { margin-top: 28px; }
+  .app-shell .home-quick > div { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+  .app-shell .home-quick a { justify-content: flex-start; min-height: 62px; padding: 16px 20px; border-radius: 18px; background: var(--reference-surface); font-size: 14px; }
+  .app-shell .home-subjects { margin-top: 28px; }
+  .app-shell .home-extras { border-top: 0; margin-top: 24px; }
+  .app-shell .home-extras > summary { min-height: 58px; padding: 16px 20px; border: 1px solid var(--color-border); border-radius: 18px; }
+  .app-shell .home-extras[open] > summary { margin-bottom: 24px; }
+  .app-shell .home-subject-chip { background: #a594d508; }
+  .app-shell .home-extras { margin-top: 24px; }
+  @media(max-width:1100px) {
+    .app-shell { --desktop-rail: 208px; --desktop-gutter: 24px; }
+    .app-shell.sidebar-collapsed { --desktop-rail: 80px; }
+    .app-shell.focus-mode { --desktop-rail: 0px; }
+    .app-shell .topbar .class-button { display: none; }
+    .app-shell .topbar .command-trigger { justify-content: flex-start; }
+    .app-shell .topbar .command-trigger span { display: block; }
+    .app-shell .topbar .command-trigger kbd { display: none; }
+    .app-shell .topbar .language-switcher > svg { display: none; }
+    .app-shell .topbar .language-switcher select { width: 124px; max-width: 124px; }
+    .app-shell .content-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .app-shell .home-bk-group { padding: 16px; }
+    .app-shell .home-bk-fields { gap: 8px; }
+    .app-shell .home-resume-card { padding: 22px; column-gap: 20px; }
+    .app-shell .material-list .material-card { grid-template-columns: minmax(0,1fr) auto; grid-template-areas: "head footer" "title title" "description description" "tags tags" "details details"; gap: 12px 16px; }
+  }
+  @media(max-width:960px) {
+    .app-shell .learning-grid { grid-template-columns: minmax(0,1fr); }
+    .app-shell .topbar .command-trigger { justify-content: center; }
+    .app-shell .topbar .command-trigger span { display: none; }
+    .app-shell .home-resume-action { padding-inline: 12px; font-size: 13px; }
+  }
+}
