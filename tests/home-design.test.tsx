@@ -30,7 +30,7 @@ it('keeps every BK1 and BK2 learning field directly reachable from the homepage'
   expect(screen.getByRole('heading', { name: 'BK1 · Lernfeld 3' })).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Unterrichtsmaterialien', pressed: true })).toBeTruthy();
 });
-it('opens search and restores keyboard focus to the floating menu after Escape', async () => {
+it('opens search and a drop-up menu, then restores focus after Escape', async () => {
   const user = userEvent.setup(); const view = show();
   const dock = screen.getByRole('navigation', { name: 'Schnellnavigation' });
   await user.click(within(dock).getByRole('button', { name: 'Suche' }));
@@ -38,9 +38,11 @@ it('opens search and restores keyboard focus to the floating menu after Escape',
   await user.click(screen.getByRole('button', { name: 'Suche schließen' }));
   const more = within(dock).getByRole('button', { name: 'Mehr' });
   await user.click(more);
-  expect(view.container.querySelector('.sidebar.is-open')).toBeTruthy();
-  await user.keyboard('{Escape}');
+  const menu = screen.getByRole('dialog', { name: 'Weitere Bereiche' });
+  expect(within(menu).getByRole('link', { name: 'Materialien' })).toBeTruthy();
   expect(view.container.querySelector('.sidebar.is-open')).toBeNull();
+  await user.keyboard('{Escape}');
+  expect(screen.queryByRole('dialog', { name: 'Weitere Bereiche' })).toBeNull();
   expect(document.activeElement).toBe(more);
 });
 it('leaves the dock out of study sheet pages', () => {

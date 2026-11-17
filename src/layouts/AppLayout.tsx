@@ -115,7 +115,7 @@ export function AppLayout() {
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${dockEnabled ? 'dock-enabled' : ''} ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
     <GlassFilters/>
     {palette && <CommandPalette onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
-    <AsciiWaves paused={backgroundPaused || focusMode || isHome}/>
+    <AsciiWaves paused={backgroundPaused || focusMode}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
     <aside ref={sidebar} id="main-sidebar" className={`sidebar ${menu ? 'is-open' : ''}`} aria-label={tr("Hauptnavigation")}>
@@ -132,6 +132,6 @@ export function AppLayout() {
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<Breadcrumbs/><div key={location.pathname} className="page-enter"><Outlet /></div></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
     </div>
-    {dockEnabled && !focusMode && <MobileDock menuOpen={menu} onSearch={() => setPalette(true)} onMore={button => { menuTrigger.current = button; setMenu(true); }}/>}
+    {dockEnabled && !focusMode && <MobileDock sidebarOpen={menu} onSearch={() => setPalette(true)} searchOpen={palette} backgroundPaused={backgroundPaused} onToggleBackground={() => setBackgroundPaused(value => !value)}/>}
   </div>;
 }
