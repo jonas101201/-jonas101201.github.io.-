@@ -104,7 +104,7 @@ export function DockRefraction({ shell, animated }: { shell: RefObject<HTMLDivEl
         replica.setAttribute('aria-hidden', 'true'); replica.inert = true;
         const sourceStyle = getComputedStyle(source!);
         replica.style.fontFamily = sourceStyle.fontFamily; replica.style.fontSize = sourceStyle.fontSize;
-        replica.style.fontWeight = sourceStyle.fontWeight; replica.style.color = sourceStyle.color; replica.style.letterSpacing = sourceStyle.letterSpacing;
+        replica.style.fontWeight = sourceStyle.fontWeight; replica.style.color = 'var(--color-text)'; replica.style.letterSpacing = sourceStyle.letterSpacing;
         // Preserve proportional inheritance: a computed 21px root line-height
         // must not force 11px tags to inherit a fixed 21px line-height.
         const ratio = parseFloat(sourceStyle.lineHeight) / parseFloat(sourceStyle.fontSize);
