@@ -1,0 +1,81 @@
+/* Mobile reading and interaction rules. Keep the optical scene and original
+   content under the same selectors so the dock samples the current layout. */
+@media screen {
+  .filter-disclosure > .filter-controls[hidden] { display: none; }
+}
+@media screen and (max-width: 820px) {
+  :root { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  .app-shell { --mobile-gutter: clamp(18px,5vw,24px); font-kerning: normal; }
+  .app-shell .topbar,.home-route.app-shell .topbar {
+    flex-wrap: wrap;
+    padding-top: calc(16px + env(safe-area-inset-top,0px));
+    padding-left: max(var(--mobile-gutter),env(safe-area-inset-left,0px));
+    padding-right: max(var(--mobile-gutter),env(safe-area-inset-right,0px));
+  }
+  .app-shell .main-content,.home-route.app-shell .main-content,.app-shell .page-footer {
+    padding-left: max(var(--mobile-gutter),env(safe-area-inset-left,0px));
+    padding-right: max(var(--mobile-gutter),env(safe-area-inset-right,0px));
+  }
+  .app-shell:not(.dock-enabled) .workspace { padding-bottom: env(safe-area-inset-bottom,0px); }
+  .app-shell .sidebar { padding-top: calc(20px + env(safe-area-inset-top,0px)); padding-bottom: calc(22px + env(safe-area-inset-bottom,0px)); padding-left: max(14px,env(safe-area-inset-left,0px)); }
+  .app-shell .mobile-dock-shell { width: min(420px,calc(100% - max(14px,env(safe-area-inset-left,0px)) - max(14px,env(safe-area-inset-right,0px)))); left: calc((100% + max(14px,env(safe-area-inset-left,0px)) - max(14px,env(safe-area-inset-right,0px))) / 2); }
+  .app-shell :is(.page-heading h1,.question-card h2,.home-resume-card h3,.learning-card h2) { text-wrap: balance; }
+  .app-shell :is(.material-description,.page-heading .muted,.sheet-section p,.sheet-points,.prose p,.feedback p) { text-wrap: pretty; }
+  .app-shell :is(.sheet-section,.prose,.feedback,.question-card) { overflow-wrap: break-word; }
+  .app-shell :is(.page-heading .muted,.learning-card .muted) { font-size: 14px; line-height: 1.75; }
+  .app-shell :is(.quiz-progress,.flash-meta,.flash-navigation,.result-count,.command-count,.file-details,.field-number,.home-heading time,.filter-active-count,.progress-metrics dd) { font-variant-numeric: tabular-nums; }
+  .app-shell :is(.quiz-progress,.flash-meta) { flex-wrap: wrap; gap: 6px 16px; min-height: 24px; }
+  .app-shell :is(.back-link,.text-link,.sheet-contents button,.material-title) { min-height: 44px; align-items: center; }
+  .app-shell .text-link { display: inline-flex; }
+  .app-shell .back-link { margin-top: 0; margin-bottom: 12px; }
+  .app-shell .sheet-contents button { padding-block: 12px; }
+  .app-shell .breadcrumbs { font-size: 12px; line-height: 1.5; }
+  .app-shell .breadcrumbs li:not(:nth-last-child(-n+2)) { display: none; }
+  .app-shell .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 10px; }
+  /* 16px inputs avoid Safari's focus zoom without disabling user zoom. */
+  :root[data-theme] .app-shell :is(select,textarea,input:not([type="radio"]):not([type="checkbox"]):not([type="range"])),
+  :root[data-theme] .command-palette .command-input input { font-size: 16px; line-height: 1.5; }
+  .app-shell .filter-search { min-height: 48px; }
+  .app-shell .filter-search input { width: 100%; }
+  .app-shell .topbar .language-switcher { min-width: 0; flex-shrink: 1; }
+  .app-shell .topbar .language-switcher select { width: 132px; max-width: 100%; }
+  .app-shell .topbar .command-trigger { min-width: 44px; flex: 1 1 44px; }
+  @media(max-width:370px) { .app-shell .topbar { gap: 4px; } }
+  .app-shell .filter-disclosure { margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--color-border); }
+  .app-shell .filter-disclosure-trigger { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; padding: 8px 4px; border: 0; background: transparent; color: var(--color-text); box-shadow: none; font-size: 14px; text-align: left; }
+  .filter-disclosure-trigger > span:first-of-type { flex: 1; }
+  .filter-disclosure-trigger > svg:last-child { transition: rotate var(--motion-enter) var(--motion-out); }
+  .filter-disclosure-trigger[aria-expanded="true"] > svg:last-child { rotate: 180deg; }
+  .filter-active-count { font-size: 12px; line-height: 1.5; white-space: nowrap; border-radius: 999px; padding: 4px 8px; color: var(--color-accent); background: #a594d51c; background: color-mix(in oklch,var(--color-accent) 14%,transparent); }
+  .app-shell .filter-disclosure > .filter-controls { display: grid; grid-template-columns: minmax(0,1fr); border-top: 0; padding-top: 8px; margin-top: 0; gap: 10px; }
+  .app-shell .filter-disclosure > .filter-controls[hidden] { display: none; }
+  .app-shell .filter-disclosure .filter-controls > svg { display: none; }
+  .app-shell .filter-disclosure .filter-controls select { width: 100%; min-width: 0; min-height: 48px; }
+  .app-shell .filter-disclosure-trigger:active { transform: none; }
+  .app-shell .library-toolbar { align-items: flex-start; gap: 10px 16px; }
+  .app-shell .library-toolbar .result-count { min-height: 24px; padding-block: 4px; }
+  .app-shell .library-toolbar .view-toggle { flex-shrink: 0; }
+  /* The pressed view button confirms the state visually; announce it without
+     inserting a confirmation row and shifting the catalog. */
+  .app-shell .library-feedback { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .app-shell :is(.button,.answer-option,.content-tabs button,.filter-disclosure-trigger) { scroll-margin-block: 100px; }
+  .command-palette { margin-top: max(16px,env(safe-area-inset-top,0px)); max-height: calc(100dvh - max(16px,env(safe-area-inset-top,0px)) - max(16px,env(safe-area-inset-bottom,0px))); }
+  .command-palette .command-results { max-height: 40dvh; }
+  @media(min-width:600px) { .app-shell .filter-disclosure > .filter-controls { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(max-width:370px) { .app-shell { --mobile-gutter: 14px; } }
+  @media(prefers-reduced-motion:no-preference) {
+    .app-shell .workspace .flashcard { view-transition-name: mobile-learning-card; }
+    ::view-transition { pointer-events: none; }
+    ::view-transition-group(mobile-learning-card) { animation-duration: var(--motion-enter); animation-timing-function: var(--motion-move); }
+    ::view-transition-old(mobile-learning-card) { animation: mobile-state-out var(--motion-exit) ease-in both; }
+    ::view-transition-new(mobile-learning-card) { animation: mobile-state-in var(--motion-enter) var(--motion-out) both; }
+    @keyframes mobile-state-out { to { opacity: 0; } }
+    @keyframes mobile-state-in { from { opacity: 0; } }
+  }
+}
+@media screen and (min-width:821px) and (max-width:1100px) {
+  .app-shell .topbar { gap: 12px; }
+  .app-shell .topbar .class-button { display: none; }
+  .app-shell .topbar .command-trigger { flex: 1 1 44px; min-width: 44px; width: 44px; justify-content: center; }
+  .app-shell .topbar .command-trigger :is(span,kbd) { display: none; }
+}
