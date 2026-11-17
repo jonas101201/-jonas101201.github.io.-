@@ -1,0 +1,91 @@
+/* The redesign is scoped to the home screen and the optional mobile dock.
+   Study sheet markup, data and reading styles keep their existing appearance. */
+.home-mobile-brand,.mobile-dock { display: none; }
+.home-language-choice { padding: 0 10px 18px; }
+@media screen {
+  .home-route .ascii-waves,.home-route .background-motion-toggle { display: none; }
+  .home-route.app-shell { background: radial-gradient(ellipse 850px 700px at 95% 0%,#6760b51c,transparent 75%),radial-gradient(ellipse 700px 650px at 5% 95%,#3d80901a,transparent 75%),#0b1220; }
+  :root[data-theme="light"] .home-route.app-shell { background: radial-gradient(ellipse 850px 700px at 95% 0%,#e2ddfc85,transparent 75%),radial-gradient(ellipse 750px 650px at 5% 95%,#dceff380,transparent 75%),#f7f8fc; }
+  .home-route .topbar,.home-route .main-content { max-width: 1200px; }
+  .home-route .topbar { padding-bottom: 12px; }
+  .home-dashboard { max-width: 1040px; margin-inline: auto; --home-muted: var(--color-muted); --home-line: var(--color-border); }
+  .home-heading { margin: 8px 0 26px; }
+  .home-dashboard .home-eyebrow { margin-bottom: 13px; color: var(--color-muted); font-size: 12px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+  .home-heading h1 { max-width: 800px; font-size: 18px; font-weight: 500; line-height: 1.6; letter-spacing: 0; color: var(--home-muted); margin: 0; }
+  .home-main-grid { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,1fr); gap: 38px; align-items: center; }
+  .home-resume { min-width: 0; }
+  .home-resume-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; min-height: 310px; border-radius: 28px; padding: 30px; }
+  .home-resume-card::after { content: ''; position: absolute; width: 240px; height: 240px; right: -130px; top: -120px; border: 1px solid #c0b5ea29; border-radius: 50%; background: linear-gradient(135deg,#bba5f014,#a5cdf014); pointer-events: none; }
+  .home-resume-card h2.home-card-label { display: inline-block; font-size: 11px; color: var(--color-accent); text-transform: uppercase; letter-spacing: .07em; padding: 7px 11px; border-radius: 10px; background: #a88cdb1a; margin: 0 0 20px; font-weight: 650; }
+  .home-resume-kind { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .home-resume-card h3 { font-size: clamp(24px,2.5vw,30px); line-height: 1.25; letter-spacing: -.65px; max-width: 100%; overflow-wrap: break-word; margin-bottom: 10px; }
+  .home-resume-card p { font-size: 13px; color: var(--home-muted); margin: 0 0 25px; }
+  .home-resume-action { display: flex; align-items: center; gap: 14px; margin-top: auto; color: var(--color-accent); font-size: 15px; font-weight: 600; }
+  .home-resume-card:hover .home-resume-action { text-decoration: underline; text-underline-offset: .25em; }
+  .home-section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .home-dashboard h2 { font-size: 21px; letter-spacing: -.4px; line-height: 1.4; }
+  .home-section-heading .text-link { font-size: 12px; }
+  .home-fields { min-width: 0; }
+  .home-bk-groups { display: grid; gap: 20px; }
+  .home-bk-group { min-width: 0; padding: 16px; border: 1px solid rgba(var(--rgb),.23); border-radius: 20px; background: linear-gradient(135deg,rgba(var(--rgb),.06),transparent); }
+  .home-bk-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .home-bk-heading>span:nth-child(2) { flex: 1; min-width: 0; }
+  .home-bk-heading h3 { font-size: 14px; font-weight: 600; line-height: 1.5; }
+  .home-bk-heading>svg { color: var(--home-muted); }
+  .home-bk-badge { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 12px; color: var(--accent); background: rgba(var(--rgb),.13); font-size: 15px; font-weight: 700; }
+  .home-bk-fields { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; }
+  .home-bk-fields a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 4px; border: 1px solid var(--home-line); border-radius: 11px; font-size: 13px; font-weight: 600; }
+  .home-bk-fields a:hover { border-color: var(--accent); color: var(--accent); background: rgba(var(--rgb),.08); }
+  .home-quick { margin-top: 30px; }
+  .home-quick>h2 { margin-bottom: 15px; }
+  .home-quick>div { display: flex; gap: 12px; }
+  .home-quick a { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 24px; min-height: 52px; border: 1px solid var(--home-line); border-radius: 999px; font-size: 15px; font-weight: 600; }
+  .home-quick a>svg { color: var(--color-accent); }
+  .home-quick a:hover { border-color: var(--color-accent); }
+  .home-subjects { margin-top: 32px; }
+  .home-subjects>div:last-child { display: flex; flex-wrap: wrap; gap: 8px; }
+  .home-subject-chip { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 9px 15px; border: 1px solid var(--home-line); border-radius: 12px; font-size: 12px; }
+  .home-subject-chip>svg { color: var(--accent); }
+  .home-extras { margin-top: 28px; border-top: 1px solid var(--home-line); }
+  .home-extras>summary { min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 14px; cursor: pointer; color: var(--home-muted); font-size: 13px; list-style: none; }
+  .home-extras>summary::-webkit-details-marker { display: none; }
+  .home-extras[open]>summary>svg { rotate: 90deg; }
+  .home-extra-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 4px 0 24px; }
+  @media(max-width:1000px) {
+    .home-main-grid { gap: 25px; }
+    .home-resume-card { padding: 26px; }
+  }
+  @media(max-width:820px) {
+    .home-route .topbar { justify-content: space-between; padding: 20px 24px 8px; min-height: 76px; }
+    .home-route .topbar>:not(.home-mobile-brand):not(.theme-toggle) { display: none; }
+    .home-route .home-mobile-brand { display: inline-flex; align-items: center; gap: 8px; font-size: 24px; font-weight: 700; letter-spacing: -.7px; }
+    .home-mobile-brand>span { color: var(--color-accent); margin-left: -8px; }
+    .home-mobile-brand>svg { color: var(--color-accent); margin-right: 3px; }
+    .home-route .main-content { padding: 18px 24px 24px; }
+    .home-heading { margin: 4px 0 26px; }
+    .home-heading h1 { font-size: 16px; }
+    .home-main-grid { grid-template-columns: minmax(0,1fr); gap: 28px; }
+    .home-resume-card { min-height: 245px; padding: 25px; border-radius: 25px; }
+    .home-resume-card h3 { font-size: 28px; }
+    .home-quick>div { gap: 10px; }
+    .home-quick a { flex: 1; gap: 8px; padding: 13px 12px; font-size: 14px; }
+    .home-subjects { margin-top: 30px; }
+    .dock-enabled .workspace { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+    .app-shell .mobile-dock { position: fixed; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); z-index: 35; bottom: max(12px,env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: min(420px,calc(100% - 28px)); padding: 7px; border-radius: 30px; border: 1px solid var(--reference-rim); background: var(--reference-surface); box-shadow: var(--reference-shadow),0 10px 30px #02071420; backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); }
+    .app-shell .mobile-dock :is(a,button),:root[data-theme="light"] .app-shell .mobile-dock :is(a,button) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-width: 0; min-height: 56px; padding: 6px 3px; border: 0; border-radius: 23px; background: transparent; box-shadow: none; color: var(--color-muted); font-size: 11px; font-weight: 500; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .app-shell .mobile-dock .active,:root[data-theme="light"] .app-shell .mobile-dock .active { background: #a88cdb1c; color: var(--color-accent); font-weight: 650; }
+    .mobile-dock button::before,.mobile-dock button::after { display: none; }
+    .home-route .page-footer { font-size: 10px; }
+  }
+  @media(max-width:370px) {
+    .home-route .topbar { padding-inline: 20px; }
+    .home-route .main-content { padding-inline: 20px; }
+    .home-resume-card { padding: 22px; }
+    .home-resume-card h3 { font-size: 25px; }
+    .home-dashboard h2 { font-size: 20px; }
+    .home-bk-group { padding: 13px; }
+    .home-bk-heading h3 { font-size: 12px; }
+    .home-quick a { font-size: 12px; }
+  }
+}
+@media print { .mobile-dock,.home-mobile-brand { display: none!important; } }

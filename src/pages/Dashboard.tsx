@@ -1,38 +1,69 @@
+import { CurrentDate } from '../components/CurrentDate';
 import { buildSearchIndex } from '../features/search';
 import { useMemo } from 'react';
-import { useI18n } from "../i18n/context";
+import { useI18n } from '../i18n/context';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, BarChart3, CalendarDays, BookOpen, ChevronRight, FileText, GraduationCap, Layers, Play, Zap } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BarChart3, CalendarDays, BookOpen, ChevronRight, FileText, GraduationCap, Layers } from 'lucide-react';
 import { catalog } from '../data/catalog';
-import { ContentLink, SectionHeading, SubjectCard } from '../components/ui';
+import { SectionHeading } from '../components/ui';
 import { MaterialCard } from '../features/materials/MaterialCard';
 import { useProgress } from '../hooks/useProgress';
-import { classroom } from '../features/classroom/config';
 import { ClassEvents } from '../features/classroom/ClassEvents';
-const shortcuts = [
-    { title: 'Lernzettel', to: '/lernzettel', Icon: BookOpen },
-    { title: 'Materialien', to: '/materialien', Icon: FileText },
-    { title: 'Quizze', to: '/quizze', Icon: Play },
-    { title: 'Karteikarten', to: '/karteikarten', Icon: Layers },
-    { title: 'Prüfungstraining', to: '/pruefungstraining', Icon: GraduationCap },
-];
+import { studySheets } from '../features/study-sheets/data';
+
 export function Dashboard() {
-    const { tr, count, language } = useI18n();
-    const { progress, activities, persistenceEnabled } = useProgress();
-    const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
-    const recent = activities.flatMap(a => { const entry = index.find(e => e.to === a.to); return entry ? [{ ...entry, visitedAt: a.visitedAt }] : []; }).slice(0, 4);
-    const availableCards = catalog.flashcardSets.flatMap(set => set.cards.map(card => ({ key: `${set.id}:${card.id}` })));
-    const known = availableCards.filter(c => progress.cards[c.key]?.status === 'known').length;
-    const difficult = availableCards.filter(c => progress.cards[c.key]?.status === 'difficult').length;
-    const percent = availableCards.length ? Math.round(known / availableCards.length * 100) : 0;
-    const latest = [...catalog.materials].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, 3);
-    return <div className="dashboard">
-    <header className="dashboard-heading"><div><p>{tr(classroom.program)}</p><h1>{classroom.name}</h1><span>{tr(classroom.description)}</span></div><Link to="/klasse" className="class-chip">{tr("Klassen\u00FCbersicht")}<ArrowUpRight size={15}/></Link></header>
-    <section className="continue-section" aria-labelledby="continue-heading"><div className="section-heading"><h2 id="continue-heading">{tr('Weiterlernen')}</h2><Link className="text-link" to="/ueber">{tr('Speicher verwalten')}</Link></div>{recent.length ? <div className="continue-grid">{recent.map(entry => <ContentLink key={entry.id} to={entry.to} title={entry.title} kind={entry.kind}/>)}</div> : <div className="glass continue-empty"><p>{tr('Hier findest du deine zuletzt geöffneten Lerninhalte. Öffne ein Material, einen Lernzettel, ein Quiz oder ein Kartenset.')}</p><Link className="text-link" to="/materialien">{tr('Materialien entdecken')}<ArrowUpRight size={16}/></Link></div>}</section>
-    <section aria-label={tr("Fächer der Klasse")}><div className="featured-subjects">{catalog.subjects.slice(0, 2).map(s => <SubjectCard key={s.id} subject={s} featured/>)}</div><div className="small-subjects">{catalog.subjects.slice(2).map(s => <SubjectCard key={s.id} subject={s}/>)}</div></section>
-    <section className="dashboard-shortcuts"><h2><Zap size={21}/>{tr("Schnellzugriff")}</h2><div className="shortcut-grid">{shortcuts.map(({ title, to, Icon }) => <Link className="shortcut glass" to={to} key={to}><Icon size={24}/><span>{tr(title)}</span><ChevronRight size={16}/></Link>)}</div></section>
-    <div className="dashboard-panels"><section className="dashboard-panel glass"><div className="panel-heading"><h2><BarChart3 size={22}/>{tr("Dein Fortschritt")}</h2><Link to="/ueber" className="icon-button" aria-label={tr("Lernverlauf anzeigen")}><ArrowUpRight size={18}/></Link></div><div className="progress-overview"><div className="progress-ring" role="img" aria-label={tr("{0} von {1} Karten gewusst, {2} Prozent", [known, availableCards.length, percent])}><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="65" className="ring-track"/><circle cx="80" cy="80" r="65" className="ring-value" pathLength="100" strokeDasharray={`${percent} 100`}/></svg><div><strong>{percent}<span> %</span></strong><small>{tr("Karten gewusst")}</small></div></div><dl className="progress-metrics"><div><dt>{tr("Gewusste Karten")}</dt><dd>{known}<span> / {availableCards.length}</span></dd></div><div><dt>{tr("Noch \u00FCben")}</dt><dd>{count(difficult, 'cards')}</dd></div><div><dt>{tr("Quizversuche")}</dt><dd>{progress.quizResults.length}</dd></div></dl></div><p className="panel-footnote">{persistenceEnabled ? tr('Fortschritt wird nur in diesem Browser gespeichert.') : tr('Fortschritt bleibt bis zum Neuladen erhalten. Dauerhafte Speicherung kannst du freiwillig aktivieren.')}</p></section>
-    <section className="dashboard-panel glass"><div className="panel-heading"><h2><CalendarDays size={22}/>{tr("N\u00E4chste Termine")}</h2><Link to="/klasse" className="icon-button" aria-label={tr("Alle Klassentermine anzeigen")}><ArrowUpRight size={18}/></Link></div><ClassEvents limit={3}/></section></div>
-    <section className="recent-section"><SectionHeading title={tr("Zuletzt hinzugefügt")} to="/materialien" link={tr("Alle Materialien")}/><div className="recent-materials">{latest.map(m => <MaterialCard material={m} key={m.id}/>)}</div></section>
+  const { tr, count, language } = useI18n();
+  const { progress, activities, persistenceEnabled } = useProgress();
+  const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
+  const recent = activities.flatMap(a => { const entry = index.find(e => e.to === a.to); return entry ? [entry] : []; });
+  const entry = recent[0];
+  const starter = studySheets.find(s => s.id === 'bk1-lf3') ?? studySheets[0]!;
+  const bkSubjects = catalog.subjects.filter(subject => ['bk1', 'bk2'].includes(subject.id));
+  const cards = catalog.flashcardSets.flatMap(set => set.cards.map(card => `${set.id}:${card.id}`));
+  const known = cards.filter(key => progress.cards[key]?.status === 'known').length;
+  const difficult = cards.filter(key => progress.cards[key]?.status === 'difficult').length;
+  const percent = cards.length ? Math.round(known / cards.length * 100) : 0;
+  const latest = [...catalog.materials].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, 3);
+
+  return <div className="dashboard home-dashboard">
+    <header className="home-heading">
+      <p className="home-eyebrow">{tr('Dein Lernbereich')}</p>
+      <h1><CurrentDate/></h1>
+    </header>
+    <div className="home-main-grid">
+      <section className="home-resume" aria-labelledby="continue-heading">
+        <Link className="home-resume-card glass" to={entry?.to ?? `/lernzettel/${starter.id}`}>
+          <h2 id="continue-heading" className="home-card-label">{tr(entry ? 'Weiterlernen' : 'Dein Einstieg')}</h2>
+          <span className="home-resume-kind">{entry?.kind ?? tr('Lernzettel')}</span>
+          <h3>{entry?.title ?? tr(starter.title)}</h3>
+          <p>{entry ? tr('Dein zuletzt geöffneter Lerninhalt.') : tr('BK1 · LF 3 · Grundlagen und Zusammenhänge')}</p>
+          <span className="home-resume-action">{tr(entry ? 'Fortsetzen' : 'Lernzettel öffnen')}<ArrowRight size={22} aria-hidden="true"/></span>
+        </Link>
+      </section>
+      <section className="home-fields" aria-labelledby="home-fields-heading">
+        <div className="home-section-heading"><h2 id="home-fields-heading">{tr('Deine Lernfelder')}</h2><Link to="/faecher" className="text-link">{tr('Alle ansehen')}</Link></div>
+        <div className="home-bk-groups">{bkSubjects.map(subject => {
+          const fields = catalog.learningFields.filter(field => field.subjectId === subject.id).sort((a, b) => a.number - b.number);
+          return <article className={`home-bk-group ${subject.color}`} key={subject.id}>
+            <Link className="home-bk-heading" to={`/faecher/${subject.id}`} aria-label={tr('{0} öffnen', [tr(subject.title)])}>
+              <span className="home-bk-badge">{tr(subject.title)}</span>
+              <span><h3>{tr(subject.subtitle)}</h3></span><ChevronRight size={20} aria-hidden="true"/>
+            </Link>
+            <nav className="home-bk-fields" aria-label={tr('{0} Lernfelder', [tr(subject.title)])}>{fields.map(field => <Link key={field.id} to={`/faecher/${subject.id}/lernfelder/${field.id}`} aria-label={tr('{0} · {1}', [tr(subject.title), tr(field.title)])}>LF {field.number}</Link>)}</nav>
+          </article>;
+        })}</div>
+      </section>
+    </div>
+    <section className="home-quick" aria-labelledby="home-quick-heading"><h2 id="home-quick-heading">{tr('Schnell starten')}</h2><div>
+      <Link to="/quizze"><GraduationCap size={25} aria-hidden="true"/>{tr('Quiz üben')}</Link>
+      <Link to="/materialien"><FileText size={24} aria-hidden="true"/>{tr('Materialien')}</Link>
+    </div></section>
+    <section className="home-subjects" aria-label={tr('Fächer der Klasse')}><div className="home-section-heading"><h2>{tr('Alle Fächer')}</h2></div><div>{catalog.subjects.map(subject => <Link className={`home-subject-chip ${subject.color}`} to={`/faecher/${subject.id}`} key={subject.id}>{tr(subject.title)}<ArrowUpRight size={14} aria-hidden="true"/></Link>)}</div></section>
+    <details className="home-extras"><summary>{tr('Weitere Lernangebote und Klasseninfos')}<ChevronRight size={18} aria-hidden="true"/></summary>
+      <div className="home-extra-links"><Link className="text-link" to="/karteikarten"><Layers size={18}/>{tr('Karteikarten')}</Link><Link className="text-link" to="/pruefungstraining"><GraduationCap size={18}/>{tr('Prüfungstraining')}</Link><Link className="text-link" to="/lernzettel"><BookOpen size={18}/>{tr('Alle Lernzettel')}</Link></div>
+      <div className="dashboard-panels"><section className="dashboard-panel glass"><div className="panel-heading"><h2><BarChart3 size={22}/>{tr('Dein Fortschritt')}</h2><Link to="/ueber" className="icon-button" aria-label={tr('Lernverlauf anzeigen')}><ArrowUpRight size={18}/></Link></div><div className="progress-overview"><div className="progress-ring" role="img" aria-label={tr('{0} von {1} Karten gewusst, {2} Prozent', [known, cards.length, percent])}><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="65" className="ring-track"/><circle cx="80" cy="80" r="65" className="ring-value" pathLength="100" strokeDasharray={`${percent} 100`}/></svg><div><strong>{percent}<span> %</span></strong><small>{tr('Karten gewusst')}</small></div></div><dl className="progress-metrics"><div><dt>{tr('Gewusste Karten')}</dt><dd>{known}<span> / {cards.length}</span></dd></div><div><dt>{tr('Noch üben')}</dt><dd>{count(difficult, 'cards')}</dd></div><div><dt>{tr('Quizversuche')}</dt><dd>{progress.quizResults.length}</dd></div></dl></div><p className="panel-footnote">{persistenceEnabled ? tr('Fortschritt wird nur in diesem Browser gespeichert.') : tr('Fortschritt bleibt bis zum Neuladen erhalten. Dauerhafte Speicherung kannst du freiwillig aktivieren.')}</p></section>
+      <section className="dashboard-panel glass"><div className="panel-heading"><h2><CalendarDays size={22}/>{tr('Nächste Termine')}</h2><Link to="/klasse" className="icon-button" aria-label={tr('Alle Klassentermine anzeigen')}><ArrowUpRight size={18}/></Link></div><ClassEvents limit={3}/></section></div>
+      <section className="recent-section"><SectionHeading title={tr('Zuletzt hinzugefügt')} to="/materialien" link={tr('Alle Materialien')}/><div className="recent-materials">{latest.map(m => <MaterialCard material={m} key={m.id}/>)}</div></section>
+    </details>
   </div>;
 }
