@@ -17,6 +17,7 @@ import '../styles/site-design.css';
 import '../styles/mobile-design.css';
 import '../styles/search-dialog.css';
 import '../styles/desktop-design.css';
+import '../styles/interaction-finish.css';
 applyTheme(currentTheme());
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };

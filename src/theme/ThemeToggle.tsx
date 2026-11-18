@@ -17,6 +17,7 @@ export function ThemeToggle() {
   const label = tr(theme === 'dark' ? 'Hellen Modus aktivieren' : 'Dunklen Modus aktivieren');
   return <button className="icon-button theme-toggle" aria-label={label} title={label} onClick={() => {
     const next = theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
     setTheme(next);
     try { window.localStorage.setItem(THEME_KEY, next); } catch { /* The chosen appearance still works for this session. */ }
   }}>{theme === 'dark' ? <Sun size={20} aria-hidden="true"/> : <Moon size={20} aria-hidden="true"/>}</button>;

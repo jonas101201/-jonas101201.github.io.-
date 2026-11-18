@@ -15,7 +15,7 @@ const moreLinks = [
   { to: '/klasse', label: 'Klasse', Icon: Users },
   { to: '/ueber', label: 'Informationen & Speicher', Icon: Settings2 },
 ];
-export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused, onToggleBackground }: { onSearch: () => void; searchOpen: boolean; sidebarOpen: boolean; backgroundPaused: boolean; onToggleBackground: () => void }) {
+export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused, onToggleBackground }: { onSearch: (anchor?: HTMLElement) => void; searchOpen: boolean; sidebarOpen: boolean; backgroundPaused: boolean; onToggleBackground: () => void }) {
   const { tr } = useI18n();
   const { pathname } = useLocation();
   const shell = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused
   const selection = useDockSelection(nav, selectedIndex, index => {
     if (index === 0) { setOpen(false); navigate('/'); }
     if (index === 1) { setOpen(false); navigate('/faecher'); }
-    if (index === 2) { setOpen(false); onSearch(); }
+    if (index === 2) { setOpen(false); onSearch(nav.current?.querySelector<HTMLElement>('button.dock-item') ?? undefined); }
     if (index === 3) setOpen(true);
   });
   function close(restore = false) { setOpen(false); if (restore) trigger.current?.focus(); }
@@ -75,7 +75,7 @@ export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused
       <span className="dock-selection" role="slider" tabIndex={0} aria-label={tr('Navigationsregler')} aria-valuemin={0} aria-valuemax={3} aria-valuenow={selection.selected} aria-valuetext={labels[selection.selected]} onKeyDown={selection.onSliderKeyDown}/>
       <Link draggable={false} className={`dock-item ${selection.selected === 0 ? 'active' : ''}`} to="/" onClick={() => close()} aria-current={home ? 'page' : undefined}><Home size={24} aria-hidden="true"/><span>{tr('Start')}</span></Link>
       <Link draggable={false} className={`dock-item ${selection.selected === 1 ? 'active' : ''}`} to="/faecher" onClick={() => close()} aria-current={pathname === '/faecher' ? 'page' : undefined}><BookOpen size={24} aria-hidden="true"/><span>{tr('Lernen')}</span></Link>
-      <button className={`dock-item ${selection.selected === 2 ? 'active' : ''}`} aria-haspopup="dialog" onClick={() => { close(); onSearch(); }}><Search size={24} aria-hidden="true"/><span>{tr('Suche')}</span></button>
+      <button className={`dock-item ${selection.selected === 2 ? 'active' : ''}`} aria-haspopup="dialog" onClick={event => { close(); onSearch(event.currentTarget); }}><Search size={24} aria-hidden="true"/><span>{tr('Suche')}</span></button>
       <button ref={trigger} className={`dock-item ${selection.selected === 3 ? 'active' : ''}`} aria-haspopup="dialog" aria-controls={id} aria-expanded={open} onClick={() => setOpen(value => !value)}><MoreHorizontal size={24} aria-hidden="true"/><span>{tr('Mehr')}</span></button>
     </nav>
   </div>;

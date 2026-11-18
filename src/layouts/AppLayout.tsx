@@ -1,4 +1,6 @@
 import { MobileDock } from '../components/MobileDock';
+import { TooltipLayer } from '../components/TooltipLayer';
+import { mountDisclosureMotion } from '../utils/disclosureMotion';
 import { ThemeToggle } from '../theme/ThemeToggle';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { isLearningSession } from '../utils/navigation';
@@ -28,13 +30,18 @@ const links = [
 export function AppLayout() {
     const { tr, language } = useI18n();
     const shell = useRef<HTMLDivElement>(null);
-    useEffect(() => { if (shell.current)
-        return mountLiquidGlass(shell.current); }, []);
+    useEffect(() => {
+        if (!shell.current) return;
+        const disposeGlass = mountLiquidGlass(shell.current), disposeDisclosures = mountDisclosureMotion(shell.current);
+        return () => { disposeGlass(); disposeDisclosures(); };
+    }, []);
     const [collapsed, setCollapsed] = useState(false);
     const [focusOverride, setFocusOverride] = useState({ path: '', value: true });
     const [menu, setMenu] = useState(false);
     const [backgroundPaused, setBackgroundPaused] = useState(false);
     const [palette, setPalette] = useState(false);
+    const searchAnchor = useRef<HTMLElement | null>(null);
+    const openSearch = useCallback((anchor?: HTMLElement) => { searchAnchor.current = anchor ?? null; setPalette(true); }, []);
     const closePalette = useCallback(() => setPalette(false), []);
     const searchIndex = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
     const location = useLocation();
@@ -69,7 +76,7 @@ export function AppLayout() {
         function keys(e: KeyboardEvent) {
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && !e.repeat) {
                 e.preventDefault();
-                setMenu(false); setPalette(value => !value);
+                setMenu(false); searchAnchor.current = null; setPalette(value => !value);
             }
             if (e.key === 'Escape' && menu) {
                 restoreFocus.current = true;
@@ -114,7 +121,8 @@ export function AppLayout() {
     }, []);
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${dockEnabled ? 'dock-enabled' : ''} ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
     <GlassFilters/>
-    {palette && <CommandPalette onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
+    <TooltipLayer/>
+    {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
     <AsciiWaves paused={backgroundPaused || focusMode}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
@@ -126,12 +134,12 @@ export function AppLayout() {
     </aside>
     <div className="workspace" inert={menu}>
       <header className="topbar">{isHome && <Link className="home-mobile-brand" to="/" aria-label="LernHub"><Sparkle size={25} fill="currentColor" strokeWidth={1}/>Lern<span>Hub</span></Link>}<button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>{learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} onClick={() => { setMenu(false); changeWithMotion(() => setFocusOverride({ path: location.pathname, value: !focusMode })); }}>{focusMode ? <Minimize size={18}/> : <Maximize size={18}/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}<button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} aria-controls="main-sidebar" onClick={event => { menuTrigger.current = event.currentTarget; setMenu(true); }}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
-        <button className="global-search command-trigger" aria-label={tr('In LernHub suchen …')} aria-haspopup="dialog" onClick={() => setPalette(true)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
+        <button className="global-search command-trigger" aria-label={tr('In LernHub suchen …')} aria-haspopup="dialog" onClick={event => openSearch(event.currentTarget)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
         <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => changeWithMotion(() => setBackgroundPaused(value => !value))}><span className="motion-icon">{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</span></button><ThemeToggle/><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<Breadcrumbs/><div key={location.pathname} className="page-enter"><Outlet /></div></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
     </div>
-    {dockEnabled && !focusMode && <MobileDock sidebarOpen={menu} onSearch={() => setPalette(true)} searchOpen={palette} backgroundPaused={backgroundPaused} onToggleBackground={() => setBackgroundPaused(value => !value)}/>}
+    {dockEnabled && !focusMode && <MobileDock sidebarOpen={menu} onSearch={openSearch} searchOpen={palette} backgroundPaused={backgroundPaused} onToggleBackground={() => setBackgroundPaused(value => !value)}/>}
   </div>;
 }
