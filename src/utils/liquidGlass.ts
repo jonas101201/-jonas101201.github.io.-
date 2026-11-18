@@ -1,9 +1,13 @@
 const controls = 'button, select, input[type="range"], summary, .answer-option, a.button, a.icon-button, a.nav-link, a.class-button, a.shortcut, a.field-card, a.subject-header, .subject-fields a, a.subject-card, a.sheet-card, a.search-result, a.class-chip, a.text-link, a.back-link';
 
 /** Progressive visual enhancement. Native clicks, keys and form behavior stay intact. */
+export function cssTimeMilliseconds(value: string, fallback = 180) {
+  const amount = parseFloat(value);
+  return Number.isFinite(amount) ? amount * (value.trim().endsWith('ms') ? 1 : 1000) : fallback;
+}
 export function mountLiquidGlass(root: HTMLElement) {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const enterDuration = parseFloat(getComputedStyle(root).getPropertyValue('--motion-enter')) || 180;
+  const enterDuration = cssTimeMilliseconds(getComputedStyle(root).getPropertyValue('--motion-enter'));
   let frame = 0;
   let pointerFrame = 0;
   let pointer: { element: HTMLElement; x: number; y: number } | undefined;

@@ -1,0 +1,52 @@
+@media screen {
+  .app-shell { font-kerning: normal; }
+  :root[data-theme-changing] .app-shell *,:root[data-theme-changing] .app-shell *::before,:root[data-theme-changing] .app-shell *::after { transition-duration: 0s!important; }
+  .app-shell :is(h1,h2,h3) { text-wrap: balance; }
+  .app-shell :is(.prose p,.material-description,.sheet-section p,.sheet-points,.feedback p,.page-heading .muted) { text-wrap: pretty; }
+  .app-shell :is(.page-heading .muted,.prose p,.feedback p) { max-width: 68ch; }
+  .app-shell :is(.quiz-progress,.flash-meta,.flash-navigation,.result-count,.command-count,.file-details,.sheet-meta,.home-heading time,.progress-metrics dd,.history-list strong,.result-percent,.field-number) { font-variant-numeric: tabular-nums; }
+  .app-shell :is(.icon-button,.button) > svg { display: block; flex-shrink: 0; }
+  .input-error { margin: -8px 0 20px; color: var(--color-danger,#ffb6ad); font-size: 14px; line-height: 1.6; }
+  .app-shell input[aria-invalid="true"] { border-color: var(--color-danger,#ffb6ad); }
+  .disclosure-panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--motion-exit) var(--motion-out),opacity var(--motion-exit) ease-out; }
+  .disclosure-panel.is-open { grid-template-rows: 1fr; opacity: 1; transition-duration: var(--motion-enter); }
+  .app-shell .disclosure-panel :is(button,input,select,a):focus-visible { outline-offset: -4px; }
+  .disclosure-clip { min-height: 0; overflow: hidden; }
+  .filter-disclosure .disclosure-panel.is-open { overflow: visible; }
+  @media(max-width:820px) { .app-shell .sidebar:not(.is-open) { pointer-events: none; } }
+  .app-tooltip { position: fixed; z-index: 100; top: 0; left: 0; max-width: min(280px,calc(100vw - 16px)); padding: 9px 12px; border: 1px solid #b9cbe333; border-radius: 12px; background: #17243bfa; color: #f2f3fb; box-shadow: 0 8px 24px #02071440; font-size: 12px; line-height: 1.5; pointer-events: auto; transform-origin: 50% 0; }
+  .app-tooltip[data-side="above"] { transform-origin: 50% 100%; }
+  :root[data-theme="light"] .app-tooltip { background: #fffffff9; color: #202c44; border-color: #8797b747; box-shadow: 0 8px 24px #30457020; }
+  :root { --color-danger: #ffb6ad; }
+  :root[data-theme="light"] { --color-danger: #a52a34; }
+  @supports(font-size-adjust:from-font) { .app-shell { font-size-adjust: from-font; } }
+  @media(prefers-reduced-motion:no-preference) {
+    .app-tooltip { animation: control-reveal 140ms var(--motion-out); }
+    @keyframes control-reveal { from { opacity: 0; scale: .97; } to { opacity: 1; scale: 1; } }
+    .app-shell .command-palette { transform-origin: var(--search-origin-x,50%) var(--search-origin-y,0%); }
+    @keyframes search-appear { from { opacity: .5; scale: .97; } to { opacity: 1; scale: 1; } }
+    .app-shell .workspace .flashcard { view-transition-name: learning-card; }
+    .app-shell .workspace .question-card { view-transition-name: learning-question; }
+    .app-shell .workspace .material-detail { view-transition-name: material-detail; }
+    .app-shell .workspace .flashcard :is(.flash-front,.flash-back) { animation: none; }
+    ::view-transition { pointer-events: none; }
+    ::view-transition-group(learning-card),::view-transition-group(learning-question),::view-transition-group(material-detail) { animation-duration: 220ms; animation-timing-function: var(--motion-move); }
+    ::view-transition-old(learning-card),::view-transition-old(learning-question) { animation: learning-out var(--motion-exit) ease-in both; }
+    ::view-transition-new(learning-card),::view-transition-new(learning-question) { animation: learning-in var(--motion-enter) var(--motion-out) both; }
+    :root { --learning-offset: 18px; }
+    :root[data-learning-direction="backward"] { --learning-offset: -18px; }
+    :root[data-learning-direction="flip"] { --learning-offset: 0px; }
+    @keyframes learning-out { to { opacity: 0; translate: calc(var(--learning-offset) * -1) 0; } }
+    @keyframes learning-in { from { opacity: 0; translate: var(--learning-offset) 0; } }
+    ::view-transition-old(material-detail) { animation: shared-out 144ms ease-in both; }
+    ::view-transition-new(material-detail) { animation: shared-in 180ms var(--motion-out) both; }
+    @keyframes shared-out { to { opacity: 0; } }
+    @keyframes shared-in { from { opacity: 0; } }
+  }
+}
+
+/* Perceptual equivalents preserve the approved palette and contrast. */
+@supports(color:oklch(50% .1 280)) {
+  :root { --color-text: oklch(0.9656830 0.0107110 280.47615); --color-muted: oklch(0.8019849 0.0356037 261.93731); --color-accent: oklch(0.7913832 0.1156963 292.50450); --color-focus: oklch(0.9488664 0.0241205 267.93034); }
+  :root[data-theme="light"] { --color-text: oklch(0.2942602 0.0470648 263.45925); --color-muted: oklch(0.4789701 0.0466217 260.00985); --color-accent: oklch(0.4708547 0.1592386 293.52853); --color-focus: oklch(0.4343641 0.1520547 291.46540); }
+}

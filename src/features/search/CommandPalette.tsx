@@ -4,7 +4,7 @@ import { Search, X } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
 import { buildSearchIndex, commandSuggestions, moveSelection, searchIndex } from './index';
 import { lockPageScroll } from '../../utils/scrollLock';
-export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => void; recentRoutes?: readonly string[] }) {
+export function CommandPalette({ onClose, recentRoutes = [], anchor }: { anchor?: HTMLElement | null; onClose: () => void; recentRoutes?: readonly string[] }) {
   const { tr, language } = useI18n();
   const navigate = useNavigate();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -17,10 +17,15 @@ export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => 
   const results = useMemo(() => query.trim() ? searchIndex(index, query) : commandSuggestions(index, recentRoutes), [index, query, recentRoutes]);
   const active = Math.min(selected, Math.max(0, results.length - 1));
   useEffect(() => {
-    const previous = document.activeElement;
+    const previous = anchor ?? document.activeElement;
     const element = dialog.current!;
     const unlock = lockPageScroll();
     element.showModal(); input.current?.focus({ preventScroll: true });
+    if (previous instanceof HTMLElement && previous.matches('button,a')) {
+      const source = previous.getBoundingClientRect(), bounds = element.getBoundingClientRect();
+      element.style.setProperty('--search-origin-x', `${Math.max(0, Math.min(100, (source.left + source.width / 2 - bounds.left) / bounds.width * 100))}%`);
+      element.style.setProperty('--search-origin-y', source.top > bounds.top + bounds.height / 2 ? '100%' : '0%');
+    }
     const viewport = window.visualViewport;
     const fitViewport = () => {
       element.style.setProperty('--search-viewport-height', `${viewport?.height ?? window.innerHeight}px`);
@@ -37,7 +42,7 @@ export function CommandPalette({ onClose, recentRoutes = [] }: { onClose: () => 
       element.close(); unlock(!navigating.current);
       if (!navigating.current && previous instanceof HTMLElement && previous.isConnected) previous.focus({ preventScroll: true });
     };
-  }, []);
+  }, [anchor]);
   useEffect(() => {
     const region = resultsRegion.current;
     const option = dialog.current?.querySelector(`#command-option-${active}`);

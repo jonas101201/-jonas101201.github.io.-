@@ -1,6 +1,7 @@
 import { useEffect, useId, useState, type ReactNode } from 'react';
 import { ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { useI18n } from '../i18n/context';
+import { AnimatedDisclosure } from './AnimatedDisclosure';
 
 /** Desktop filters stay visible; mobile disclosure preserves values while closed. */
 export function MobileFilters({ activeCount, children }: { activeCount: number; children: ReactNode }) {
@@ -21,6 +22,6 @@ export function MobileFilters({ activeCount, children }: { activeCount: number; 
       {activeCount > 0 && <span className="filter-active-count">{tr('{0} aktiv', [activeCount])}</span>}
       <ChevronDown size={18} aria-hidden="true"/>
     </button>}
-    <div id={id} className="filter-controls" hidden={mobile && !expanded}>{children}</div>
+    <AnimatedDisclosure id={id} open={!mobile || expanded}><div className="filter-controls">{children}</div></AnimatedDisclosure>
   </div>;
 }

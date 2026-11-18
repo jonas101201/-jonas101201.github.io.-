@@ -1,3 +1,4 @@
+import { changeWithMotion } from '../../utils/motion';
 import { LearningSessionHeader } from '../../components/LearningSessionHeader';
 import { useI18n } from "../../i18n/context";
 import { MaterialSources } from '../../components/MaterialSources';
@@ -46,10 +47,11 @@ function QuizSession({ quiz, mode }: {
     const [checked, setChecked] = useState(false);
     const [finished, setFinished] = useState(false);
     const saved = useRef(false);
+    const pendingNext = useRef(false);
     const focus = useRef<HTMLHeadingElement>(null);
     const { saveQuiz } = useProgress();
     const question = questions[index];
-    useEffect(() => { focus.current?.focus(); }, [index, finished]);
+    useEffect(() => { focus.current?.focus({ preventScroll: true }); }, [index, finished]);
     const result = evaluate(questions, answers);
     function finish() {
         if (!saved.current) {
@@ -82,11 +84,12 @@ function QuizSession({ quiz, mode }: {
       <AnswerInputs key={question.id} question={question} answer={answer} disabled={checked} onChange={a => setAnswers(p => ({ ...p, [question.id]: a }))}/>
       {checked && <div role="status" className={`feedback ${correct ? 'success' : 'incorrect'}`}><strong>{correct ? <CircleCheck size={20}/> : <X size={20}/>} {correct ? tr('Richtig beantwortet!') : tr('Noch nicht ganz.')}</strong>{!correct && <p>{tr("Richtige Antwort: ")}{solution(question, tr)}</p>}<p>{tr(question.explanation)}</p><MaterialSources ids={question.materialIds}/></div>}
       <div className="question-actions"><span className="muted">{mode === 'exam' ? tr('Auswertung am Ende') : tr('Direktes Feedback')}</span>{mode === 'learn' && !checked ? <button className="button primary" disabled={!isComplete(question, answer)} onClick={() => setChecked(true)}>{tr("Antwort pr\u00FCfen")}<Check size={17}/></button> : <button className="button primary" disabled={!isComplete(question, answer)} onClick={() => {
+                if (pendingNext.current) return;
                 if (isLast)
                     finish();
                 else {
-                    setIndex(i => i + 1);
-                    setChecked(false);
+                    pendingNext.current = true;
+                    changeWithMotion(() => { setIndex(index + 1); setChecked(false); pendingNext.current = false; }, { direction: 'forward' });
                 }
             }}>{isLast ? tr('Ergebnis anzeigen') : tr('Nächste Frage')}<ArrowRight size={17}/></button>}</div>
     </section><Sources quiz={quiz}/></div>;
