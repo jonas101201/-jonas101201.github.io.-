@@ -10,7 +10,7 @@ import { validateCatalog } from '../src/utils/validate';
 import { describeAnswer, evaluate, solution } from '../src/features/quizzes/engine';
 
 const dictionary: Record<string, string> = translations;
-const textKeys = new Set(['title','subtitle','description','prompt','explanation','text','left','right','front','back','intro','points','term','definition','headers','rows','takeaway','scenario','analysis','action','question','answer']);
+const textKeys = new Set(['title','subtitle','description','prompt','explanation','text','left','right','front','back','intro','points','term','definition','headers','rows','takeaway','scenario','analysis','action','question','answer','label','note','goal','interpretation']);
 function contentStrings(value: unknown, local = false): string[] {
   if (typeof value === 'string') return local ? [value] : [];
   if (Array.isArray(value)) return value.flatMap(item => contentStrings(item, local));

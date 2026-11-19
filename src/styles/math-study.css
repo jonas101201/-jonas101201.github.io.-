@@ -1,0 +1,60 @@
+.math-topic { --math-rule: var(--border,#a7b9d52c); }
+.math-topic .math-inline { white-space: nowrap; }
+.math-topic .katex { font-size: 1.1em; color: inherit; }
+.math-expression { display: block; min-width: 0; max-width: 100%; overflow-x: auto; padding: 8px 2px; }
+.math-expression .katex { font-size: 1.25em; }
+.math-start-formula .math-expression .katex,.math-formulas .math-expression .katex { font-size: 1.4em; }
+.math-expression .katex-display { margin: .35em 0; text-align: left; }
+.math-expression .katex-display>.katex { text-align: left; }
+.math-formulas>p { font-size: 13px; color: var(--muted); }
+.math-formulas dl { display: grid; gap: 0; margin: 18px 0 0; }
+.math-formulas dl>div { padding: 16px 0; border-top: 1px solid var(--math-rule); min-width: 0; }
+.math-formulas dt { font-weight: 600; line-height: 1.6; }
+.math-formulas dd { margin: 8px 0 0; min-width: 0; }
+.math-formulas dd p,.math-calculation p { font-size: 14px; line-height: 1.75; }
+.math-calculations>h2,.math-calculations>h3 { margin: 30px 0 18px; }
+.math-calculation>header { margin-bottom: 20px; }
+.math-calculation>header :is(h3,h4) { margin: 6px 0 0; font-size: 22px; line-height: 1.4; }
+.math-calculation .math-goal { margin-bottom: 20px; }
+.math-givens { margin: 18px 0; }
+.math-givens>strong,.math-start-formula>strong,.math-result>strong,.math-check>strong { display: block; font-size: 12px; letter-spacing: .02em; color: var(--muted); margin-bottom: 10px; }
+.math-givens>div { display: flex; flex-wrap: wrap; gap: 12px 24px; line-height: 2.2; }
+.math-start-formula { border: 1px solid var(--math-rule); border-left: 3px solid var(--purple,#b7a1ed); border-radius: 12px; padding: 16px 18px; margin: 24px 0; background: #a697df0a; }
+.math-steps { list-style: none; padding: 0; margin: 26px 0; }
+.math-steps>li { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 12px; padding: 0 0 22px; margin: 0 0 22px; border-bottom: 1px solid var(--math-rule); }
+.math-steps>li:last-child { margin-bottom: 0; }
+.math-step-number { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #ab98eb16; border: 1px solid var(--math-rule); border-radius: 50%; font-variant-numeric: tabular-nums; font-size: 12px; font-weight: 600; }
+.math-steps :is(h4,h5) { font-size: 15px; line-height: 1.7; margin: 0 0 10px; }
+.math-steps p { color: var(--muted); margin-top: 8px; }
+.math-result { padding: 18px; background: #a697df0c; border: 1px solid var(--math-rule); border-radius: 12px; }
+.math-result>strong { color: inherit; font-weight: 650; }
+.math-check { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--math-rule); }
+@media screen and (max-width:650px) {
+  .math-calculation>header :is(h3,h4) { font-size: 20px; }
+  .math-calculation .math-start-formula,.math-calculation .math-result { padding: 14px; }
+  .math-steps>li { grid-template-columns: 24px minmax(0,1fr); gap: 10px; }
+  .math-step-number { width: 24px; height: 24px; }
+  .math-topic .math-expression .katex { font-size: 1.2em; }
+  .math-topic :is(.math-start-formula,.math-formulas) .math-expression .katex { font-size: 1.3em; }
+}
+@media print {
+  .math-topic { --math-rule: #d5dae3; }
+  .math-topic :is(h3,h4,h5,strong,dt,dd),.math-topic .katex { color: #172033!important; }
+  .math-expression { overflow: visible; }
+  .math-topic .math-expression { padding-block: 3px; }
+  .math-topic .math-expression .katex-display { margin-block: .15em; }
+  .math-topic .math-expression .katex { font-size: 1.15em; }
+  .math-formulas dl>div { padding-block: 8px; }
+  .math-calculation>header { margin-bottom: 12px; }
+  .math-givens { margin-block: 10px; }
+  .math-start-formula { margin-block: 12px; padding: 10px 14px; }
+  .math-steps { margin-block: 16px; }
+  .math-steps :is(h4,h5) { margin-bottom: 5px; }
+  .math-formulas dl>div,.math-steps>li,.math-result,.math-check,.math-givens,.math-start-formula { break-inside: avoid; }
+  .math-start-formula,.math-result { background: #f6f3fc!important; border-color: #d5dae3; }
+  .math-steps>li { margin-bottom: 12px; padding-bottom: 12px; }
+  .math-step-number { background: #f6f3fc; }
+  .math-calculations { break-before: auto; }
+  .math-calculation>header { break-after: avoid; }
+  .math-topic .sheet-section :is(h3,h4) { margin-top: 0; }
+}

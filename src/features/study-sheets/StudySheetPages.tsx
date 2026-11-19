@@ -1,6 +1,6 @@
 import { translateTree } from '../../i18n/translate';
 import { useI18n } from "../../i18n/context";
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, BookOpen, Clock3, Printer, Search } from 'lucide-react';
 import { catalog, subjectName } from '../../data/catalog';
@@ -8,6 +8,8 @@ import { classroom } from '../classroom/config';
 import { EmptyState, PageHeading } from '../../components/ui';
 import { MaterialSources } from '../../components/MaterialSources';
 import { readingMinutes, sheetSearchText, studySheets, topicPath, topicSearchText, type StudyTopic } from './data';
+const MathStudyTopic = lazy(() => import('./MathStudyTopic'));
+const MathPreviewText = lazy(() => import('./MathText').then(module => ({ default: module.MathText })));
 export function StudySheetList({ subjectId, learningFieldId, embedded = false }: {
     subjectId?: string;
     learningFieldId?: string;
@@ -51,6 +53,7 @@ export function StudySheetList({ subjectId, learningFieldId, embedded = false }:
 function TopicContent({ topic, collection = false, math = false }: { topic: StudyTopic; collection?: boolean; math?: boolean }) {
     const { tr } = useI18n();
     const Heading = collection ? 'h3' : 'h2';
+    if (math) return <Suspense fallback={<p role="status">{tr("Formeln werden geladen …")}</p>}><MathStudyTopic topic={topic} collection={collection}/></Suspense>;
     return <section className="sheet-topic" aria-label={tr(topic.title)}>
       {collection && <h2 className="sheet-topic-title" id={`sheet-${topic.id}`}>{tr(topic.title)}</h2>}
       <aside className="sheet-core glass" aria-label={tr("Kern des Themas")}><strong>{tr("Kern des Themas")}</strong><p>{tr(topic.takeaway)}</p></aside>
@@ -95,7 +98,7 @@ export function StudySheetPage() {
       </div>
       <article className="study-sheet">
         <header className="sheet-heading"><p className="eyebrow">{classroom.name} · {tr(subjectName(sheet.subjectId))}{field && <>{tr(" · LF ")}{field.number}</>}</p>{topic && <Link className="text-link sheet-parent-link" to={`/lernzettel/${sheet.id}`}>{tr(sheet.title)}</Link>}<h1 id={topic ? `sheet-${topic.id}` : undefined}>{tr(topic?.title ?? sheet.title)}</h1><p className="muted">{tr(topic ? "Eigenständiger Lernzettel zum Unterthema" : sheet.description)}</p><div className="sheet-meta"><span><Clock3 size={15}/>{readingMinutes(topic ?? sheet)}{tr(" Min. Lesezeit")}</span><span>{tr("Stand: ")}{new Date(`${sheet.updatedAt}T12:00:00`).toLocaleDateString(locale)}</span></div><p className="sheet-editorial">{tr("Für eure Klasse zusammengefasst · Grundlage sind die verlinkten Unterrichtsunterlagen.")}</p></header>
-        {!topic && !collection && <nav className="sheet-topic-directory" aria-label={tr("Unterthemen im Überblick")}><h2>{tr("Unterthemen im Überblick")}</h2><p className="muted">{tr("Jedes Unterthema hat einen eigenen Lernzettel mit Erklärung, Beispiel und Zusammenfassung.")}</p><ol>{sheet.sections.map(item => <li key={item.id}><Link className="sheet-topic-card glass" to={topicPath(sheet, item)}><div><h3>{tr(item.title)}</h3><p>{tr(item.intro)}</p><span className="muted">{readingMinutes(item)}{tr(" Min. Lesezeit")}</span></div><ArrowUpRight size={20}/></Link></li>)}</ol></nav>}
+        {!topic && !collection && <nav className="sheet-topic-directory" aria-label={tr("Unterthemen im Überblick")}><h2>{tr("Unterthemen im Überblick")}</h2><p className="muted">{tr("Jedes Unterthema hat einen eigenen Lernzettel mit Erklärung, Beispiel und Zusammenfassung.")}</p><ol>{sheet.sections.map(item => <li key={item.id}><Link className="sheet-topic-card glass" to={topicPath(sheet, item)}><div><h3>{tr(item.title)}</h3><p>{sheet.subjectId === 'mathematik' ? <Suspense fallback={null}><MathPreviewText>{tr(item.intro)}</MathPreviewText></Suspense> : tr(item.intro)}</p><span className="muted">{readingMinutes(item)}{tr(" Min. Lesezeit")}</span></div><ArrowUpRight size={20}/></Link></li>)}</ol></nav>}
         {topic && <TopicContent topic={topic} math={sheet.subjectId === 'mathematik'}/>}
         {collection && sheet.sections.map(item => <TopicContent key={item.id} topic={item} collection math={sheet.subjectId === 'mathematik'}/>)}
       </article>

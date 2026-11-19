@@ -3475,7 +3475,7 @@
             ],
             [
               "Regressionsgerade",
-              "Eine Gerade in der Form y = m·x + b fasst den linearen Verlauf zusammen. m ist die Steigung, b der y-Achsenabschnitt."
+              "Eine Gerade in der Form $y=m\\cdot x+b$ fasst den linearen Verlauf zusammen. m ist die Steigung, b der y-Achsenabschnitt."
             ],
             [
               "Fallender Verlauf",
@@ -3485,174 +3485,462 @@
         },
         "points": [
           "Wertepaare zusammenhalten: Ein x-Wert darf nicht nachträglich mit einem anderen y-Wert kombiniert werden. Zuerst festlegen, welches Merkmal auf welcher Achse steht, dann jeden Punkt an der zugehörigen Stelle eintragen. Beide Achsen benötigen eine nachvollziehbare Skala.",
-          "Grafisch schätzen und rechnerisch bestimmen unterscheiden: Die am 05.01.2026 notierte Gerade y ≈ −2x + 9,5 ist eine grafische Annäherung. Steigung und Achsenabschnitt hängen dabei von der Zeichengenauigkeit ab. Sie ist nicht mit den späteren Rechenbeispielen gleichzusetzen.",
+          "Grafisch schätzen und rechnerisch bestimmen unterscheiden: Die am 05.01.2026 notierte Gerade $y\\approx-2x+9{,}5$ ist eine grafische Annäherung. Steigung und Achsenabschnitt hängen dabei von der Zeichengenauigkeit ab. Sie ist nicht mit den späteren Rechenbeispielen gleichzusetzen.",
           "Eine Punktwolke wird nicht durch das Verbinden aller Punkte zu einer Regressionsgeraden. Die Gerade beschreibt einen gemeinsamen Trend, während die einzelnen Punkte weiterhin die tatsächlich erfassten Wertepaare zeigen."
         ],
         "caseStudy": {
-          "scenario": "Im Beispiel zu Note und Beliebtheit sind die eingezeichneten Punkte insgesamt fallend angeordnet. Als grafische Annäherung wird y ≈ −2x + 9,5 verwendet.",
+          "scenario": "Im Beispiel zu Note und Beliebtheit sind die eingezeichneten Punkte insgesamt fallend angeordnet. Als grafische Annäherung wird $y\\approx-2x+9{,}5$ verwendet.",
           "analysis": "Die Steigung −2 bedeutet: Wird x um 1 größer, wird der zugehörige Geradenwert um 2 kleiner. Der Achsenabschnitt 9,5 liegt bei x = 0 auf der y-Achse.",
           "action": "Die Gerade als geschätzten Verlauf kennzeichnen und die ursprünglichen Punkte sichtbar lassen. Die beiden Merkmale und die verwendete Achsenskalierung müssen zur Wertetabelle passen.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Geradengleichung",
+            "latex": "y=m\\cdot x+b",
+            "note": "$m$ ist die Steigung; $b$ ist der Schnittwert mit der y-Achse."
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Die grafisch geschätzte Gerade beschreiben",
+            "goal": "die Gleichung und die Richtung der geschätzten Geraden.",
+            "givens": [
+              "m\\approx-2",
+              "b\\approx9{,}5"
+            ],
+            "formula": "y=m\\cdot x+b",
+            "steps": [
+              {
+                "label": "Steigung und Achsenabschnitt zuordnen",
+                "expressions": [
+                  "m\\approx-2",
+                  "b\\approx9{,}5"
+                ]
+              },
+              {
+                "label": "In die allgemeine Geradengleichung einsetzen",
+                "expressions": [
+                  "y\\approx(-2)\\cdot x+9{,}5"
+                ]
+              }
+            ],
+            "result": "y\\approx-2x+9{,}5",
+            "interpretation": "Die negative Steigung zeigt einen fallenden Verlauf. Dies ist eine grafische Schätzung, keine exakte Regression aus den Summen.",
+            "check": {
+              "expressions": [
+                "x=0\\quad\\Rightarrow\\quad y\\approx9{,}5"
+              ],
+              "note": "Bei x = 0 liegt der Achsenabschnitt auf der y-Achse."
+            }
+          }
+        ]
       },
       {
         "id": "mittelwerte-schwerpunkt",
         "title": "2. Mittelwerte und Schwerpunkt berechnen",
-        "intro": "Der Mittelwert wird berechnet, indem alle Werte eines Merkmals addiert und durch ihre Anzahl n geteilt werden. Für gepaarte Daten werden x̄ und ȳ getrennt bestimmt. Zusammen ergeben sie den Schwerpunkt P = (x̄ | ȳ). Die beiden rechnerisch bestimmten Regressionsgeraden des verwendeten Verfahrens verlaufen durch diesen Punkt.",
-        "takeaway": "x̄ = Σx/n; ȳ = Σy/n; P = (x̄ | ȳ). Beide Summen gehören zum selben Datenbestand und werden durch dieselbe Anzahl von Wertepaaren geteilt.",
+        "intro": "Der Mittelwert wird berechnet, indem alle Werte eines Merkmals addiert und durch ihre Anzahl n geteilt werden. Für gepaarte Daten werden $\\bar{x}$ und $\\bar{y}$ getrennt bestimmt. Zusammen ergeben sie den Schwerpunkt $P=(\\bar{x}\\mid\\bar{y})$. Die beiden rechnerisch bestimmten Regressionsgeraden des verwendeten Verfahrens verlaufen durch diesen Punkt.",
+        "takeaway": "$\\bar{x}=\\frac{\\sum x}{n}$; $\\bar{y}=\\frac{\\sum y}{n}$; $P=(\\bar{x}\\mid\\bar{y})$. Beide Summen gehören zum selben Datenbestand und werden durch dieselbe Anzahl von Wertepaaren geteilt.",
         "materialIds": [
           "mathematik-protokoll-1",
           "mathematik-geraden-aufstellen"
         ],
-        "table": {
-          "headers": [
-            "Schritt",
-            "Beispiel vom 05.01.2026",
-            "Beispiel vom 13.01.2026"
-          ],
-          "rows": [
-            [
-              "Anzahl n",
-              "21 Wertepaare",
-              "5 Wertepaare"
-            ],
-            [
-              "Summen",
-              "Σx = 60; Σy = 85",
-              "Σx = 505; Σy = 145"
-            ],
-            [
-              "Mittelwerte",
-              "x̄ = 60/21 ≈ 2,857; ȳ = 85/21 ≈ 4,048",
-              "x̄ = 505/5 = 101; ȳ = 145/5 = 29"
-            ],
-            [
-              "Schwerpunkt",
-              "P ≈ (2,857 | 4,048)",
-              "P = (101 | 29)"
-            ]
-          ]
-        },
         "points": [
-          "Σ ist das Summenzeichen: Σx bedeutet die Summe aller x-Werte, nicht einen einzelnen x-Wert. n zählt die zusammengehörigen Beobachtungen. Bei 21 Wertepaaren gibt es 21 x-Werte und 21 y-Werte; beide Mittelwerte werden durch 21 geteilt.",
-          "Der Schwerpunkt ist ein berechneter Punkt und muss nicht selbst als Wertepaar in der Tabelle vorkommen. Er bündelt die beiden Durchschnittswerte. Seine x-Koordinate ist x̄, seine y-Koordinate ȳ; die Reihenfolge darf nicht vertauscht werden.",
+          "Σ ist das Summenzeichen: $\\sum x$ bedeutet die Summe aller x-Werte, nicht einen einzelnen x-Wert. n zählt die zusammengehörigen Beobachtungen. Bei 21 Wertepaaren gibt es 21 x-Werte und 21 y-Werte; beide Mittelwerte werden durch 21 geteilt.",
+          "Der Schwerpunkt ist ein berechneter Punkt und muss nicht selbst als Wertepaar in der Tabelle vorkommen. Er bündelt die beiden Durchschnittswerte. Seine x-Koordinate ist $\\bar{x}$, seine y-Koordinate $\\bar{y}$; die Reihenfolge darf nicht vertauscht werden.",
           "Mit ungerundeten Mittelwerten weiterrechnen, soweit die gegebenen Zahlen dies ermöglichen. Gerundete Koordinaten dienen der übersichtlichen Darstellung. Besonders beim späteren Berechnen von Steigung und Achsenabschnitt kann frühes Runden das Ergebnis verändern."
         ],
         "caseStudy": {
-          "scenario": "Für fünf Wertepaare sind Σx = 505 und Σy = 145 gegeben.",
-          "analysis": "x̄ = 505 : 5 = 101 und ȳ = 145 : 5 = 29. Daraus folgt P = (101 | 29).",
+          "scenario": "Für fünf Wertepaare sind $\\sum x$ = 505 und $\\sum y$ = 145 gegeben.",
+          "analysis": "$\\bar{x}$ = 505 : 5 = 101 und $\\bar{y}$ = 145 : 5 = 29. Daraus folgt P = (101 | 29).",
           "action": "Prüfen: 101·5 = 505 und 29·5 = 145. Beim Einsetzen von x = 101 müssen die zugehörigen ungerundeten Regressionsgleichungen y = 29 ergeben.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Mittelwert der x-Werte",
+            "latex": "\\bar{x}=\\frac{\\sum x}{n}",
+            "note": "$n$ ist die Anzahl der Wertepaare; $\\sum x$ ist die Summe aller x-Werte."
+          },
+          {
+            "label": "Mittelwert der y-Werte",
+            "latex": "\\bar{y}=\\frac{\\sum y}{n}",
+            "note": "Die y-Werte werden getrennt addiert und durch dieselbe Anzahl geteilt."
+          },
+          {
+            "label": "Schwerpunkt als Koordinatenpaar",
+            "latex": "P=(\\bar{x}\\mid\\bar{y})"
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Schwerpunkt aus 21 Wertepaaren",
+            "goal": "zuerst der x-Mittelwert, dann der y-Mittelwert und daraus der Schwerpunkt.",
+            "givens": [
+              "n=21",
+              "\\sum x=60",
+              "\\sum y=85"
+            ],
+            "formula": "P=(\\bar{x}\\mid\\bar{y})",
+            "steps": [
+              {
+                "label": "Den x-Mittelwert berechnen",
+                "expressions": [
+                  "\\bar{x}=\\frac{\\sum x}{n}",
+                  "\\bar{x}=\\frac{60}{21}",
+                  "\\bar{x}\\approx2{,}857"
+                ]
+              },
+              {
+                "label": "Den y-Mittelwert berechnen",
+                "expressions": [
+                  "\\bar{y}=\\frac{\\sum y}{n}",
+                  "\\bar{y}=\\frac{85}{21}",
+                  "\\bar{y}\\approx4{,}048"
+                ]
+              },
+              {
+                "label": "Beide Mittelwerte als Punkt eintragen",
+                "expressions": [
+                  "P=(\\bar{x}\\mid\\bar{y})"
+                ]
+              }
+            ],
+            "result": "P\\approx(2{,}857\\mid4{,}048)",
+            "interpretation": "Der erste Wert ist die x-Koordinate, der zweite die y-Koordinate."
+          },
+          {
+            "title": "Schwerpunkt aus fünf Wertepaaren",
+            "goal": "die beiden Mittelwerte und der gemeinsame Schwerpunkt für das Geradenbeispiel.",
+            "givens": [
+              "n=5",
+              "\\sum x=505",
+              "\\sum y=145"
+            ],
+            "formula": "P=(\\bar{x}\\mid\\bar{y})",
+            "steps": [
+              {
+                "label": "Den x-Mittelwert berechnen",
+                "expressions": [
+                  "\\bar{x}=\\frac{\\sum x}{n}",
+                  "\\bar{x}=\\frac{505}{5}=101"
+                ]
+              },
+              {
+                "label": "Den y-Mittelwert berechnen",
+                "expressions": [
+                  "\\bar{y}=\\frac{\\sum y}{n}",
+                  "\\bar{y}=\\frac{145}{5}=29"
+                ]
+              }
+            ],
+            "result": "P=(101\\mid29)",
+            "interpretation": "Diesen Punkt brauchen beide zugehörigen Regressionsgeraden.",
+            "check": {
+              "expressions": [
+                "101\\cdot5=505",
+                "29\\cdot5=145"
+              ],
+              "note": "Beide Mittelwerte ergeben beim Rückrechnen wieder die angegebenen Summen."
+            }
+          }
+        ]
       },
       {
         "id": "geraden-aufstellen",
         "title": "3. Regressionsgeraden schrittweise aufstellen",
-        "intro": "Eine Gerade wird durch ihre Steigung m und ihren y-Achsenabschnitt b beschrieben: y = m·x + b. Im Rechenverfahren vom 13.01.2026 werden zunächst der Schwerpunkt P und zwei Hilfspunkte Pₓ und Pᵧ bestimmt. Zusammen mit P liefert jeder Hilfspunkt eine der beiden Geraden. Die zugehörigen Rechnungen müssen getrennt bleiben.",
-        "takeaway": "P bestimmen → Hilfspunkte berechnen → m = (y₂ − y₁)/(x₂ − x₁) → b = ȳ − m·x̄ → Gleichung mit P kontrollieren.",
+        "intro": "Eine Gerade wird durch ihre Steigung m und ihren y-Achsenabschnitt b beschrieben: $y=m\\cdot x+b$. Im Rechenverfahren vom 13.01.2026 werden zunächst der Schwerpunkt P und zwei Hilfspunkte $P_x$ und $P_y$ bestimmt. Zusammen mit P liefert jeder Hilfspunkt eine der beiden Geraden. Die zugehörigen Rechnungen müssen getrennt bleiben.",
+        "takeaway": "P bestimmen → Hilfspunkte berechnen → $m=\\frac{y_2-y_1}{x_2-x_1}$ → $b=\\bar{y}-m\\cdot\\bar{x}$ → Gleichung mit P kontrollieren.",
         "materialIds": [
           "mathematik-geraden-aufstellen"
         ],
-        "table": {
-          "headers": [
-            "Rechenschritt",
-            "Gerade gₓ",
-            "Gerade gᵧ"
-          ],
-          "rows": [
-            [
-              "Gegebene Summen",
-              "Σx = 505; Σy = 145; n = 5; Σx² = 51925",
-              "Σxy = 14175; Σy² = 4475"
-            ],
-            [
-              "Gemeinsamer Schwerpunkt",
-              "P = (101 | 29)",
-              "P = (101 | 29)"
-            ],
-            [
-              "Hilfspunkt",
-              "Pₓ = (Σx²/Σx | Σxy/Σx) ≈ (102,821782 | 28,069307)",
-              "Pᵧ = (Σxy/Σy | Σy²/Σy) ≈ (97,758621 | 30,862069)"
-            ],
-            [
-              "Steigung mit ungerundeten Hilfspunkten",
-              "mₓ ≈ −0,510869565",
-              "mᵧ ≈ −0,574468085"
-            ],
-            [
-              "Achsenabschnitt b = 29 − m·101",
-              "bₓ ≈ 80,597826087",
-              "bᵧ ≈ 87,021276596"
-            ],
-            [
-              "Gleichung, auf fünf Nachkommastellen gerundet",
-              "gₓ: y ≈ −0,51087x + 80,59783",
-              "gᵧ: y ≈ −0,57447x + 87,02128"
-            ]
-          ]
-        },
         "points": [
-          "Σx² bedeutet: Jeden x-Wert zuerst quadrieren und die Quadrate anschließend addieren. Das ist etwas anderes als (Σx)². Σxy bedeutet: Für jedes Wertepaar x·y berechnen und diese Produkte addieren. Die Summen in beiden Spalten gehören zu demselben Datensatz.",
+          "$\\sum x^2$ bedeutet: Jeden x-Wert zuerst quadrieren und die Quadrate anschließend addieren. Das ist etwas anderes als $(\\sum x)^2$. $\\sum xy$ bedeutet: Für jedes Wertepaar x·y berechnen und diese Produkte addieren. Die Summen in beiden Spalten gehören zu demselben Datensatz.",
           "Bei der Steigungsformel dieselbe Punktreihenfolge verwenden: Wer im Zähler y₂ − y₁ bildet, muss im Nenner x₂ − x₁ bilden. Nur eine der beiden Differenzen umzudrehen würde das Vorzeichen fälschlich ändern. Die verwendeten x-Koordinaten müssen verschieden sein.",
-          "b aus einem bekannten Punkt berechnen: ȳ = m·x̄ + b wird zu b = ȳ − m·x̄. Bei negativer Steigung wird deshalb eine negative Zahl abgezogen. Für m = −0,57 gilt b = 29 − (−0,57·101) = 29 + 57,57 = 86,57.",
+          "b aus einem bekannten Punkt berechnen: $\\bar{y}=m\\cdot\\bar{x}+b$ wird zu $b=\\bar{y}-m\\cdot\\bar{x}$. Bei negativer Steigung wird deshalb eine negative Zahl abgezogen. Für m = −0,57 gilt b = 29 − (−0,57·101) = 29 + 57,57 = 86,57.",
           "Rundung konsequent behandeln: Werden die Steigungen schon auf −0,51 und −0,57 gerundet, ergeben sich die zu diesen gerundeten Steigungen passenden Achsenabschnitte 80,51 und 86,57. Die Tabelle zeigt dagegen die Nachrechnung ohne frühes Runden. Ein b aus dem einen Rechenweg darf nicht mit dem m aus dem anderen kombiniert werden."
         ],
         "caseStudy": {
-          "scenario": "Für gₓ werden P = (101 | 29) und Pₓ = (51925/505 | 14175/505) verwendet.",
-          "analysis": "mₓ = (14175/505 − 29)/(51925/505 − 101) ≈ −0,510869565. Danach bₓ = 29 − mₓ·101 ≈ 80,597826087.",
-          "action": "Mit den ungerundeten Werten ergibt mₓ·101 + bₓ genau 29. Bei den dargestellten gerundeten Zahlen sind geringe Abweichungen eine Folge der Rundung.",
+          "scenario": "Für gₓ werden P = (101 | 29) und $P_x$ = ($\\frac{51925}{505}$ | $\\frac{14175}{505}$) verwendet.",
+          "analysis": "$m_x$ = ($\\frac{14175}{505}$ − 29)/($\\frac{51925}{505}$ − 101) ≈ −0,510869565. Danach $b_x$ = 29 − $m_x$·101 ≈ 80,597826087.",
+          "action": "Mit den ungerundeten Werten ergibt $m_x$·101 + $b_x$ genau 29. Bei den dargestellten gerundeten Zahlen sind geringe Abweichungen eine Folge der Rundung.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Hilfspunkt für die erste Gerade",
+            "latex": "P_x=\\left(\\frac{\\sum x^2}{\\sum x}\\;\\middle|\\;\\frac{\\sum xy}{\\sum x}\\right)"
+          },
+          {
+            "label": "Hilfspunkt für die zweite Gerade",
+            "latex": "P_y=\\left(\\frac{\\sum xy}{\\sum y}\\;\\middle|\\;\\frac{\\sum y^2}{\\sum y}\\right)"
+          },
+          {
+            "label": "Steigung zwischen zwei Punkten",
+            "latex": "m=\\frac{y_2-y_1}{x_2-x_1}"
+          },
+          {
+            "label": "Achsenabschnitt aus dem Schwerpunkt",
+            "latex": "b=\\bar{y}-m\\cdot\\bar{x}"
+          },
+          {
+            "label": "Fertige Geradengleichung",
+            "latex": "y=m\\cdot x+b"
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Hilfspunkt für die erste Gerade berechnen",
+            "goal": "die beiden Koordinaten des Hilfspunkts der ersten Geraden.",
+            "givens": [
+              "\\sum x=505",
+              "\\sum x^2=51925",
+              "\\sum xy=14175"
+            ],
+            "formula": "P_x=\\left(\\frac{\\sum x^2}{\\sum x}\\;\\middle|\\;\\frac{\\sum xy}{\\sum x}\\right)",
+            "steps": [
+              {
+                "label": "Die x-Koordinate des Hilfspunkts berechnen",
+                "expressions": [
+                  "x_{P_x}=\\frac{\\sum x^2}{\\sum x}",
+                  "x_{P_x}=\\frac{51925}{505}",
+                  "x_{P_x}\\approx102{,}821782"
+                ]
+              },
+              {
+                "label": "Die y-Koordinate des Hilfspunkts berechnen",
+                "expressions": [
+                  "y_{P_x}=\\frac{\\sum xy}{\\sum x}",
+                  "y_{P_x}=\\frac{14175}{505}",
+                  "y_{P_x}\\approx28{,}069307"
+                ]
+              }
+            ],
+            "result": "P_x\\approx(102{,}82\\mid28{,}07)",
+            "interpretation": "Die Brüche für die weitere Rechnung ungerundet verwenden."
+          },
+          {
+            "title": "Hilfspunkt für die zweite Gerade berechnen",
+            "goal": "die beiden Koordinaten des Hilfspunkts der zweiten Geraden.",
+            "givens": [
+              "\\sum y=145",
+              "\\sum xy=14175",
+              "\\sum y^2=4475"
+            ],
+            "formula": "P_y=\\left(\\frac{\\sum xy}{\\sum y}\\;\\middle|\\;\\frac{\\sum y^2}{\\sum y}\\right)",
+            "steps": [
+              {
+                "label": "Die x-Koordinate des Hilfspunkts berechnen",
+                "expressions": [
+                  "x_{P_y}=\\frac{\\sum xy}{\\sum y}",
+                  "x_{P_y}=\\frac{14175}{145}",
+                  "x_{P_y}\\approx97{,}758621"
+                ]
+              },
+              {
+                "label": "Die y-Koordinate des Hilfspunkts berechnen",
+                "expressions": [
+                  "y_{P_y}=\\frac{\\sum y^2}{\\sum y}",
+                  "y_{P_y}=\\frac{4475}{145}",
+                  "y_{P_y}\\approx30{,}862069"
+                ]
+              }
+            ],
+            "result": "P_y\\approx(97{,}76\\mid30{,}86)",
+            "interpretation": "Dieser Hilfspunkt gehört zur zweiten Geraden. Er wird nicht mit dem ersten Hilfspunkt vertauscht."
+          },
+          {
+            "title": "Erste Gerade: Steigung und Achsenabschnitt",
+            "goal": "zuerst die Steigung, danach der Achsenabschnitt und schließlich die ganze Geradengleichung.",
+            "givens": [
+              "P=(101\\mid29)",
+              "P_x=\\left(\\frac{51925}{505}\\;\\middle|\\;\\frac{14175}{505}\\right)"
+            ],
+            "formula": "m=\\frac{y_2-y_1}{x_2-x_1}",
+            "steps": [
+              {
+                "label": "Die Steigung berechnen",
+                "expressions": [
+                  "m_x=\\frac{\\frac{14175}{505}-29}{\\frac{51925}{505}-101}",
+                  "m_x\\approx -0{,}510869565"
+                ],
+                "note": "Die Punktreihenfolge ist im Zähler und Nenner dieselbe."
+              },
+              {
+                "label": "Den Achsenabschnitt berechnen",
+                "expressions": [
+                  "b=\\bar{y}-m\\cdot\\bar{x}",
+                  "b_x=29-m_x\\cdot101",
+                  "b_x\\approx 80{,}597826087"
+                ],
+                "note": "Mit der ungerundeten Steigung weiterrechnen. Das Minus vor einer negativen Zahl führt hier zu einer Addition."
+              },
+              {
+                "label": "Steigung und Achsenabschnitt einsetzen",
+                "expressions": [
+                  "y=m\\cdot x+b",
+                  "y=m_x\\cdot x+b_x"
+                ]
+              }
+            ],
+            "result": "y\\approx -0{,}51087x+80{,}59783",
+            "interpretation": "Die angezeigte Endgleichung ist gerundet; die Gegenprobe wird mit ungerundeten Werten gerechnet.",
+            "check": {
+              "expressions": [
+                "m_x\\cdot101+b_x=29"
+              ],
+              "note": "Damit liegt der Schwerpunkt auf der zugehörigen Geraden."
+            }
+          },
+          {
+            "title": "Zweite Gerade: Steigung und Achsenabschnitt",
+            "goal": "zuerst die Steigung, danach der Achsenabschnitt und schließlich die ganze Geradengleichung.",
+            "givens": [
+              "P=(101\\mid29)",
+              "P_y=\\left(\\frac{14175}{145}\\;\\middle|\\;\\frac{4475}{145}\\right)"
+            ],
+            "formula": "m=\\frac{y_2-y_1}{x_2-x_1}",
+            "steps": [
+              {
+                "label": "Die Steigung berechnen",
+                "expressions": [
+                  "m_y=\\frac{\\frac{4475}{145}-29}{\\frac{14175}{145}-101}",
+                  "m_y\\approx -0{,}574468085"
+                ],
+                "note": "Die Punktreihenfolge ist im Zähler und Nenner dieselbe."
+              },
+              {
+                "label": "Den Achsenabschnitt berechnen",
+                "expressions": [
+                  "b=\\bar{y}-m\\cdot\\bar{x}",
+                  "b_y=29-m_y\\cdot101",
+                  "b_y\\approx 87{,}021276596"
+                ],
+                "note": "Mit der ungerundeten Steigung weiterrechnen. Das Minus vor einer negativen Zahl führt hier zu einer Addition."
+              },
+              {
+                "label": "Steigung und Achsenabschnitt einsetzen",
+                "expressions": [
+                  "y=m\\cdot x+b",
+                  "y=m_y\\cdot x+b_y"
+                ]
+              }
+            ],
+            "result": "y\\approx -0{,}57447x+87{,}02128",
+            "interpretation": "Die angezeigte Endgleichung ist gerundet; die Gegenprobe wird mit ungerundeten Werten gerechnet.",
+            "check": {
+              "expressions": [
+                "m_y\\cdot101+b_y=29"
+              ],
+              "note": "Damit liegt der Schwerpunkt auf der zugehörigen Geraden."
+            }
+          }
+        ]
       },
       {
         "id": "geraden-zeichnen",
         "title": "4. Regressionsgeraden zeichnen",
-        "intro": "Zum Zeichnen einer Geraden reichen zwei verschiedene Punkte. In der Form y = m·x + b liefert b den Punkt (0 | b) auf der y-Achse. Ein weiterer Punkt ergibt sich durch Einsetzen eines x-Wertes, durch ein Steigungsdreieck oder bei Regressionsgeraden durch den Schwerpunkt. Ein übersichtlich beschriftetes Koordinatensystem macht die beiden Geraden vergleichbar.",
+        "intro": "Zum Zeichnen einer Geraden reichen zwei verschiedene Punkte. In der Form $y=m\\cdot x+b$ liefert b den Punkt (0 | b) auf der y-Achse. Ein weiterer Punkt ergibt sich durch Einsetzen eines x-Wertes, durch ein Steigungsdreieck oder bei Regressionsgeraden durch den Schwerpunkt. Ein übersichtlich beschriftetes Koordinatensystem macht die beiden Geraden vergleichbar.",
         "takeaway": "Achsen skalieren → (0 | b) markieren → zweiten Punkt bestimmen → Gerade zeichnen → Richtung und Punktprobe kontrollieren. Negative Steigung bedeutet: nach rechts abwärts.",
         "materialIds": [
           "mathematik-protokoll-3-1"
         ],
-        "table": {
-          "headers": [
-            "Element",
-            "Erste Gerade",
-            "Zweite Gerade"
-          ],
-          "rows": [
-            [
-              "Gleichung vom 19.01.2026",
-              "y = −0,79x + 9,21",
-              "y = −0,88x + 9,72"
-            ],
-            [
-              "y-Achsenabschnitt",
-              "(0 | 9,21)",
-              "(0 | 9,72)"
-            ],
-            [
-              "Steigung als Schritt",
-              "Δx = 1; Δy = −0,79",
-              "Δx = 1; Δy = −0,88"
-            ],
-            [
-              "Rechenpunkt bei x = 5,5",
-              "y = −0,79·5,5 + 9,21 = 4,865",
-              "y = −0,88·5,5 + 9,72 = 4,88"
-            ]
-          ]
-        },
         "points": [
           "Die Achsen dürfen unterschiedlich skaliert sein. Auf jeder einzelnen Achse müssen gleiche Zahlenabstände aber gleich große Strecken erhalten. Zahlen und Merkmale beschriften, bevor die Punkte eingetragen werden. Ein Schritt im Steigungsdreieck meint eine Einheit der jeweiligen Achse, nicht automatisch ein Kästchen.",
           "Für die erste Gerade startet man bei (0 | 9,21). Geht man um 1 in x-Richtung nach rechts, geht man um 0,79 in y-Richtung nach unten. Der Achsenabschnitt bestimmt die Lage an der y-Achse; die Steigung bestimmt die Richtung und Neigung.",
           "Die notierte Schwerpunktangabe P ≈ (5,5 | 4,88) passt exakt zur zweiten dargestellten Gleichung. Die erste gerundete Gleichung ergibt an derselben x-Stelle 4,865. Diese kleine Differenz darf nicht durch willkürliches Verschieben einer Zahl versteckt werden; Gleichungen und Schwerpunkt sind mit ihrer angegebenen Genauigkeit zu behandeln."
         ],
         "caseStudy": {
-          "scenario": "Die Gerade y = −0,88x + 9,72 soll gezeichnet werden.",
+          "scenario": "Die Gerade $y=-0{,}88x+9{,}72$ soll gezeichnet werden.",
           "analysis": "Zuerst (0 | 9,72) markieren. Für x = 5,5 ergibt sich y = 4,88; deshalb den Punkt (5,5 | 4,88) eintragen und beide Punkte mit einer Geraden verbinden.",
           "action": "Die Gerade muss nach rechts fallen. Die Punktprobe −0,88·5,5 + 9,72 = 4,88 bestätigt den zweiten Punkt.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Funktionswert für einen zweiten Punkt",
+            "latex": "y=m\\cdot x+b"
+          },
+          {
+            "label": "Punkt auf der y-Achse",
+            "latex": "A=(0\\mid b)"
+          },
+          {
+            "label": "Steigung als Verhältnis",
+            "latex": "m=\\frac{\\Delta y}{\\Delta x}",
+            "note": "$\\Delta x$ und $\\Delta y$ sind die waagerechte und senkrechte Veränderung."
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Erste Gerade zeichnen",
+            "goal": "zwei Punkte zum Zeichnen der Geraden.",
+            "givens": [
+              "m=-0{,}79",
+              "b=9{,}21",
+              "x=5{,}5"
+            ],
+            "formula": "y=m\\cdot x+b",
+            "steps": [
+              {
+                "label": "Den y-Achsenabschnitt als ersten Punkt markieren",
+                "expressions": [
+                  "A=(0\\mid b)",
+                  "A=(0\\mid9{,}21)"
+                ]
+              },
+              {
+                "label": "Den y-Wert für den zweiten Punkt berechnen",
+                "expressions": [
+                  "y=(-0{,}79)\\cdot5{,}5+9{,}21",
+                  "y=4{,}865"
+                ]
+              },
+              {
+                "label": "Den zweiten Punkt markieren und beide Punkte verbinden",
+                "expressions": [
+                  "B=(5{,}5\\mid4{,}865)"
+                ]
+              }
+            ],
+            "result": "\\begin{gathered}A=(0\\mid9{,}21)\\\\B=(5{,}5\\mid4{,}865)\\end{gathered}",
+            "interpretation": "Die Gerade verläuft durch beide Punkte und fällt nach rechts. Achsen in passenden Einheiten beschriften."
+          },
+          {
+            "title": "Zweite Gerade zeichnen",
+            "goal": "zwei Punkte zum Zeichnen der Geraden.",
+            "givens": [
+              "m=-0{,}88",
+              "b=9{,}72",
+              "x=5{,}5"
+            ],
+            "formula": "y=m\\cdot x+b",
+            "steps": [
+              {
+                "label": "Den y-Achsenabschnitt als ersten Punkt markieren",
+                "expressions": [
+                  "A=(0\\mid b)",
+                  "A=(0\\mid9{,}72)"
+                ]
+              },
+              {
+                "label": "Den y-Wert für den zweiten Punkt berechnen",
+                "expressions": [
+                  "y=(-0{,}88)\\cdot5{,}5+9{,}72",
+                  "y=4{,}88"
+                ]
+              },
+              {
+                "label": "Den zweiten Punkt markieren und beide Punkte verbinden",
+                "expressions": [
+                  "B=(5{,}5\\mid4{,}88)"
+                ]
+              }
+            ],
+            "result": "\\begin{gathered}A=(0\\mid9{,}72)\\\\B=(5{,}5\\mid4{,}88)\\end{gathered}",
+            "interpretation": "Die Gerade verläuft durch beide Punkte und fällt nach rechts. Achsen in passenden Einheiten beschriften."
+          }
+        ]
       },
       {
         "id": "y-berechnen",
@@ -3662,102 +3950,160 @@
         "materialIds": [
           "mathematik-protokoll-3-2"
         ],
-        "table": {
-          "headers": [
-            "Schritt",
-            "Rechnung vom 20.01.2026"
-          ],
-          "rows": [
-            [
-              "Gleichung und Vorgabe",
-              "y = −0,79x + 9,23; x = 10"
-            ],
-            [
-              "Einsetzen",
-              "y = (−0,79)·10 + 9,23"
-            ],
-            [
-              "Multiplikation",
-              "y = −7,90 + 9,23"
-            ],
-            [
-              "Ergebnis",
-              "y = 1,33; auf eine Nachkommastelle: y ≈ 1,3"
-            ]
-          ]
-        },
         "points": [
           "Die Minuszahl vollständig einsetzen: Aus −0,79x wird bei x = 10 der Ausdruck (−0,79)·10. Wird das Minus versehentlich weggelassen, erhält man 17,13 statt 1,33. Dieses Ergebnis würde zu einer steigenden, nicht zur gegebenen fallenden Geraden passen.",
           "Die Gleichungen nach Datum auseinanderhalten: Für das Einsetzen am 20.01.2026 wird der Achsenabschnitt 9,23 verwendet. Das Zeichenbeispiel vom 19.01.2026 verwendet dagegen 9,21. Diese Angaben dürfen nicht unbemerkt ausgetauscht werden; 9,21 würde bei x = 10 zu 1,31 führen.",
           "Das Gleichheitszeichen nur für gleiche Werte verwenden: 1,33 ist das Ergebnis der angegebenen Dezimalrechnung. 1,3 ist eine gerundete Darstellung und wird deshalb mit ≈ geschrieben. Ein Ergebnis mit vorgegebener Genauigkeit erst am Schluss runden."
         ],
         "caseStudy": {
-          "scenario": "Gesucht ist der Geradenwert bei x = 10 für y = −0,79x + 9,23.",
+          "scenario": "Gesucht ist der Geradenwert bei x = 10 für $y=-0{,}79x+9{,}23$.",
           "analysis": "y = −0,79·10 + 9,23 = −7,90 + 9,23 = 1,33.",
           "action": "Gegenprobe über die Veränderung: Bei x = 0 ist y = 9,23. Zehn x-Einheiten nach rechts verringern y um 7,90. Übrig bleiben 1,33.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Gesuchten y-Wert berechnen",
+            "latex": "y=m\\cdot x+b",
+            "note": "Zuerst multiplizieren, dann den Achsenabschnitt addieren."
+          }
+        ],
+        "calculations": [
+          {
+            "title": "y-Wert bei x = 10 berechnen",
+            "goal": "der y-Wert der Geraden für den vorgegebenen x-Wert.",
+            "givens": [
+              "x=10",
+              "m=-0{,}79",
+              "b=9{,}23"
+            ],
+            "formula": "y=m\\cdot x+b",
+            "steps": [
+              {
+                "label": "Die gegebenen Werte einsetzen",
+                "expressions": [
+                  "y=(-0{,}79)\\cdot10+9{,}23"
+                ]
+              },
+              {
+                "label": "Zuerst das Produkt berechnen",
+                "expressions": [
+                  "(-0{,}79)\\cdot10=-7{,}90",
+                  "y=-7{,}90+9{,}23"
+                ]
+              },
+              {
+                "label": "Den Achsenabschnitt addieren",
+                "expressions": [
+                  "y=1{,}33"
+                ]
+              }
+            ],
+            "result": "y=1{,}33\\approx1{,}3",
+            "interpretation": "Exakt für die angegebenen Dezimalzahlen ist der Wert 1,33. Auf eine Nachkommastelle gerundet sind es 1,3.",
+            "check": {
+              "expressions": [
+                "9{,}23-1{,}33=7{,}90",
+                "0{,}79\\cdot10=7{,}90"
+              ],
+              "note": "Bei negativer Steigung sinkt der y-Wert hier um 7,90 gegenüber dem Achsenabschnitt."
+            }
+          }
+        ]
       },
       {
         "id": "x-berechnen",
         "title": "6. Bei gegebenem y nach x auflösen",
-        "intro": "Ist y gegeben und x gesucht, wird der y-Wert in die zugehörige Geradengleichung eingesetzt. Danach wird die Gleichung mit denselben Rechenoperationen auf beiden Seiten umgestellt. Aus y = m·x + b folgt zunächst y − b = m·x und bei m ≠ 0 schließlich x = (y − b)/m.",
+        "intro": "Ist y gegeben und x gesucht, wird der y-Wert in die zugehörige Geradengleichung eingesetzt. Danach wird die Gleichung mit denselben Rechenoperationen auf beiden Seiten umgestellt. Aus $y=m\\cdot x+b$ folgt zunächst y − b = m·x und bei $m\\ne0$ schließlich $x=\\frac{y-b}{m}$.",
         "takeaway": "y einsetzen → b auf beiden Seiten abziehen → durch m teilen → gefundenes x wieder in die Ausgangsgleichung einsetzen.",
         "materialIds": [
           "mathematik-protokoll-3-2"
         ],
-        "table": {
-          "headers": [
-            "Schritt",
-            "Rechnung bei y = 6"
-          ],
-          "rows": [
-            [
-              "Gegeben",
-              "y = −0,84x + 9,5; gesucht ist x bei y = 6."
-            ],
-            [
-              "y einsetzen",
-              "6 = −0,84x + 9,5"
-            ],
-            [
-              "9,5 abziehen",
-              "6 − 9,5 = −0,84x; also −3,5 = −0,84x"
-            ],
-            [
-              "Durch −0,84 teilen",
-              "x = (−3,5)/(−0,84) = 25/6 ≈ 4,1667"
-            ],
-            [
-              "Probe",
-              "−0,84·(25/6) + 9,5 = −3,5 + 9,5 = 6"
-            ]
-          ]
-        },
         "points": [
           "Das Minuszeichen beim Divisor mitnehmen: Negativ geteilt durch negativ ergibt positiv. Deshalb ist x in diesem Beispiel positiv. Nur durch 0,84 zu teilen würde ein falsches negatives x liefern.",
-          "Die Klammer in x = (y − b)/m ist wichtig: Zuerst die gesamte Differenz y − b berechnen, dann durch m teilen. y − b/m ist eine andere Rechnung. Im Beispiel wird also zuerst 6 − 9,5 und erst danach die Division durch −0,84 ausgeführt.",
-          "Die Probe in der ursprünglichen Gleichung schließt den Rechenweg ab. Mit dem exakten Wert 25/6 erhält man genau 6; mit x ≈ 4,17 entsteht wegen der Rundung y ≈ 5,9972. Diese kleine Abweichung ist mit dem gerundeten x erklärbar."
+          "Die Klammer in $x=\\frac{y-b}{m}$ ist wichtig: Zuerst die gesamte Differenz y − b berechnen, dann durch m teilen. y − b/m ist eine andere Rechnung. Im Beispiel wird also zuerst 6 − 9,5 und erst danach die Division durch −0,84 ausgeführt.",
+          "Die Probe in der ursprünglichen Gleichung schließt den Rechenweg ab. Mit dem exakten Wert $\\frac{25}{6}$ erhält man genau 6; mit x ≈ 4,17 entsteht wegen der Rundung y ≈ 5,9972. Diese kleine Abweichung ist mit dem gerundeten x erklärbar."
         ],
         "caseStudy": {
-          "scenario": "Für die Gerade y = −0,84x + 9,5 ist der zu y = 6 gehörende x-Wert gesucht.",
-          "analysis": "6 = −0,84x + 9,5 → −3,5 = −0,84x → x = (−3,5)/(−0,84) = 25/6 ≈ 4,17.",
-          "action": "Vorzeichen, Rechenreihenfolge und Punktprobe prüfen. Der Punkt (25/6 | 6) liegt auf der angegebenen Geraden.",
+          "scenario": "Für die Gerade $y=-0{,}84x+9{,}5$ ist der zu y = 6 gehörende x-Wert gesucht.",
+          "analysis": "6 = −0,84x + 9,5 → −3,5 = −0,84x → x = $\\frac{-3{,}5}{-0{,}84}$ = $\\frac{25}{6}$ ≈ 4,17.",
+          "action": "Vorzeichen, Rechenreihenfolge und Punktprobe prüfen. Der Punkt ($\\frac{25}{6}$ | 6) liegt auf der angegebenen Geraden.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Ausgangsgleichung",
+            "latex": "y=m\\cdot x+b"
+          },
+          {
+            "label": "Nach x aufgelöste Formel",
+            "latex": "x=\\frac{y-b}{m}",
+            "note": "Voraussetzung: $m\\ne0$. Zuerst die gesamte Differenz im Zähler bilden."
+          }
+        ],
+        "calculations": [
+          {
+            "title": "x-Wert bei y = 6 berechnen",
+            "goal": "der x-Wert, der zum vorgegebenen y-Wert gehört.",
+            "givens": [
+              "y=6",
+              "m=-0{,}84",
+              "b=9{,}5"
+            ],
+            "formula": "x=\\frac{y-b}{m}",
+            "steps": [
+              {
+                "label": "Den y-Wert in die Ausgangsgleichung einsetzen",
+                "expressions": [
+                  "6=-0{,}84x+9{,}5"
+                ]
+              },
+              {
+                "label": "Auf beiden Seiten 9,5 abziehen",
+                "expressions": [
+                  "6-9{,}5=-0{,}84x",
+                  "-3{,}5=-0{,}84x"
+                ]
+              },
+              {
+                "label": "Auf beiden Seiten durch die Steigung teilen",
+                "expressions": [
+                  "x=\\frac{-3{,}5}{-0{,}84}"
+                ],
+                "note": "Negativ durch negativ ergibt positiv."
+              },
+              {
+                "label": "Den Bruch berechnen und am Ende runden",
+                "expressions": [
+                  "x=\\frac{25}{6}",
+                  "x\\approx4{,}1667"
+                ]
+              }
+            ],
+            "result": "x\\approx4{,}17",
+            "interpretation": "Der exakte Wert ist $\\frac{25}{6}$. Das gerundete Ergebnis lautet 4,17.",
+            "check": {
+              "expressions": [
+                "y=-0{,}84\\cdot\\frac{25}{6}+9{,}5",
+                "y=-3{,}5+9{,}5=6"
+              ],
+              "note": "Die Probe liefert wieder den gegebenen y-Wert."
+            }
+          }
+        ]
       },
       {
         "id": "korrelation",
         "title": "7. Korrelationskoeffizient: Richtung und Stärke",
-        "intro": "Der Korrelationskoeffizient r beschreibt Richtung und Stärke des linearen Zusammenhangs. Sein Vorzeichen gibt die Richtung an, sein Betrag |r| die Stärke. r liegt zwischen −1 und +1; nur der Betrag liegt zwischen 0 und 1. Ein großer negativer Betrag bedeutet einen starken gegensinnigen Zusammenhang und nicht einen schwachen Zusammenhang.",
-        "takeaway": "Vorzeichen = Richtung; |r| = Stärke. Im verwendeten Steigungsverfahren gilt r = ±√(m₁/m₂); das Vorzeichen folgt der Richtung des Zusammenhangs.",
+        "intro": "Der Korrelationskoeffizient r beschreibt Richtung und Stärke des linearen Zusammenhangs. Sein Vorzeichen gibt die Richtung an, sein Betrag $|r|$ die Stärke. r liegt zwischen −1 und +1; nur der Betrag liegt zwischen 0 und 1. Ein großer negativer Betrag bedeutet einen starken gegensinnigen Zusammenhang und nicht einen schwachen Zusammenhang.",
+        "takeaway": "Vorzeichen = Richtung; $|r|$ = Stärke. Im verwendeten Steigungsverfahren gilt $r=\\pm\\sqrt{\\frac{m_1}{m_2}}$; das Vorzeichen folgt der Richtung des Zusammenhangs.",
         "materialIds": [
           "mathematik-korrelationskoeffizient",
           "mathematik-geraden-aufstellen"
         ],
         "table": {
           "headers": [
-            "Betrag |r|",
+            "Betrag $|r|$",
             "Stärke nach der verwendeten Unterrichtsskala"
           ],
           "rows": [
@@ -3785,17 +4131,75 @@
         },
         "points": [
           "Positiv beziehungsweise gleichsinnig: Mit größerem x wird y tendenziell größer — „je mehr, desto mehr“. Negativ beziehungsweise gegensinnig: Mit größerem x wird y tendenziell kleiner — „je mehr, desto weniger“. Eine fallende Gerade erhält bei r das negative Vorzeichen.",
-          "Das Steigungsverhältnis bezieht sich auf die beiden zusammengehörigen Regressionsgeraden in der hier verwendeten Form y = m·x + b. m₁ steht für die erste und m₂ für die zweite dieser Geraden. Keine Steigungen aus verschiedenen Beispielen oder Datensätzen kombinieren. Wird eine Gleichung stattdessen als x = a·y + c notiert, ist ihr Koeffizient a nicht unverändert anstelle von m₂ einzusetzen.",
-          "Zuerst den Quotienten berechnen, dann die Wurzel ziehen und danach das passende Vorzeichen wählen. Zwei negative Steigungen ergeben einen positiven Quotienten unter der Wurzel; die negative Richtung bleibt dennoch im Vorzeichen von r erhalten. Für m₁ = −0,38 und m₂ = −0,42 erhält man r ≈ −0,9512.",
-          "Zur Stärke den Betrag vergleichen: r ≈ −0,95 bedeutet |r| ≈ 0,95 und damit einen sehr hohen gegensinnigen Zusammenhang. Die Einordnung darf nicht allein an „−0,95 ist kleiner als 0,2“ festgemacht werden. Ergibt die Rechnung |r| > 1, müssen Reihenfolge, Steigungen und Ablesen kontrolliert werden.",
+          "Das Steigungsverhältnis bezieht sich auf die beiden zusammengehörigen Regressionsgeraden in der hier verwendeten Form $y=m\\cdot x+b$. $m_1$ steht für die erste und $m_2$ für die zweite dieser Geraden. Keine Steigungen aus verschiedenen Beispielen oder Datensätzen kombinieren. Wird eine Gleichung stattdessen als $x=a\\cdot y+c$ notiert, ist ihr Koeffizient a nicht unverändert anstelle von $m_2$ einzusetzen.",
+          "Zuerst den Quotienten berechnen, dann die Wurzel ziehen und danach das passende Vorzeichen wählen. Zwei negative Steigungen ergeben einen positiven Quotienten unter der Wurzel; die negative Richtung bleibt dennoch im Vorzeichen von r erhalten. Für $m_1$ = −0,38 und $m_2$ = −0,42 erhält man r ≈ −0,9512.",
+          "Zur Stärke den Betrag vergleichen: r ≈ −0,95 bedeutet $|r|$ ≈ 0,95 und damit einen sehr hohen gegensinnigen Zusammenhang. Die Einordnung darf nicht allein an „−0,95 ist kleiner als 0,2“ festgemacht werden. Ergibt die Rechnung $|r|>1$, müssen Reihenfolge, Steigungen und Ablesen kontrolliert werden.",
           "Die Grenzwerte in der Tabelle werden eindeutig zugeordnet: Der obere Grenzwert gehört jeweils noch zur vorherigen Stufe. Die Bezeichnungen beschreiben die verwendete Unterrichtsskala. Für das vollständig nachgerechnete Beispiel vom 13.01.2026 ergibt sich aus den ungerundeten Steigungen r ≈ −0,9430 — ebenfalls sehr hoch und gegensinnig."
         ],
         "caseStudy": {
-          "scenario": "Die zusammengehörigen Steigungen sind m₁ = −0,38 und m₂ = −0,42.",
-          "analysis": "m₁/m₂ = (−0,38)/(−0,42) = 0,9047619…; die Wurzel beträgt 0,9511897…. Wegen der negativen Richtung gilt r ≈ −0,95.",
-          "action": "|r| ≈ 0,95 liegt über 0,9 und höchstens bei 1. Ergebnis: sehr hoher gegensinniger linearer Zusammenhang.",
+          "scenario": "Die zusammengehörigen Steigungen sind $m_1$ = −0,38 und $m_2$ = −0,42.",
+          "analysis": "$\\frac{m_1}{m_2}$ = $\\frac{-0{,}38}{-0{,}42}$ = 0,9047619…; die Wurzel beträgt 0,9511897…. Wegen der negativen Richtung gilt r ≈ −0,95.",
+          "action": "$|r|$ ≈ 0,95 liegt über 0,9 und höchstens bei 1. Ergebnis: sehr hoher gegensinniger linearer Zusammenhang.",
           "sourceBased": true
-        }
+        },
+        "formulas": [
+          {
+            "label": "Korrelationskoeffizient aus den beiden Steigungen",
+            "latex": "r=\\pm\\sqrt{\\frac{m_1}{m_2}}",
+            "note": "Beide Steigungen gehören zum selben Datensatz und zur Darstellung $y=m\\cdot x+b$."
+          },
+          {
+            "label": "Wertebereich mit Vorzeichen",
+            "latex": "-1\\le r\\le1"
+          },
+          {
+            "label": "Betrag für die Stärke",
+            "latex": "0\\le|r|\\le1"
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Richtung und Stärke berechnen",
+            "goal": "der vorzeichenbehaftete Korrelationskoeffizient und seine Einordnung.",
+            "givens": [
+              "m_1=-0{,}38",
+              "m_2=-0{,}42"
+            ],
+            "formula": "r=\\pm\\sqrt{\\frac{m_1}{m_2}}",
+            "steps": [
+              {
+                "label": "Das Verhältnis der Steigungen berechnen",
+                "expressions": [
+                  "\\frac{m_1}{m_2}=\\frac{-0{,}38}{-0{,}42}",
+                  "\\frac{m_1}{m_2}\\approx0{,}9047619"
+                ],
+                "note": "Zwei Minuszeichen ergeben einen positiven Quotienten unter der Wurzel."
+              },
+              {
+                "label": "Die Wurzel für den Betrag ziehen",
+                "expressions": [
+                  "|r|=\\sqrt{\\frac{-0{,}38}{-0{,}42}}",
+                  "|r|\\approx0{,}9511897"
+                ]
+              },
+              {
+                "label": "Das Vorzeichen aus der Richtung übernehmen",
+                "expressions": [
+                  "r\\approx-0{,}9511897"
+                ],
+                "note": "Der Verlauf ist gegensinnig. Deshalb steht vor dem Wurzelergebnis ein Minus."
+              }
+            ],
+            "result": "r\\approx-0{,}95",
+            "interpretation": "Der Betrag liegt über 0,9: sehr hoher Zusammenhang. Das Minus bedeutet: gegensinnige Richtung.",
+            "check": {
+              "expressions": [
+                "0\\le0{,}95\\le1"
+              ],
+              "note": "Der Betrag liegt im zulässigen Bereich. Die Stärke wird am Betrag, nicht an der negativen Zahl eingeordnet."
+            }
+          }
+        ]
       }
     ]
   }
