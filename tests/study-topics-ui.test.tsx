@@ -21,7 +21,7 @@ describe('Lernzettel nach Ober- und Unterthemen', () => {
   it.each(studyTopics.map(topic => [topic.to, topic] as const))('rendert %s eigenständig und ohne Kontrollfragen', (path, entry) => {
     page(path);
     expect(screen.getByRole('heading', { level: 1, name: entry.title })).toBeTruthy();
-    for (const heading of ['Begriff und Bedeutung', 'Praxisbeispiel mit Einordnung', 'Auf einen Blick']) {
+    for (const heading of ['Begriff und Bedeutung', entry.subjectId === 'mathematik' ? 'Durchgerechnetes Beispiel' : 'Praxisbeispiel mit Einordnung', 'Auf einen Blick']) {
       expect(screen.getByRole('heading', { level: 2, name: heading })).toBeTruthy();
     }
     expect(screen.getByText(entry.topic.intro)).toBeTruthy();

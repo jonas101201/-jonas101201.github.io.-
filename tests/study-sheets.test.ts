@@ -3,10 +3,10 @@ import { catalog } from '../src/data/catalog';
 import { sheetSearchText, studySheets, studyTopics, topicPath, validateStudySheets } from '../src/features/study-sheets/data';
 
 describe('Lernzettel aus den Unterrichtsunterlagen', () => {
-  it('verknüpft bestehende Lernzettel nur mit belegten BK-Lernfeldern', () => {
-    const available = new Set(catalog.materials.filter(m => ['bk1', 'bk2'].includes(m.subjectId) && !m.example).map(m => m.learningFieldId));
-    expect(studySheets).toHaveLength(7);
-    for (const sheet of studySheets) expect(available.has(sheet.learningFieldId)).toBe(true);
+  it('verknüpft Lernzettel nur mit belegten Fächern und Lernfeldern', () => {
+    const available = new Set(catalog.materials.filter(m => !m.example).map(m => `${m.subjectId}:${m.learningFieldId ?? ''}`));
+    expect(studySheets).toHaveLength(8);
+    for (const sheet of studySheets) expect(available.has(`${sheet.subjectId}:${sheet.learningFieldId ?? ''}`)).toBe(true);
     expect(studySheets.every(s => s.sections.length >= 4)).toBe(true);
   });
   it('weist fehlende, fremde und fachfremde Unterrichtsquellen zurück', () => {

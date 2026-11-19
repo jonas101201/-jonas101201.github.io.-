@@ -12,7 +12,7 @@ const SectionSchema = z.object({
   takeaway: text, materialIds: references, caseStudy: CaseSchema,
 });
 const SheetSchema = z.object({
-  id: text, subjectId: z.enum(['bk1', 'bk2']), learningFieldId: text,
+  id: text, subjectId: text, learningFieldId: text.optional(),
   title: text, description: text, updatedAt: z.iso.date(),
   sections: z.array(SectionSchema).min(1),
 }).strict();
@@ -21,9 +21,10 @@ export type StudyTopic = z.infer<typeof SectionSchema>;
 
 export function validateStudySheets(input: unknown): StudySheet[] {
   const sheets = z.array(SheetSchema).parse(input);
-  if (new Set(sheets.map(s => s.id)).size !== sheets.length || new Set(sheets.map(s => s.learningFieldId)).size !== sheets.length) throw new Error('Doppelter Lernzettel');
+  if (new Set(sheets.map(s => s.id)).size !== sheets.length || new Set(sheets.map(s => `${s.subjectId}:${s.learningFieldId ?? ''}`)).size !== sheets.length) throw new Error('Doppelter Lernzettel');
   for (const sheet of sheets) {
-    if (!catalog.learningFields.some(f => f.id === sheet.learningFieldId && f.subjectId === sheet.subjectId)) throw new Error(`Ungültiges Lernfeld: ${sheet.id}`);
+    if (!catalog.subjects.some(s => s.id === sheet.subjectId)) throw new Error(`Unbekanntes Fach: ${sheet.id}`);
+    if ((sheet.learningFieldId || ['bk1', 'bk2'].includes(sheet.subjectId)) && !catalog.learningFields.some(f => f.id === sheet.learningFieldId && f.subjectId === sheet.subjectId)) throw new Error(`Ungültiges Lernfeld: ${sheet.id}`);
     if (new Set(sheet.sections.map(s => s.id)).size !== sheet.sections.length) throw new Error(`Doppelter Abschnitt: ${sheet.id}`);
     for (const section of sheet.sections) {
       if (!section.points?.length && !section.terms?.length && !section.table) throw new Error(`Leerer Abschnitt: ${section.id}`);

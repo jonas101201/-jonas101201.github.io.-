@@ -3443,5 +3443,360 @@
         }
       }
     ]
+  },
+  {
+    "id": "mathematik-regression",
+    "subjectId": "mathematik",
+    "title": "Lineare Regression und Korrelationskoeffizient",
+    "description": "Wertepaare und Streudiagramm, Mittelwerte und Schwerpunkt, zwei Regressionsgeraden aufstellen und zeichnen, Werte berechnen sowie Richtung und Stärke mit r bestimmen – mit vollständigen Rechenwegen und kontrollierten Vorzeichen.",
+    "updatedAt": "2026-11-19",
+    "sections": [
+      {
+        "id": "streudiagramm",
+        "title": "1. Lineare Regression und Streudiagramm",
+        "intro": "Bei einer Untersuchung können zwei Merkmale gleichzeitig erfasst werden. Jedes zusammengehörige Wertepaar wird als Punkt (x | y) dargestellt. Das Streudiagramm zeigt, wie sich die Werte gemeinsam verändern. Eine Regressionsgerade beschreibt den linearen Verlauf des Punktebildes möglichst passend; sie muss nicht durch jeden einzelnen Messpunkt gehen.",
+        "takeaway": "Wertepaare → Streudiagramm → Verlauf erkennen → passende Gerade beschreiben. Ein fallendes Punktebild zeigt einen gegensinnigen Zusammenhang.",
+        "materialIds": [
+          "mathematik-protokoll-1"
+        ],
+        "table": {
+          "headers": [
+            "Begriff",
+            "Bedeutung"
+          ],
+          "rows": [
+            [
+              "Wertepaar (x | y)",
+              "Die beiden Werte gehören zur selben Beobachtung. Beim Beispiel werden Note und Beliebtheit des Mathematikunterrichts gemeinsam betrachtet."
+            ],
+            [
+              "Streudiagramm",
+              "x bestimmt die waagerechte, y die senkrechte Lage eines Punktes. Alle Wertepaare ergeben gemeinsam das Punktebild."
+            ],
+            [
+              "Regressionsgerade",
+              "Eine Gerade in der Form y = m·x + b fasst den linearen Verlauf zusammen. m ist die Steigung, b der y-Achsenabschnitt."
+            ],
+            [
+              "Fallender Verlauf",
+              "Mit größerem x werden die y-Werte im betrachteten Punktebild tendenziell kleiner; die Gerade hat eine negative Steigung."
+            ]
+          ]
+        },
+        "points": [
+          "Wertepaare zusammenhalten: Ein x-Wert darf nicht nachträglich mit einem anderen y-Wert kombiniert werden. Zuerst festlegen, welches Merkmal auf welcher Achse steht, dann jeden Punkt an der zugehörigen Stelle eintragen. Beide Achsen benötigen eine nachvollziehbare Skala.",
+          "Grafisch schätzen und rechnerisch bestimmen unterscheiden: Die am 05.01.2026 notierte Gerade y ≈ −2x + 9,5 ist eine grafische Annäherung. Steigung und Achsenabschnitt hängen dabei von der Zeichengenauigkeit ab. Sie ist nicht mit den späteren Rechenbeispielen gleichzusetzen.",
+          "Eine Punktwolke wird nicht durch das Verbinden aller Punkte zu einer Regressionsgeraden. Die Gerade beschreibt einen gemeinsamen Trend, während die einzelnen Punkte weiterhin die tatsächlich erfassten Wertepaare zeigen."
+        ],
+        "caseStudy": {
+          "scenario": "Im Beispiel zu Note und Beliebtheit sind die eingezeichneten Punkte insgesamt fallend angeordnet. Als grafische Annäherung wird y ≈ −2x + 9,5 verwendet.",
+          "analysis": "Die Steigung −2 bedeutet: Wird x um 1 größer, wird der zugehörige Geradenwert um 2 kleiner. Der Achsenabschnitt 9,5 liegt bei x = 0 auf der y-Achse.",
+          "action": "Die Gerade als geschätzten Verlauf kennzeichnen und die ursprünglichen Punkte sichtbar lassen. Die beiden Merkmale und die verwendete Achsenskalierung müssen zur Wertetabelle passen.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "mittelwerte-schwerpunkt",
+        "title": "2. Mittelwerte und Schwerpunkt berechnen",
+        "intro": "Der Mittelwert wird berechnet, indem alle Werte eines Merkmals addiert und durch ihre Anzahl n geteilt werden. Für gepaarte Daten werden x̄ und ȳ getrennt bestimmt. Zusammen ergeben sie den Schwerpunkt P = (x̄ | ȳ). Die beiden rechnerisch bestimmten Regressionsgeraden des verwendeten Verfahrens verlaufen durch diesen Punkt.",
+        "takeaway": "x̄ = Σx/n; ȳ = Σy/n; P = (x̄ | ȳ). Beide Summen gehören zum selben Datenbestand und werden durch dieselbe Anzahl von Wertepaaren geteilt.",
+        "materialIds": [
+          "mathematik-protokoll-1",
+          "mathematik-geraden-aufstellen"
+        ],
+        "table": {
+          "headers": [
+            "Schritt",
+            "Beispiel vom 05.01.2026",
+            "Beispiel vom 13.01.2026"
+          ],
+          "rows": [
+            [
+              "Anzahl n",
+              "21 Wertepaare",
+              "5 Wertepaare"
+            ],
+            [
+              "Summen",
+              "Σx = 60; Σy = 85",
+              "Σx = 505; Σy = 145"
+            ],
+            [
+              "Mittelwerte",
+              "x̄ = 60/21 ≈ 2,857; ȳ = 85/21 ≈ 4,048",
+              "x̄ = 505/5 = 101; ȳ = 145/5 = 29"
+            ],
+            [
+              "Schwerpunkt",
+              "P ≈ (2,857 | 4,048)",
+              "P = (101 | 29)"
+            ]
+          ]
+        },
+        "points": [
+          "Σ ist das Summenzeichen: Σx bedeutet die Summe aller x-Werte, nicht einen einzelnen x-Wert. n zählt die zusammengehörigen Beobachtungen. Bei 21 Wertepaaren gibt es 21 x-Werte und 21 y-Werte; beide Mittelwerte werden durch 21 geteilt.",
+          "Der Schwerpunkt ist ein berechneter Punkt und muss nicht selbst als Wertepaar in der Tabelle vorkommen. Er bündelt die beiden Durchschnittswerte. Seine x-Koordinate ist x̄, seine y-Koordinate ȳ; die Reihenfolge darf nicht vertauscht werden.",
+          "Mit ungerundeten Mittelwerten weiterrechnen, soweit die gegebenen Zahlen dies ermöglichen. Gerundete Koordinaten dienen der übersichtlichen Darstellung. Besonders beim späteren Berechnen von Steigung und Achsenabschnitt kann frühes Runden das Ergebnis verändern."
+        ],
+        "caseStudy": {
+          "scenario": "Für fünf Wertepaare sind Σx = 505 und Σy = 145 gegeben.",
+          "analysis": "x̄ = 505 : 5 = 101 und ȳ = 145 : 5 = 29. Daraus folgt P = (101 | 29).",
+          "action": "Prüfen: 101·5 = 505 und 29·5 = 145. Beim Einsetzen von x = 101 müssen die zugehörigen ungerundeten Regressionsgleichungen y = 29 ergeben.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "geraden-aufstellen",
+        "title": "3. Regressionsgeraden schrittweise aufstellen",
+        "intro": "Eine Gerade wird durch ihre Steigung m und ihren y-Achsenabschnitt b beschrieben: y = m·x + b. Im Rechenverfahren vom 13.01.2026 werden zunächst der Schwerpunkt P und zwei Hilfspunkte Pₓ und Pᵧ bestimmt. Zusammen mit P liefert jeder Hilfspunkt eine der beiden Geraden. Die zugehörigen Rechnungen müssen getrennt bleiben.",
+        "takeaway": "P bestimmen → Hilfspunkte berechnen → m = (y₂ − y₁)/(x₂ − x₁) → b = ȳ − m·x̄ → Gleichung mit P kontrollieren.",
+        "materialIds": [
+          "mathematik-geraden-aufstellen"
+        ],
+        "table": {
+          "headers": [
+            "Rechenschritt",
+            "Gerade gₓ",
+            "Gerade gᵧ"
+          ],
+          "rows": [
+            [
+              "Gegebene Summen",
+              "Σx = 505; Σy = 145; n = 5; Σx² = 51925",
+              "Σxy = 14175; Σy² = 4475"
+            ],
+            [
+              "Gemeinsamer Schwerpunkt",
+              "P = (101 | 29)",
+              "P = (101 | 29)"
+            ],
+            [
+              "Hilfspunkt",
+              "Pₓ = (Σx²/Σx | Σxy/Σx) ≈ (102,821782 | 28,069307)",
+              "Pᵧ = (Σxy/Σy | Σy²/Σy) ≈ (97,758621 | 30,862069)"
+            ],
+            [
+              "Steigung mit ungerundeten Hilfspunkten",
+              "mₓ ≈ −0,510869565",
+              "mᵧ ≈ −0,574468085"
+            ],
+            [
+              "Achsenabschnitt b = 29 − m·101",
+              "bₓ ≈ 80,597826087",
+              "bᵧ ≈ 87,021276596"
+            ],
+            [
+              "Gleichung, auf fünf Nachkommastellen gerundet",
+              "gₓ: y ≈ −0,51087x + 80,59783",
+              "gᵧ: y ≈ −0,57447x + 87,02128"
+            ]
+          ]
+        },
+        "points": [
+          "Σx² bedeutet: Jeden x-Wert zuerst quadrieren und die Quadrate anschließend addieren. Das ist etwas anderes als (Σx)². Σxy bedeutet: Für jedes Wertepaar x·y berechnen und diese Produkte addieren. Die Summen in beiden Spalten gehören zu demselben Datensatz.",
+          "Bei der Steigungsformel dieselbe Punktreihenfolge verwenden: Wer im Zähler y₂ − y₁ bildet, muss im Nenner x₂ − x₁ bilden. Nur eine der beiden Differenzen umzudrehen würde das Vorzeichen fälschlich ändern. Die verwendeten x-Koordinaten müssen verschieden sein.",
+          "b aus einem bekannten Punkt berechnen: ȳ = m·x̄ + b wird zu b = ȳ − m·x̄. Bei negativer Steigung wird deshalb eine negative Zahl abgezogen. Für m = −0,57 gilt b = 29 − (−0,57·101) = 29 + 57,57 = 86,57.",
+          "Rundung konsequent behandeln: Werden die Steigungen schon auf −0,51 und −0,57 gerundet, ergeben sich die zu diesen gerundeten Steigungen passenden Achsenabschnitte 80,51 und 86,57. Die Tabelle zeigt dagegen die Nachrechnung ohne frühes Runden. Ein b aus dem einen Rechenweg darf nicht mit dem m aus dem anderen kombiniert werden."
+        ],
+        "caseStudy": {
+          "scenario": "Für gₓ werden P = (101 | 29) und Pₓ = (51925/505 | 14175/505) verwendet.",
+          "analysis": "mₓ = (14175/505 − 29)/(51925/505 − 101) ≈ −0,510869565. Danach bₓ = 29 − mₓ·101 ≈ 80,597826087.",
+          "action": "Mit den ungerundeten Werten ergibt mₓ·101 + bₓ genau 29. Bei den dargestellten gerundeten Zahlen sind geringe Abweichungen eine Folge der Rundung.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "geraden-zeichnen",
+        "title": "4. Regressionsgeraden zeichnen",
+        "intro": "Zum Zeichnen einer Geraden reichen zwei verschiedene Punkte. In der Form y = m·x + b liefert b den Punkt (0 | b) auf der y-Achse. Ein weiterer Punkt ergibt sich durch Einsetzen eines x-Wertes, durch ein Steigungsdreieck oder bei Regressionsgeraden durch den Schwerpunkt. Ein übersichtlich beschriftetes Koordinatensystem macht die beiden Geraden vergleichbar.",
+        "takeaway": "Achsen skalieren → (0 | b) markieren → zweiten Punkt bestimmen → Gerade zeichnen → Richtung und Punktprobe kontrollieren. Negative Steigung bedeutet: nach rechts abwärts.",
+        "materialIds": [
+          "mathematik-protokoll-3-1"
+        ],
+        "table": {
+          "headers": [
+            "Element",
+            "Erste Gerade",
+            "Zweite Gerade"
+          ],
+          "rows": [
+            [
+              "Gleichung vom 19.01.2026",
+              "y = −0,79x + 9,21",
+              "y = −0,88x + 9,72"
+            ],
+            [
+              "y-Achsenabschnitt",
+              "(0 | 9,21)",
+              "(0 | 9,72)"
+            ],
+            [
+              "Steigung als Schritt",
+              "Δx = 1; Δy = −0,79",
+              "Δx = 1; Δy = −0,88"
+            ],
+            [
+              "Rechenpunkt bei x = 5,5",
+              "y = −0,79·5,5 + 9,21 = 4,865",
+              "y = −0,88·5,5 + 9,72 = 4,88"
+            ]
+          ]
+        },
+        "points": [
+          "Die Achsen dürfen unterschiedlich skaliert sein. Auf jeder einzelnen Achse müssen gleiche Zahlenabstände aber gleich große Strecken erhalten. Zahlen und Merkmale beschriften, bevor die Punkte eingetragen werden. Ein Schritt im Steigungsdreieck meint eine Einheit der jeweiligen Achse, nicht automatisch ein Kästchen.",
+          "Für die erste Gerade startet man bei (0 | 9,21). Geht man um 1 in x-Richtung nach rechts, geht man um 0,79 in y-Richtung nach unten. Der Achsenabschnitt bestimmt die Lage an der y-Achse; die Steigung bestimmt die Richtung und Neigung.",
+          "Die notierte Schwerpunktangabe P ≈ (5,5 | 4,88) passt exakt zur zweiten dargestellten Gleichung. Die erste gerundete Gleichung ergibt an derselben x-Stelle 4,865. Diese kleine Differenz darf nicht durch willkürliches Verschieben einer Zahl versteckt werden; Gleichungen und Schwerpunkt sind mit ihrer angegebenen Genauigkeit zu behandeln."
+        ],
+        "caseStudy": {
+          "scenario": "Die Gerade y = −0,88x + 9,72 soll gezeichnet werden.",
+          "analysis": "Zuerst (0 | 9,72) markieren. Für x = 5,5 ergibt sich y = 4,88; deshalb den Punkt (5,5 | 4,88) eintragen und beide Punkte mit einer Geraden verbinden.",
+          "action": "Die Gerade muss nach rechts fallen. Die Punktprobe −0,88·5,5 + 9,72 = 4,88 bestätigt den zweiten Punkt.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "y-berechnen",
+        "title": "5. Einen y-Wert durch Einsetzen berechnen",
+        "intro": "Ist x gegeben, wird dieser Wert in die ausgewählte Geradengleichung eingesetzt. Anschließend werden zuerst Multiplikation und dann Addition ausgeführt. Das Ergebnis ist der zugehörige Wert auf der Geraden, nicht zwingend ein tatsächlich beobachteter Messwert. Das Vorzeichen der Steigung gehört bei jeder Einsetzung dazu.",
+        "takeaway": "x gegeben → x einsetzen → m·x ausrechnen → b addieren → Ergebnis mit Vorzeichen und Größenordnung prüfen.",
+        "materialIds": [
+          "mathematik-protokoll-3-2"
+        ],
+        "table": {
+          "headers": [
+            "Schritt",
+            "Rechnung vom 20.01.2026"
+          ],
+          "rows": [
+            [
+              "Gleichung und Vorgabe",
+              "y = −0,79x + 9,23; x = 10"
+            ],
+            [
+              "Einsetzen",
+              "y = (−0,79)·10 + 9,23"
+            ],
+            [
+              "Multiplikation",
+              "y = −7,90 + 9,23"
+            ],
+            [
+              "Ergebnis",
+              "y = 1,33; auf eine Nachkommastelle: y ≈ 1,3"
+            ]
+          ]
+        },
+        "points": [
+          "Die Minuszahl vollständig einsetzen: Aus −0,79x wird bei x = 10 der Ausdruck (−0,79)·10. Wird das Minus versehentlich weggelassen, erhält man 17,13 statt 1,33. Dieses Ergebnis würde zu einer steigenden, nicht zur gegebenen fallenden Geraden passen.",
+          "Die Gleichungen nach Datum auseinanderhalten: Für das Einsetzen am 20.01.2026 wird der Achsenabschnitt 9,23 verwendet. Das Zeichenbeispiel vom 19.01.2026 verwendet dagegen 9,21. Diese Angaben dürfen nicht unbemerkt ausgetauscht werden; 9,21 würde bei x = 10 zu 1,31 führen.",
+          "Das Gleichheitszeichen nur für gleiche Werte verwenden: 1,33 ist das Ergebnis der angegebenen Dezimalrechnung. 1,3 ist eine gerundete Darstellung und wird deshalb mit ≈ geschrieben. Ein Ergebnis mit vorgegebener Genauigkeit erst am Schluss runden."
+        ],
+        "caseStudy": {
+          "scenario": "Gesucht ist der Geradenwert bei x = 10 für y = −0,79x + 9,23.",
+          "analysis": "y = −0,79·10 + 9,23 = −7,90 + 9,23 = 1,33.",
+          "action": "Gegenprobe über die Veränderung: Bei x = 0 ist y = 9,23. Zehn x-Einheiten nach rechts verringern y um 7,90. Übrig bleiben 1,33.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "x-berechnen",
+        "title": "6. Bei gegebenem y nach x auflösen",
+        "intro": "Ist y gegeben und x gesucht, wird der y-Wert in die zugehörige Geradengleichung eingesetzt. Danach wird die Gleichung mit denselben Rechenoperationen auf beiden Seiten umgestellt. Aus y = m·x + b folgt zunächst y − b = m·x und bei m ≠ 0 schließlich x = (y − b)/m.",
+        "takeaway": "y einsetzen → b auf beiden Seiten abziehen → durch m teilen → gefundenes x wieder in die Ausgangsgleichung einsetzen.",
+        "materialIds": [
+          "mathematik-protokoll-3-2"
+        ],
+        "table": {
+          "headers": [
+            "Schritt",
+            "Rechnung bei y = 6"
+          ],
+          "rows": [
+            [
+              "Gegeben",
+              "y = −0,84x + 9,5; gesucht ist x bei y = 6."
+            ],
+            [
+              "y einsetzen",
+              "6 = −0,84x + 9,5"
+            ],
+            [
+              "9,5 abziehen",
+              "6 − 9,5 = −0,84x; also −3,5 = −0,84x"
+            ],
+            [
+              "Durch −0,84 teilen",
+              "x = (−3,5)/(−0,84) = 25/6 ≈ 4,1667"
+            ],
+            [
+              "Probe",
+              "−0,84·(25/6) + 9,5 = −3,5 + 9,5 = 6"
+            ]
+          ]
+        },
+        "points": [
+          "Das Minuszeichen beim Divisor mitnehmen: Negativ geteilt durch negativ ergibt positiv. Deshalb ist x in diesem Beispiel positiv. Nur durch 0,84 zu teilen würde ein falsches negatives x liefern.",
+          "Die Klammer in x = (y − b)/m ist wichtig: Zuerst die gesamte Differenz y − b berechnen, dann durch m teilen. y − b/m ist eine andere Rechnung. Im Beispiel wird also zuerst 6 − 9,5 und erst danach die Division durch −0,84 ausgeführt.",
+          "Die Probe in der ursprünglichen Gleichung schließt den Rechenweg ab. Mit dem exakten Wert 25/6 erhält man genau 6; mit x ≈ 4,17 entsteht wegen der Rundung y ≈ 5,9972. Diese kleine Abweichung ist mit dem gerundeten x erklärbar."
+        ],
+        "caseStudy": {
+          "scenario": "Für die Gerade y = −0,84x + 9,5 ist der zu y = 6 gehörende x-Wert gesucht.",
+          "analysis": "6 = −0,84x + 9,5 → −3,5 = −0,84x → x = (−3,5)/(−0,84) = 25/6 ≈ 4,17.",
+          "action": "Vorzeichen, Rechenreihenfolge und Punktprobe prüfen. Der Punkt (25/6 | 6) liegt auf der angegebenen Geraden.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "korrelation",
+        "title": "7. Korrelationskoeffizient: Richtung und Stärke",
+        "intro": "Der Korrelationskoeffizient r beschreibt Richtung und Stärke des linearen Zusammenhangs. Sein Vorzeichen gibt die Richtung an, sein Betrag |r| die Stärke. r liegt zwischen −1 und +1; nur der Betrag liegt zwischen 0 und 1. Ein großer negativer Betrag bedeutet einen starken gegensinnigen Zusammenhang und nicht einen schwachen Zusammenhang.",
+        "takeaway": "Vorzeichen = Richtung; |r| = Stärke. Im verwendeten Steigungsverfahren gilt r = ±√(m₁/m₂); das Vorzeichen folgt der Richtung des Zusammenhangs.",
+        "materialIds": [
+          "mathematik-korrelationskoeffizient",
+          "mathematik-geraden-aufstellen"
+        ],
+        "table": {
+          "headers": [
+            "Betrag |r|",
+            "Stärke nach der verwendeten Unterrichtsskala"
+          ],
+          "rows": [
+            [
+              "0 bis einschließlich 0,2",
+              "schwach"
+            ],
+            [
+              "über 0,2 bis einschließlich 0,4",
+              "niedrig"
+            ],
+            [
+              "über 0,4 bis einschließlich 0,7",
+              "mäßig"
+            ],
+            [
+              "über 0,7 bis einschließlich 0,9",
+              "hoch"
+            ],
+            [
+              "über 0,9 bis 1",
+              "sehr hoch"
+            ]
+          ]
+        },
+        "points": [
+          "Positiv beziehungsweise gleichsinnig: Mit größerem x wird y tendenziell größer — „je mehr, desto mehr“. Negativ beziehungsweise gegensinnig: Mit größerem x wird y tendenziell kleiner — „je mehr, desto weniger“. Eine fallende Gerade erhält bei r das negative Vorzeichen.",
+          "Das Steigungsverhältnis bezieht sich auf die beiden zusammengehörigen Regressionsgeraden in der hier verwendeten Form y = m·x + b. m₁ steht für die erste und m₂ für die zweite dieser Geraden. Keine Steigungen aus verschiedenen Beispielen oder Datensätzen kombinieren. Wird eine Gleichung stattdessen als x = a·y + c notiert, ist ihr Koeffizient a nicht unverändert anstelle von m₂ einzusetzen.",
+          "Zuerst den Quotienten berechnen, dann die Wurzel ziehen und danach das passende Vorzeichen wählen. Zwei negative Steigungen ergeben einen positiven Quotienten unter der Wurzel; die negative Richtung bleibt dennoch im Vorzeichen von r erhalten. Für m₁ = −0,38 und m₂ = −0,42 erhält man r ≈ −0,9512.",
+          "Zur Stärke den Betrag vergleichen: r ≈ −0,95 bedeutet |r| ≈ 0,95 und damit einen sehr hohen gegensinnigen Zusammenhang. Die Einordnung darf nicht allein an „−0,95 ist kleiner als 0,2“ festgemacht werden. Ergibt die Rechnung |r| > 1, müssen Reihenfolge, Steigungen und Ablesen kontrolliert werden.",
+          "Die Grenzwerte in der Tabelle werden eindeutig zugeordnet: Der obere Grenzwert gehört jeweils noch zur vorherigen Stufe. Die Bezeichnungen beschreiben die verwendete Unterrichtsskala. Für das vollständig nachgerechnete Beispiel vom 13.01.2026 ergibt sich aus den ungerundeten Steigungen r ≈ −0,9430 — ebenfalls sehr hoch und gegensinnig."
+        ],
+        "caseStudy": {
+          "scenario": "Die zusammengehörigen Steigungen sind m₁ = −0,38 und m₂ = −0,42.",
+          "analysis": "m₁/m₂ = (−0,38)/(−0,42) = 0,9047619…; die Wurzel beträgt 0,9511897…. Wegen der negativen Richtung gilt r ≈ −0,95.",
+          "action": "|r| ≈ 0,95 liegt über 0,9 und höchstens bei 1. Ergebnis: sehr hoher gegensinniger linearer Zusammenhang.",
+          "sourceBased": true
+        }
+      }
+    ]
   }
 ]

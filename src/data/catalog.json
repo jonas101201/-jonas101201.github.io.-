@@ -314,6 +314,11 @@
       "subjectId": "bk1",
       "learningFieldId": "bk1-lf3",
       "title": "Bindung und Beziehungsgestaltung"
+    },
+    {
+      "id": "mathematik-regression-korrelation",
+      "subjectId": "mathematik",
+      "title": "Lineare Regression und Korrelation"
     }
   ],
   "materials": [
@@ -2407,6 +2412,104 @@
       "originalFilename": "Bindung-20261116.zip",
       "sizeBytes": 3531547,
       "sha256": "f0942babbc1e47d4096c016e6ebfd7a316e2d6d8ebafafdc9774558cac59ee5a"
+    },
+    {
+      "id": "mathematik-protokoll-1",
+      "subjectId": "mathematik",
+      "topicId": "mathematik-regression-korrelation",
+      "title": "05.01.2026 · Lineare Regression und Streudiagramm",
+      "description": "Wertepaare, Mittelwerte, Schwerpunkt und grafisch geschätzte Regressionsgerade.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "PDF",
+      "path": "materials/mathematik/mathematik-protokoll-1.pdf",
+      "tags": [
+        "Lineare Regression",
+        "Stundenprotokoll"
+      ],
+      "publishedAt": "2026-11-19",
+      "example": false,
+      "originalFilename": "Protokoll 1.pdf",
+      "pageCount": 2,
+      "sizeBytes": 369534,
+      "sha256": "4ce17c223352d66682d961ab9dd3a6d0c18eee53c4d7243af4c563b5eb07c2cf"
+    },
+    {
+      "id": "mathematik-protokoll-3-1",
+      "subjectId": "mathematik",
+      "topicId": "mathematik-regression-korrelation",
+      "title": "19.01.2026 · Regressionsgeraden zeichnen",
+      "description": "Zwei Geraden mit Achsenabschnitten, Steigung und Schwerpunkt im Koordinatensystem.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "PDF",
+      "path": "materials/mathematik/mathematik-protokoll-3-1.pdf",
+      "tags": [
+        "Lineare Regression",
+        "Stundenprotokoll"
+      ],
+      "publishedAt": "2026-11-19",
+      "example": false,
+      "originalFilename": "Protokoll 3.1.pdf",
+      "pageCount": 1,
+      "sizeBytes": 867207,
+      "sha256": "340620d9306d197b3782d6ed9674d8c3b3d03bccef2e24bcbccf08405dedb634"
+    },
+    {
+      "id": "mathematik-protokoll-3-2",
+      "subjectId": "mathematik",
+      "topicId": "mathematik-regression-korrelation",
+      "title": "20.01.2026 · Werte einsetzen und Gleichungen umstellen",
+      "description": "Einen y-Wert berechnen sowie eine Geradengleichung bei gegebenem y nach x auflösen.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "PDF",
+      "path": "materials/mathematik/mathematik-protokoll-3-2.pdf",
+      "tags": [
+        "Lineare Regression",
+        "Stundenprotokoll"
+      ],
+      "publishedAt": "2026-11-19",
+      "example": false,
+      "originalFilename": "Protokoll 3.2.pdf",
+      "pageCount": 1,
+      "sizeBytes": 501974,
+      "sha256": "b3001fbf56e54eab9edf2f1f8f300bd25c1331977f6d0aa05252888cc5ad3f7a"
+    },
+    {
+      "id": "mathematik-geraden-aufstellen",
+      "subjectId": "mathematik",
+      "topicId": "mathematik-regression-korrelation",
+      "title": "13.01.2026 · Geraden aufstellen – Abschrift",
+      "description": "Abschrift der mitgesendeten Aufnahme: Summen, Mittelwerte, Hilfspunkte und Geradengleichungen; Rechenprüfung gesondert gekennzeichnet.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "TXT",
+      "path": "materials/mathematik/mathematik-geraden-aufstellen.txt",
+      "tags": [
+        "Lineare Regression",
+        "Abschrift"
+      ],
+      "publishedAt": "2026-11-19",
+      "example": false,
+      "originalFilename": "Geraden aufstellen – Abschrift.txt",
+      "sizeBytes": 1022,
+      "sha256": "f1bca522b9ba14efb99c25b85a64684151054da26f023198340cca62780a5bdf"
+    },
+    {
+      "id": "mathematik-korrelationskoeffizient",
+      "subjectId": "mathematik",
+      "topicId": "mathematik-regression-korrelation",
+      "title": "09.02.2026 · Korrelationskoeffizient – Abschrift",
+      "description": "Abschrift der mitgesendeten Aufnahme: Richtung, Stärke, Steigungsverhältnis und Rechenbeispiel; Vorzeichen und Wertebereich rechnerisch klargestellt.",
+      "kind": "Unterrichtsdatei",
+      "fileType": "TXT",
+      "path": "materials/mathematik/mathematik-korrelationskoeffizient.txt",
+      "tags": [
+        "Lineare Regression",
+        "Abschrift"
+      ],
+      "publishedAt": "2026-11-19",
+      "example": false,
+      "originalFilename": "Korrelationskoeffizient – Abschrift.txt",
+      "sizeBytes": 1374,
+      "sha256": "a131bcddbaa4b98580afd27aa25e2f01274e2d13e2c6d3e1b7b25cd3d6477b71"
     }
   ],
   "quizzes": [
