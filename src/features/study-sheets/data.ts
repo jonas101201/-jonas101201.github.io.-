@@ -5,11 +5,20 @@ import { catalog } from '../../data/catalog';
 const text = z.string().trim().min(1);
 const references = z.array(text).min(1);
 const CaseSchema = z.object({ scenario: text, analysis: text, action: text, sourceBased: z.boolean().optional() });
+const FormulaSchema = z.object({ label: text, latex: text, note: text.optional() });
+const CalculationSchema = z.object({
+  title: text, goal: text, givens: z.array(text).min(1), formula: text,
+  steps: z.array(z.object({ label: text, expressions: z.array(text).min(1), note: text.optional() })).min(1),
+  result: text, interpretation: text,
+  check: z.object({ expressions: z.array(text).min(1), note: text }).optional(),
+});
 const SectionSchema = z.object({
   id: text, title: text, intro: text, points: z.array(text).optional(),
   terms: z.array(z.object({ term: text, definition: text })).optional(),
   table: z.object({ headers: z.array(text).min(2), rows: z.array(z.array(text)).min(1) }).optional(),
   takeaway: text, materialIds: references, caseStudy: CaseSchema,
+  formulas: z.array(FormulaSchema).min(1).optional(),
+  calculations: z.array(CalculationSchema).min(1).optional(),
 });
 const SheetSchema = z.object({
   id: text, subjectId: text, learningFieldId: text.optional(),
@@ -27,7 +36,7 @@ export function validateStudySheets(input: unknown): StudySheet[] {
     if ((sheet.learningFieldId || ['bk1', 'bk2'].includes(sheet.subjectId)) && !catalog.learningFields.some(f => f.id === sheet.learningFieldId && f.subjectId === sheet.subjectId)) throw new Error(`Ungültiges Lernfeld: ${sheet.id}`);
     if (new Set(sheet.sections.map(s => s.id)).size !== sheet.sections.length) throw new Error(`Doppelter Abschnitt: ${sheet.id}`);
     for (const section of sheet.sections) {
-      if (!section.points?.length && !section.terms?.length && !section.table) throw new Error(`Leerer Abschnitt: ${section.id}`);
+      if (!section.points?.length && !section.terms?.length && !section.table && !section.calculations?.length) throw new Error(`Leerer Abschnitt: ${section.id}`);
       if (section.table?.rows.some(row => row.length !== section.table!.headers.length)) throw new Error(`Ungültige Tabelle: ${section.id}`);
       for (const id of section.materialIds) {
         if (!catalog.materials.some(m => m.id === id && m.subjectId === sheet.subjectId && m.learningFieldId === sheet.learningFieldId && !m.example)) throw new Error(`Ungültige Lernzettelquelle: ${section.id}`);
@@ -39,7 +48,10 @@ export function validateStudySheets(input: unknown): StudySheet[] {
 export const studySheets = validateStudySheets(rawSheets);
 export const sheetSources = (sheet: StudySheet) => [...new Set(sheet.sections.flatMap(s => s.materialIds))];
 export const topicPath = (sheet: Pick<StudySheet, 'id'>, topic: Pick<StudyTopic, 'id'>) => `/lernzettel/${sheet.id}/${topic.id}`;
-export const topicSearchText = (topic: StudyTopic) => [topic.title, topic.intro, ...(topic.points ?? []), ...(topic.terms?.flatMap(t => [t.term, t.definition]) ?? []), ...(topic.table?.headers ?? []), ...(topic.table?.rows.flat() ?? []), topic.takeaway, ...Object.values(topic.caseStudy)].join(' ').toLocaleLowerCase('de');
+export const topicSearchText = (topic: StudyTopic) => [topic.title, topic.intro, ...(topic.points ?? []), ...(topic.terms?.flatMap(t => [t.term, t.definition]) ?? []), ...(topic.table?.headers ?? []), ...(topic.table?.rows.flat() ?? []), topic.takeaway,
+  ...(topic.formulas?.flatMap(f => [f.label, f.latex, f.note ?? '']) ?? []),
+  ...(topic.calculations?.flatMap(c => [c.title, c.goal, ...c.givens, c.formula, ...c.steps.flatMap(step => [step.label, ...step.expressions, step.note ?? '']), c.result, c.interpretation, ...(c.check ? [...c.check.expressions, c.check.note] : [])]) ?? Object.values(topic.caseStudy)),
+].join(' ').toLocaleLowerCase('de');
 export const sheetSearchText = (sheet: StudySheet) => [sheet.title, sheet.description, ...sheet.sections.map(topicSearchText)].join(' ').toLocaleLowerCase('de');
 export const readingMinutes = (sheet: StudySheet | StudyTopic) => Math.max(1, Math.ceil(('sections' in sheet ? sheetSearchText(sheet) : topicSearchText(sheet)).split(/\s+/).length / 180));
 export const studyTopics = studySheets.flatMap(sheet => sheet.sections.map(topic => ({

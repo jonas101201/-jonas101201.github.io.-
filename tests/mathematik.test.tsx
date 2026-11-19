@@ -67,14 +67,13 @@ describe('Nachgerechnete Beispiele statt übernommener Vorzeichenfehler', () => 
     const x = 505 / 5, y = 145 / 5;
     const m1 = (14175 / 505 - y) / (51925 / 505 - x);
     const m2 = (4475 / 145 - y) / (14175 / 145 - x);
-    const rows = sheet.sections.find(t => t.id === 'geraden-aufstellen')!.table!.rows;
-    const decimal = (n: number) => n.toFixed(9).replace('.', ',').replace('-', '−');
-    expect(rows.find(r => r[0] === 'Steigung mit ungerundeten Hilfspunkten')!.slice(1)).toEqual([
-      `mₓ ≈ ${decimal(m1)}`, `mᵧ ≈ ${decimal(m2)}`,
-    ]);
-    expect(rows.find(r => r[0] === 'Achsenabschnitt b = 29 − m·101')!.slice(1)).toEqual([
-      `bₓ ≈ ${decimal(y - m1 * x)}`, `bᵧ ≈ ${decimal(y - m2 * x)}`,
-    ]);
+    const calculations = sheet.sections.find(t => t.id === 'geraden-aufstellen')!.calculations!;
+    const expressions = calculations.flatMap(c => c.steps.flatMap(s => s.expressions));
+    const decimal = (n: number) => n.toFixed(9).replace('.', '{,}');
+    for (const [suffix, m] of [['x', m1], ['y', m2]] as const) {
+      expect(expressions).toContain(`m_${suffix}\\approx ${decimal(m)}`);
+      expect(expressions).toContain(`b_${suffix}\\approx ${decimal(y - m * x)}`);
+    }
     expect(-Math.sqrt(m1 / m2)).toBeCloseTo(-0.9430225);
   });
   it('unterscheidet Einsetzen, Umstellen und den vorzeichenbehafteten Koeffizienten', () => {
@@ -84,7 +83,7 @@ describe('Nachgerechnete Beispiele statt übernommener Vorzeichenfehler', () => 
     const correlation = sheet.sections.find(t => t.id === 'korrelation')!;
     expect(correlation.intro).toContain('zwischen −1 und +1');
     expect(correlation.intro).toContain('nur der Betrag liegt zwischen 0 und 1');
-    expect(sheet.sections.find(t => t.id === 'y-berechnen')!.table!.rows.at(-1)![1]).toContain('1,33');
-    expect(sheet.sections.find(t => t.id === 'x-berechnen')!.table!.rows.at(-2)![1]).toContain('25/6');
+    expect(sheet.sections.find(t => t.id === 'y-berechnen')!.calculations![0]!.result).toContain('1{,}33');
+    expect(sheet.sections.find(t => t.id === 'x-berechnen')!.calculations![0]!.steps.flatMap(s => s.expressions)).toContain('x=\\frac{25}{6}');
   });
 });

@@ -18,10 +18,16 @@ function page(path: string) {
   </Routes></MemoryRouter></LanguageProvider>);
 }
 describe('Lernzettel nach Ober- und Unterthemen', () => {
-  it.each(studyTopics.map(topic => [topic.to, topic] as const))('rendert %s eigenständig und ohne Kontrollfragen', (path, entry) => {
+  it.each(studyTopics.map(topic => [topic.to, topic] as const))('rendert %s eigenständig und ohne Kontrollfragen', async (path, entry) => {
     page(path);
-    expect(screen.getByRole('heading', { level: 1, name: entry.title })).toBeTruthy();
-    for (const heading of ['Begriff und Bedeutung', entry.subjectId === 'mathematik' ? 'Durchgerechnetes Beispiel' : 'Praxisbeispiel mit Einordnung', 'Auf einen Blick']) {
+    expect(await screen.findByRole('heading', { level: 1, name: entry.title })).toBeTruthy();
+    if (entry.subjectId === 'mathematik') {
+      expect(await screen.findByRole('heading', { name: 'Allgemeine Formeln' })).toBeTruthy();
+      for (const calculation of entry.topic.calculations!) expect(within(screen.getByRole('article', { name: calculation.title })).getByText(calculation.goal)).toBeTruthy();
+      expect(document.querySelector('.katex math')).toBeTruthy();
+      return;
+    }
+    for (const heading of ['Begriff und Bedeutung', 'Praxisbeispiel mit Einordnung', 'Auf einen Blick']) {
       expect(screen.getByRole('heading', { level: 2, name: heading })).toBeTruthy();
     }
     expect(screen.getByText(entry.topic.intro)).toBeTruthy();
