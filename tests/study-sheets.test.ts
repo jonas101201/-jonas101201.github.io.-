@@ -62,10 +62,11 @@ describe('Ausgearbeitete Themen aus dem Quellenabgleich', () => {
   it('erklärt jeden Entwicklungsbereich und jeden Resilienzfaktor einzeln', () => {
     const development = studySheets.find(s => s.id === 'bk1-lf2')!.sections.find(s => s.id === 'entwicklungsbereiche')!;
     const areas = ['Körperliche', 'Motorische', 'Wahrnehmungsentwicklung', 'Kognitive', 'Sprachlich-kommunikative', 'Soziale', 'Emotionale', 'Moralische', 'Sexuelle'];
-    for (const area of areas) expect(development.points!.some(p => p.startsWith(area)), area).toBe(true);
+    expect(development.table!.rows).toHaveLength(9);
+    for (const area of areas) expect(development.table!.rows.some(row => row[0]!.startsWith(area) && row[1]!.length > 30), area).toBe(true);
     const resilience = studySheets.find(s => s.id === 'bk2-lf4')!.sections.find(s => s.id === 'resilienz')!;
     for (const factor of ['Selbstwahrnehmung', 'Selbstregulation', 'Selbstwirksamkeit', 'Soziale Kompetenz', 'Aktive Bewältigung', 'Problemlösen']) {
-      expect(resilience.points!.some(p => p.startsWith(`${factor}:`)), factor).toBe(true);
+      expect(resilience.table!.rows.some(row => row[0] === factor && row[1]!.length > 30), factor).toBe(true);
     }
   });
   it('erhält die bestehenden Abschnittsziele trotz redaktioneller Erweiterung', () => {
@@ -145,4 +146,53 @@ it('bewahrt konkrete Risiken und die vier benannten Bindungsphasen', () => {
   expect(phases.rows.map(row => row[0])).toEqual(['1. Vorbindungsphase', '2. Beginnende Bindungsphase', '3. Eindeutige Bindung', '4. Reziproke (wechselseitige) Beziehung']);
   expect(phases.rows.slice(1).map(row => row[1])).toEqual(['2–8 Monate', '8 Monate bis 3 Jahre', 'Ab 3 Jahren']);
   expect(sheet.sections.find(s => s.id === 'bindung-exploration')!.points!.join(' ')).toContain('Soziale Rückversicherung');
+});
+
+describe('Einzelne Merkmale statt zusammengefasster Sammelbegriffe', () => {
+  const topic = (sheetId: string, topicId: string) => studySheets.find(s => s.id === sheetId)!.sections.find(t => t.id === topicId)!;
+  it('unterscheidet alle sechs beruflichen Kompetenzbereiche', () => {
+    expect(topic('bk1-lf1', 'kompetenzen').table!.rows.map(row => row[0])).toEqual([
+      'Fachkompetenz', 'Methodenkompetenz', 'Sozialkompetenz', 'Kommunikative Kompetenz', 'Selbstkompetenz', 'Lernkompetenz',
+    ]);
+  });
+  it('erklärt alle sieben Spielschemata und alle sechs Spielmerkmale', () => {
+    const schemas = topic('bk2-lf4', 'schemata').table!.rows;
+    expect(schemas).toHaveLength(7);
+    for (const name of ['Verbergen', 'Fallenlassen', 'Transportieren', 'Verbinden', 'Ordnen', 'Untersuchen', 'Balance und Gleichgewicht']) {
+      expect(schemas.some(row => row[0] === name && row[1]!.length > 20), name).toBe(true);
+    }
+    const play = topic('bk2-lf4', 'spiel');
+    expect(play.table!.rows).toHaveLength(6);
+    expect(play.table!.rows.find(row => row[0] === 'Als-ob-Realität')![1]).toContain('nicht für alle Spiele');
+  });
+  it('bewahrt die sechs Beispiele sensibler Phasen mit individuellen Grenzen', () => {
+    const phases = topic('bk1-lf2', 'praxis');
+    expect(phases.table!.rows.map(row => row[0])).toEqual([
+      'Reinlichkeitserziehung', 'Autonomie und Selbstständigkeit', 'Sexualität und Rollenerleben',
+      'Motorische Entwicklung', 'Emotionale Regulation und Stressverarbeitung', 'Sprachentwicklung',
+    ]);
+    expect(phases.points!.join(' ')).toContain('keine vorhersagbaren individuellen Fristen');
+    expect(phases.table!.rows.at(-1)![2]).toContain('Späteres Lernen bleibt möglich');
+  });
+  it('unterscheidet sieben Gesprächsarten und fünf Lerndispositionen', () => {
+    expect(topic('bk2-lf3', 'gespraechsarten').table!.rows.map(row => row[0])).toEqual([
+      'Tür-und-Angel-Gespräch', 'Aufnahmegespräch', 'Entwicklungsgespräch', 'Beratungsgespräch',
+      'Informationsgespräch', 'Beschwerdegespräch', 'Konfliktgespräch',
+    ]);
+    expect(topic('bk2-lf2', 'lerngeschichten').table!.rows.map(row => row[0])).toEqual([
+      'Interessiert sein', 'Engagiert sein', 'Bei Herausforderungen standhalten',
+      'Sich ausdrücken und mitteilen', 'An einer Lerngemeinschaft mitwirken und Verantwortung übernehmen',
+    ]);
+  });
+  it('ordnet die vier beruflichen Profile ihren tatsächlichen Aufgaben zu', () => {
+    const rows = topic('bk2-lf1', 'berufswege').table!.rows;
+    for (const [profile, task] of [
+      ['Fachliche Spezialisierung', 'Ein Thema'],
+      ['Praxisanleitung', 'Lernende begleiten'],
+      ['Fachberatung oder systemische Beratung', 'Qualitätsfragen'],
+      ['Leitung', 'Personal'],
+    ]) {
+      expect(rows.find(row => row[0] === profile)?.[1], profile).toContain(task);
+    }
+  });
 });

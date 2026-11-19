@@ -597,7 +597,7 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 .sheet-toolbar .back-link { margin: 0; }
 .study-sheet-page { max-width: 960px; margin: 0 auto; }
 .sheet-heading { margin-bottom: 25px; }
-.sheet-heading h1 { margin: 9px 0 15px; max-width: 800px; }
+.sheet-heading h1 { margin: 9px 0 15px; max-width: 800px; overflow-wrap: anywhere; hyphens: auto; }
 .sheet-heading>.muted { max-width: 730px; font-size: 15px; }
 .sheet-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 12px; color: #b8c6df; margin-top: 20px; }
 .sheet-editorial { margin-top: 12px; font-size: 12px; color: var(--muted); }
@@ -631,7 +631,7 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 @media screen and (max-width: 700px) {
   .sheet-section .sheet-table-wrap { overflow: visible; border: 0; border-radius: 0; background: none; box-shadow: none; }
   .sheet-table-wrap table { display: block; min-width: 0; font-size: 14px; }
-  .sheet-table-wrap thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .sheet-table-wrap thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; contain: strict; }
   .sheet-table-wrap tbody { display: grid; gap: 16px; }
   .sheet-table-wrap tbody tr { display: block; min-width: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #10203b55; }
   .sheet-table-wrap tbody th,.sheet-table-wrap tbody td { display: block; width: auto; min-width: 0; padding: 14px 16px; border: 0; }
