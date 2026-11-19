@@ -773,8 +773,32 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
   .sheet-topic-directory { display: none; }
 }
 .sheet-print-sources { display: none; }
+.math-directory>ol { gap: 8px; }
+.math-directory .sheet-topic-card { padding: 14px 16px; align-items: center; }
+.math-directory .sheet-topic-card h3 { margin: 0; font-size: 16px; line-height: 1.55; }
+@media screen {
+  .math-overview-page .sheet-heading>.muted,.math-overview-page .sheet-meta,.math-overview-page .sheet-editorial,.math-directory>p { display: none; }
+  .math-overview-page .sheet-heading { padding-bottom: 16px; margin-bottom: 16px; }
+}
+@media screen and (max-width:820px) {
+  .app-shell:has(.math-overview-page) .breadcrumbs li:last-child { display: none; }
+}
+@media screen and (min-width:1000px) {
+  .math-directory>ol { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+}
 @media print {
   .sheet-print-sources { display: block; font-size: 8pt; margin-top: 12px; }
   .sheet-print-sources ul { padding-left: 16px; line-height: 1.5; }
   .sheet-print-sources li { color: #273348!important; }
+}
+
+/* Assessment goals stay readable alongside the linked study chapters. */
+.sheet-objectives h2 { font-size: 1.1rem; margin-block: 0 .75rem; }
+.sheet-objectives summary { cursor: pointer; min-height: 44px; padding-block: .65rem; font-weight: 600; }
+.sheet-objectives details + details { border-top: 1px solid #94a3b833; margin-top: .5rem; }
+.sheet-objectives ol, .sheet-objectives ul { padding-inline-start: 1.35rem; margin-block: .5rem; }
+.sheet-objectives li { margin-block: .65rem; line-height: 1.6; overflow-wrap: break-word; }
+.sheet-objectives a { display: inline-block; padding-block: .25rem; color: var(--color-text); text-decoration: underline; text-underline-offset: .2em; }
+@media print {
+  .sheet-objectives details > :not(summary) { display: block !important; }
 }

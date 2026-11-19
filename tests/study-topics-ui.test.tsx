@@ -22,7 +22,7 @@ describe('Lernzettel nach Ober- und Unterthemen', () => {
     page(path);
     expect(await screen.findByRole('heading', { level: 1, name: entry.title })).toBeTruthy();
     if (entry.subjectId === 'mathematik') {
-      expect(await screen.findByRole('heading', { name: 'Allgemeine Formeln' })).toBeTruthy();
+      expect(await screen.findByRole('heading', { name: 'Rechnungen Schritt für Schritt' })).toBeTruthy();
       for (const calculation of entry.topic.calculations!) expect(within(screen.getByRole('article', { name: calculation.title })).getByText(calculation.goal)).toBeTruthy();
       expect(document.querySelector('.katex math')).toBeTruthy();
       return;

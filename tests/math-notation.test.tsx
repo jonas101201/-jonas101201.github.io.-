@@ -58,4 +58,14 @@ describe('Gesetzte Formeln und nachvollziehbare Rechnungen', () => {
       expect(translated.sections[i]!.calculations![0]!.goal).not.toBe(topic.calculations![0]!.goal);
     }
   });
+  it('zeigt den Tabellenaufbau sichtbar und behält die Zahlen als zusammenhängende Tabelle', () => {
+    const topic = sheet.sections.find(t => t.id === 'wertetabelle')!;
+    render(<LanguageProvider><MemoryRouter><MathStudyTopic topic={topic}/></MemoryRouter></LanguageProvider>);
+    expect(screen.getByRole('heading', { name: 'So baust du die Wertetabelle auf' })).toBeTruthy();
+    const table = screen.getByRole('table');
+    expect(table.querySelectorAll('thead th')).toHaveLength(5);
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(21);
+    expect(table.querySelectorAll('tfoot td')).toHaveLength(5);
+    expect(screen.getByRole('article', { name: 'Eine Tabellenzeile vollständig ausfüllen' })).toBeTruthy();
+  });
 });
