@@ -7,6 +7,7 @@ import { catalog } from '../src/data/catalog';
 import { LanguageProvider } from '../src/i18n/LanguageProvider';
 import { StudySheetList } from '../src/features/study-sheets/StudySheetPages';
 import { sheetSources, studySheets, validateStudySheets } from '../src/features/study-sheets/data';
+import { translateTree } from '../src/i18n/translate';
 import { buildSearchIndex, searchIndex } from '../src/features/search';
 import { breadcrumbsFor } from '../src/utils/navigation';
 
@@ -85,5 +86,46 @@ describe('Nachgerechnete Beispiele statt übernommener Vorzeichenfehler', () => 
     expect(correlation.intro).toContain('nur der Betrag liegt zwischen 0 und 1');
     expect(sheet.sections.find(t => t.id === 'y-berechnen')!.calculations![0]!.result).toContain('1{,}33');
     expect(sheet.sections.find(t => t.id === 'x-berechnen')!.calculations![0]!.steps.flatMap(s => s.expressions)).toContain('x=\\frac{25}{6}');
+  });
+});
+
+describe('Wertetabelle und gewichtete Mittelwerte aus dem Unterricht', () => {
+  it('enthält alle 21 Wertepaare mit korrekt berechneten Quadraten, Produkten und Summen', () => {
+    const table = sheet.sections.find(t => t.id === 'wertetabelle')!.table!;
+    expect(table.kind).toBe('values');
+    expect(table.rows).toHaveLength(21);
+    expect(table.rows[0]).toEqual(['4', '3', '16', '9', '12']);
+    for (const row of table.rows) {
+      const [x, y, squareX, squareY, product] = row.map(Number) as [number, number, number, number, number];
+      expect(squareX).toBe(x * x);
+      expect(squareY).toBe(y * y);
+      expect(product).toBe(x * y);
+    }
+    expect(table.totals).toEqual(['60', '85', '202', '419', '229']);
+    for (const [index, total] of table.totals!.entries()) expect(table.rows.reduce((sum, row) => sum + Number(row[index]), 0)).toBe(Number(total));
+    const broken = structuredClone(studySheets);
+    broken.find(s => s.id === sheet.id)!.sections.find(t => t.id === 'wertetabelle')!.table!.totals!.pop();
+    expect(() => validateStudySheets(broken)).toThrow('Ungültige Tabelle');
+  });
+  it('bezeichnet und berechnet alle vier gewichteten Mittelwerte getrennt', () => {
+    const weightedX = sheet.sections.find(t => t.id === 'gewichtete-mittelwerte-x')!;
+    const weightedY = sheet.sections.find(t => t.id === 'gewichtete-mittelwerte-y')!;
+    const cases = [
+      [weightedX, 0, 'x_x', '\\sum x^2', 'x', 51925, 505],
+      [weightedX, 1, 'y_x', '\\sum xy', 'x', 14175, 505],
+      [weightedY, 0, 'x_y', '\\sum xy', 'y', 14175, 145],
+      [weightedY, 1, 'y_y', '\\sum y^2', 'y', 4475, 145],
+    ] as const;
+    for (const [topic, index, symbol, numerator, weight, sum, denominator] of cases) {
+      const calculation = topic.calculations![index]!;
+      expect(calculation.formula).toBe(`${symbol}=\\frac{${numerator}}{\\sum ${weight}}`);
+      expect(calculation.result).toBe(`${symbol}\\approx${(sum / denominator).toFixed(2).replace('.', '{,}')}`);
+      expect(topic.context!.title).toContain('13.01.2026');
+    }
+    const results = searchIndex(buildSearchIndex(s => s ?? '', 'de'), 'gewichtete mittelwerte nach x');
+    expect(results[0]!.to).toBe('/lernzettel/mathematik-regression/gewichtete-mittelwerte-x');
+  });
+  it('verwendet die entfernten Delta-Zeichen auch nach der Sprachumschaltung nicht', () => {
+    for (const language of ['de', 'uk'] as const) expect(JSON.stringify(translateTree(sheet, language))).not.toMatch(/\\Delta|Δx|Δy/);
   });
 });

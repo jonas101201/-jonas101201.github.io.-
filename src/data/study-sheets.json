@@ -2200,7 +2200,7 @@
     "subjectId": "bk2",
     "learningFieldId": "bk2-lf4",
     "title": "Spielpädagogik & Raumgestaltung",
-    "description": "Spielformen, Materialien und Räume, Wettbewerbe und Grenzen, Resilienz, Inklusion und eigene Spielplanung mit Praxisbeispielen.",
+    "description": "Spiel verstehen und pädagogisch begleiten: Die 13 Ich-kann-Kriterien führen zu Definitionen, Zusammenhängen, Vergleichen und begründeten Praxisbeispielen. Weitere Unterrichtsthemen bleiben als Vertiefung erreichbar.",
     "updatedAt": "2026-11-19",
     "sections": [
       {
@@ -2258,14 +2258,119 @@
               "Fantasie ermöglicht andere Rollen und Möglichkeiten: Ein Stuhl kann eine Lokomotive sein. Dieses Merkmal gilt nicht für alle Spiele, etwa nicht für jedes Bewegungs- oder experimentierende Materialspiel."
             ]
           ]
+        },
+        "terms": [
+          {
+            "term": "Definition: Spiel",
+            "definition": "Spiel ist eine freiwillige, aus eigenem Antrieb ausgeübte Tätigkeit, deren Sinn im Spielen selbst liegt und die aktives Handeln mit der Umwelt ermöglicht."
+          },
+          {
+            "term": "Merkmal, Funktion und Ziel unterscheiden",
+            "definition": "Ein Merkmal beschreibt, woran Spiel erkennbar ist. Eine Funktion beschreibt, welche Bedeutung oder Wirkung es haben kann. Ein Ziel beschreibt, was Spielende erreichen möchten oder was pädagogisch ermöglicht werden soll. Diese Ebenen sind nicht gleichzusetzen."
+          },
+          {
+            "term": "Ziele im Spiel und pädagogische Ziele",
+            "definition": "Ein Kind kann im Spiel einen Turm bauen oder gewinnen wollen. Pädagogische Ziele können etwa Kommunikation, Kooperation, Bewegung oder Selbstvertrauen betreffen. Zweckfreiheit bedeutet nicht Wirkungslosigkeit: Das Kind muss die pädagogische Absicht nicht als Leistungsauftrag übernehmen."
+          }
+        ]
+      },
+      {
+        "id": "entwicklung",
+        "title": "2. Spiel und kindliche Entwicklung",
+        "intro": "Spiel ist eine zentrale Lern- und Ausdrucksform des Kindes. Beim aktiven Handeln, Wiederholen und gemeinsamen Gestalten entwickeln sich Fähigkeiten in mehreren Bereichen gleichzeitig. Spielentwicklung und allgemeine Entwicklung beeinflussen sich gegenseitig: Neue Fähigkeiten eröffnen neue Spiele; Spielen bietet Gelegenheiten, diese Fähigkeiten zu erproben und auszubauen.",
+        "table": {
+          "headers": [
+            "Entwicklungsbereich",
+            "Zusammenhang mit dem Spiel"
+          ],
+          "rows": [
+            [
+              "Körper, Sinne und Motorik",
+              "Greifen, Bewegen, Balancieren und der Umgang mit Material ermöglichen Körpererfahrungen und üben Bewegungsabläufe. Im frühen Funktionsspiel erkundet das Kind zunächst den eigenen Körper und Gegenstände."
+            ],
+            [
+              "Denken und Problemlösen",
+              "Kinder untersuchen Wirkungen, vergleichen Möglichkeiten und verändern ihr Vorgehen. Beim Bauen werden etwa Stabilität und räumliche Beziehungen praktisch erprobt; Erfahrungen können auf neue Situationen übertragen werden."
+            ],
+            [
+              "Sprache und Kommunikation",
+              "Im gemeinsamen Spiel müssen Ideen, Rollen und Regeln verständlich werden. Kinder benennen Dinge, erklären Vorhaben, fragen nach und handeln Bedeutungen aus. Schon Laute und Gesten können der spielerischen Kontaktaufnahme dienen."
+            ],
+            [
+              "Emotionen und Selbstbild",
+              "Freude, Spannung, Enttäuschung und Stolz werden erlebt und ausgedrückt. Eigene Lösungen und bewältigte Herausforderungen ermöglichen Selbstwirksamkeit; Erlebnisse können im Als-ob-Spiel verarbeitet werden."
+            ],
+            [
+              "Soziale Beziehungen",
+              "Kinder nehmen Kontakt auf, teilen Spielideen, übernehmen Rollen, treffen Absprachen und bearbeiten Konflikte. Gemeinsam spielen zu können setzt soziale Fähigkeiten voraus und bietet zugleich Gelegenheit, sie weiterzuentwickeln."
+            ]
+          ]
+        },
+        "points": [
+          "Entwicklungsverlauf als Orientierung: Die Übersicht zur Spielentwicklung beschreibt im 2.–4. Monat das Entdecken des eigenen Körpers, im 5.–8. Monat das Erkunden von Gegenständen und im 9.–12. Monat vielfältige Objektspiele sowie erste selbst angestoßene Spiele. Im 2. Lebensjahr kommen unter anderem erste Konstruktions- und selbstbezogene Als-ob-Spiele hinzu.",
+          "Im 3. Lebensjahr werden unter anderem erste soziale Spiele und auf andere bezogene Als-ob-Spiele beschrieben. Im 4. Lebensjahr treten Partnerspiele mit Ziel, Material- und Rollenverteilung stärker hervor; für das 5. Lebensjahr nennt die Übersicht komplexere Rollenspiele und erste Regelspiele. Diese Angaben sind Orientierungspunkte, keine festen Leistungsgrenzen. Frühere Spielformen bleiben erhalten.",
+          "Förderung ist keine automatische Wirkung eines Spielzeugs. Entwicklungsstand, Interesse, Erfahrungen, Spielpartner und Begleitung bestimmen mit, welche Lernmöglichkeiten ein Kind tatsächlich nutzt. Aufgaben dürfen weder dauerhaft über- noch unterfordern."
+        ],
+        "takeaway": "Spiel wirkt ganzheitlich: körperliche, kognitive, sprachliche, emotionale und soziale Lerngelegenheiten greifen ineinander. Entwicklungsangaben dienen der Orientierung, nicht einer starren Bewertung.",
+        "materialIds": [
+          "bk2-lf4-5-29-spiel-und-spielforderung-textor",
+          "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung",
+          "bk2-lf4-5-28-spiel-und-kognitive-entwicklung"
+        ],
+        "caseStudy": {
+          "scenario": "Zwei Kinder bauen eine Brücke. Sie testen verschiedene Klötze, besprechen die Anordnung und ärgern sich, als die Brücke einstürzt.",
+          "analysis": "Die Szene verbindet räumliches Denken und Problemlösen mit Feinmotorik, Sprache, gemeinsamer Planung und dem Umgang mit Enttäuschung. Ein einzelner Entwicklungsbereich erklärt die gesamte Spielsituation nicht.",
+          "action": "Beobachten, welche Ideen die Kinder selbst entwickeln; bei Bedarf mit einer offenen Frage unterstützen. Eine fertige Bauanleitung würde ihnen die eigene Erprobung abnehmen."
+        }
+      },
+      {
+        "id": "emotional-sozial",
+        "title": "3. Emotionale und soziale Entwicklung unterscheiden",
+        "intro": "Emotionale Entwicklung betrifft das Wahrnehmen, Ausdrücken und den Umgang mit Gefühlen. Soziale Entwicklung betrifft das Gestalten von Beziehungen und das Handeln mit anderen Menschen. Beide Bereiche sind unterscheidbar, aber eng verbunden: Wer eigene Gefühle und die Gefühle anderer wahrnimmt, kann Beziehungen und Konflikte besser verstehen.",
+        "table": {
+          "headers": [
+            "Bereich",
+            "Fähigkeiten und Bedeutung im Spiel"
+          ],
+          "rows": [
+            [
+              "Emotionale Entwicklung",
+              "Eigene Gefühle wahrnehmen und ausdrücken; Freude, Angst, Wut und Enttäuschung verarbeiten; mit Anspannung und Frustration umgehen; Zutrauen in das eigene Handeln entwickeln. Spiel bietet einen Raum, Erlebnisse wieder aufzugreifen und Gefühle auszudrücken."
+            ],
+            [
+              "Soziale Entwicklung",
+              "Kontakt aufnehmen, Beziehungen aufbauen, andere wahrnehmen, Rollen und Regeln abstimmen, Rücksicht nehmen und Konflikte bearbeiten. Gemeinsames Spiel verlangt, eigene Wünsche mit denen anderer in Beziehung zu setzen."
+            ],
+            [
+              "Zusammenhang",
+              "Gefühle beeinflussen das Miteinander; Beziehungen beeinflussen Gefühle. Ein Kind, das beim Verlieren wütend wird, erlebt eine emotionale Herausforderung. Mit anderen eine faire Fortsetzung zu vereinbaren, ist zugleich eine soziale Aufgabe."
+            ]
+          ]
+        },
+        "points": [
+          "Frühe Spielkontakte: Schon gemeinsamer Blickkontakt, Laute, Geben und Nehmen sowie wiederkehrende Spiele schaffen Verständigung. Verlässliche Wiederholungen lassen das Kind Abläufe erwarten und geben Sicherheit für die Begegnung mit anderen.",
+          "Rollenspiel macht Perspektiven erfahrbar: Kinder übernehmen andere Rollen und erproben deren Handlungen und Erwartungen. Gleichzeitig müssen sie außerhalb der Rolle aushandeln, wer welche Aufgabe übernimmt.",
+          "Pädagogische Begleitung: Gefühle ernst nehmen und versprachlichen, Schutz und verlässliche Beziehungen anbieten und Konflikte begleiten. Gefühle sind erlaubt; verletzendes Verhalten muss begrenzt werden. Ein Konflikt ist eine Lerngelegenheit, rechtfertigt aber keine dauerhafte Ausgrenzung."
+        ],
+        "takeaway": "Emotional: Was fühle ich und wie gehe ich damit um? Sozial: Wie handle ich mit anderen? Im gemeinsamen Spiel entwickeln sich beide Bereiche in enger Wechselwirkung.",
+        "materialIds": [
+          "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung",
+          "bk2-lf4-5-4-funktionen-des-spiels",
+          "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft"
+        ],
+        "caseStudy": {
+          "scenario": "Ein Kind möchte im Rollenspiel immer die bestimmende Rolle übernehmen. Als ein anderes Kind widerspricht, wird es wütend.",
+          "analysis": "Die Wut und der Umgang mit Enttäuschung gehören zur emotionalen Ebene. Rollen auszuhandeln und Wünsche anderer zu berücksichtigen, gehört zur sozialen Ebene. Beides zeigt sich in derselben Situation.",
+          "action": "Die Enttäuschung benennen, verletzendes Verhalten stoppen und die Kinder bei einer gemeinsamen Rollenabsprache unterstützen. Die Lösung möglichst mit den Kindern entwickeln."
         }
       },
       {
         "id": "formen",
-        "title": "2. Spielformen unterscheiden",
+        "title": "4. Spielformen unterscheiden",
         "materialIds": [
           "bk2-lf4-5-5-spielformen",
-          "bk2-lf4-5-6-rollenspiel"
+          "bk2-lf4-5-6-rollenspiel",
+          "bk2-lf4-5-29-spiel-und-spielforderung-textor"
         ],
         "takeaway": "Funktions-, Konstruktions-, Symbol-/Rollen- und Regelspiel nach ihrem Schwerpunkt unterscheiden. Spielform und Sozialform sind verschiedene Ebenen; Mischformen sind möglich.",
         "table": {
@@ -2310,8 +2415,104 @@
         ]
       },
       {
+        "id": "kooperationsformen",
+        "title": "5. Kooperationsformen und ihre Entwicklung",
+        "intro": "Die Sozial- oder Kooperationsform beschreibt, wie Spielende aufeinander bezogen sind: Spielen sie für sich, nebeneinander oder auf ein gemeinsames Geschehen hin? Die Spielform bezeichnet dagegen die Art der Tätigkeit, etwa Bauen oder Rollenspiel. Deshalb kann dasselbe Baumaterial in unterschiedlichen Sozialformen genutzt werden.",
+        "table": {
+          "headers": [
+            "Form und Entwicklung",
+            "Kennzeichen und Beispiel"
+          ],
+          "rows": [
+            [
+              "Alleinspiel und Beobachten",
+              "Das Kind beschäftigt sich mit der eigenen Tätigkeit oder schaut anderen zu. Zuschauen und selbstständiges Spiel können neben späteren gemeinsamen Spielformen weiterhin vorkommen; nicht jedes Alleinspiel bedeutet fehlendes Interesse an anderen."
+            ],
+            [
+              "Nebeneinander- oder Parallelspiel",
+              "Kinder spielen in räumlicher Nähe, oft mit ähnlichem Material, sind für ihren Spielablauf aber nicht aufeinander angewiesen. Sie können beobachten und Anregungen übernehmen. Beispiel: Zwei Kinder bauen jeweils einen eigenen Turm."
+            ],
+            [
+              "Miteinander-Spielen",
+              "Das Spiel wird auf andere bezogen: Kinder teilen ein Geschehen und übernehmen aufeinander bezogene Aufgaben. Kreis- und Reigenspiele ermöglichen Zugehörigkeit; unterschiedliche Rollen erlauben auch Kindern mit verschiedenen Fähigkeiten mitzuspielen."
+            ],
+            [
+              "Organisierte Spiele: Kooperation oder Wettbewerb",
+              "Absprachen und gemeinsame Regeln strukturieren das Spiel. Im Kooperationsspiel werden eigene Interessen auf ein gemeinsames Ziel abgestimmt. Im Wettbewerb stehen sich innerhalb des vereinbarten Rahmens unterschiedliche Interessen gegenüber. Beides verlangt soziale Verständigung."
+            ]
+          ]
+        },
+        "points": [
+          "Entwicklung darstellen: Parallelspiel → Miteinander-Spielen → organisierte Kooperations- und Wettbewerbsspiele. Parallelspiel kann bereits bei Kindern unter zwei Jahren auftreten; ungefähr ab zwei bis drei Jahren wird zunehmend Miteinander-Spielen möglich. Für organisierte Spiele wird kein festes Eintrittsalter angesetzt.",
+          "Die Zeitangaben sind Orientierungen, keine starre Stufenleiter. Parallelspiel bleibt auch im dritten Lebensjahr eine mögliche Übergangsform zum gemeinsamen Spiel. Alter allein erklärt das Verhalten nicht: Erfahrungen, vorhandene Kontakte, Spielinhalt und Situation wirken mit.",
+          "Nicht verwechseln: Ein gemeinsames Bauvorhaben ist Konstruktionsspiel und zugleich kooperatives Spiel. Zwei unabhängig gebaute Türme sind ebenfalls Konstruktionsspiel, aber in der Sozialform Parallelspiel. Wettbewerb ist daher keine zwingende letzte Form, die Kooperation ersetzt.",
+          "Unterstützung: Kontaktanbahnung begleiten, bei Bedarf mitspielen und Rollen mit unterschiedlichen Anforderungen ermöglichen. Gemeinsames Material und geeignete Räume können Anlässe zur Zusammenarbeit schaffen. Aus dem gemeinsamen Benutzen allein folgt noch keine gelungene Kooperation."
+        ],
+        "takeaway": "Sozialform fragt nach dem Miteinander, Spielform nach der Tätigkeit. Die Entwicklung reicht von eigenständigen und parallelen Tätigkeiten zu zunehmend abgestimmtem gemeinsamen Spiel.",
+        "materialIds": [
+          "bk2-lf4-5-4-funktionen-des-spiels",
+          "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung",
+          "bk2-lf4-5-29-spiel-und-spielforderung-textor"
+        ],
+        "caseStudy": {
+          "scenario": "Zwei Kinder bauen nebeneinander. Später beschließen sie, ihre Straßen zu verbinden, und vereinbaren, wer die Brücke baut.",
+          "analysis": "Zunächst sind die Bauhandlungen weitgehend unabhängig: Parallelspiel. Mit der gemeinsamen Idee und der Aufgabenverteilung entsteht ein kooperatives Bauvorhaben. Die Spielform bleibt Konstruktionsspiel.",
+          "action": "Die eigene Absprache der Kinder unterstützen und ausreichend Material und Platz bereitstellen. Nicht allein aus dem Alter ableiten, welche Form sie zeigen müssten."
+        }
+      },
+      {
+        "id": "freispiel",
+        "title": "6. Freispiel: Merkmale, Bedeutung und Rahmenbedingungen",
+        "intro": "Freispiel bezeichnet selbstbestimmtes Spielen innerhalb eines pädagogisch gestalteten Rahmens. Kinder bestimmen ihre Tätigkeit möglichst selbst; die Fachkraft schafft Bedingungen, beobachtet und unterstützt zurückhaltend. Freispiel ist deshalb weder bloße Restzeit noch eine Zeit ohne pädagogische Verantwortung.",
+        "table": {
+          "headers": [
+            "Entscheidungsraum",
+            "Was Kinder möglichst selbst bestimmen"
+          ],
+          "rows": [
+            [
+              "Spiel und Thema",
+              "Was möchte ich spielen und welche Idee möchte ich verfolgen?"
+            ],
+            [
+              "Spielpartner",
+              "Mit wem möchte ich spielen oder möchte ich zunächst allein tätig sein?"
+            ],
+            [
+              "Spielort und Raum",
+              "Wo kann meine Spielidee innerhalb der verfügbaren und vereinbarten Möglichkeiten stattfinden?"
+            ],
+            [
+              "Spielmaterial",
+              "Welche zugänglichen Dinge möchte ich nutzen und welche Bedeutung gebe ich ihnen?"
+            ],
+            [
+              "Spielzeit",
+              "Wie lange und wie intensiv beschäftige ich mich damit, innerhalb des zeitlichen Rahmens?"
+            ]
+          ]
+        },
+        "points": [
+          "Bedeutung: Eigene Entscheidungen und Ideen ermöglichen Selbstständigkeit und Selbstwirksamkeit. Gemeinsam mit anderen werden Kontakte, Sprache, Kompromisse, Konfliktbearbeitung und der Umgang mit Gefühlen geübt. Kinder können Fähigkeiten wiederholt erproben und voneinander lernen.",
+          "Zeit: Ausreichend lange, möglichst ununterbrochene Phasen einplanen. Spiel braucht auch Zeit für Auswahl, Planung, Rollenabsprachen und das Wiederaufnehmen einer Idee; häufiges Unterbrechen erschwert vertieftes Spiel.",
+          "Raum und Material: Unterschiedliche Spielbereiche, Rückzug und Bewegung ermöglichen, Material zugänglich und anregend anbieten und Vorhaben nach Möglichkeit stehen lassen. Offene Materialien lassen mehrere Verwendungen zu.",
+          "Begleitung und Grenzen: Eine erreichbare Fachkraft unterstützt den Einstieg, spielt bei Bedarf kurz mit und zieht sich wieder zurück. Schutz, vereinbarte Regeln und die Rechte anderer bleiben verbindlich. Selbstbestimmung bedeutet nicht, andere zu gefährden oder dauerhaft auszuschließen.",
+          "Freispielzeit und freies Spiel unterscheiden: Freispielzeit ist ein organisatorischer Abschnitt des Tages und kann auch angeleitete Angebote enthalten. Freies Spiel beschreibt die selbstbestimmte Tätigkeit. Nicht alles, was während der Freispielzeit stattfindet, ist deshalb automatisch freies Spiel."
+        ],
+        "takeaway": "Fünf Wahlmöglichkeiten: Spiel, Partner, Ort, Material und Zeit. Damit sie wirksam werden, braucht es Zeit, passende Räume und Materialien sowie eine aufmerksame, zurückhaltende Begleitung.",
+        "materialIds": [
+          "bk2-lf4-5-7-das-freispiel-im-kindergarten",
+          "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft"
+        ],
+        "caseStudy": {
+          "scenario": "Kinder wollen ihre begonnene Ladenlandschaft nach dem Frühstück weiterbauen. Bisher musste jeden Tag alles sofort aufgeräumt werden.",
+          "analysis": "Eine starre Unterbrechung kann die selbstgewählte Spielidee und die gemeinsam ausgehandelten Rollen beenden. Der zeitliche und räumliche Rahmen entscheidet mit, ob vertieftes Freispiel möglich ist.",
+          "action": "Mit den Kindern einen sicheren Bereich zum Stehenlassen und eine verlässliche Fortsetzungszeit vereinbaren. Dabei Zugänge, andere Spielbedürfnisse und gemeinsame Regeln berücksichtigen."
+        }
+      },
+      {
         "id": "schemata",
-        "title": "3. Spielschemata erkennen",
+        "title": "7. Spielschemata erkennen",
         "materialIds": [
           "bk2-lf4-5-8-spielschemata"
         ],
@@ -2367,9 +2568,10 @@
       },
       {
         "id": "begleitung",
-        "title": "4. Rolle der Fachkraft und Materialauswahl",
+        "title": "8. Rolle der Fachkraft und Materialauswahl",
         "materialIds": [
           "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft",
+          "bk2-lf4-5-7-das-freispiel-im-kindergarten",
           "bk2-lf4-5-11-kriterien-zur-beurteilung-von-spielzeug",
           "bk2-lf4-5-14-spielzeugfreier-kindergarten"
         ],
@@ -2387,42 +2589,49 @@
         },
         "table": {
           "headers": [
-            "Aspekt",
-            "Bedeutung und Anwendung"
+            "Aufgabe",
+            "Vorgehen und Begründung"
           ],
           "rows": [
             [
               "Beobachten",
-              "Interessen, Beziehungen, Materialien und Schwierigkeiten beobachten. Nicht jede Unterbrechung oder Wiederholung verlangt einen Eingriff."
+              "Interessen, Handlungen, Schemata, Materialwahl, Spielpartner, Ideen, Schwierigkeiten und Fähigkeiten wahrnehmen. Erst verstehen, was das Kind beschäftigt, statt vorschnell zu lenken."
             ],
             [
-              "Impulse und Schutz",
-              "Offene Fragen oder eine Materialergänzung können unterstützen, ohne den Verlauf vorzugeben. Bei Gefahr, Gewalt, anhaltender Ausgrenzung oder deutlicher Überforderung ist ein Eingriff begründet."
+              "Begleiten",
+              "Interesse zeigen, wertschätzend zuhören, fragen und bei Bedarf unterstützen. Die eigene Spielidee und möglichst viel Entscheidungsfreiheit bleiben beim Kind."
             ],
             [
-              "Material auswählen",
-              "Spielzeug nach Entwicklungsstand, Interessen, Sicherheit und vielfältigen Möglichkeiten beurteilen. Die Altersangabe allein reicht nicht."
+              "Impulse geben",
+              "Eine offene Frage, ein Material oder einen Vorschlag anbieten. Der Impuls eröffnet Möglichkeiten, gibt aber keine fertige Lösung vor; das Kind entscheidet über die Aufnahme."
             ],
             [
-              "Spielzeugfreies Projekt",
-              "Spielzeugfreier Kindergarten ist im Unterricht ein zeitlich begrenztes, vorbereitetes Projekt zur Förderung von Lebenskompetenzen. Es verlangt begleitende Fachkräfte, Elternarbeit und Reflexion; es ist kein pauschales Verbot von Spielzeug."
+              "Begründet eingreifen",
+              "Bei Gefährdung, dauerhafter Ausgrenzung oder nicht selbst lösbaren Konflikten unterstützen und schützen. Vor jedem Eingriff den Anlass und die notwendige Stärke der Unterstützung prüfen."
+            ],
+            [
+              "Mitspielen",
+              "Als Spielpartner teilnehmen, Kontakte oder den Einstieg erleichtern und sich am Geschehen des Kindes orientieren. Nicht unbemerkt die Führung übernehmen; wieder zurücktreten, wenn die Kinder selbst weiterspielen."
+            ],
+            [
+              "Spielumgebung gestalten",
+              "Zugängliche Materialien, Platz für Rollen- und Gruppenspiele sowie Möglichkeiten zum Bauen, Verstecken, Sortieren und Bewegen vorbereiten. Der Raum soll eigene Tätigkeit ermöglichen, nicht einen einzigen Ablauf festlegen."
             ]
           ]
         }
       },
       {
         "id": "spielzeug",
-        "title": "5. Spielzeug und Materialien beurteilen",
+        "title": "9. Spielzeug und Materialien beurteilen",
         "materialIds": [
           "bk2-lf4-5-11-kriterien-zur-beurteilung-von-spielzeug",
           "bk2-lf4-5-12-fallbeispiel-und-spielzeugbeispiele-zu-spielformen",
           "bk2-lf4-5-14-spielzeugfreier-kindergarten"
         ],
-        "takeaway": "Spielzeug nach Entwicklungsangemessenheit, Spielwert, Sicherheit, Material, Gestaltung, Nachhaltigkeit, Menge und Zugänglichkeit beurteilen. Preis und Altersangabe allein belegen keine Qualität.",
+        "takeaway": "Alle 13 Kriterien berücksichtigen: Entwicklungsstand, Fantasie, Umwelterfahrungen, Spielmöglichkeiten, Material, Gestaltung, Größe/Gewicht, Menge, Mechanik, Haltbarkeit, Sicherheit, Umweltverträglichkeit und Preis. Das Urteil auf Kind und Situation beziehen.",
         "points": [
-          "Passung differenziert prüfen: Ein Material kann inhaltlich interessant sein, aber zu kleine Verbindungsteile oder zu viel Kraft verlangen. Dann scheitert das Kind möglicherweise an der Bedienung und nicht an der Spielidee. Materialeigenschaften, individuelle Fähigkeiten und Unterstützung müssen deshalb zusammen beurteilt werden.",
-          "Ein Auswahlurteil begründen: Nicht nur „pädagogisch wertvoll“ schreiben, sondern benennen, welche eigenen Handlungen und Varianten möglich sind, wie gut das Material handhabbar ist und welche Sicherheitsfragen auftreten. Ein Gütesiegel oder eine Altersangabe kann Orientierung geben, ersetzt die konkrete Prüfung im Nutzungskontext aber nicht.",
-          "Im spielzeugfreien Projekt ist das Ziel Lebenskompetenzförderung: eigene Ideen entwickeln, Bedürfnisse verständlich machen, Beziehungen gestalten und Lösungen aushandeln. Vorbereiten, mit Kindern und Eltern besprechen, begleiten und auswerten gehören zusammen. Das bloße Entfernen von Spielzeug ist noch keine pädagogische Konzeption und kein garantierter Präventionserfolg."
+          "Beurteilung aufbauen: Zuerst Kind, Gruppe und vorgesehenen Spielzweck beschreiben. Dann konkrete Eigenschaften des Spielzeugs mit mehreren passenden Kriterien prüfen. Abschließend ein begründetes Urteil formulieren: geeignet, eingeschränkt geeignet oder für diese Situation ungeeignet.",
+          "Kriterien gewichten: Je nach Kind und Spielzeug sind unterschiedliche Gesichtspunkte besonders wichtig. Sicherheit und Handhabbarkeit dürfen nicht durch einen niedrigen Preis oder ein schönes Aussehen aufgewogen werden. Ein Urteil braucht konkrete Belege am ausgewählten Gegenstand."
         ],
         "intro": "Spielzeugqualität ergibt sich aus der Passung zu Kindern, Spielideen und Nutzungssituation. Entwicklungsangemessenheit, Spielwert, sichere Verarbeitung, Gestaltung, Haltbarkeit und Nachhaltigkeit müssen gemeinsam beurteilt werden.",
         "caseStudy": {
@@ -2432,36 +2641,167 @@
         },
         "table": {
           "headers": [
-            "Aspekt",
-            "Bedeutung und Anwendung"
+            "Kriterium",
+            "Prüfen und begründen"
           ],
           "rows": [
             [
-              "Entwicklungsangemessenheit",
-              "Interessen, Erfahrungen, Fähigkeiten und mögliche Zugangsbarrieren prüfen. Eine Konstruktion soll herausfordern, ohne nur mit dauernder Erwachsenenhilfe nutzbar zu sein. Handhabbarkeit hängt unter anderem von Größe, Gewicht und Form ab."
+              "Alter und Entwicklungsstand",
+              "Passt das Spielzeug zu Fähigkeiten, Interessen und Erfahrungen dieses Kindes? Altersangaben sind nur Orientierung; Unterforderung und Überforderung können die Spielfreude mindern."
             ],
             [
-              "Spielwert",
-              "Unterstützt das Material Fantasie, eigene Ideen, vielfältige Verwendungen und das Verarbeiten von Erfahrungen? Ein offenes Material kann mehrere Spielformen ermöglichen. Ein stark vorgegebener Ablauf kann ebenfalls Freude machen, bietet aber andere Möglichkeiten; entscheidend ist der begründete Einsatz."
+              "Fantasie und Vorstellungsvermögen",
+              "Lässt es eigene Ideen und Bedeutungen zu oder legt es den Ablauf weitgehend fest? Ein einfacher Bauklotz kann unterschiedliche Dinge darstellen; automatisch ablaufende Funktionen können eigene Gestaltung einschränken."
             ],
             [
-              "Material und Gestaltung",
-              "Material, Verarbeitung und Gestaltung: Stabilität, sichere Kanten, passende Oberflächen, übersichtliche Form und Farbe sowie Reinigungs- und Reparaturmöglichkeiten betrachten. Reizfülle ist nicht automatisch anregend. Sicherheit umfasst auch vorhersehbare Nutzung durch jüngere Kinder, nicht nur das vorgesehene Hauptspiel."
+              "Umwelterfahrungen",
+              "Knüpft das Spielzeug an Erlebtes an und hilft es, diese Erfahrungen zu vertiefen? Eigene praktische Erfahrungen lassen sich besonders bei jungen Kindern nicht vollständig durch Darstellungen ersetzen."
             ],
             [
-              "Nachhaltigkeit und Menge",
-              "Haltbarkeit, Herkunft und Umweltbelastung, Austauschbarkeit, Kosten und vorhandenen Bestand abwägen. Weniger gut ausgewähltes, erreichbares Material kann übersichtlicher sein als übervolle Regale; zu wenig Material kann jedoch Beteiligung verhindern."
+              "Spielmöglichkeiten",
+              "Ist es vielseitig, ausbaufähig, lange nutzbar oder eine sinnvolle Ergänzung vorhandener Materialien? Entscheidend sind tatsächliche Handlungsmöglichkeiten."
             ],
             [
-              "Spielzeugfreies Projekt",
-              "Vorbereitete begrenzte Phase mit Elterninformation, Beteiligung der Kinder, geeigneten Alltagsmaterialien und begleitender Reflexion. Beobachten, welche neuen Ideen, Konflikte und Bedürfnisse entstehen. Der Abbau von Spielzeug allein erzeugt weder Kreativität noch Resilienz; benötigte Hilfsmittel und sichere Zugänge bleiben zu berücksichtigen."
+              "Material und Verarbeitung",
+              "Passen Material, Griffigkeit und Verarbeitung zum Verwendungszweck? Auf verschiedene Materialerfahrungen und saubere Verarbeitung achten; kein Material ist pauschal gut oder schlecht."
+            ],
+            [
+              "Gestaltung, Form und Farbe",
+              "Unterstützt die Gestaltung das Erkennen und Handeln? Übersichtliche Formen und eine sinnvolle Farbgebung können Orientierung erleichtern; überflüssige Dekoration kann vom Spiel ablenken."
+            ],
+            [
+              "Größe und Gewicht",
+              "Kann das Kind sicher greifen, tragen und bedienen? Sowohl zu kleine Bedienelemente als auch zu große oder schwere Gegenstände können die Nutzung erschweren."
+            ],
+            [
+              "Anzahl und Menge",
+              "Ist von einem geeigneten Material genug für die Spielidee vorhanden? Ein passendes, kombinierbares Angebot ist wertvoller als viele unvollständige oder zufällig ausgewählte Systeme."
+            ],
+            [
+              "Konstruktion und Mechanik",
+              "Sind Aufbau und Funktionsweise für das Kind nachvollziehbar und handhabbar? Einfache sichtbare Zusammenhänge helfen beim Verstehen; verborgene Abläufe können gerade jüngere Kinder frustrieren."
+            ],
+            [
+              "Haltbarkeit und Lebensdauer",
+              "Hält das Spielzeug der vorgesehenen Nutzung stand und lässt es eine längerfristige Beziehung zu? Frühe Schäden können Spiel unterbrechen und enttäuschen; zugleich lernen Kinder einen angemessenen Umgang mit empfindlichen Dingen."
+            ],
+            [
+              "Sicherheit",
+              "Welche Verletzungs- und Gesundheitsgefahren ergeben sich für dieses Kind und die Gruppe? Verarbeitung, Nutzung und Aufsicht zusammen prüfen. Sicherheitskennzeichnungen ersetzen weder eine pädagogische Qualitätsprüfung noch die Verantwortung der Erwachsenen."
+            ],
+            [
+              "Umweltverträglichkeit",
+              "Material, Produktion, Gebrauch und Entsorgung berücksichtigen. Langlebigkeit, Reparierbarkeit, Wiederverwendung und geringe Verpackung können Ressourcenverbrauch und Abfall vermindern."
+            ],
+            [
+              "Preis",
+              "Preis im Verhältnis zu Spielwert, Nutzungsdauer und Budget beurteilen. Teuer bedeutet nicht automatisch gut; sinnvolle Ergänzungen können für wenig Geld viele neue Möglichkeiten eröffnen."
             ]
           ]
         }
       },
       {
+        "id": "spielzeugfrei",
+        "title": "10. Das Konzept des spielzeugfreien Kindergartens",
+        "intro": "Der spielzeugfreie Kindergarten ist ein zeitlich begrenztes, vorbereitetes Projekt. Durch das vorübergehende Entfernen vorgefertigter Spielangebote sollen Kinder eigene Ideen, Bedürfnisse und Fähigkeiten stärker wahrnehmen und das gemeinsame Spiel selbst gestalten. Das Konzept entstand im Zusammenhang mit Gesundheitsförderung und Suchtprävention; es richtet sich an alle Kinder.",
+        "table": {
+          "headers": [
+            "Konzeptbaustein",
+            "Umsetzung und Begründung"
+          ],
+          "rows": [
+            [
+              "Begrenzter Zeitraum und Vorbereitung",
+              "Das beschriebene Konzept sieht drei Monate und eine lange Vorbereitungszeit vor. Die Kinder werden beteiligt. Es handelt sich nicht um eine dauerhafte Abschaffung von Spielzeug."
+            ],
+            [
+              "Spielzeug und Materialien entfernen",
+              "In dieser Projektfassung werden auch Papier und Stifte entfernt; zunächst bleibt nur das Mobiliar. Die ungewohnte Situation eröffnet Raum, eigene Ideen und Gruppenprozesse zu entwickeln."
+            ],
+            [
+              "Neue Rolle der Fachkraft",
+              "Statt ständig Themenangebote und schnelle Lösungen bereitzustellen, beobachtet die Fachkraft interessiert. Sie wird unterstützende Partnerin und Begleiterin und lässt Kindern Raum für ihren eigenen Rhythmus und ihre Lösungswege."
+            ],
+            [
+              "Intensive Elternarbeit",
+              "Vor, während und nach dem Projekt werden Informationen und Erfahrungsaustausch ermöglicht. Vor Beginn soll eine weitgehende Zustimmung der Eltern bestehen; auch Großeltern können mit ihren Spielerfahrungen einbezogen werden."
+            ],
+            [
+              "Externe Projektbegleitung",
+              "Eine externe Begleitung unterstützt Elternarbeit, Praxisreflexion und Dokumentation. Beobachtungen werden ausgewertet, statt den bloßen Spielzeugentzug bereits als Erfolg zu bewerten."
+            ]
+          ]
+        },
+        "points": [
+          "Ziele und Begründung: Ein Überangebot und bereits festgelegte Spielabläufe können eigene Fantasie und Bedürfniswahrnehmung in den Hintergrund drängen. Die zeitlich begrenzte Gegenerfahrung soll Freiraum für Kreativität, Selbstbestätigung, Selbstbewusstsein sowie das Erproben verschiedener Positionen und Rollen in der Gruppe schaffen.",
+          "Wichtige Abgrenzung: Das Projekt richtet sich nicht gegen jedes Spielzeug. Sinnvolles Spielzeug hat einen Platz in der kindlichen Entwicklung. Entscheidend sind die vorbereitete zeitliche Begrenzung, die veränderte Erwachsenenrolle und die Begleitung des gesamten Prozesses.",
+          "Der präventive Gedanke: Kinder sollen Bedürfnisse, Stärken, Grenzen und eigene Lösungen erfahren, statt Frustrationen nur durch den Konsum neuer Dinge zu überdecken. Selbstbewusstsein und eigene Handlungsmöglichkeiten werden als Ziele angestrebt; der zeitweise Verzicht allein garantiert keine präventive Wirkung."
+        ],
+        "takeaway": "Zum Konzept gehören Materialentfernung auf Zeit, intensive Vorbereitung mit Kindern, eine beobachtende Fachkraft, Elternarbeit und externe Begleitung. Nur Spielzeug wegzuräumen bildet das Konzept nicht vollständig ab.",
+        "materialIds": [
+          "bk2-lf4-5-14-spielzeugfreier-kindergarten",
+          "bk2-lf4-5-13-filmauftrag-spielzeugfreier-kindergarten"
+        ],
+        "caseStudy": {
+          "scenario": "Ein Team möchte nächste Woche alle Spielsachen entfernen, ohne Kinder und Eltern vorzubereiten. Die Fachkräfte wollen die freie Zeit mit eigenen Beschäftigungsangeboten füllen.",
+          "analysis": "Die Materialentfernung allein reicht nicht. Vorbereitung und Elternarbeit fehlen; ständige Erwachsenenangebote widersprechen dem vorgesehenen Raum für eigene Spielideen und der veränderten Fachkraftrolle.",
+          "action": "Zunächst Ziele, Zeitraum, Beteiligung, Elterninformation und Projektbegleitung planen. Im Projekt aufmerksam begleiten und reflektieren, statt die entfernten Spielsachen durch dauernde Anleitung zu ersetzen."
+        }
+      },
+      {
+        "id": "digital-spiele",
+        "title": "11. Digitale Spiele: Chancen, Risiken und Begleitung",
+        "intro": "Digitale Spiele werden auf Tablet, Smartphone, Computer oder Konsole gespielt. Dazu gehören Lern- und Geschicklichkeitsspiele, kreative Bau- und Gestaltungsspiele sowie komplexere Online-Spiele. Ihr pädagogischer Wert hängt vom konkreten Spiel, dem Entwicklungsstand, der Nutzungsdauer, dem Rahmen und der Begleitung ab.",
+        "table": {
+          "headers": [
+            "Bereich",
+            "Chancen und mögliche Risiken"
+          ],
+          "rows": [
+            [
+              "Denken und Problemlösen",
+              "Strategien entwickeln, Entscheidungen treffen, Zusammenhänge erkennen und verschiedene Lösungen erproben; dabei können Konzentration, Merkfähigkeit und logisches Denken angesprochen werden. Unpassender Schwierigkeitsgrad oder ungeeignete Inhalte können überfordern."
+            ],
+            [
+              "Kreativität und Gestaltung",
+              "Figuren, Räume oder Welten selbst gestalten und verändern. Diese Chance setzt passende Gestaltungsmöglichkeiten voraus; nicht jedes Spiel eröffnet eigene kreative Wege."
+            ],
+            [
+              "Kooperation und Kommunikation",
+              "Gemeinsame Aufgaben ermöglichen Absprachen, Rücksichtnahme und Regelverständnis. Online-Kontakte können dagegen beleidigende Kommunikation, ungeeignete Inhalte und die Weitergabe persönlicher Informationen mit sich bringen."
+            ],
+            [
+              "Motivation und Selbstwirksamkeit",
+              "Unmittelbare Rückmeldungen und Fortschritte können zeigen, dass eigenes Handeln wirkt. Punkte, Level und virtuelle Belohnungen können zugleich dazu verleiten, immer weiterzuspielen."
+            ],
+            [
+              "Medienkompetenz, Werbung und Daten",
+              "Geräte bedienen, Inhalte hinterfragen und Werbung erkennen lernen. Risiken bestehen durch In-App-Käufe, wirtschaftliche Beeinflussung, unnötige Datenerhebung und unklare Berechtigungen."
+            ],
+            [
+              "Zeit, Inhalte und Balance",
+              "Digitale Erfahrungen können analoge Vorhaben ergänzen. Intensive Nutzung kann Bewegung, freies Spiel, Kontakte, Schlaf und Erholung verdrängen. Gewalt oder angstauslösende Inhalte können überfordern; eine Alterskennzeichnung ersetzt die pädagogische Prüfung nicht."
+            ]
+          ]
+        },
+        "points": [
+          "Vor dem Einsatz acht Punkte prüfen: Alter und Entwicklungsstand; angesprochene Interessen und Fähigkeiten; verständliche Bedienung; Werbung und Kaufangebote; Daten und Berechtigungen; Möglichkeiten für Kooperation, Kreativität und Selbstständigkeit; angemessener Schwierigkeitsgrad; sinnvolle Einbettung in ein pädagogisches Angebot.",
+          "Begleitung konkret: Gemeinsam spielen und beobachten, mit offenen Fragen Entscheidungen und Gefühle besprechen und Regeln zu Spielzeit, Datenschutz, Kommunikation und Respekt mit den Kindern entwickeln. Werbung und Belohnungssysteme kritisch untersuchen.",
+          "Digital und analog verbinden: Eine digitale Bauidee kann in einem realen Bauprojekt weitergeführt werden. Nicht pauschal verbieten oder unbegrenzt freigeben, sondern begründet auswählen und begleiten."
+        ],
+        "takeaway": "Fünf Chancen: Problemlösen, Kreativität, Kooperation, Selbstwirksamkeit und Medienkompetenz. Risiken betreffen Zeitbalance, ungeeignete Inhalte, Werbung und Käufe, Daten, Online-Kontakte und bindende Belohnungssysteme.",
+        "materialIds": [
+          "bk2-lf4-5-20-digitale-spiele"
+        ],
+        "caseStudy": {
+          "scenario": "Eine Bau-App erlaubt freie Gestaltung, verlangt aber eine Registrierung und bietet ständig Zusatzpakete zum Kauf an. Zwei Kinder möchten damit gemeinsam eine Stadt entwerfen.",
+          "analysis": "Kreativität und Kooperation sind mögliche Chancen. Registrierung, Datennutzung und Kaufanreize müssen unabhängig davon geprüft werden. Eine attraktive Spielidee allein begründet noch keine geeignete Auswahl.",
+          "action": "Datenbedarf und Kaufmechanismen prüfen und gegebenenfalls ein geeigneteres Angebot wählen. Regeln vereinbaren, gemeinsam reflektieren und die Stadtidee anschließend mit realem Baumaterial weiterführen."
+        }
+      },
+      {
         "id": "wettbewerb",
-        "title": "6. Wettbewerb, Kooperation und Verlieren",
+        "title": "12. Wettbewerb, Kooperation und Verlieren",
         "materialIds": [
           "bk2-lf4-5-16-wettbewerb",
           "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung"
@@ -2505,7 +2845,7 @@
       },
       {
         "id": "schiessspiele",
-        "title": "7. Schieß- und Kriegsspiele reflektiert begleiten",
+        "title": "13. Schieß- und Kriegsspiele reflektiert begleiten",
         "materialIds": [
           "bk2-lf4-5-17-schiespiele",
           "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft"
@@ -2546,7 +2886,7 @@
       },
       {
         "id": "raeume",
-        "title": "8. Räume, Material und Beteiligung",
+        "title": "14. Räume, Material und Beteiligung",
         "materialIds": [
           "bk2-lf4-5-21-kriterien-der-raum-und-materialgestaltung",
           "bk2-lf4-5-23-raum-und-partizipation",
@@ -2592,7 +2932,7 @@
       },
       {
         "id": "besondere-spiele",
-        "title": "9. Digitale Spiele und Grenzen im Spiel",
+        "title": "15. Digitale Spiele und Grenzen im Spiel",
         "materialIds": [
           "bk2-lf4-5-20-digitale-spiele",
           "bk2-lf4-5-19-doktorspiele-in-der-kita",
@@ -2639,7 +2979,7 @@
       },
       {
         "id": "resilienz",
-        "title": "10. Resilienz und sechs Schutzfaktoren",
+        "title": "16. Resilienz und sechs Schutzfaktoren",
         "materialIds": [
           "bk2-lf4-5-30-resilienz-und-spiel",
           "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung"
@@ -2692,7 +3032,7 @@
       },
       {
         "id": "inklusion",
-        "title": "11. Inklusive Spielbegleitung und Zugehörigkeit",
+        "title": "17. Inklusive Spielbegleitung und Zugehörigkeit",
         "materialIds": [
           "bk2-lf4-5-30-resilienz-und-spiel",
           "bk2-lf4-5-29-spiel-und-spielforderung-textor",
@@ -2737,7 +3077,7 @@
       },
       {
         "id": "spielplanung",
-        "title": "12. Ein Spiel planen, anpassen und auswerten",
+        "title": "18. Ein Spiel planen, anpassen und auswerten",
         "materialIds": [
           "bk2-lf4-5-15-ein-spiel-entwerfen",
           "bk2-lf4-5-9-ziele",
@@ -2779,6 +3119,60 @@
             ]
           ]
         }
+      }
+    ],
+    "objectives": [
+      {
+        "label": "Ich kann den Begriff Spiel definieren.",
+        "topicId": "spiel"
+      },
+      {
+        "label": "Ich kann die Merkmale, Bedeutung und Ziele von Spiel erklären.",
+        "topicId": "spiel"
+      },
+      {
+        "label": "Ich kann den Einfluss von Spiel auf die kindliche Entwicklung beschreiben.",
+        "topicId": "entwicklung"
+      },
+      {
+        "label": "Ich kann emotionale und soziale Entwicklung unterscheiden und Zusammenhänge zum Spiel erläutern.",
+        "topicId": "emotional-sozial"
+      },
+      {
+        "label": "Ich kann behandelte Spielformen unterscheiden.",
+        "topicId": "formen"
+      },
+      {
+        "label": "Ich kann die Entwicklung der Kooperationsformen erläutern und diese darstellen.",
+        "topicId": "kooperationsformen"
+      },
+      {
+        "label": "Ich kann Merkmale, Bedeutung und Rahmenbedingungen des Freispiels beschreiben.",
+        "topicId": "freispiel"
+      },
+      {
+        "label": "Ich kann den Begriff Spielschemata definieren und die Bedeutung für die pädagogische Arbeit erklären.",
+        "topicId": "schemata"
+      },
+      {
+        "label": "Ich kann die unterschiedlichen Spielschemata erläutern.",
+        "topicId": "schemata"
+      },
+      {
+        "label": "Ich kann die Aufgaben der pädagogischen Fachkraft im Spiel erläutern.",
+        "topicId": "begleitung"
+      },
+      {
+        "label": "Ich kann Spielzeug anhand unterschiedlicher Kriterien beurteilen.",
+        "topicId": "spielzeug"
+      },
+      {
+        "label": "Ich kann das Konzept des spielzeugfreien Kindergartens erklären.",
+        "topicId": "spielzeugfrei"
+      },
+      {
+        "label": "Ich kann Digitale Spiele erklären und deren Chancen und mögliche Risiken wiedergeben.",
+        "topicId": "digital-spiele"
       }
     ]
   },
@@ -3448,7 +3842,7 @@
     "id": "mathematik-regression",
     "subjectId": "mathematik",
     "title": "Lineare Regression und Korrelationskoeffizient",
-    "description": "Wertepaare und Streudiagramm, Mittelwerte und Schwerpunkt, zwei Regressionsgeraden aufstellen und zeichnen, Werte berechnen sowie Richtung und Stärke mit r bestimmen – mit vollständigen Rechenwegen und kontrollierten Vorzeichen.",
+    "description": "Vom Aufbau der Wertetabelle über arithmetische und gewichtete Mittelwerte nach x und y bis zu den Regressionsgeraden. Mit getrennten Beispielen, allgemeinen Formeln, kurzen Rechenwegen und Korrelationskoeffizient.",
     "updatedAt": "2026-11-19",
     "sections": [
       {
@@ -3537,8 +3931,247 @@
         ]
       },
       {
+        "id": "wertetabelle",
+        "title": "2. Wertetabelle aufbauen und ausfüllen",
+        "intro": "Eine Wertetabelle hält zusammengehörige x- und y-Werte fest. Für die Regressionsrechnung werden die drei Rechenspalten x², y² und x·y ergänzt. Jede Zeile gehört zu einer Beobachtung; erst danach werden die Spalten getrennt addiert.",
+        "takeaway": "Pro Zeile gehören x und y zusammen. x² und y² werden einzeln quadriert; x·y verwendet die beiden Werte derselben Zeile. Die letzte Zeile enthält die fünf Spaltensummen.",
+        "materialIds": [
+          "mathematik-protokoll-1"
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 05.01.2026",
+          "text": "Diese Tabelle enthält 21 Wertepaare: x ist die Note, y die Beliebtheit des Mathematikunterrichts. Die x- und y-Spalten stammen aus dem Protokoll; Quadrate, Produkte und ihre Summen sind daraus nachgerechnet."
+        },
+        "formulas": [
+          {
+            "label": "Quadrat eines x-Wertes",
+            "latex": "x^2=x\\cdot x"
+          },
+          {
+            "label": "Quadrat eines y-Wertes",
+            "latex": "y^2=y\\cdot y"
+          },
+          {
+            "label": "Produkt eines Wertepaares",
+            "latex": "xy=x\\cdot y"
+          }
+        ],
+        "table": {
+          "kind": "values",
+          "caption": "21 Wertepaare mit Rechenspalten · letzte Zeile: Summen",
+          "headers": [
+            "$x$",
+            "$y$",
+            "$x^2$",
+            "$y^2$",
+            "$x\\cdot y$"
+          ],
+          "rows": [
+            [
+              "4",
+              "3",
+              "16",
+              "9",
+              "12"
+            ],
+            [
+              "1",
+              "5",
+              "1",
+              "25",
+              "5"
+            ],
+            [
+              "5",
+              "1",
+              "25",
+              "1",
+              "5"
+            ],
+            [
+              "2",
+              "5",
+              "4",
+              "25",
+              "10"
+            ],
+            [
+              "3",
+              "3",
+              "9",
+              "9",
+              "9"
+            ],
+            [
+              "5",
+              "6",
+              "25",
+              "36",
+              "30"
+            ],
+            [
+              "2",
+              "6",
+              "4",
+              "36",
+              "12"
+            ],
+            [
+              "2",
+              "4",
+              "4",
+              "16",
+              "8"
+            ],
+            [
+              "3",
+              "6",
+              "9",
+              "36",
+              "18"
+            ],
+            [
+              "4",
+              "2",
+              "16",
+              "4",
+              "8"
+            ],
+            [
+              "1",
+              "6",
+              "1",
+              "36",
+              "6"
+            ],
+            [
+              "4",
+              "5",
+              "16",
+              "25",
+              "20"
+            ],
+            [
+              "3",
+              "1",
+              "9",
+              "1",
+              "3"
+            ],
+            [
+              "1",
+              "8",
+              "1",
+              "64",
+              "8"
+            ],
+            [
+              "4",
+              "4",
+              "16",
+              "16",
+              "16"
+            ],
+            [
+              "2",
+              "3",
+              "4",
+              "9",
+              "6"
+            ],
+            [
+              "4",
+              "5",
+              "16",
+              "25",
+              "20"
+            ],
+            [
+              "3",
+              "4",
+              "9",
+              "16",
+              "12"
+            ],
+            [
+              "2",
+              "2",
+              "4",
+              "4",
+              "4"
+            ],
+            [
+              "3",
+              "5",
+              "9",
+              "25",
+              "15"
+            ],
+            [
+              "2",
+              "1",
+              "4",
+              "1",
+              "2"
+            ]
+          ],
+          "totals": [
+            "60",
+            "85",
+            "202",
+            "419",
+            "229"
+          ]
+        },
+        "calculations": [
+          {
+            "title": "Eine Tabellenzeile vollständig ausfüllen",
+            "goal": "die drei zusätzlichen Werte der ersten Tabellenzeile.",
+            "givens": [
+              "x=4",
+              "y=3"
+            ],
+            "formula": "\\begin{gathered}x^2=x\\cdot x\\\\y^2=y\\cdot y\\\\xy=x\\cdot y\\end{gathered}",
+            "steps": [
+              {
+                "label": "x-Wert quadrieren",
+                "expressions": [
+                  "4^2=4\\cdot4=16"
+                ]
+              },
+              {
+                "label": "y-Wert quadrieren",
+                "expressions": [
+                  "3^2=3\\cdot3=9"
+                ]
+              },
+              {
+                "label": "Werte derselben Zeile multiplizieren",
+                "expressions": [
+                  "4\\cdot3=12"
+                ]
+              }
+            ],
+            "result": "\\begin{gathered}x^2=16\\\\y^2=9\\\\xy=12\\end{gathered}",
+            "interpretation": "Die vollständige erste Zeile lautet: 4 | 3 | 16 | 9 | 12. Genau so werden die übrigen Zeilen ausgefüllt."
+          }
+        ],
+        "points": [
+          "1. Wertepaare übertragen: Die Werte einer Beobachtung bleiben in derselben Zeile. Beim Übertragen nichts vertauschen oder die beiden Ausgangsspalten unabhängig voneinander sortieren.",
+          "2. Rechenspalten bilden: x² ist x·x, y² ist y·y und x·y ist das Produkt der beiden Ausgangswerte derselben Zeile. Erst jede Zeile vollständig ausfüllen.",
+          "3. Jede Spalte addieren: $\\sum x=60$, $\\sum y=85$, $\\sum x^2=202$, $\\sum y^2=419$ und $\\sum xy=229$. Die Summenzeile ist keine weitere Beobachtung; es bleiben $n=21$ Wertepaare.",
+          "4. Erst dann die passenden Summen in die Formeln einsetzen. Für die arithmetischen Mittelwerte werden $\\sum x$, $\\sum y$ und $n$ gebraucht. Für die gewichteten Mittelwerte benötigt man zusätzlich die Quadratsummen und die Produktsumme."
+        ],
+        "caseStudy": {
+          "scenario": "Die erste Beobachtung hat x = 4 und y = 3.",
+          "analysis": "Die drei Rechenspalten ergeben 16, 9 und 12.",
+          "action": "Jede Zeile einzeln berechnen und danach die fünf Spalten addieren.",
+          "sourceBased": true
+        }
+      },
+      {
         "id": "mittelwerte-schwerpunkt",
-        "title": "2. Mittelwerte und Schwerpunkt berechnen",
+        "title": "3. Arithmetische Mittelwerte und Schwerpunkt",
         "intro": "Der Mittelwert wird berechnet, indem alle Werte eines Merkmals addiert und durch ihre Anzahl n geteilt werden. Für gepaarte Daten werden $\\bar{x}$ und $\\bar{y}$ getrennt bestimmt. Zusammen ergeben sie den Schwerpunkt $P=(\\bar{x}\\mid\\bar{y})$. Die beiden rechnerisch bestimmten Regressionsgeraden des verwendeten Verfahrens verlaufen durch diesen Punkt.",
         "takeaway": "$\\bar{x}=\\frac{\\sum x}{n}$; $\\bar{y}=\\frac{\\sum y}{n}$; $P=(\\bar{x}\\mid\\bar{y})$. Beide Summen gehören zum selben Datenbestand und werden durch dieselbe Anzahl von Wertepaaren geteilt.",
         "materialIds": [
@@ -3574,7 +4207,7 @@
         ],
         "calculations": [
           {
-            "title": "Schwerpunkt aus 21 Wertepaaren",
+            "title": "05.01.2026 · Schwerpunkt aus 21 Wertepaaren",
             "goal": "zuerst der x-Mittelwert, dann der y-Mittelwert und daraus der Schwerpunkt.",
             "givens": [
               "n=21",
@@ -3610,7 +4243,7 @@
             "interpretation": "Der erste Wert ist die x-Koordinate, der zweite die y-Koordinate."
           },
           {
-            "title": "Schwerpunkt aus fünf Wertepaaren",
+            "title": "13.01.2026 · Schwerpunkt aus fünf Wertepaaren",
             "goal": "die beiden Mittelwerte und der gemeinsame Schwerpunkt für das Geradenbeispiel.",
             "givens": [
               "n=5",
@@ -3647,9 +4280,169 @@
         ]
       },
       {
+        "id": "gewichtete-mittelwerte-x",
+        "title": "4. Gewichtete Mittelwerte nach x",
+        "intro": "Bei der Gewichtung nach x wird jeder x- und y-Wert mit dem zugehörigen x-Wert gewichtet. Deshalb stehen im Zähler die Summen der Produkte und im Nenner $\\sum x$. Es entstehen zwei gewichtete Mittelwerte: $x_x$ und $y_x$.",
+        "takeaway": "Gewichtung nach x: durch die Summe der x-Werte teilen. Die beiden Ergebnisse bilden den Punkt $P_x\\approx(102{,}82\\mid28{,}07)$.",
+        "materialIds": [
+          "mathematik-geraden-aufstellen"
+        ],
+        "formulas": [
+          {
+            "label": "Gewichteter x-Mittelwert nach x",
+            "latex": "x_x=\\frac{\\sum x^2}{\\sum x}"
+          },
+          {
+            "label": "Gewichteter y-Mittelwert nach x",
+            "latex": "y_x=\\frac{\\sum xy}{\\sum x}"
+          },
+          {
+            "label": "Punkt aus den beiden gewichteten Mittelwerten",
+            "latex": "P_x=(x_x\\mid y_x)"
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Gewichteter x-Mittelwert nach x",
+            "goal": "der gewichtete Mittelwert der x-Werte mit x als Gewicht.",
+            "givens": [
+              "\\sum x^2=51925",
+              "\\sum x=505"
+            ],
+            "formula": "x_x=\\frac{\\sum x^2}{\\sum x}",
+            "steps": [
+              {
+                "label": "Die passenden Spaltensummen einsetzen",
+                "expressions": [
+                  "x_x=\\frac{51925}{505}"
+                ],
+                "note": "Der Nenner ist die Summe der Gewichte. Es wird hier nicht durch die Anzahl der Wertepaare geteilt."
+              }
+            ],
+            "result": "x_x\\approx102{,}82",
+            "interpretation": "Der Bruch wird für die spätere Geradenrechnung ungerundet weiterverwendet. Das angezeigte Ergebnis ist auf zwei Nachkommastellen gerundet."
+          },
+          {
+            "title": "Gewichteter y-Mittelwert nach x",
+            "goal": "der gewichtete Mittelwert der y-Werte mit x als Gewicht.",
+            "givens": [
+              "\\sum xy=14175",
+              "\\sum x=505"
+            ],
+            "formula": "y_x=\\frac{\\sum xy}{\\sum x}",
+            "steps": [
+              {
+                "label": "Die passenden Spaltensummen einsetzen",
+                "expressions": [
+                  "y_x=\\frac{14175}{505}"
+                ],
+                "note": "Der Nenner ist die Summe der Gewichte. Es wird hier nicht durch die Anzahl der Wertepaare geteilt."
+              }
+            ],
+            "result": "y_x\\approx28{,}07",
+            "interpretation": "Der Bruch wird für die spätere Geradenrechnung ungerundet weiterverwendet. Das angezeigte Ergebnis ist auf zwei Nachkommastellen gerundet."
+          }
+        ],
+        "points": [
+          "Der Unterschied zum arithmetischen Mittelwert: Dort wird die einfache Summe durch $n$ geteilt. Beim gewichteten Mittelwert werden zunächst passende Produkte gebildet und anschließend durch die Summe der Gewichte geteilt.",
+          "Für $x_x$ wird jeder x-Wert mit sich selbst multipliziert: $x\\cdot x=x^2$. Für $y_x$ wird jeder y-Wert mit dem x-Wert derselben Zeile multipliziert: $y\\cdot x=xy$.",
+          "Die beiden Ergebnisse bilden zusammen den Punkt $P_x\\approx(102{,}82\\mid28{,}07)$. Dieser Punkt wird zusammen mit dem Schwerpunkt für die zugehörige Gerade verwendet."
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 13.01.2026",
+          "text": "Hier werden die gegebenen Spaltensummen von fünf Wertepaaren verwendet: $\\sum x=505$ und $\\sum y=145$."
+        },
+        "caseStudy": {
+          "scenario": "Für gₓ werden P = (101 | 29) und $P_x$ = ($\\frac{51925}{505}$ | $\\frac{14175}{505}$) verwendet.",
+          "analysis": "$m_x$ = ($\\frac{14175}{505}$ − 29)/($\\frac{51925}{505}$ − 101) ≈ −0,510869565. Danach $b_x$ = 29 − $m_x$·101 ≈ 80,597826087.",
+          "action": "Mit den ungerundeten Werten ergibt $m_x$·101 + $b_x$ genau 29. Bei den dargestellten gerundeten Zahlen sind geringe Abweichungen eine Folge der Rundung.",
+          "sourceBased": true
+        }
+      },
+      {
+        "id": "gewichtete-mittelwerte-y",
+        "title": "5. Gewichtete Mittelwerte nach y",
+        "intro": "Bei der Gewichtung nach y wird jeder x- und y-Wert mit dem zugehörigen y-Wert gewichtet. Deshalb steht im Nenner $\\sum y$. Es entstehen zwei gewichtete Mittelwerte: $x_y$ und $y_y$.",
+        "takeaway": "Gewichtung nach y: durch die Summe der y-Werte teilen. Die beiden Ergebnisse bilden den Punkt $P_y\\approx(97{,}76\\mid30{,}86)$.",
+        "materialIds": [
+          "mathematik-geraden-aufstellen"
+        ],
+        "formulas": [
+          {
+            "label": "Gewichteter x-Mittelwert nach y",
+            "latex": "x_y=\\frac{\\sum xy}{\\sum y}"
+          },
+          {
+            "label": "Gewichteter y-Mittelwert nach y",
+            "latex": "y_y=\\frac{\\sum y^2}{\\sum y}"
+          },
+          {
+            "label": "Punkt aus den beiden gewichteten Mittelwerten",
+            "latex": "P_y=(x_y\\mid y_y)"
+          }
+        ],
+        "calculations": [
+          {
+            "title": "Gewichteter x-Mittelwert nach y",
+            "goal": "der gewichtete Mittelwert der x-Werte mit y als Gewicht.",
+            "givens": [
+              "\\sum xy=14175",
+              "\\sum y=145"
+            ],
+            "formula": "x_y=\\frac{\\sum xy}{\\sum y}",
+            "steps": [
+              {
+                "label": "Die passenden Spaltensummen einsetzen",
+                "expressions": [
+                  "x_y=\\frac{14175}{145}"
+                ],
+                "note": "Der Nenner ist die Summe der Gewichte. Es wird hier nicht durch die Anzahl der Wertepaare geteilt."
+              }
+            ],
+            "result": "x_y\\approx97{,}76",
+            "interpretation": "Der Bruch wird für die spätere Geradenrechnung ungerundet weiterverwendet. Das angezeigte Ergebnis ist auf zwei Nachkommastellen gerundet."
+          },
+          {
+            "title": "Gewichteter y-Mittelwert nach y",
+            "goal": "der gewichtete Mittelwert der y-Werte mit y als Gewicht.",
+            "givens": [
+              "\\sum y^2=4475",
+              "\\sum y=145"
+            ],
+            "formula": "y_y=\\frac{\\sum y^2}{\\sum y}",
+            "steps": [
+              {
+                "label": "Die passenden Spaltensummen einsetzen",
+                "expressions": [
+                  "y_y=\\frac{4475}{145}"
+                ],
+                "note": "Der Nenner ist die Summe der Gewichte. Es wird hier nicht durch die Anzahl der Wertepaare geteilt."
+              }
+            ],
+            "result": "y_y\\approx30{,}86",
+            "interpretation": "Der Bruch wird für die spätere Geradenrechnung ungerundet weiterverwendet. Das angezeigte Ergebnis ist auf zwei Nachkommastellen gerundet."
+          }
+        ],
+        "points": [
+          "Der Unterschied zum arithmetischen Mittelwert: Dort wird die einfache Summe durch $n$ geteilt. Beim gewichteten Mittelwert werden zunächst passende Produkte gebildet und anschließend durch die Summe der Gewichte geteilt.",
+          "Für $x_y$ wird jeder x-Wert mit dem y-Wert derselben Zeile multipliziert: $x\\cdot y=xy$. Für $y_y$ wird jeder y-Wert mit sich selbst multipliziert: $y\\cdot y=y^2$.",
+          "Die beiden Ergebnisse bilden zusammen den Punkt $P_y\\approx(97{,}76\\mid30{,}86)$. Dieser Punkt wird zusammen mit dem Schwerpunkt für die zugehörige Gerade verwendet."
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 13.01.2026",
+          "text": "Hier werden die gegebenen Spaltensummen von fünf Wertepaaren verwendet: $\\sum x=505$ und $\\sum y=145$."
+        },
+        "caseStudy": {
+          "scenario": "Für gₓ werden P = (101 | 29) und $P_x$ = ($\\frac{51925}{505}$ | $\\frac{14175}{505}$) verwendet.",
+          "analysis": "$m_x$ = ($\\frac{14175}{505}$ − 29)/($\\frac{51925}{505}$ − 101) ≈ −0,510869565. Danach $b_x$ = 29 − $m_x$·101 ≈ 80,597826087.",
+          "action": "Mit den ungerundeten Werten ergibt $m_x$·101 + $b_x$ genau 29. Bei den dargestellten gerundeten Zahlen sind geringe Abweichungen eine Folge der Rundung.",
+          "sourceBased": true
+        }
+      },
+      {
         "id": "geraden-aufstellen",
-        "title": "3. Regressionsgeraden schrittweise aufstellen",
-        "intro": "Eine Gerade wird durch ihre Steigung m und ihren y-Achsenabschnitt b beschrieben: $y=m\\cdot x+b$. Im Rechenverfahren vom 13.01.2026 werden zunächst der Schwerpunkt P und zwei Hilfspunkte $P_x$ und $P_y$ bestimmt. Zusammen mit P liefert jeder Hilfspunkt eine der beiden Geraden. Die zugehörigen Rechnungen müssen getrennt bleiben.",
+        "title": "6. Regressionsgeraden aufstellen",
+        "intro": "Die beiden Geraden werden aus dem Schwerpunkt und dem jeweiligen Punkt der gewichteten Mittelwerte berechnet. Zuerst wird die Steigung bestimmt, anschließend der Achsenabschnitt. Für die erste Gerade werden $P$ und $P_x$, für die zweite $P$ und $P_y$ verwendet.",
         "takeaway": "P bestimmen → Hilfspunkte berechnen → $m=\\frac{y_2-y_1}{x_2-x_1}$ → $b=\\bar{y}-m\\cdot\\bar{x}$ → Gleichung mit P kontrollieren.",
         "materialIds": [
           "mathematik-geraden-aufstellen"
@@ -3668,14 +4461,6 @@
         },
         "formulas": [
           {
-            "label": "Hilfspunkt für die erste Gerade",
-            "latex": "P_x=\\left(\\frac{\\sum x^2}{\\sum x}\\;\\middle|\\;\\frac{\\sum xy}{\\sum x}\\right)"
-          },
-          {
-            "label": "Hilfspunkt für die zweite Gerade",
-            "latex": "P_y=\\left(\\frac{\\sum xy}{\\sum y}\\;\\middle|\\;\\frac{\\sum y^2}{\\sum y}\\right)"
-          },
-          {
             "label": "Steigung zwischen zwei Punkten",
             "latex": "m=\\frac{y_2-y_1}{x_2-x_1}"
           },
@@ -3689,66 +4474,6 @@
           }
         ],
         "calculations": [
-          {
-            "title": "Hilfspunkt für die erste Gerade berechnen",
-            "goal": "die beiden Koordinaten des Hilfspunkts der ersten Geraden.",
-            "givens": [
-              "\\sum x=505",
-              "\\sum x^2=51925",
-              "\\sum xy=14175"
-            ],
-            "formula": "P_x=\\left(\\frac{\\sum x^2}{\\sum x}\\;\\middle|\\;\\frac{\\sum xy}{\\sum x}\\right)",
-            "steps": [
-              {
-                "label": "Die x-Koordinate des Hilfspunkts berechnen",
-                "expressions": [
-                  "x_{P_x}=\\frac{\\sum x^2}{\\sum x}",
-                  "x_{P_x}=\\frac{51925}{505}",
-                  "x_{P_x}\\approx102{,}821782"
-                ]
-              },
-              {
-                "label": "Die y-Koordinate des Hilfspunkts berechnen",
-                "expressions": [
-                  "y_{P_x}=\\frac{\\sum xy}{\\sum x}",
-                  "y_{P_x}=\\frac{14175}{505}",
-                  "y_{P_x}\\approx28{,}069307"
-                ]
-              }
-            ],
-            "result": "P_x\\approx(102{,}82\\mid28{,}07)",
-            "interpretation": "Die Brüche für die weitere Rechnung ungerundet verwenden."
-          },
-          {
-            "title": "Hilfspunkt für die zweite Gerade berechnen",
-            "goal": "die beiden Koordinaten des Hilfspunkts der zweiten Geraden.",
-            "givens": [
-              "\\sum y=145",
-              "\\sum xy=14175",
-              "\\sum y^2=4475"
-            ],
-            "formula": "P_y=\\left(\\frac{\\sum xy}{\\sum y}\\;\\middle|\\;\\frac{\\sum y^2}{\\sum y}\\right)",
-            "steps": [
-              {
-                "label": "Die x-Koordinate des Hilfspunkts berechnen",
-                "expressions": [
-                  "x_{P_y}=\\frac{\\sum xy}{\\sum y}",
-                  "x_{P_y}=\\frac{14175}{145}",
-                  "x_{P_y}\\approx97{,}758621"
-                ]
-              },
-              {
-                "label": "Die y-Koordinate des Hilfspunkts berechnen",
-                "expressions": [
-                  "y_{P_y}=\\frac{\\sum y^2}{\\sum y}",
-                  "y_{P_y}=\\frac{4475}{145}",
-                  "y_{P_y}\\approx30{,}862069"
-                ]
-              }
-            ],
-            "result": "P_y\\approx(97{,}76\\mid30{,}86)",
-            "interpretation": "Dieser Hilfspunkt gehört zur zweiten Geraden. Er wird nicht mit dem ersten Hilfspunkt vertauscht."
-          },
           {
             "title": "Erste Gerade: Steigung und Achsenabschnitt",
             "goal": "zuerst die Steigung, danach der Achsenabschnitt und schließlich die ganze Geradengleichung.",
@@ -3835,11 +4560,15 @@
               "note": "Damit liegt der Schwerpunkt auf der zugehörigen Geraden."
             }
           }
-        ]
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 13.01.2026",
+          "text": "Alle Werte dieses Abschnitts gehören zum Beispiel mit fünf Wertepaaren. Die gewichteten Mittelwerte werden in den beiden vorherigen Abschnitten berechnet."
+        }
       },
       {
         "id": "geraden-zeichnen",
-        "title": "4. Regressionsgeraden zeichnen",
+        "title": "7. Regressionsgeraden zeichnen",
         "intro": "Zum Zeichnen einer Geraden reichen zwei verschiedene Punkte. In der Form $y=m\\cdot x+b$ liefert b den Punkt (0 | b) auf der y-Achse. Ein weiterer Punkt ergibt sich durch Einsetzen eines x-Wertes, durch ein Steigungsdreieck oder bei Regressionsgeraden durch den Schwerpunkt. Ein übersichtlich beschriftetes Koordinatensystem macht die beiden Geraden vergleichbar.",
         "takeaway": "Achsen skalieren → (0 | b) markieren → zweiten Punkt bestimmen → Gerade zeichnen → Richtung und Punktprobe kontrollieren. Negative Steigung bedeutet: nach rechts abwärts.",
         "materialIds": [
@@ -3864,11 +4593,6 @@
           {
             "label": "Punkt auf der y-Achse",
             "latex": "A=(0\\mid b)"
-          },
-          {
-            "label": "Steigung als Verhältnis",
-            "latex": "m=\\frac{\\Delta y}{\\Delta x}",
-            "note": "$\\Delta x$ und $\\Delta y$ sind die waagerechte und senkrechte Veränderung."
           }
         ],
         "calculations": [
@@ -3940,11 +4664,15 @@
             "result": "\\begin{gathered}A=(0\\mid9{,}72)\\\\B=(5{,}5\\mid4{,}88)\\end{gathered}",
             "interpretation": "Die Gerade verläuft durch beide Punkte und fällt nach rechts. Achsen in passenden Einheiten beschriften."
           }
-        ]
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 19.01.2026",
+          "text": "Die gegebenen Werte dieses Beispiels werden in den folgenden Rechenschritten verwendet."
+        }
       },
       {
         "id": "y-berechnen",
-        "title": "5. Einen y-Wert durch Einsetzen berechnen",
+        "title": "8. Einen y-Wert berechnen",
         "intro": "Ist x gegeben, wird dieser Wert in die ausgewählte Geradengleichung eingesetzt. Anschließend werden zuerst Multiplikation und dann Addition ausgeführt. Das Ergebnis ist der zugehörige Wert auf der Geraden, nicht zwingend ein tatsächlich beobachteter Messwert. Das Vorzeichen der Steigung gehört bei jeder Einsetzung dazu.",
         "takeaway": "x gegeben → x einsetzen → m·x ausrechnen → b addieren → Ergebnis mit Vorzeichen und Größenordnung prüfen.",
         "materialIds": [
@@ -4009,11 +4737,15 @@
               "note": "Bei negativer Steigung sinkt der y-Wert hier um 7,90 gegenüber dem Achsenabschnitt."
             }
           }
-        ]
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 20.01.2026",
+          "text": "Die gegebenen Werte dieses Beispiels werden in den folgenden Rechenschritten verwendet."
+        }
       },
       {
         "id": "x-berechnen",
-        "title": "6. Bei gegebenem y nach x auflösen",
+        "title": "9. Bei gegebenem y nach x auflösen",
         "intro": "Ist y gegeben und x gesucht, wird der y-Wert in die zugehörige Geradengleichung eingesetzt. Danach wird die Gleichung mit denselben Rechenoperationen auf beiden Seiten umgestellt. Aus $y=m\\cdot x+b$ folgt zunächst y − b = m·x und bei $m\\ne0$ schließlich $x=\\frac{y-b}{m}$.",
         "takeaway": "y einsetzen → b auf beiden Seiten abziehen → durch m teilen → gefundenes x wieder in die Ausgangsgleichung einsetzen.",
         "materialIds": [
@@ -4090,11 +4822,15 @@
               "note": "Die Probe liefert wieder den gegebenen y-Wert."
             }
           }
-        ]
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 20.01.2026",
+          "text": "Die gegebenen Werte dieses Beispiels werden in den folgenden Rechenschritten verwendet."
+        }
       },
       {
         "id": "korrelation",
-        "title": "7. Korrelationskoeffizient: Richtung und Stärke",
+        "title": "10. Korrelationskoeffizient: Richtung und Stärke",
         "intro": "Der Korrelationskoeffizient r beschreibt Richtung und Stärke des linearen Zusammenhangs. Sein Vorzeichen gibt die Richtung an, sein Betrag $|r|$ die Stärke. r liegt zwischen −1 und +1; nur der Betrag liegt zwischen 0 und 1. Ein großer negativer Betrag bedeutet einen starken gegensinnigen Zusammenhang und nicht einen schwachen Zusammenhang.",
         "takeaway": "Vorzeichen = Richtung; $|r|$ = Stärke. Im verwendeten Steigungsverfahren gilt $r=\\pm\\sqrt{\\frac{m_1}{m_2}}$; das Vorzeichen folgt der Richtung des Zusammenhangs.",
         "materialIds": [
@@ -4199,7 +4935,11 @@
               "note": "Der Betrag liegt im zulässigen Bereich. Die Stärke wird am Betrag, nicht an der negativen Zahl eingeordnet."
             }
           }
-        ]
+        ],
+        "context": {
+          "title": "Rechenbeispiel vom 09.02.2026",
+          "text": "Die gegebenen Werte dieses Beispiels werden in den folgenden Rechenschritten verwendet."
+        }
       }
     ]
   }
