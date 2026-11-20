@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useI18n } from '../i18n/context';
 
-export function CurrentDate() {
+export function CurrentDate({ compact = false }: { compact?: boolean }) {
   const { locale } = useI18n();
   const [today, setToday] = useState(() => new Date());
   useEffect(() => {
@@ -27,5 +27,5 @@ export function CurrentDate() {
     };
   }, []);
   const localDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-  return <time dateTime={localDate}>{new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(today)}</time>;
+  return <time dateTime={localDate}>{new Intl.DateTimeFormat(locale, compact ? { day: 'numeric', month: 'short' } : { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(today)}</time>;
 }

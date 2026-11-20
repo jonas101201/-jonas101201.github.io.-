@@ -7,16 +7,14 @@ import { isLearningSession } from '../utils/navigation';
 import { CommandPalette } from '../features/search/CommandPalette';
 import { buildSearchIndex } from '../features/search';
 import { changeWithMotion } from '../utils/motion';
-import { GlassFilters } from '../components/GlassFilters';
-import { AsciiWaves } from '../components/AsciiWaves';
+import { ClayBackground } from '../components/ClayBackground';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { useI18n } from "../i18n/context";
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Sparkle, Users, X, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
+import { FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Users, X, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
-import { mountLiquidGlass } from '../utils/liquidGlass';
 const links = [
     { to: '/', label: 'Übersicht', icon: Home },
     { to: '/faecher', label: 'Fächer', icon: Layers },
@@ -32,8 +30,7 @@ export function AppLayout() {
     const shell = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!shell.current) return;
-        const disposeGlass = mountLiquidGlass(shell.current), disposeDisclosures = mountDisclosureMotion(shell.current);
-        return () => { disposeGlass(); disposeDisclosures(); };
+        return mountDisclosureMotion(shell.current);
     }, []);
     const [collapsed, setCollapsed] = useState(false);
     const [focusOverride, setFocusOverride] = useState({ path: '', value: true });
@@ -120,20 +117,19 @@ export function AppLayout() {
         return () => media.removeEventListener('change', close);
     }, []);
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${dockEnabled ? 'dock-enabled' : ''} ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
-    <GlassFilters/>
     <TooltipLayer/>
     {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
-    <AsciiWaves paused={backgroundPaused || focusMode}/>
+    <ClayBackground paused={backgroundPaused || focusMode}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
     <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
     <aside ref={sidebar} id="main-sidebar" className={`sidebar ${menu ? 'is-open' : ''}`} aria-label={tr("Hauptnavigation")}>
-      <Link to="/" className="brand" aria-label="LernHub" onClick={() => setMenu(false)}><Sparkle size={26} fill="currentColor" strokeWidth={1}/>Lern<span>Hub</span></Link>
+      <Link to="/" className="brand" aria-label="LernHub" onClick={() => setMenu(false)}>Lern<span>Hub</span></Link>
       <button className="icon-button mobile-close" aria-label={tr("Menü schließen")} onClick={() => { restoreFocus.current = true; setMenu(false); }}><X /></button>
       <nav className="main-nav" aria-label="LernHub">{links.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} aria-label={tr(label)} title={collapsed ? tr(label) : undefined} end={to === '/'} onClick={() => setMenu(false)} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} ${to === '/klasse' ? 'class-nav-link' : ''}`}><Icon size={23} strokeWidth={1.7}/><span>{tr(label)}</span></NavLink>)}</nav>
       <div className="sidebar-bottom"><div className="sidebar-class"><span>{classroom.name}</span><small>{tr(classroom.program)}</small></div><NavLink to="/ueber" aria-label={tr("Informationen & Speicher")} title={collapsed ? tr("Informationen & Speicher") : undefined} className="nav-link" onClick={() => setMenu(false)}><Settings2 size={21}/><span>{tr("Informationen & Speicher")}</span></NavLink></div>
     </aside>
     <div className="workspace" inert={menu}>
-      <header className="topbar">{isHome && <Link className="home-mobile-brand" to="/" aria-label="LernHub"><Sparkle size={25} fill="currentColor" strokeWidth={1}/>Lern<span>Hub</span></Link>}<button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>{learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} onClick={() => { setMenu(false); changeWithMotion(() => setFocusOverride({ path: location.pathname, value: !focusMode })); }}>{focusMode ? <Minimize size={18}/> : <Maximize size={18}/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}<button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} aria-controls="main-sidebar" onClick={event => { menuTrigger.current = event.currentTarget; setMenu(true); }}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
+      <header className="topbar">{isHome && <Link className="home-mobile-brand" to="/" aria-label="LernHub">Lern<span>Hub</span></Link>}<button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>{learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} onClick={() => { setMenu(false); changeWithMotion(() => setFocusOverride({ path: location.pathname, value: !focusMode })); }}>{focusMode ? <Minimize size={18}/> : <Maximize size={18}/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}<button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} aria-controls="main-sidebar" onClick={event => { menuTrigger.current = event.currentTarget; setMenu(true); }}><Menu /></button><Link to="/" className="mobile-brand">Lern<span>Hub</span></Link>
         <button className="global-search command-trigger" aria-label={tr('In LernHub suchen …')} aria-haspopup="dialog" onClick={event => openSearch(event.currentTarget)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
         <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => changeWithMotion(() => setBackgroundPaused(value => !value))}><span className="motion-icon">{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</span></button><ThemeToggle/><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
       </header>

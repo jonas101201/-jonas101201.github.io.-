@@ -1,0 +1,217 @@
+/* Matte clay surfaces. Keep these rules last so the old glass optics cannot
+   make learning content translucent. Print keeps the existing paper layout. */
+@media screen {
+  :root {
+    --clay-base: #222d3a;
+    --clay-panel: #2b3848;
+    --clay-control: #2d3b4d;
+    --clay-ink: #edf2fa;
+    --clay-muted: #b9c6d7;
+    --clay-line: #40516a;
+    --clay-highlight: #4a5d754d;
+    --clay-shade: #101a2a66;
+    --clay-edge: #718ca238;
+    --clay-dim: #12203466;
+    --clay-selected: #425d7c;
+    --clay-copper: #92745e;
+    --clay-copper-soft: #7f6d5b;
+    --clay-copper-low: #7b6555;
+    --clay-ring: #efc19a;
+    --clay-halo: #e9b48666;
+    --clay-panel-shadow: inset 2px 2px 4px var(--clay-edge),inset -3px -3px 7px var(--clay-dim),7px 7px 16px var(--clay-shade),-5px -5px 14px var(--clay-highlight);
+    --clay-control-shadow: inset 1px 1px 2px var(--clay-edge),inset -2px -2px 4px var(--clay-dim),3px 3px 6px var(--clay-shade),-2px -2px 5px var(--clay-highlight);
+  }
+  :root[data-theme="light"] {
+    --clay-base: #e9edf1;
+    --clay-panel: #e8edf2;
+    --clay-control: #eef1f5;
+    --clay-ink: #303c4d;
+    --clay-muted: #53657b;
+    --clay-line: #bac8d8;
+    --clay-highlight: #ffffffdd;
+    --clay-shade: #b0bdce66;
+    --clay-edge: #ffffffbd;
+    --clay-dim: #9daec452;
+    --clay-selected: #cbdbea;
+    --clay-copper: #c7a78b;
+    --clay-copper-soft: #d3baa1;
+    --clay-copper-low: #c5b09b;
+    --clay-ring: #a9754c;
+    --clay-halo: #b982523d;
+  }
+  :root[data-theme] {
+    --color-text: var(--clay-ink);
+    --color-muted: var(--clay-muted);
+    --color-border: var(--clay-line);
+    --color-accent: var(--clay-ink);
+    --color-focus: var(--clay-ring);
+    --muted: var(--clay-muted);
+    --border: var(--clay-line);
+    --purple: var(--clay-ink);
+    --reference-surface: var(--clay-panel);
+    --reference-rim: var(--clay-edge);
+    --reference-shadow: var(--clay-panel-shadow);
+    --reference-container-optics: none;
+    --reference-button-optics: none;
+    --surface-control: var(--clay-control);
+    --dock-active-ink: var(--clay-ink);
+    --dropup-surface: var(--clay-panel);
+    --dock-scene-base: var(--clay-panel);
+    background: var(--clay-base);
+    color: var(--clay-ink);
+  }
+  :root[data-theme] body,:root[data-theme] .app-shell { background: var(--clay-base); color: var(--clay-ink); }
+  :root[data-theme] .app-shell { position: relative; isolation: isolate; }
+  :root[data-theme] .workspace { position: relative; z-index: 1; background: transparent; }
+  :root[data-theme] .app-shell :is(.glass,.subject-card,.field-card,.sidebar,.question-card,.prose,.classroom-info,.empty-state,.learning-card,.review-card,.subject-header,.sheet-core,.sheet-section,.sheet-pending-fields,.pdf-viewer,.image-viewer,.dock-dropup) {
+    background: var(--clay-panel); color: var(--clay-ink); border-color: var(--clay-edge);
+    box-shadow: var(--clay-panel-shadow); backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  :root[data-theme] .app-shell :is(.button,.icon-button,.theme-toggle,.class-button,.global-search,.filter-search,.sheet-search,.home-subject-chip,.home-quick a,.answer-option,.subject-card.compact,.segmented,.content-tabs,.tags span,.badge,select) {
+    background: var(--clay-control); color: var(--clay-ink); border-color: var(--clay-edge);
+    box-shadow: var(--clay-control-shadow); backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  :root[data-theme] .app-shell :is(.button.primary,.button.secondary,.segmented .active,.content-tabs .active,.nav-link.active,.sheet-version-switch a.active) {
+    background: var(--clay-selected); color: var(--clay-ink); border-color: var(--clay-edge);
+    box-shadow: var(--clay-control-shadow);
+  }
+  :root[data-theme] .app-shell :is(.muted,.eyebrow,.material-description,.file-details,.home-date,.page-footer,.breadcrumbs,.sheet-meta,.sheet-editorial,.home-resume-kind,.home-resume-card p,.home-extras>summary,.sidebar-class small) { color: var(--clay-muted); }
+  :root[data-theme] .app-shell :is(.brand,.brand span,.home-mobile-brand,.home-mobile-brand span,.mobile-brand,.mobile-brand span,.text-link,.violet-text,.nav-link.active>svg) { color: var(--clay-ink); filter: none; }
+  :root[data-theme] .app-shell .brand::after,:root[data-theme] .home-mobile-brand::after { content: '.'; color: var(--clay-muted); }
+  :root[data-theme] .app-shell .sidebar { background: var(--clay-panel); border-color: var(--clay-edge); }
+  :root[data-theme] .app-shell .nav-link { color: var(--clay-muted); }
+  :root[data-theme] .app-shell .nav-link.active { color: var(--clay-ink); }
+  :root[data-theme] .app-shell .sidebar .nav-link:hover { background: var(--clay-selected); color: var(--clay-ink); }
+  :root[data-theme] .app-shell :is(.sheet-section>p,.sheet-points,.sheet-terms dd,.prose p,.classroom-info p,.material-title h3,.material-card h3,.learning-card h2,.question-card h2,.field-card h3) { color: var(--clay-ink); }
+  :root[data-theme] .app-shell :is(.sheet-table-wrap,.summary-table-wrap,.math-data-table) { border-color: var(--clay-line); background: var(--clay-panel); }
+  :root[data-theme] .app-shell :is(.sheet-table-wrap,.summary-table-wrap,.math-data-table) :is(th,td) { color: var(--clay-ink); border-color: var(--clay-line); }
+  :root[data-theme] .app-shell :is(.sheet-table-wrap,.summary-table-wrap,.math-data-table) thead { background: var(--clay-selected); }
+  :root[data-theme] .app-shell .sheet-table-wrap tbody tr { background: var(--clay-panel); border-color: var(--clay-line); }
+  :root[data-theme] .app-shell .sheet-table-wrap tbody th { background: var(--clay-selected); }
+  :root[data-theme] .app-shell :is(.sheet-cell-label,.sheet-table-wrap tbody th,.math-calculation-goal,.math-calculation h3,.sheet-terms dt) { color: var(--clay-ink); }
+  :root[data-theme] .app-shell .sheet-core { border-left-color: var(--clay-selected); }
+  :root[data-theme] .app-shell :is(.question-card,.sheet-section,.math-calculation,.prose) { background: var(--clay-panel); }
+  :root[data-theme] .app-shell .answer-option.correct { background: #204938; color: #f1fff6; }
+  :root[data-theme] .app-shell .answer-option.wrong { background: #623738; color: #fff3f3; }
+  :root[data-theme="light"] .app-shell .answer-option.correct { background: #d9efe2; color: #173f2b; }
+  :root[data-theme="light"] .app-shell .answer-option.wrong { background: #f1dada; color: #612324; }
+
+  /* Compact home: all sixteen learning fields remain direct links. */
+  :root[data-theme] .home-dashboard { max-width: 800px; margin-inline: auto; }
+  :root[data-theme] .home-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 22px; }
+  :root[data-theme] .home-heading h1 { font-size: 19px; font-weight: 600; letter-spacing: -.4px; color: var(--clay-ink); }
+  :root[data-theme] .home-date { font-size: 12px; white-space: nowrap; }
+  :root[data-theme] .home-heading :is(h1,.home-date) { position: relative; padding: 3px 6px; border-radius: 7px; background: var(--clay-base); }
+  :root[data-theme] .home-main-grid { display: flex; flex-direction: column; gap: 22px; }
+  :root[data-theme] .home-fields { order: 0; width: 100%; }
+  :root[data-theme] .home-resume { order: 1; width: 100%; }
+  :root[data-theme] .home-bk-groups { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+  :root[data-theme] .home-bk-group { min-width: 0; padding: 22px; border: 0; border-radius: 22px; background: var(--clay-panel); box-shadow: var(--clay-panel-shadow); }
+  :root[data-theme] .home-bk-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 0 0 20px; }
+  :root[data-theme] .home-bk-heading>svg { display: none; }
+  :root[data-theme] .home-bk-badge { display: block; height: auto; flex: none; padding: 0; border: 0; border-radius: 0; background: none; color: var(--clay-ink); font-size: 34px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; }
+  :root[data-theme] .home-bk-heading h3 { color: var(--clay-muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
+  :root[data-theme] .home-bk-fields { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
+  :root[data-theme] .home-bk-fields a { min-height: 46px; padding: 8px 4px; border: 0; border-radius: 13px; background: var(--clay-control); color: var(--clay-ink); box-shadow: var(--clay-control-shadow); font-size: 13px; font-weight: 500; }
+  :root[data-theme] .home-resume-card { min-height: 0; padding: 15px 18px; border-radius: 18px; background: var(--clay-panel); box-shadow: var(--clay-panel-shadow); border: 0; }
+  :root[data-theme] .home-resume-card::before,:root[data-theme] .home-resume-card::after { display: none; }
+  :root[data-theme] .home-resume-card h2.home-card-label { background: none; color: var(--clay-muted); font-size: 11px; font-weight: 400; text-transform: none; letter-spacing: 0; margin: 0 0 5px; padding: 0; }
+  :root[data-theme] .home-resume-card h3 { font-size: 15px; line-height: 1.5; letter-spacing: -.15px; margin: 0; }
+  :root[data-theme] .home-resume-card p { display: none; }
+  :root[data-theme] .home-resume-action { position: absolute; right: 16px; top: 50%; translate: 0 -50%; font-size: 0; min-height: 0; }
+  :root[data-theme] .home-resume-card h3 { padding-right: 30px; }
+  :root[data-theme] .home-extras { border: 0; margin-top: 20px; }
+  :root[data-theme] .home-extras>summary { font-size: 12px; min-height: 44px; }
+  :root[data-theme] .home-quick { margin-top: 12px; }
+  :root[data-theme] .home-subjects { margin-block: 24px; }
+  :root[data-theme] .home-quick h2,:root[data-theme] .home-subjects h2 { font-size: 17px; }
+
+  /* The drag selector retains its interaction, with matte optics. */
+  :root[data-theme] .app-shell .mobile-dock-shell .mobile-dock { background: var(--clay-panel); border: 1px solid var(--clay-edge); box-shadow: var(--clay-panel-shadow); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  :root[data-theme] .app-shell .mobile-dock .dock-selection { background: var(--clay-selected); border: 0; box-shadow: var(--clay-control-shadow); }
+  :root[data-theme] .app-shell .mobile-dock-shell .mobile-dock>.dock-item { color: var(--clay-muted); }
+  :root[data-theme] .app-shell .mobile-dock-shell .mobile-dock>.dock-item.active { color: var(--clay-ink); background: transparent; }
+  :root[data-theme] .app-shell .dock-dropup { background: var(--clay-panel); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  :root[data-theme] .app-shell .dock-dropup nav a:hover { background: var(--clay-selected); }
+
+  /* The warm light edge follows the real target, without duplicate content. */
+  @media (hover:hover) {
+    :root[data-theme] .app-shell :is(button:not(:disabled),a,select):hover { box-shadow: var(--clay-control-shadow),0 0 0 1.5px var(--clay-ring),0 0 12px var(--clay-halo); }
+    :root[data-theme] .app-shell .home-bk-heading:hover { border-radius: 10px; }
+  }
+  :root[data-theme] .app-shell :is(button,a,select,input,[role="slider"]):focus-visible { box-shadow: var(--clay-control-shadow),0 0 0 1.5px var(--clay-ring),0 0 12px var(--clay-halo); }
+  :root[data-theme] .app-shell :is(button:not(:disabled),a):active { box-shadow: inset 2px 2px 5px var(--clay-shade),0 0 0 1px var(--clay-ring); }
+
+  .clay-background { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .clay-orb { position: absolute; display: block; border-radius: 50%; box-shadow: inset 7px 7px 16px #e4bc9352,inset -12px -14px 23px #34241870,9px 13px 26px var(--clay-shade); }
+  .clay-orb-one { width: 180px; height: 180px; top: -42px; right: -20px; background: var(--clay-copper); animation: clay-drift-one 18s ease-in-out infinite; animation-delay: -4s; }
+  .clay-orb-two { width: 165px; height: 80px; top: 58px; right: 77px; border-radius: 60px; background: var(--clay-copper-soft); animation: clay-drift-two 23s ease-in-out infinite; animation-delay: -9s; }
+  .clay-orb-three { width: 262px; height: 262px; bottom: -24px; left: calc(var(--desktop-rail,0px) - 45px); background: var(--clay-copper-low); animation: clay-drift-lower 13s ease-in-out infinite; animation-delay: -2s; }
+  .clay-background[data-paused="true"] .clay-orb { animation-play-state: paused; }
+  .learning-route .clay-background { opacity: .45; }
+  @keyframes clay-drift-one { 0%,100% { transform: translate3d(0,0,0) rotate(-10deg); } 50% { transform: translate3d(-21px,27px,0) rotate(15deg); } }
+  @keyframes clay-drift-two { 0%,100% { transform: translate3d(0,0,0) rotate(-27deg); } 50% { transform: translate3d(-23px,-19px,0) rotate(-10deg); } }
+  @keyframes clay-drift-lower { 0%,100% { transform: translate3d(-12px,21px,0) rotate(-14deg) scale(.94); border-radius: 48% 52% 54% 46%; } 50% { transform: translate3d(30px,-53px,0) rotate(16deg) scale(1.05); border-radius: 53% 47% 46% 54%; } }
+  @media (prefers-reduced-motion:reduce) { .clay-background .clay-orb { animation: none; } }
+  @media (max-width:820px) {
+    :root[data-theme] .home-route .topbar { padding: 20px 20px 10px; gap: 10px; }
+    :root[data-theme] .home-route .topbar .home-mobile-brand { margin-right: auto; gap: 0; font-size: 25px; font-weight: 700; letter-spacing: -.8px; }
+    :root[data-theme] .home-route .home-mobile-brand>span { margin: 0; }
+    :root[data-theme] .home-route .topbar .background-motion-toggle { display: inline-flex; }
+    :root[data-theme] .home-route .main-content { padding: 12px 18px 14px; }
+    :root[data-theme] .home-heading { margin-bottom: 18px; gap: 10px; }
+    :root[data-theme] .home-heading h1 { font-size: 15px; }
+    :root[data-theme] .home-date { font-size: 11px; }
+    :root[data-theme] .home-main-grid { gap: 20px; }
+    :root[data-theme] .home-bk-groups { gap: 14px; }
+    :root[data-theme] .home-bk-group { padding: 18px 12px 15px; }
+    :root[data-theme] .home-bk-heading h3 { font-size: 11px; max-width: 110px; }
+    :root[data-theme] .home-bk-badge { font-size: 31px; }
+    :root[data-theme] .home-bk-fields { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+    :root[data-theme] .home-bk-fields a { min-height: 44px; font-size: 12px; }
+    :root[data-theme] .home-resume-card { padding: 14px 15px; }
+    :root[data-theme] .home-resume-card h3 { font-size: 13px; }
+    :root[data-theme] .app-shell .mobile-dock-shell .mobile-dock { padding: 6px; border-radius: 24px; }
+    :root[data-theme] .app-shell .mobile-dock>.dock-item { min-height: 50px; }
+    :root[data-theme] .clay-orb-one { width: 139px; height: 139px; top: -12px; right: -19px; }
+    :root[data-theme] .clay-orb-two { width: 127px; height: 62px; top: 69px; right: 56px; }
+    :root[data-theme] .clay-orb-three { width: 222px; height: 222px; left: -45px; }
+  }
+  @media (max-width:350px) {
+    :root[data-theme] .home-route .main-content { padding-inline: 13px; }
+    :root[data-theme] .home-bk-groups { gap: 12px; }
+    :root[data-theme] .home-bk-group { padding-inline: 10px; }
+    :root[data-theme] .home-bk-fields a { font-size: 11px; }
+  }
+  @media (forced-colors:active) {
+    .clay-background { display: none; }
+    :root[data-theme] .app-shell :is(.glass,.home-bk-group,.home-bk-fields a,.button,.icon-button,.mobile-dock) { border: 1px solid CanvasText; box-shadow: none; }
+  }
+}
+@media print { .clay-background { display: none !important; } }
+@media screen {
+  :root[data-theme] .app-shell .learning-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); }
+  :root[data-theme] .app-shell .learning-card { min-width: 0; }
+  :root[data-theme] .app-shell .learning-card .button-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  :root[data-theme] .app-shell .learning-card .button-row .button { flex: 1 1 120px; min-width: 0; padding-inline: 12px; white-space: normal; text-align: center; }
+}
+@media screen {
+  :root[data-theme] .app-shell.home-route { background: var(--clay-base); }
+  :root[data-theme] .app-shell .home-resume-action { background: transparent; border: 0; padding: 0; box-shadow: none; }
+}
+@media screen {
+  :root[data-theme] .app-shell .sheet-heading { margin-bottom: 20px; padding-bottom: 16px; }
+  :root[data-theme] .app-shell .sheet-heading h1 { font-size: clamp(25px,3vw,32px); line-height: 1.25; letter-spacing: -.65px; }
+  :root[data-theme] .app-shell .sheet-heading>p.muted { font-size: 13px; line-height: 1.65; margin-top: 10px; }
+  :root[data-theme] .app-shell .sheet-editorial { font-size: 11px; line-height: 1.6; margin-top: 8px; }
+  :root[data-theme] .app-shell .sheet-meta { margin-block: 10px; font-size: 12px; }
+  :root[data-theme] .app-shell .sheet-toolbar { margin-bottom: 16px; }
+  :root[data-theme] .app-shell .button.danger { background: #623738; color: #fff3f3; }
+  :root[data-theme="light"] .app-shell .button.danger { background: #f1dada; color: #612324; }
+}
+@media screen {
+  :root[data-theme] .home-route .topbar .background-motion-toggle { display: inline-flex; }
+  :root[data-theme] .app-shell .page-enter { animation: clay-page-enter 180ms ease-out both; }
+  @keyframes clay-page-enter { from { opacity: .8; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion:reduce) { :root[data-theme] .app-shell .page-enter { animation: none; } }
+}

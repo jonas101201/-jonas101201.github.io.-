@@ -13,7 +13,7 @@ export function applyTheme(theme: Theme) {
   if (themeFrame) window.cancelAnimationFrame(themeFrame);
   document.documentElement.dataset.themeChanging = 'true';
   document.documentElement.dataset.theme = theme;
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f3f5fc' : '#0b101c');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#e9edf1' : '#222d3a');
   document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]')?.setAttribute('content', theme === 'light' ? 'default' : 'black-translucent');
   if (typeof window.requestAnimationFrame === 'function') {
     themeFrame = window.requestAnimationFrame(() => {

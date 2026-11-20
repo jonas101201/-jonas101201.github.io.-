@@ -19,6 +19,7 @@ import '../styles/mobile-design.css';
 import '../styles/search-dialog.css';
 import '../styles/desktop-design.css';
 import '../styles/interaction-finish.css';
+import '../styles/clay-design.css';
 applyTheme(currentTheme());
 startWebAnalytics();
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
