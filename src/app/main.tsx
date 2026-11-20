@@ -1,3 +1,4 @@
+import { startWebAnalytics } from '../utils/webAnalytics';
 import { applyTheme, currentTheme } from '../theme/theme';
 import { LoadingSkeleton } from '../components/LoadingSkeleton';
 import { StrictMode, Component, type ErrorInfo, type ReactNode } from 'react';
@@ -19,6 +20,7 @@ import '../styles/search-dialog.css';
 import '../styles/desktop-design.css';
 import '../styles/interaction-finish.css';
 applyTheme(currentTheme());
+startWebAnalytics();
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
