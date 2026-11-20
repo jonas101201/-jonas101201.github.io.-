@@ -29,6 +29,13 @@ const SheetSchema = z.object({
   title: text, description: text, updatedAt: z.iso.date(),
   sections: z.array(SectionSchema).min(1),
   objectives: z.array(z.object({ label: text, topicId: text })).min(1).optional(),
+  shortVersion: z.object({
+    title: text, description: text, updatedAt: z.iso.date(),
+    sections: z.array(z.object({
+      id: text, topicId: text, title: text, points: z.array(text),
+      tables: z.array(z.object({ caption: text, headers: z.tuple([text, text]), rows: z.array(z.tuple([text, text])).min(1) })).optional(),
+    })).min(1),
+  }).optional(),
 }).strict();
 export type StudySheet = z.infer<typeof SheetSchema>;
 export type StudyTopic = z.infer<typeof SectionSchema>;
@@ -41,6 +48,7 @@ export function validateStudySheets(input: unknown): StudySheet[] {
     if ((sheet.learningFieldId || ['bk1', 'bk2'].includes(sheet.subjectId)) && !catalog.learningFields.some(f => f.id === sheet.learningFieldId && f.subjectId === sheet.subjectId)) throw new Error(`Ungültiges Lernfeld: ${sheet.id}`);
     if (new Set(sheet.sections.map(s => s.id)).size !== sheet.sections.length) throw new Error(`Doppelter Abschnitt: ${sheet.id}`);
     if (sheet.objectives?.some(goal => !sheet.sections.some(section => section.id === goal.topicId))) throw new Error(`Ungültiges Lernziel: ${sheet.id}`);
+    if (sheet.shortVersion && (new Set(sheet.shortVersion.sections.map(section => section.id)).size !== sheet.shortVersion.sections.length || sheet.shortVersion.sections.some(section => !sheet.sections.some(topic => topic.id === section.topicId)))) throw new Error(`Ungültige Kurzfassung: ${sheet.id}`);
     for (const section of sheet.sections) {
       if (!section.points?.length && !section.terms?.length && !section.table && !section.calculations?.length) throw new Error(`Leerer Abschnitt: ${section.id}`);
       if (section.table && (section.table.rows.some(row => row.length !== section.table!.headers.length) || (section.table.totals && section.table.totals.length !== section.table.headers.length))) throw new Error(`Ungültige Tabelle: ${section.id}`);

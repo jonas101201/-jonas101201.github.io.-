@@ -3174,7 +3174,426 @@
         "label": "Ich kann Digitale Spiele erklären und deren Chancen und mögliche Risiken wiedergeben.",
         "topicId": "digital-spiele"
       }
-    ]
+    ],
+    "shortVersion": {
+      "title": "BK2 LF4 · Spiel – Kurzfassung",
+      "description": "Die wichtigsten Informationen zu allen 13 Ich-kann-Kriterien – kompakt zum Wiederholen.",
+      "sections": [
+        {
+          "id": "ziel-1",
+          "topicId": "spiel",
+          "title": "1. Spiel definieren",
+          "points": [
+            "Spiel ist eine freiwillige, aus eigenem Antrieb gestaltete Tätigkeit. Der Sinn liegt vor allem im Spielen selbst.",
+            "Zweckfrei bedeutet nicht ziellos: Ein Kind kann einen Turm bauen oder gewinnen wollen. Es muss dafür aber keinen äußeren Leistungsauftrag erfüllen."
+          ]
+        },
+        {
+          "id": "ziel-2",
+          "topicId": "spiel",
+          "title": "2. Merkmale, Bedeutung und Ziele",
+          "points": [
+            "Bedeutung und Funktionen: Erfahrungen verarbeiten, die Umwelt erkunden, Gefühle ausdrücken, Beziehungen gestalten und Fähigkeiten erproben.",
+            "Unterscheiden: Merkmal = woran Spiel erkennbar ist; Funktion = was Spiel bewirken kann; Ziel = was Kinder erreichen möchten oder pädagogisch ermöglicht werden soll."
+          ],
+          "tables": [
+            {
+              "caption": "Die sechs Spielmerkmale",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Zweckfreiheit und Freiwilligkeit",
+                  "Sinn im Spielen selbst; kein äußerer Leistungszwang."
+                ],
+                [
+                  "Konkretes, aktives Tun",
+                  "Handeln und Wechselwirkung mit der Umwelt."
+                ],
+                [
+                  "Anspannung und Entspannung",
+                  "Herausforderung und Erleichterung wechseln sich ab."
+                ],
+                [
+                  "Gegenwärtigkeit",
+                  "Vertiefung in das Hier und Jetzt."
+                ],
+                [
+                  "In sich geschlossene Spielwelt",
+                  "Eigener zeitlicher, räumlicher und regelbezogener Rahmen."
+                ],
+                [
+                  "Als-ob-Realität",
+                  "Etwas erhält eine andere Bedeutung; gilt nicht für jedes Spiel."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-3",
+          "topicId": "entwicklung",
+          "title": "3. Spiel und kindliche Entwicklung",
+          "points": [
+            "Spiel eröffnet Lerngelegenheiten für Körper und Motorik, Denken und Problemlösen, Sprache, Gefühle und soziale Beziehungen. Beim gemeinsamen Bauen greifen diese Bereiche gleichzeitig ineinander.",
+            "Neue Fähigkeiten ermöglichen neue Spiele; Spielen vertieft Fähigkeiten. Frühe Körper- und Objektspiele werden durch erste Konstruktions- und Als-ob-Spiele, komplexere Rollen- und Regelspiele erweitert. Frühere Formen bleiben bestehen; Altersangaben sind Orientierungen."
+          ]
+        },
+        {
+          "id": "ziel-4",
+          "topicId": "emotional-sozial",
+          "title": "4. Emotionale und soziale Entwicklung",
+          "points": [
+            "Emotional: Eigene Gefühle wahrnehmen, ausdrücken und mit ihnen umgehen, zum Beispiel Enttäuschung beim Verlieren verarbeiten.",
+            "Sozial: Beziehungen gestalten, andere berücksichtigen, Rollen und Regeln aushandeln und Konflikte bearbeiten.",
+            "Zusammenhang: Gefühle beeinflussen das Miteinander, Beziehungen beeinflussen Gefühle. Die Fachkraft nimmt Gefühle ernst und begrenzt verletzendes Verhalten."
+          ]
+        },
+        {
+          "id": "ziel-5",
+          "topicId": "formen",
+          "title": "5. Spielformen unterscheiden",
+          "points": [],
+          "tables": [
+            {
+              "caption": "Die vier Spielformen",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Funktionsspiel",
+                  "Freude am Tun und Wiederholen, etwa einen Ball immer wieder rollen lassen."
+                ],
+                [
+                  "Konstruktionsspiel",
+                  "Ein Werk entsteht, etwa eine Brücke aus Klötzen."
+                ],
+                [
+                  "Symbol- und Rollenspiel",
+                  "Etwas steht für etwas anderes; Rollen werden übernommen. Beispiel: Ein Klotz ist ein Telefon, Kinder spielen eine Arztpraxis."
+                ],
+                [
+                  "Regelspiel",
+                  "Vereinbarte Regeln bestimmen den Ablauf, etwa beim Brettspiel. Formen können sich mischen; entscheidend ist die Tätigkeit, nicht das Spielzeug allein."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-6",
+          "topicId": "kooperationsformen",
+          "title": "6. Kooperationsformen und Entwicklung",
+          "points": [
+            "Alleinspiel: eigene Tätigkeit. Parallelspiel: Kinder spielen nebeneinander, ohne für ihren Ablauf aufeinander angewiesen zu sein. Miteinander-Spielen: gemeinsame Handlung mit aufeinander bezogenen Aufgaben.",
+            "Entwicklung: Parallelspiel → Miteinander-Spielen → organisierte Kooperations- oder Wettbewerbsspiele. Kooperation richtet sich auf ein gemeinsames Ziel; Wettbewerb auf gegensätzliche Interessen innerhalb gemeinsamer Regeln.",
+            "Keine starre Altersleiter: Erfahrungen, Kontakte und Situation wirken mit. Spielform = Art der Tätigkeit; Sozialform = Art des Miteinanders. Gemeinsam eine Brücke bauen ist Konstruktionsspiel und kooperatives Spiel."
+          ]
+        },
+        {
+          "id": "ziel-7",
+          "topicId": "freispiel",
+          "title": "7. Freispiel",
+          "points": [
+            "Freispiel ist selbstbestimmtes Spielen im pädagogisch gestalteten Rahmen.",
+            "Bedeutung: Selbstständigkeit, eigene Ideen, Selbstwirksamkeit, Kontakte, Sprache, Kompromisse und der Umgang mit Gefühlen.",
+            "Bedingungen: ausreichend ungestörte Zeit, passende Räume, zugängliche Materialien, Schutz und vereinbarte Regeln sowie eine aufmerksame, zurückhaltende Fachkraft.",
+            "Freispielzeit ist der organisatorische Tagesabschnitt; freies Spiel ist die selbstbestimmte Tätigkeit. Ein angeleitetes Angebot während der Freispielzeit ist deshalb nicht automatisch freies Spiel."
+          ],
+          "tables": [
+            {
+              "caption": "Die fünf Wahlmöglichkeiten im Freispiel",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Spiel und Thema",
+                  "Was möchte ich spielen?"
+                ],
+                [
+                  "Spielpartner",
+                  "Mit wem oder zunächst allein?"
+                ],
+                [
+                  "Spielort",
+                  "Wo möchte ich spielen?"
+                ],
+                [
+                  "Spielmaterial",
+                  "Welche Dinge möchte ich nutzen?"
+                ],
+                [
+                  "Spielzeit",
+                  "Wie lange, innerhalb des vereinbarten Rahmens?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-8",
+          "topicId": "schemata",
+          "title": "8. Spielschemata: Begriff und Bedeutung",
+          "points": [
+            "Spielschemata sind wiederkehrende Handlungsmuster, mit denen Kinder Eigenschaften und Zusammenhänge erkunden. Wiederholung zeigt ein mögliches Lerninteresse, keine feste Persönlichkeitseigenschaft.",
+            "Pädagogische Bedeutung: genau beobachten, das Interesse hinter der Handlung verstehen und passende sichere Materialien anbieten. Beispiel: Zum Transportieren Körbe oder Wagen bereitstellen, statt die Wiederholung vorschnell zu stoppen."
+          ]
+        },
+        {
+          "id": "ziel-9",
+          "topicId": "schemata",
+          "title": "9. Die sieben Spielschemata",
+          "points": [
+            "Ein Spiel kann mehrere Schemata enthalten. Passende Herausforderung und Sicherheit beachten."
+          ],
+          "tables": [
+            {
+              "caption": "Die sieben Spielschemata im Überblick",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Verbergen",
+                  "Verstecken und wiederfinden."
+                ],
+                [
+                  "Fallenlassen",
+                  "Bewegung, Wirkung und Geräusch erkunden."
+                ],
+                [
+                  "Transportieren",
+                  "Dinge zwischen Orten bewegen."
+                ],
+                [
+                  "Verbinden",
+                  "Dinge zusammenfügen."
+                ],
+                [
+                  "Ordnen",
+                  "Nach Merkmalen sortieren; Reihen und Muster bilden."
+                ],
+                [
+                  "Untersuchen",
+                  "Funktionsweisen und Eigenschaften prüfen."
+                ],
+                [
+                  "Balance und Gleichgewicht",
+                  "Stabilität, Gewichtsverteilung und Körperlage erfahren."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-10",
+          "topicId": "begleitung",
+          "title": "10. Aufgaben der pädagogischen Fachkraft",
+          "points": [
+            "So viel Eigenständigkeit wie möglich: erst beobachten, dann bei Bedarf mit einer offenen Frage oder Material unterstützen. Beispiel: „Was könnte deine Brücke stabiler machen?“ statt die Lösung vorzugeben."
+          ],
+          "tables": [
+            {
+              "caption": "Die sechs Aufgaben der Fachkraft",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Beobachten",
+                  "Interessen, Fähigkeiten und Schwierigkeiten erkennen."
+                ],
+                [
+                  "Begleiten",
+                  "Zuhören und bei Bedarf unterstützen; die Idee bleibt beim Kind."
+                ],
+                [
+                  "Impulse geben",
+                  "Offene Fragen oder Material statt fertiger Lösungen."
+                ],
+                [
+                  "Begründet eingreifen",
+                  "Bei Gefährdung, dauerhafter Ausgrenzung oder nicht selbst lösbaren Konflikten."
+                ],
+                [
+                  "Mitspielen",
+                  "Teilnehmen, ohne die Führung zu übernehmen."
+                ],
+                [
+                  "Spielumgebung gestalten",
+                  "Material und Räume zugänglich, sicher und anregend anbieten."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-11",
+          "topicId": "spielzeug",
+          "title": "11. Spielzeug beurteilen",
+          "points": [
+            "Vorgehen: Kind, Gruppe und Spielzweck nennen → konkrete Eigenschaften mit passenden Kriterien prüfen → begründetes Urteil formulieren. Beispiel: Große, gut greifbare Bausteine können passen; zu schwere Steine erschweren das selbstständige Tragen.",
+            "Altersempfehlung und Sicherheitskennzeichnung ersetzen keine individuelle Prüfung. Teuer ist nicht automatisch gut; ein niedriger Preis gleicht Sicherheitsprobleme nicht aus."
+          ],
+          "tables": [
+            {
+              "caption": "Die 13 Kriterien zur Spielzeugbeurteilung",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Alter und Entwicklungsstand",
+                  "Passt es zu Fähigkeiten und Interessen?"
+                ],
+                [
+                  "Fantasie und Vorstellungsvermögen",
+                  "Lässt es eigene Ideen und Bedeutungen zu?"
+                ],
+                [
+                  "Umwelterfahrungen",
+                  "Knüpft es an Erlebtes an?"
+                ],
+                [
+                  "Spielmöglichkeiten",
+                  "Ist es vielseitig, erweiterbar oder lange nutzbar?"
+                ],
+                [
+                  "Material und Verarbeitung",
+                  "Sind Material und Verarbeitung für die Nutzung geeignet?"
+                ],
+                [
+                  "Gestaltung, Form und Farbe",
+                  "Unterstützt die Gestaltung das Erkennen und Handeln?"
+                ],
+                [
+                  "Größe und Gewicht",
+                  "Kann das Kind es greifen, tragen und bedienen?"
+                ],
+                [
+                  "Anzahl und Menge",
+                  "Ist genug passendes Material für die Spielidee vorhanden?"
+                ],
+                [
+                  "Konstruktion und Mechanik",
+                  "Ist die Funktionsweise verständlich und handhabbar?"
+                ],
+                [
+                  "Haltbarkeit und Lebensdauer",
+                  "Hält es der vorgesehenen Nutzung stand?"
+                ],
+                [
+                  "Sicherheit",
+                  "Welche Verletzungs- und Gesundheitsgefahren bestehen?"
+                ],
+                [
+                  "Umweltverträglichkeit",
+                  "Ist es langlebig, reparierbar und wiederverwendbar?"
+                ],
+                [
+                  "Preis",
+                  "Passt der Preis zu Spielwert, Nutzungsdauer und Budget?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ziel-12",
+          "topicId": "spielzeugfrei",
+          "title": "12. Spielzeugfreier Kindergarten",
+          "points": [
+            "Zeitlich begrenztes, vorbereitetes Projekt zur Gesundheitsförderung und Suchtprävention. Ziele: Fantasie, Kreativität, Selbstbewusstsein, eigene Lösungen und Erfahrungen in der Gruppe. Keine dauerhafte Abschaffung von Spielzeug.",
+            "Die beschriebene Fassung: drei Monate, lange Vorbereitung und Beteiligung der Kinder; Spielzeug und auch Papier/Stifte werden entfernt, zunächst bleibt das Mobiliar.",
+            "Unverzichtbar: beobachtende und unterstützende Fachkraft statt dauernder Angebote, intensive Elternarbeit vor/während/nach dem Projekt und externe Begleitung für Reflexion und Dokumentation. Nur Spielzeug wegzuräumen reicht nicht."
+          ]
+        },
+        {
+          "id": "ziel-13",
+          "topicId": "digital-spiele",
+          "title": "13. Digitale Spiele",
+          "points": [
+            "Spiele auf Tablet, Smartphone, Computer oder Konsole, zum Beispiel Lern-, Geschicklichkeits-, Bau- und Online-Spiele.",
+            "Diese Chancen entstehen nicht automatisch bei jedem Spiel.",
+            "Auswahl und Begleitung: Entwicklungsstand, Bedienung, Schwierigkeit, Bildungswert, Werbung/Käufe und Daten prüfen; gemeinsam spielen und reflektieren, Regeln vereinbaren und digitale mit analogen Erfahrungen verbinden."
+          ],
+          "tables": [
+            {
+              "caption": "Fünf Chancen digitaler Spiele",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Denken und Problemlösen",
+                  "Strategien entwickeln und Lösungen erproben."
+                ],
+                [
+                  "Kreativität",
+                  "Eigene Figuren, Räume und Welten gestalten."
+                ],
+                [
+                  "Kooperation",
+                  "Sich absprechen und gemeinsam Aufgaben lösen."
+                ],
+                [
+                  "Motivation und Selbstwirksamkeit",
+                  "Durch Rückmeldung Fortschritte und eigene Wirkung erleben."
+                ],
+                [
+                  "Medienkompetenz",
+                  "Geräte bedienen und Inhalte kritisch betrachten."
+                ]
+              ]
+            },
+            {
+              "caption": "Sechs Risikobereiche digitaler Spiele",
+              "headers": [
+                "Begriff",
+                "Kernaussage"
+              ],
+              "rows": [
+                [
+                  "Zeit und Balance",
+                  "Zu viel Spielzeit kann andere Aktivitäten verdrängen."
+                ],
+                [
+                  "Ungeeignete Inhalte",
+                  "Angst oder Überforderung durch unpassende Inhalte."
+                ],
+                [
+                  "Werbung und In-App-Käufe",
+                  "Kaufanreize und wirtschaftliche Beeinflussung."
+                ],
+                [
+                  "Datenschutz",
+                  "Unnötige Erhebung persönlicher Daten."
+                ],
+                [
+                  "Online-Kommunikation",
+                  "Unbekannte Kontakte, Beleidigungen und unangemessene Inhalte."
+                ],
+                [
+                  "Belohnungssysteme",
+                  "Punkte und Level können zum ständigen Weiterspielen drängen."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "updatedAt": "2026-11-20"
+    }
   },
   {
     "id": "bk1-lf3",
