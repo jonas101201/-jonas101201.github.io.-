@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { App } from '../src/app/App';
 import { LanguageProvider } from '../src/i18n/LanguageProvider';
 vi.mock('../src/utils/liquidGlass', () => ({ mountLiquidGlass: () => () => {} }));
-vi.mock('../src/components/AsciiWaves', () => ({ AsciiWaves: () => null }));
+vi.mock('../src/components/ClayBackground', () => ({ ClayBackground: () => null }));
 beforeEach(() => {
   localStorage.clear(); window.location.hash = '';
   vi.stubGlobal('scrollTo', vi.fn());

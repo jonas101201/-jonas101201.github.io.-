@@ -7,7 +7,7 @@ import { LanguageProvider } from '../src/i18n/LanguageProvider';
 import { LoadingSkeleton } from '../src/components/LoadingSkeleton';
 import { catalog } from '../src/data/catalog';
 vi.mock('../src/utils/liquidGlass', () => ({ mountLiquidGlass: () => () => {} }));
-vi.mock('../src/components/AsciiWaves', () => ({ AsciiWaves: ({ paused }: { paused: boolean }) => <div data-testid="waves" data-paused={paused}/> }));
+vi.mock('../src/components/ClayBackground', () => ({ ClayBackground: ({ paused }: { paused: boolean }) => <div data-testid="waves" data-paused={paused}/> }));
 beforeEach(() => {
   localStorage.clear(); vi.stubGlobal('scrollTo', vi.fn());
   vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }));

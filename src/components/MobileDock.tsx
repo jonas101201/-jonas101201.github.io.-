@@ -3,7 +3,6 @@ import { BookCopy, BookOpen, FileText, GraduationCap, Home, Languages, MoreHoriz
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
-import { DockRefraction } from '../features/dock/DockRefraction';
 import { useDockSelection } from '../features/dock/useDockSelection';
 
 const moreLinks = [
@@ -71,7 +70,6 @@ export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused
       <button className="dock-background-toggle" onClick={onToggleBackground}>{backgroundPaused ? <Play size={18} aria-hidden="true"/> : <Pause size={18} aria-hidden="true"/>}{tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')}</button>
     </div>}
     <nav ref={nav} className="mobile-dock" aria-label={tr('Schnellnavigation')} onDragStart={event => event.preventDefault()} {...selection.navProps}>
-      <DockRefraction shell={shell} animated={!backgroundPaused}/>
       <span className="dock-selection" role="slider" tabIndex={0} aria-label={tr('Navigationsregler')} aria-valuemin={0} aria-valuemax={3} aria-valuenow={selection.selected} aria-valuetext={labels[selection.selected]} onKeyDown={selection.onSliderKeyDown}/>
       <Link draggable={false} className={`dock-item ${selection.selected === 0 ? 'active' : ''}`} to="/" onClick={() => close()} aria-current={home ? 'page' : undefined}><Home size={24} aria-hidden="true"/><span>{tr('Start')}</span></Link>
       <Link draggable={false} className={`dock-item ${selection.selected === 1 ? 'active' : ''}`} to="/faecher" onClick={() => close()} aria-current={pathname === '/faecher' ? 'page' : undefined}><BookOpen size={24} aria-hidden="true"/><span>{tr('Lernen')}</span></Link>
