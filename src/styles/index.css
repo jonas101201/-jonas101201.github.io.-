@@ -802,3 +802,50 @@ a.sheet-card:hover { border-color: var(--accent); background: #222d45; }
 @media print {
   .sheet-objectives details > :not(summary) { display: block !important; }
 }
+
+.sheet-version-switch { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 0 22px; }
+.sheet-version-switch a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 12px; line-height: 1.4; text-align: center; }
+.sheet-version-switch a.active { background: #ad98ed26; box-shadow: inset 0 0 0 1px #ad98ed66; }
+.sheet-shortcut { margin-top: 12px; }
+.sheet-summary .sheet-section { padding: 22px 24px; }
+.sheet-summary .sheet-section h2 { font-size: 20px; margin-bottom: 12px; }
+.sheet-summary .sheet-points { margin-block: 0 12px; }
+@media (max-width: 480px) {
+  .sheet-version-switch a { flex: 1; padding-inline: 10px; font-size: 13px; }
+  .sheet-summary .sheet-section { padding: 20px 18px; }
+}
+@media print {
+  .sheet-version-switch, .sheet-summary-detail { display: none !important; }
+  .sheet-summary-page .sheet-heading { margin-bottom: 12px; }
+  .sheet-summary .sheet-section { padding: 0; margin: 0 0 14px; break-inside: avoid; }
+  .sheet-summary .sheet-section h2 { font-size: 13pt; margin-bottom: 5px; }
+  .sheet-summary .sheet-points { margin-block: 0; }
+  .sheet-summary .sheet-points li { margin-block: 4px; }
+}
+
+.summary-table-wrap { margin-block: 16px; border: 1px solid #94a3b844; border-radius: 10px; overflow: hidden; }
+.summary-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; font-size: 14px; line-height: 1.6; }
+.summary-table caption { text-align: left; font-weight: 650; padding: 12px; color: var(--color-text); }
+.summary-table th, .summary-table td { padding: 10px 12px; vertical-align: top; overflow-wrap: anywhere; border-top: 1px solid #94a3b833; }
+.summary-table th:first-child { width: 38%; }
+.summary-table thead { background: #a99bd51a; }
+.summary-table tbody th { font-weight: 600; }
+.summary-table tbody tr:nth-child(even) { background: #94a3b80a; }
+@media (max-width: 480px) {
+  .summary-table { font-size: 13px; line-height: 1.55; }
+  .summary-table th, .summary-table td { padding: 9px 8px; }
+  .summary-table th:first-child { width: 40%; }
+}
+@media print {
+  .sheet-summary .sheet-section { break-inside: auto; }
+  .summary-table-wrap { overflow: visible; border-color: #bbb; border-radius: 0; }
+  .summary-table { font-size: 10pt; }
+  .summary-table caption { padding: 6px; }
+  .summary-table th, .summary-table td { padding: 5px 7px; border-color: #ccc; }
+  .summary-table thead { display: table-header-group; }
+  .summary-table tr { break-inside: avoid; }
+}
+.summary-table th, .summary-table td { hyphens: auto; }
+@media (max-width: 480px) {
+  .summary-table th:first-child { width: 44%; }
+}
