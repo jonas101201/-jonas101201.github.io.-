@@ -272,3 +272,14 @@
   :root[data-theme] .app-shell :is(.topbar,.main-content,.page-footer) { padding-left: max(var(--desktop-gutter,32px),var(--safe-area-left)); padding-right: max(var(--desktop-gutter,32px),var(--safe-area-right)); }
   :root[data-theme] .home-bk-fields { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
+@media screen {
+  :root[data-theme] .home-subject-shortcuts { margin: 24px 0 0; }
+  :root[data-theme] .home-subject-shortcuts .home-section-heading { margin-bottom: 12px; }
+  :root[data-theme] .home-subject-shortcuts>div:last-child { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 12px; }
+  :root[data-theme] .home-subject-shortcuts .home-subject-chip { min-width: 0; min-height: 50px; padding: 12px 14px; border: 0; border-radius: 14px; font-size: 13px; font-weight: 500; color: var(--clay-ink); background: var(--clay-control); box-shadow: var(--clay-control-shadow); }
+  :root[data-theme] .home-subject-shortcuts .home-subject-chip svg { color: var(--clay-muted); }
+  @media (max-width:480px) {
+    :root[data-theme] .home-subject-shortcuts>div:last-child { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    :root[data-theme] .home-subject-shortcuts .home-subject-chip:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+}
