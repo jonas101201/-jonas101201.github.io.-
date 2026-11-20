@@ -215,3 +215,60 @@
   @keyframes clay-page-enter { from { opacity: .8; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion:reduce) { :root[data-theme] .app-shell .page-enter { animation: none; } }
 }
+
+/* Device insets remain part of the layout in standalone iPhone mode. */
+.app-safe-area { display: none; }
+@media screen {
+  :root {
+    --safe-area-top: env(safe-area-inset-top,0px);
+    --safe-area-right: env(safe-area-inset-right,0px);
+    --safe-area-bottom: env(safe-area-inset-bottom,0px);
+    --safe-area-left: env(safe-area-inset-left,0px);
+  }
+  .app-safe-area { display: block; position: fixed; z-index: 60; top: 0; left: 0; right: 0; height: var(--safe-area-top); background: var(--clay-base); pointer-events: none; }
+  @media (max-width:820px) {
+    :root[data-theme] .app-shell .topbar { padding-top: calc(16px + var(--safe-area-top)); padding-left: max(18px,var(--safe-area-left)); padding-right: max(18px,var(--safe-area-right)); }
+    :root[data-theme] .home-route .topbar { padding-top: calc(20px + var(--safe-area-top)); padding-left: max(20px,var(--safe-area-left)); padding-right: max(20px,var(--safe-area-right)); }
+    :root[data-theme] .app-shell .main-content,:root[data-theme] .app-shell .page-footer { padding-left: max(var(--mobile-gutter,18px),var(--safe-area-left)); padding-right: max(var(--mobile-gutter,18px),var(--safe-area-right)); }
+    :root[data-theme] .home-route .main-content { padding-left: max(18px,var(--safe-area-left)); padding-right: max(18px,var(--safe-area-right)); }
+    :root[data-theme] .app-shell .sidebar { padding-top: calc(20px + var(--safe-area-top)); padding-bottom: calc(22px + var(--safe-area-bottom)); padding-left: max(14px,var(--safe-area-left)); }
+    :root[data-theme] .app-shell .mobile-dock-shell { bottom: max(12px,var(--safe-area-bottom)); width: min(420px,calc(100% - max(14px,var(--safe-area-left)) - max(14px,var(--safe-area-right)))); left: calc((100% + max(14px,var(--safe-area-left)) - max(14px,var(--safe-area-right))) / 2); }
+    :root[data-theme] .dock-enabled .workspace { padding-bottom: calc(100px + var(--safe-area-bottom)); }
+    :root[data-theme] .app-shell:not(.dock-enabled) .workspace { padding-bottom: var(--safe-area-bottom); }
+    :root[data-theme] .clay-orb-one { top: calc(-12px + var(--safe-area-top)); }
+    :root[data-theme] .clay-orb-two { top: calc(69px + var(--safe-area-top)); }
+    /* Seven-pixel padding plus the border matches the selector's geometry. */
+    :root[data-theme] .app-shell .mobile-dock-shell .mobile-dock { padding: 7px; }
+    :root[data-theme] .app-shell .mobile-dock::before,:root[data-theme] .app-shell .mobile-dock::after { display: none; }
+    :root[data-theme] .app-shell .mobile-dock .dock-selection { border-radius: var(--dock-shape,19px); box-shadow: var(--clay-control-shadow),0 0 0 1px var(--clay-ring),0 0 7px var(--clay-halo); }
+    :root[data-theme] .app-shell .mobile-dock:is(:hover,:focus-within,[data-selecting],[data-dock-pressed]) .dock-selection { box-shadow: var(--clay-control-shadow),0 0 0 1.5px var(--clay-ring),0 0 12px var(--clay-halo); }
+    :root[data-theme] .app-shell .mobile-dock>.dock-item:is(:hover,:focus-visible,:active) { box-shadow: none; }
+    :root[data-theme] .app-shell .mobile-dock>.dock-item:focus-visible { outline: 2px solid var(--clay-ring); outline-offset: -4px; }
+    :root[data-theme] .app-shell .command-palette[open] { top: calc(var(--search-viewport-top,0px) + max(12px,var(--safe-area-top))); height: min(600px,calc(var(--search-viewport-height,100dvh) - max(12px,var(--safe-area-top)) - max(12px,var(--safe-area-bottom)))); }
+  }
+  @media (max-width:350px) { :root[data-theme] .home-route .main-content { padding-left: max(13px,var(--safe-area-left)); padding-right: max(13px,var(--safe-area-right)); } }
+}
+@media screen {
+  :root[data-theme] .app-shell .question-card .answer-option.selected { background: var(--clay-selected); color: var(--clay-ink); border-color: var(--clay-ring); box-shadow: var(--clay-control-shadow),inset 0 0 0 1px var(--clay-ring); }
+  :root[data-theme] .app-shell .question-card .answer-option.selected .answer-letter { background: var(--clay-selected); color: var(--clay-ink); border-color: var(--clay-ring); }
+  :root[data-theme] .app-shell .answer-option input { accent-color: var(--clay-ring); }
+  :root[data-theme] .app-shell .command-results li[aria-selected="true"] { background: var(--clay-selected); color: var(--clay-ink); box-shadow: inset 0 0 0 1px var(--clay-ring); }
+  :root[data-theme] .app-shell .command-results li[aria-selected="true"] small { color: var(--clay-muted); }
+  :root[data-theme] .app-shell .command-palette[open] { background: var(--clay-panel); color: var(--clay-ink); border-color: var(--clay-edge); box-shadow: var(--clay-panel-shadow); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  :root[data-theme] .app-shell .command-input { background: var(--clay-control); border-color: var(--clay-line); }
+  :root[data-theme] .app-shell .command-input input { color: var(--clay-ink); }
+  @media (min-width:821px) { :root[data-theme] .app-shell .topbar { padding-top: calc(20px + var(--safe-area-top)); } }
+}
+@media screen and (max-width:370px) {
+  :root[data-theme] .app-shell .sheet-filters .segmented { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); min-width: 0; }
+  :root[data-theme] .app-shell .sheet-filters .segmented button { min-width: 0; white-space: normal; }
+}
+@media screen and (min-width:821px) and (orientation:landscape) and (pointer:coarse) {
+  :root[data-theme] .app-shell { --desktop-rail: calc(232px + var(--safe-area-left)); }
+  :root[data-theme] .app-shell.sidebar-collapsed { --desktop-rail: calc(80px + var(--safe-area-left)); }
+  :root[data-theme] .app-shell.focus-mode { --desktop-rail: 0px; }
+  :root[data-theme] .app-shell .sidebar { padding-left: max(16px,var(--safe-area-left)); }
+  :root[data-theme] .app-shell.sidebar-collapsed .sidebar { padding-left: max(10px,var(--safe-area-left)); }
+  :root[data-theme] .app-shell :is(.topbar,.main-content,.page-footer) { padding-left: max(var(--desktop-gutter,32px),var(--safe-area-left)); padding-right: max(var(--desktop-gutter,32px),var(--safe-area-right)); }
+  :root[data-theme] .home-bk-fields { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}

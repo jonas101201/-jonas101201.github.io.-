@@ -117,6 +117,7 @@ export function AppLayout() {
         return () => media.removeEventListener('change', close);
     }, []);
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${dockEnabled ? 'dock-enabled' : ''} ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    <div className="app-safe-area" aria-hidden="true"/>
     <TooltipLayer/>
     {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
     <ClayBackground paused={backgroundPaused || focusMode}/>
