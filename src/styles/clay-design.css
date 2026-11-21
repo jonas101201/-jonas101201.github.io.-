@@ -283,3 +283,14 @@
     :root[data-theme] .home-subject-shortcuts .home-subject-chip:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
 }
+@media screen {
+  :root[data-theme] .app-shell :is(.brand,.home-mobile-brand,.mobile-brand) { gap: 0; }
+  :root[data-theme] .app-shell .brand-mark { display: block; flex: 0 0 36px; width: 36px; height: 36px; margin-right: 9px; border-radius: 10px; box-shadow: 2px 3px 8px var(--clay-shade); }
+  :root[data-theme] .app-shell .brand-wordmark { color: var(--clay-ink); white-space: nowrap; }
+  :root[data-theme] .app-shell .brand::after,:root[data-theme] .home-mobile-brand::after { content: none; }
+  @media (min-width:821px) {
+    :root[data-theme] .app-shell.sidebar-collapsed .brand { justify-content: center; }
+    :root[data-theme] .app-shell.sidebar-collapsed .brand .brand-wordmark { display: none; }
+    :root[data-theme] .app-shell.sidebar-collapsed .brand .brand-mark { margin-right: 0; }
+  }
+}
