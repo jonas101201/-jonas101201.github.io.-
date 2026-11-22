@@ -8235,6 +8235,148 @@
           ]
         }
       ]
+    },
+    {
+      "id": "bk1-lf3-bindung-karten",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "Bindungsphasen und Schutzfaktoren",
+      "description": "Die vier Bindungsphasen, das Zusammenspiel von Bindung und Exploration und Schutzfaktoren auf drei Ebenen.",
+      "example": false,
+      "materialIds": [
+        "bk1-lf3-03-bindung-diehl"
+      ],
+      "cards": [
+        {
+          "id": "phasen-ueberblick",
+          "front": "In welcher Reihenfolge entwickeln sich die vier Bindungsphasen?",
+          "back": "Vorbindungsphase → beginnende Bindung → eindeutige Bindung → wechselseitige Beziehung.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "vorbindung",
+          "front": "Was kennzeichnet die Vorbindungsphase?",
+          "back": "Das Baby sucht Nähe. Verschiedene Menschen können seine Bedürfnisse noch erfüllen und es beruhigen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "beginnende-bindung",
+          "front": "Woran erkennt man die beginnende Bindung (etwa 2–8 Monate)?",
+          "back": "Das Baby reagiert auf vertraute Bezugspersonen anders als auf Fremde und beginnt, Vertrauen aufzubauen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "eindeutige-bindung",
+          "front": "Was kennzeichnet die eindeutige Bindung (etwa 8 Monate bis 3 Jahre)?",
+          "back": "Das Kind sucht gezielt Nähe zu vertrauten Bezugspersonen. Fremdeln und Trennungsangst können deutlich werden.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "wechselseitige-beziehung",
+          "front": "Was ändert sich in der wechselseitigen Beziehung (etwa ab 3 Jahren)?",
+          "back": "Das Kind versteht die Absichten der Bezugsperson zunehmend. Es kann Wünsche ausdrücken, nachfragen und Absprachen aushandeln.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "sicherer-hafen",
+          "front": "Was unterscheidet den sicheren Hafen von der sicheren Basis?",
+          "back": "Als sicherer Hafen bietet die Bezugsperson Trost bei Angst oder Stress. Als sichere Basis gibt sie dem Kind Rückhalt, um die Umgebung zu erkunden.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "exploration",
+          "front": "Ein Kind erschrickt beim Spielen. Wie können Bindung und Exploration aufeinander folgen?",
+          "back": "Das Kind sucht zunächst Trost und Nähe. Sobald es sich wieder sicher fühlt, kann es zum Spiel zurückkehren und weiter erkunden.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "schutzfaktor",
+          "front": "Was bewirkt ein Schutzfaktor?",
+          "back": "Er kann eine gesunde Entwicklung fördern und die Folgen von Belastungen abmildern. Seine Wirkung hängt auch von den vorhandenen Risiken und weiteren Ressourcen ab.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "schutzebenen",
+          "front": "Auf welchen drei Ebenen liegen Schutzfaktoren?",
+          "back": "Beim Kind selbst, bei seinen Bezugspersonen und im familiären Alltag sowie im sozialen und institutionellen Umfeld.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "selbstregulation",
+          "front": "Wie kann Selbstregulation ein Kind schützen?",
+          "back": "Das Kind lernt, mit Gefühlen und Anspannung umzugehen. So fällt es ihm zunehmend leichter, sich nach einer Belastung zu beruhigen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "selbstwirksamkeit",
+          "front": "Was ist eine Selbstwirksamkeitserfahrung?",
+          "back": "Das Kind erlebt, dass sein eigenes Handeln etwas bewirkt. Beim nächsten Problem kann es eher darauf vertrauen, selbst etwas beitragen zu können.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "hilfe-annehmen",
+          "front": "Warum zählt es als Schutzfaktor, wenn ein Kind Hilfe suchen und annehmen kann?",
+          "back": "Es kann verfügbare Unterstützung bei Schwierigkeiten nutzen, etwa indem es eine vertraute Fachkraft anspricht.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "feinfuehligkeit",
+          "front": "Wie reagiert eine feinfühlige Bezugsperson auf ein Signal?",
+          "back": "Sie nimmt das Signal wahr, deutet das Bedürfnis dahinter und antwortet zeitnah und passend.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "verlaesslichkeit",
+          "front": "Warum ist mindestens eine verlässliche Bezugsperson ein Schutzfaktor?",
+          "back": "Das Kind hat eine vertraute Anlaufstelle. Vorhersehbare Reaktionen helfen ihm, bei Stress mit Trost und Unterstützung zu rechnen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "umfeld",
+          "front": "Welche Schutzfaktoren kann das Umfeld einer Familie bieten?",
+          "back": "Verwandte und Freunde können entlasten. Stabile Beziehungen in der Kita, Beratung und Frühförderung können zusätzliche Unterstützung bieten.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "kompensation",
+          "front": "Was ist eine kompensatorische Beziehungserfahrung?",
+          "back": "Nach früheren Belastungen erlebt das Kind eine neue, verlässliche Beziehung. Diese Erfahrung kann bisherige Erwartungen verändern und frühere Belastungen teilweise ausgleichen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
     }
   ]
 }
