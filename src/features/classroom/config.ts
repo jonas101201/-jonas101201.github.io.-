@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import raw from '../../data/classroom.json';
 import { catalog } from '../../data/catalog';
+import { studySheets } from '../study-sheets/data';
 const EventSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   title: z.string().trim().min(1),
@@ -8,6 +9,8 @@ const EventSchema = z.object({
   kind: z.enum(['Klassenarbeit', 'Abgabe', 'Präsentation', 'Termin']),
   subjectId: z.string().optional(),
   description: z.string().optional(),
+  studySheetId: z.string().optional(),
+  topicId: z.string().optional(),
 });
 const ClassroomSchema = z.object({
   name: z.string().trim().min(1), program: z.string().trim().min(1),
@@ -18,6 +21,12 @@ export function validateClassroom(value: unknown, subjectIds: string[]) {
   const result = ClassroomSchema.parse(value);
   if (new Set(result.events.map(e => e.id)).size !== result.events.length) throw new Error('Doppelte Termin-ID');
   for (const event of result.events) if (event.subjectId && !subjectIds.includes(event.subjectId)) throw new Error('Unbekanntes Fach im Termin');
+  for (const event of result.events) {
+    if (event.topicId && !event.studySheetId) throw new Error('Abschnitt ohne Lernzettel im Termin');
+    if (!event.studySheetId) continue;
+    const sheet = studySheets.find(sheet => sheet.id === event.studySheetId);
+    if (!sheet || (event.subjectId && sheet.subjectId !== event.subjectId) || (event.topicId && !sheet.sections.some(topic => topic.id === event.topicId))) throw new Error('Ungültiger Lernzettel im Termin');
+  }
   return result;
 }
 export const classroom = validateClassroom(raw, catalog.subjects.map(s => s.id));

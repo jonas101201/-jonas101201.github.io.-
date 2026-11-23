@@ -297,3 +297,16 @@
     :root[data-theme] .app-shell.sidebar-collapsed .brand .brand-mark { margin-right: 0; }
   }
 }
+
+@media screen {
+  :root[data-theme] .app-shell .dates-page { max-width: 900px; margin-inline: auto; }
+  :root[data-theme] .app-shell .event-item { background: var(--clay-control); color: var(--clay-ink); border-color: var(--clay-ring); }
+  :root[data-theme] .app-shell .event-item p { color: var(--clay-muted); }
+  .event-item-linked { text-decoration: none; }
+  .event-study-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 9px; font-size: 12px; font-weight: 600; }
+  @media (max-width: 820px) {
+    .app-shell .mobile-dock.mobile-dock-five { grid-template-columns: repeat(5,minmax(0,1fr)); }
+    .app-shell .mobile-dock.mobile-dock-five .dock-selection { width: calc((100% - 16px) / 5); }
+    .app-shell .mobile-dock.mobile-dock-five > :is(a,button) { font-size: 10px; padding-inline: 1px; }
+  }
+}

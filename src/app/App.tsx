@@ -2,6 +2,7 @@ import { useI18n } from '../i18n/context';
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 import { ProgressProvider } from '../hooks/ProgressProvider';
+import { DatesPage, DateDetailPage } from '../pages/DatesPage';
 import { ClassroomPage } from '../pages/ClassroomPage';
 import { ExamPage } from '../pages/ExamPage';
 import { Dashboard } from '../pages/Dashboard';
@@ -24,7 +25,7 @@ export function App() {
     <Route path="lernzettel" element={<StudySheetList/>}/><Route path="lernzettel/:id" element={<StudySheetPage/>}/><Route path="lernzettel/:id/:topicId" element={<StudySheetPage/>}/>
     <Route path="quizze" element={<QuizList/>}/><Route path="quizze/:id" element={<QuizPage/>}/>
     <Route path="karteikarten" element={<FlashcardList/>}/><Route path="karteikarten/:id" element={<FlashcardPage/>}/>
-    <Route path="klasse" element={<ClassroomPage/>}/><Route path="pruefungstraining" element={<ExamPage/>}/>
+    <Route path="termine" element={<DatesPage/>}/><Route path="termine/:id" element={<DateDetailPage/>}/><Route path="klasse" element={<ClassroomPage/>}/><Route path="pruefungstraining" element={<ExamPage/>}/>
     <Route path="datenschutz" element={<PrivacyPage/>}/>
     <Route path="suche" element={<SearchPage/>}/><Route path="ueber" element={<AboutPage/>}/>
     <Route path="*" element={<EmptyState title="Seite nicht gefunden"><Link className="text-link" to="/">{tr('Zur Übersicht')}</Link></EmptyState>}/>

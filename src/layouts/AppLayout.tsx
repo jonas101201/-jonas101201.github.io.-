@@ -13,7 +13,7 @@ import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 import { useI18n } from "../i18n/context";
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Users, X, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
+import { CalendarDays, FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Users, X, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 const links = [
@@ -24,6 +24,7 @@ const links = [
     { to: '/quizze', label: 'Quizze', icon: Play },
     { to: '/karteikarten', label: 'Karteikarten', icon: BookCopy },
     { to: '/pruefungstraining', label: 'Prüfungstraining', icon: GraduationCap },
+    { to: '/termine', label: 'Termine', icon: CalendarDays },
     { to: '/klasse', label: 'Klasse', icon: Users },
 ];
 export function AppLayout() {

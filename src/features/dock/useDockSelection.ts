@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef, useState, type KeyboardEvent, type MouseEvent, type PointerEvent, type RefObject } from 'react';
 import { advanceSpring, rubberBand } from './spring';
 
-export function dockSelectionIndex(clientX: number, left: number, width: number) {
-  return Math.max(0, Math.min(3, Math.floor((clientX - left) / Math.max(1, width) * 4)));
+export function dockSelectionIndex(clientX: number, left: number, width: number, count = 4) {
+  return Math.max(0, Math.min(count - 1, Math.floor((clientX - left) / Math.max(1, width) * count)));
 }
-export function useDockSelection(nav: RefObject<HTMLElement | null>, active: number, select: (index: number) => void) {
+export function useDockSelection(nav: RefObject<HTMLElement | null>, active: number, select: (index: number) => void, count = 4) {
   const [preview, setPreview] = useState<number | null>(null);
   const gesture = useRef<{ id: number; x: number; y: number; active: boolean; index: number; lastX: number; lastTime: number; velocity: number } | null>(null);
   const suppressClick = useRef(false);
@@ -33,7 +33,7 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
   function position(index: number, pointerX?: number, animate = false, velocity = 0) {
     const element = nav.current;
     if (!element) return;
-    const rect = element.getBoundingClientRect(), width = Math.max(0, rect.width - 16), step = width / 4;
+    const rect = element.getBoundingClientRect(), width = Math.max(0, rect.width - 16), step = width / count;
     const x = pointerX === undefined ? index * step : rubberBand(pointerX - rect.left - 8 - step / 2, 0, width - step);
     function paint(value: number) {
       spring.current.x = value;
@@ -67,7 +67,7 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
     return () => { window.removeEventListener('resize', resize); motion.removeEventListener?.('change', motionChanged); };
   // The ref is stable; position reads the current layout rather than state.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active]);
+  }, [active, count]);
   useLayoutEffect(() => () => { cancelAnimationFrame(spring.current.frame); }, []);
   function finish(event: PointerEvent<HTMLElement>, commit: boolean) {
     const current = gesture.current;
@@ -94,7 +94,7 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
         // Only the existing selection responds to a press; a tap still navigates
         // through the normal link/button click after pointerup.
         const rect = event.currentTarget.getBoundingClientRect();
-        if (dockSelectionIndex(event.clientX, rect.left + 8, rect.width - 16) === activeRef.current) {
+        if (dockSelectionIndex(event.clientX, rect.left + 8, rect.width - 16, count) === activeRef.current) {
           event.currentTarget.dataset.dockPressed = 'true'; deform(0);
         }
       },
@@ -111,13 +111,13 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
         }
         event.preventDefault();
         const rect = event.currentTarget.getBoundingClientRect();
-        current.index = dockSelectionIndex(event.clientX, rect.left + 8, rect.width - 16);
+        current.index = dockSelectionIndex(event.clientX, rect.left + 8, rect.width - 16, count);
         setPreview(current.index);
         const velocity = (event.clientX - current.lastX) / Math.max(8, event.timeStamp - current.lastTime);
         current.velocity = current.velocity * .45 + Math.max(-2.5, Math.min(2.5, velocity)) * .55;
         current.lastX = event.clientX; current.lastTime = event.timeStamp;
-        const rawX = event.clientX - rect.left - 8 - (rect.width - 16) / 8;
-        deform(current.velocity, rawX < 0 || rawX > (rect.width - 16) * .75);
+        const rawX = event.clientX - rect.left - 8 - (rect.width - 16) / (count * 2);
+        deform(current.velocity, rawX < 0 || rawX > (rect.width - 16) * (1 - 1 / count));
         position(current.index, event.clientX);
       },
       onPointerUp: (event: PointerEvent<HTMLElement>) => finish(event, true),
@@ -133,9 +133,9 @@ export function useDockSelection(nav: RefObject<HTMLElement | null>, active: num
     onSliderKeyDown(event: KeyboardEvent<HTMLElement>) {
       let next: number;
       if (event.key === 'ArrowLeft') next = Math.max(0, activeRef.current - 1);
-      else if (event.key === 'ArrowRight') next = Math.min(3, activeRef.current + 1);
+      else if (event.key === 'ArrowRight') next = Math.min(count - 1, activeRef.current + 1);
       else if (event.key === 'Home') next = 0;
-      else if (event.key === 'End') next = 3;
+      else if (event.key === 'End') next = count - 1;
       else return;
       event.preventDefault(); position(next, undefined, true); selectRef.current(next);
     },
