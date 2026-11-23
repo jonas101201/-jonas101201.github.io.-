@@ -23,3 +23,10 @@ it('renders dated events as links and opens an honest pending state', () => {
   expect(screen.getByRole('heading', { name: 'Lernzettel folgt' })).toBeTruthy();
   expect(screen.getByText(/19. April 2027/)).toBeTruthy();
 });
+it('links the confirmed November exams directly to the assigned study sheets', () => {
+  render(<LanguageProvider><MemoryRouter><ClassEvents/></MemoryRouter></LanguageProvider>);
+  expect(screen.getByRole('link', { name: /GLN BK1 · Bindung und Erziehung/ }).getAttribute('href')).toBe('/lernzettel/bk1-lf3');
+  expect(screen.getByRole('link', { name: /GLN BK2 · Spielpädagogik & Raumgestaltung/ }).getAttribute('href')).toBe('/lernzettel/bk2-lf4');
+  expect(classroom.events.find(event => event.id === 'gln-bk1-2026-11-25')).toMatchObject({date:'2026-11-25', description:'Diehl · BK1 LF3'});
+  expect(classroom.events.find(event => event.id === 'gln-bk2-2026-11-30')).toMatchObject({date:'2026-11-30', description:'Dittberner · BK2 LF4'});
+});
