@@ -13,17 +13,21 @@
     },
     {
       "id": "gln-bk1-2026-11-25",
-      "title": "GLN BK1 · Diehl",
+      "title": "GLN BK1 · Bindung und Erziehung",
       "date": "2026-11-25",
       "kind": "Termin",
-      "subjectId": "bk1"
+      "subjectId": "bk1",
+      "description": "Diehl · BK1 LF3",
+      "studySheetId": "bk1-lf3"
     },
     {
       "id": "gln-bk2-2026-11-30",
-      "title": "GLN BK2 · Dittberner",
+      "title": "GLN BK2 · Spielpädagogik & Raumgestaltung",
       "date": "2026-11-30",
       "kind": "Termin",
-      "subjectId": "bk2"
+      "subjectId": "bk2",
+      "description": "Dittberner · BK2 LF4",
+      "studySheetId": "bk2-lf4"
     },
     {
       "id": "gln-sozialkunde-2026-12-10",
