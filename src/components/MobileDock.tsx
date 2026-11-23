@@ -1,5 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
-import { BookCopy, BookOpen, FileText, GraduationCap, Home, Languages, MoreHorizontal, Search, Settings2, Pause, Play, Users, X } from 'lucide-react';
+import { BookCopy, BookOpen, CalendarDays, FileText, GraduationCap, Home, Languages, MoreHorizontal, Search, Settings2, Pause, Play, Users, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
@@ -26,14 +26,15 @@ export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused
   const id = `dock-more-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const home = pathname === '/';
   const learning = /^\/(faecher|materialien|quizze|karteikarten|pruefungstraining)(\/|$)/.test(pathname);
-  const selectedIndex = searchOpen ? 2 : open ? 3 : home ? 0 : learning ? 1 : 3;
-  const labels = [tr('Start'), tr('Lernen'), tr('Suche'), tr('Mehr')];
+  const selectedIndex = searchOpen ? 2 : open ? 4 : home ? 0 : learning ? 1 : pathname.startsWith('/termine') ? 3 : 4;
+  const labels = [tr('Start'), tr('Lernen'), tr('Suche'), tr('Termine'), tr('Mehr')];
   const selection = useDockSelection(nav, selectedIndex, index => {
     if (index === 0) { setOpen(false); navigate('/'); }
     if (index === 1) { setOpen(false); navigate('/faecher'); }
     if (index === 2) { setOpen(false); onSearch(nav.current?.querySelector<HTMLElement>('button.dock-item') ?? undefined); }
-    if (index === 3) setOpen(true);
-  });
+    if (index === 3) { setOpen(false); navigate('/termine'); }
+    if (index === 4) setOpen(true);
+  }, 5);
   function close(restore = false) { setOpen(false); if (restore) trigger.current?.focus(); }
   useLayoutEffect(() => {
     if (!open || !panel.current || !shell.current) return;
@@ -69,12 +70,13 @@ export function MobileDock({ onSearch, searchOpen, sidebarOpen, backgroundPaused
       <div className="dock-dropup-language"><Languages size={19} aria-hidden="true"/><LanguageSwitcher/></div>
       <button className="dock-background-toggle" onClick={onToggleBackground}>{backgroundPaused ? <Play size={18} aria-hidden="true"/> : <Pause size={18} aria-hidden="true"/>}{tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')}</button>
     </div>}
-    <nav ref={nav} className="mobile-dock" aria-label={tr('Schnellnavigation')} onDragStart={event => event.preventDefault()} {...selection.navProps}>
-      <span className="dock-selection" role="slider" tabIndex={0} aria-label={tr('Navigationsregler')} aria-valuemin={0} aria-valuemax={3} aria-valuenow={selection.selected} aria-valuetext={labels[selection.selected]} onKeyDown={selection.onSliderKeyDown}/>
+    <nav ref={nav} className="mobile-dock mobile-dock-five" aria-label={tr('Schnellnavigation')} onDragStart={event => event.preventDefault()} {...selection.navProps}>
+      <span className="dock-selection" role="slider" tabIndex={0} aria-label={tr('Navigationsregler')} aria-valuemin={0} aria-valuemax={4} aria-valuenow={selection.selected} aria-valuetext={labels[selection.selected]} onKeyDown={selection.onSliderKeyDown}/>
       <Link draggable={false} className={`dock-item ${selection.selected === 0 ? 'active' : ''}`} to="/" onClick={() => close()} aria-current={home ? 'page' : undefined}><Home size={24} aria-hidden="true"/><span>{tr('Start')}</span></Link>
       <Link draggable={false} className={`dock-item ${selection.selected === 1 ? 'active' : ''}`} to="/faecher" onClick={() => close()} aria-current={pathname === '/faecher' ? 'page' : undefined}><BookOpen size={24} aria-hidden="true"/><span>{tr('Lernen')}</span></Link>
       <button className={`dock-item ${selection.selected === 2 ? 'active' : ''}`} aria-haspopup="dialog" onClick={event => { close(); onSearch(event.currentTarget); }}><Search size={24} aria-hidden="true"/><span>{tr('Suche')}</span></button>
-      <button ref={trigger} className={`dock-item ${selection.selected === 3 ? 'active' : ''}`} aria-haspopup="dialog" aria-controls={id} aria-expanded={open} onClick={() => setOpen(value => !value)}><MoreHorizontal size={24} aria-hidden="true"/><span>{tr('Mehr')}</span></button>
+      <Link draggable={false} className={`dock-item ${selection.selected === 3 ? 'active' : ''}`} to="/termine" onClick={() => close()} aria-current={pathname.startsWith('/termine') ? 'page' : undefined}><CalendarDays size={24} aria-hidden="true"/><span>{tr('Termine')}</span></Link>
+      <button ref={trigger} className={`dock-item ${selection.selected === 4 ? 'active' : ''}`} aria-haspopup="dialog" aria-controls={id} aria-expanded={open} onClick={() => setOpen(value => !value)}><MoreHorizontal size={24} aria-hidden="true"/><span>{tr('Mehr')}</span></button>
     </nav>
   </div>;
 }

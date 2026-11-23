@@ -38,6 +38,22 @@
       "date": "2027-01-06",
       "kind": "Termin",
       "subjectId": "bk1"
+    },
+    {
+      "id": "gln-bk2-2027-02-22",
+      "title": "GLN BK2 · Partizipation",
+      "date": "2027-02-22",
+      "kind": "Klassenarbeit",
+      "subjectId": "bk2",
+      "description": "Dittberner · Lernzettel folgt"
+    },
+    {
+      "id": "gln-bk1-2027-04-19",
+      "title": "4. GLN BK1 · Lerntheorie",
+      "date": "2027-04-19",
+      "kind": "Klassenarbeit",
+      "subjectId": "bk1",
+      "description": "Dittberner · Lernzettel folgt"
     }
   ]
 }

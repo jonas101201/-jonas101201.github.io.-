@@ -14,3 +14,9 @@ describe('Klassenkonfiguration und Termine', () => {
   });
   it('verwendet das Berliner Kalenderdatum an der Tagesgrenze', () => expect(classDate(new Date('2026-11-03T23:30:00Z'))).toBe('2026-11-04'));
 });
+it('rejects broken or cross-subject study links', () => {
+  for (const target of [{ studySheetId: 'missing' }, { studySheetId: 'bk2-lf4' }, { studySheetId: 'bk1-lf3', topicId: 'missing' }, { topicId: 'bindung' }]) {
+    expect(() => validateClassroom({ ...profile, events: [{ ...event('a', '2027-02-22'), ...target }] }, ['bk1', 'bk2'])).toThrow();
+  }
+  expect(validateClassroom({ ...profile, events: [{ ...event('a', '2027-02-22'), studySheetId: 'bk1-lf3', topicId: 'bindung' }] }, ['bk1']).events[0]?.topicId).toBe('bindung');
+});
