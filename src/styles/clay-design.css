@@ -1,6 +1,9 @@
 /* Matte clay surfaces. Keep these rules last so the old glass optics cannot
    make learning content translucent. Print keeps the existing paper layout. */
 @media screen {
+  /* Keep browser auto-darkening from recoloring the explicit app palette. */
+  :root[data-theme="dark"] { color-scheme: only dark; }
+  :root[data-theme="light"] { color-scheme: only light; }
   :root {
     --clay-base: #222d3a;
     --clay-panel: #2b3848;
