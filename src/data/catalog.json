@@ -6909,6 +6909,769 @@
           ]
         }
       ]
+    },
+    {
+      "id": "bk1-lf3-bindung-aufbau",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "Bindung und Erziehung – Aufbauquiz (mittel)",
+      "description": "Stufe 2: 12 neue Fragen zu Bindungsphasen, sozialer Rückversicherung, Feinfühligkeit und Risiko- und Schutzfaktoren. Begriffe unterscheiden und auf kurze Situationen anwenden.",
+      "example": false,
+      "sources": [],
+      "materialIds": [
+        "bk1-lf3-03-bindung-diehl"
+      ],
+      "questions": [
+        {
+          "id": "aufbau-vertraute-personen",
+          "type": "single",
+          "prompt": "Ein fünf Monate altes Baby reagiert auf vertraute Personen anders als auf Fremde. Welche Bindungsphase passt dazu?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Vorbindungsphase"
+            },
+            {
+              "id": "a2",
+              "text": "Beginnende Bindungsphase"
+            },
+            {
+              "id": "a3",
+              "text": "Eindeutige Bindung"
+            },
+            {
+              "id": "a4",
+              "text": "Reziproke Beziehung"
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "In der beginnenden Bindungsphase von 2 bis 8 Monaten unterscheidet das Baby zunehmend zwischen vertrauten und fremden Personen. Das beschriebene Verhalten ist für die Zuordnung entscheidend.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-verhandeln",
+          "type": "single",
+          "prompt": "Ein vierjähriges Kind fragt, wann seine Bezugsperson zurückkommt, und verhandelt über den Abschied. Welches Merkmal zeigt sich?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Nähebedürfnisse richten sich noch auf alle Menschen gleichermaßen."
+            },
+            {
+              "id": "a2",
+              "text": "Vertraute und fremde Personen werden noch nicht unterschieden."
+            },
+            {
+              "id": "a3",
+              "text": "Das Kind gestaltet die Beziehung sprachlich und wechselseitig mit."
+            },
+            {
+              "id": "a4",
+              "text": "Die Verantwortung für die Beziehung geht auf das Kind über."
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Fragen, Wünsche und Verhandeln kennzeichnen die reziproke Beziehung ab etwa 3 Jahren. Die erwachsene Bezugsperson behält ihre Verantwortung.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-rueckversicherung",
+          "type": "single",
+          "prompt": "Vor dem Untersuchen eines unbekannten Spielzeugs schaut ein Kind zur Fachkraft. Nach deren Nicken spielt es weiter. Wie heißt dieses Verhalten?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Soziale Rückversicherung"
+            },
+            {
+              "id": "a2",
+              "text": "Vorbindungsphase"
+            },
+            {
+              "id": "a3",
+              "text": "Kompensatorische Beziehungserfahrung"
+            },
+            {
+              "id": "a4",
+              "text": "Symmetrische Beziehungsverantwortung"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Bei sozialer Rückversicherung vergewissert sich das Kind während der Erkundung der Unterstützung seiner Bezugsperson. Es verbindet Exploration mit dem Kontakt zur vertrauten Person.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-freudige-signale",
+          "type": "multiple",
+          "prompt": "Ein Kind lächelt, streckt die Arme aus und begrüßt die Fachkraft aufgeregt. Welche Aussagen passen zur Feinfühligkeit?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Auch freudige Signale verdienen Aufmerksamkeit."
+            },
+            {
+              "id": "a2",
+              "text": "Feinfühligkeit ist nur bei Weinen erforderlich."
+            },
+            {
+              "id": "a3",
+              "text": "Die Reaktion soll zur erkennbaren Bedürfnislage passen."
+            },
+            {
+              "id": "a4",
+              "text": "Jede Begrüßung verlangt dieselbe Form von Körperkontakt."
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3"
+          ],
+          "explanation": "Feinfühligkeit umfasst auch Lächeln, Grüßen und ausgestreckte Arme. Die Antwort orientiert sich am Kind und seinem Bedürfnis, nicht an einem starren Begrüßungsablauf.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-schnell-aber-unpassend",
+          "type": "single",
+          "prompt": "Eine Bezugsperson bemerkt sofort, dass ein Baby müde ist, und beginnt unmittelbar ein lebhaftes Spiel. Welche Komponente fehlt vor allem?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Wahrnehmung des Signals"
+            },
+            {
+              "id": "a2",
+              "text": "Zeitnahe Reaktion"
+            },
+            {
+              "id": "a3",
+              "text": "Richtige Interpretation der Müdigkeit"
+            },
+            {
+              "id": "a4",
+              "text": "Eine zum Bedürfnis passende Antwort"
+            }
+          ],
+          "correctOptionIds": [
+            "a4"
+          ],
+          "explanation": "Das Signal wird bemerkt und als Müdigkeit verstanden; auch die Antwort erfolgt schnell. Das lebhafte Spiel passt jedoch nicht zum erkannten Bedürfnis nach Ruhe.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-hilfe-beim-klettern",
+          "type": "single",
+          "prompt": "Eine Fachkraft zeigt beim Klettern einen möglichen nächsten Schritt und lässt das Kind ihn selbst versuchen. Welches Merkmal steht im Vordergrund?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Die Fachkraft übernimmt die Tätigkeit vollständig."
+            },
+            {
+              "id": "a2",
+              "text": "Strukturierung verbindet Orientierung mit Eigenaktivität."
+            },
+            {
+              "id": "a3",
+              "text": "Nicht-Intrusivität schließt jede Hilfestellung aus."
+            },
+            {
+              "id": "a4",
+              "text": "Symmetrie überträgt die Verantwortung auf das Kind."
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Strukturierung bedeutet Orientierung und Unterstützung, ohne dem Kind alles abzunehmen. Ein Hinweis kann Eigenaktivität ermöglichen, statt sie zu ersetzen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-familie-und-fachkraft",
+          "type": "single",
+          "prompt": "Welche Aussage grenzt die Verantwortung einer pädagogischen Fachkraft von der elterlichen Verantwortung ab?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Die Fachkraft trägt allein Verantwortung für alle Lebensbereiche."
+            },
+            {
+              "id": "a2",
+              "text": "Eine enge Beziehung hebt die beruflichen Zuständigkeiten auf."
+            },
+            {
+              "id": "a3",
+              "text": "Ihre Verantwortung ist zeitlich, räumlich und fachlich begrenzt."
+            },
+            {
+              "id": "a4",
+              "text": "Eltern und Fachkraft übernehmen grundsätzlich dieselbe Rolle."
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Die Fachkraft ergänzt die Familie innerhalb ihres beruflichen Auftrags. Team und Träger tragen Verantwortung mit; die umfassende elterliche Rolle wird dadurch nicht ersetzt.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-ressourcen-ebenen",
+          "type": "matching",
+          "prompt": "Ordne die Beispiele der jeweiligen Schutzfaktorenebene zu.",
+          "pairs": [
+            {
+              "id": "p1",
+              "left": "Das Kind sucht bei Schwierigkeiten Hilfe.",
+              "right": "Kindbezogene Ressource"
+            },
+            {
+              "id": "p2",
+              "left": "Die Bezugsperson reagiert vorhersehbar und tröstet.",
+              "right": "Ressource der Bezugsperson"
+            },
+            {
+              "id": "p3",
+              "left": "Eine Beratungsstelle unterstützt die Familie.",
+              "right": "Soziale und institutionelle Ressource"
+            }
+          ],
+          "explanation": "Unterstützung nutzen ist eine Fähigkeit des Kindes. Vorhersehbare Reaktionen betreffen die Bezugsperson; Beratung ergänzt die Familie durch ein Hilfesystem.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-dauer-und-intensitaet",
+          "type": "single",
+          "prompt": "In einer Fallbesprechung wird gefragt: „Seit wann besteht der Stress und wie stark belastet er die Familie?“ Welche Kriterien werden angesprochen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Dauer und Intensität"
+            },
+            {
+              "id": "a2",
+              "text": "Kumulation und Unterstützung"
+            },
+            {
+              "id": "a3",
+              "text": "Interpretation und Promptheit"
+            },
+            {
+              "id": "a4",
+              "text": "Symmetrie und Asymmetrie"
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "„Seit wann?“ fragt nach dem zeitlichen Verlauf; „wie stark?“ nach der Stärke der Belastung. Kumulation würde nach mehreren gleichzeitig auftretenden Risiken fragen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-kindbezogene-risiken",
+          "type": "multiple",
+          "prompt": "Welche Bedingungen gehören zu den kindbezogenen Risikofaktoren?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Hohe Reizbarkeit"
+            },
+            {
+              "id": "a2",
+              "text": "Häufige Wechsel wichtiger Betreuungspersonen"
+            },
+            {
+              "id": "a3",
+              "text": "Frühgeburtlichkeit"
+            },
+            {
+              "id": "a4",
+              "text": "Besondere Entwicklungsbedürfnisse"
+            },
+            {
+              "id": "a5",
+              "text": "Geringe soziale Unterstützung der Familie"
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3",
+            "a4"
+          ],
+          "explanation": "Hohe Reizbarkeit, Frühgeburtlichkeit und besondere Entwicklungsbedürfnisse können die Abstimmung mit der Bezugsperson anspruchsvoller machen. Betreuungswechsel und geringe soziale Unterstützung betreffen dagegen das Umfeld.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-belastung-indirekt",
+          "type": "single",
+          "prompt": "Warum kann die Entlastung einer stark gestressten Bezugsperson auch für die Bindungsbeziehung bedeutsam sein?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Entlastung macht die Signale des Kindes überflüssig."
+            },
+            {
+              "id": "a2",
+              "text": "Entlastung beendet jede familiäre Belastung vollständig."
+            },
+            {
+              "id": "a3",
+              "text": "Die Verantwortung für das Wohlbefinden liegt dann beim Kind."
+            },
+            {
+              "id": "a4",
+              "text": "Entlastung kann feinfühlige und verfügbare Reaktionen erleichtern."
+            }
+          ],
+          "correctOptionIds": [
+            "a4"
+          ],
+          "explanation": "Familiärer Stress kann verlässliche Reaktionen erschweren. Unterstützung der Bezugsperson kann deshalb indirekt die Beziehung stärken, ohne alle Risiken automatisch zu beseitigen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "aufbau-harlow-schluss",
+          "type": "single",
+          "prompt": "Welche pädagogische Überlegung lässt sich mit der Bedeutung von Kontaktkomfort bei Harlow vereinbaren?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Mit der Nahrungsversorgung sind alle Beziehungsbedürfnisse erfüllt."
+            },
+            {
+              "id": "a2",
+              "text": "Neben körperlicher Versorgung sind Nähe und Geborgenheit bedeutsam."
+            },
+            {
+              "id": "a3",
+              "text": "Weiches Material ersetzt eine verlässliche Bezugsperson vollständig."
+            },
+            {
+              "id": "a4",
+              "text": "Der Versuch zeigt, dass Nahrung für Entwicklung unwichtig ist."
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Der Kontakt zur weichen Stofffigur war neben der Nahrungsaufnahme bedeutsam. Daraus folgt weder, dass Nahrung unwichtig wäre, noch dass ein Gegenstand eine menschliche Beziehung vollständig ersetzen könnte.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bk1-lf3-bindung-transfer",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "topicId": "bk1-lf3-bindung",
+      "title": "Bindung und Erziehung – Transferquiz (schwer)",
+      "description": "Stufe 3: 12 neue Fall- und Transferfragen. Reaktionen differenziert beurteilen, professionelle Grenzen begründen und Belastungen mit Ressourcen gemeinsam analysieren.",
+      "example": false,
+      "sources": [],
+      "materialIds": [
+        "bk1-lf3-03-bindung-diehl",
+        "bk1-lf3-02-bindung-und-erziehung"
+      ],
+      "questions": [
+        {
+          "id": "transfer-hilfe-dosieren",
+          "type": "single",
+          "prompt": "Ein Kind versucht konzentriert, seine Jacke zu schließen. Die Fachkraft will es unterstützen, ohne die Eigenaktivität zu verdrängen. Welche Handlung ist am besten begründet?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Beobachten, bei Bedarf einen passenden Hinweis anbieten und selbst versuchen lassen."
+            },
+            {
+              "id": "a2",
+              "text": "Die Jacke sofort schließen, damit Unterstützung immer unmittelbar sichtbar ist."
+            },
+            {
+              "id": "a3",
+              "text": "Auch auf eine Bitte nicht reagieren, damit Selbstständigkeit erhalten bleibt."
+            },
+            {
+              "id": "a4",
+              "text": "Jeden Handgriff vorgeben, damit das Kind keine eigene Entscheidung benötigt."
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Die Handlung verbindet Strukturierung mit Nicht-Intrusivität: Hilfe bleibt erreichbar, während das Kind selbst handelt. Weder vollständiges Übernehmen noch grundsätzliches Verweigern von Hilfe passt dazu.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-verzoegerte-passende-antwort",
+          "type": "single",
+          "prompt": "Eine Fachkraft versteht die Angst eines Kindes richtig und tröstet es passend, reagiert aber erst nach langem, wiederholtem Rufen. Welche Bewertung trennt die Komponenten präzise?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Passender Trost belegt, dass auch die Antwort zeitnah war."
+            },
+            {
+              "id": "a2",
+              "text": "Die Verzögerung beweist, dass die Angst falsch verstanden wurde."
+            },
+            {
+              "id": "a3",
+              "text": "Interpretation und Antwort passen; die Promptheit ist eingeschränkt."
+            },
+            {
+              "id": "a4",
+              "text": "Aus der Verzögerung folgt, dass das Kind keine Bindung aufgebaut hat."
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Qualität und Zeitpunkt der Antwort sind getrennt zu prüfen. Passender Trost kann spät erfolgen; daraus folgt keine sichere Aussage über die Bindung des Kindes.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-reziprozitaet-und-rolle",
+          "type": "single",
+          "prompt": "Ein Kind verhandelt selbstbewusst mit der Fachkraft. Ein Kollege meint: „Jetzt ist die Beziehung symmetrisch; das Kind muss auch für ihre Gefühle sorgen.“ Welche Einordnung passt?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Mit sprachlichem Verhandeln endet der professionelle Auftrag."
+            },
+            {
+              "id": "a2",
+              "text": "Wechselseitige Mitgestaltung hebt die professionelle Asymmetrie nicht auf."
+            },
+            {
+              "id": "a3",
+              "text": "Reziproke Beziehung und emotionale Gegenleistung bedeuten dasselbe."
+            },
+            {
+              "id": "a4",
+              "text": "Sobald ein Kind verhandelt, gehört es nicht mehr zu den Bindungsphasen."
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Reziprozität beschreibt die zunehmende Mitgestaltung des Kindes. Die Fachkraft bleibt für die professionelle Beziehung verantwortlich und darf keine emotionale Gegenleistung verlangen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-vertraulichkeit",
+          "type": "single",
+          "prompt": "Eine Fachkraft möchte einer Freundin außerhalb der Einrichtung einen identifizierbaren Fall erzählen, weil die Beziehung zum Kind ihr wichtig ist. Welche Begründung spricht dagegen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Persönliche Anteilnahme beseitigt die institutionelle Rahmung."
+            },
+            {
+              "id": "a2",
+              "text": "Vertraulichkeit betrifft ausschließlich Beziehungen zwischen Eltern und Kind."
+            },
+            {
+              "id": "a3",
+              "text": "Eine enge Beziehung verpflichtet das Kind zur Zustimmung."
+            },
+            {
+              "id": "a4",
+              "text": "Beziehungsnähe hebt Datenschutz und professionelle Verschwiegenheit nicht auf."
+            }
+          ],
+          "correctOptionIds": [
+            "a4"
+          ],
+          "explanation": "Informationen über Kinder dürfen nicht außerhalb des professionell zulässigen Rahmens weitergegeben werden. Auch eine emotional bedeutsame Beziehung bleibt an die berufliche Verantwortung gebunden.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-risiken-vergleichen",
+          "type": "single",
+          "prompt": "Bei Kind A besteht eine vorübergehende Belastung mit verlässlicher Unterstützung. Bei Kind B treffen längerfristig mehrere starke Belastungen ohne erreichbare Hilfen zusammen. Welche Aussage ist fachlich begründet?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Bei Kind B kommen mehrere erschwerende Kriterien zusammen; eine sichere Folge lässt sich trotzdem nicht vorhersagen."
+            },
+            {
+              "id": "a2",
+              "text": "Kind A kann wegen der Unterstützung keine Belastung mehr erleben."
+            },
+            {
+              "id": "a3",
+              "text": "Allein die Anzahl der Risiken reicht für eine abschließende Beurteilung aus."
+            },
+            {
+              "id": "a4",
+              "text": "Bei Kind B steht die spätere Bindungsentwicklung bereits fest."
+            }
+          ],
+          "correctOptionIds": [
+            "a1"
+          ],
+          "explanation": "Bei Kind B wirken Kumulation, Dauer, Intensität und fehlende Unterstützung zusammen. Risiken beschreiben Wahrscheinlichkeiten; sie erlauben keine sichere Vorhersage der individuellen Entwicklung.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-unterstuetzung-vernetzen",
+          "type": "multiple",
+          "prompt": "Eine Familie ist dauerhaft belastet; das Kind reagiert oft gereizt. Welche Maßnahmen verbinden Schutzfaktoren auf unterschiedlichen Ebenen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Dem Kind zugängliche Möglichkeiten zeigen, Hilfe zu suchen und anzunehmen."
+            },
+            {
+              "id": "a2",
+              "text": "Unterstützung der Familie aussetzen, bis das Kind sich allein reguliert."
+            },
+            {
+              "id": "a3",
+              "text": "Verlässliche und vorhersehbare Reaktionen der Bezugspersonen unterstützen."
+            },
+            {
+              "id": "a4",
+              "text": "Der Familie Zugang zu Beratung und entlastenden Netzwerken ermöglichen."
+            },
+            {
+              "id": "a5",
+              "text": "Wiederholte Wechsel der Bezugsperson als Ersatz für stabile Beziehungen nutzen."
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3",
+            "a4"
+          ],
+          "explanation": "Die Maßnahmen betreffen Fähigkeiten des Kindes, die Qualität der Bezugsperson-Kind-Interaktion sowie soziale und institutionelle Hilfen. Bewältigung wird damit nicht allein dem Kind aufgetragen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-schutz-und-grenzen",
+          "type": "single",
+          "prompt": "Ein Kind braucht nach belastenden Erfahrungen viel Nähe zur Fachkraft. Welche Haltung verbindet Beziehungsangebot und professionelle Grenzen?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Die Fachkraft ersetzt die Eltern und übernimmt allein alle Lebensbereiche."
+            },
+            {
+              "id": "a2",
+              "text": "Professionelle Grenzen erfordern, emotionale Nähe grundsätzlich abzulehnen."
+            },
+            {
+              "id": "a3",
+              "text": "Die Fachkraft bietet verlässliche Zuwendung innerhalb ihres Auftrags und der Zuständigkeit von Team und Träger."
+            },
+            {
+              "id": "a4",
+              "text": "Das Kind muss die besondere Zuwendung mit exklusiver Zuneigung beantworten."
+            }
+          ],
+          "correctOptionIds": [
+            "a3"
+          ],
+          "explanation": "Professionelle Beziehungsgestaltung verbindet Zuwendung mit Rollenklarheit. Sie ergänzt die Familie, bleibt institutionell gerahmt und verlangt keine Gegenleistung des Kindes.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-kompensation-beobachten",
+          "type": "single",
+          "prompt": "Ein Kind erwartet nach früheren Enttäuschungen zunächst keine Hilfe. Nach wiederholt verlässlichen Reaktionen sucht es bei Schwierigkeiten häufiger Unterstützung. Welche Deutung ist am besten begründet?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Die früheren Erfahrungen sind dadurch vollständig gelöscht."
+            },
+            {
+              "id": "a2",
+              "text": "Neue Beziehungserfahrungen können die Erwartung erreichbarer Hilfe verändern."
+            },
+            {
+              "id": "a3",
+              "text": "Das häufigere Hilfesuchen widerlegt jede mögliche Selbstständigkeit."
+            },
+            {
+              "id": "a4",
+              "text": "Aus dem Verhalten folgt, dass künftig keine Belastung mehr wirken wird."
+            }
+          ],
+          "correctOptionIds": [
+            "a2"
+          ],
+          "explanation": "Kompensatorische Beziehungserfahrungen können Erwartungen an Beziehungen verändern. Das beobachtete Hilfesuchen passt zu wachsendem Vertrauen, beweist aber weder das Auslöschen früherer Erfahrungen noch Unverwundbarkeit.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-marie-beobachtung",
+          "type": "multiple",
+          "prompt": "Welche Aussagen lassen sich aus der beschriebenen Erzählkreisszene mit Marie begründet ableiten?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Das lange Melden und die verzögerten Antworten sprechen für eingeschränkte Promptheit."
+            },
+            {
+              "id": "a2",
+              "text": "Die Szene belegt eine feststehende Bindungsstörung."
+            },
+            {
+              "id": "a3",
+              "text": "Das freundliche Wort „Wow!“ schließt eine unpassende Antwort aus."
+            },
+            {
+              "id": "a4",
+              "text": "Knappe Antworten und Themenwechsel greifen Maries Mitteilungsbedürfnis wenig auf."
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a4"
+          ],
+          "explanation": "Begründete Analyse verbindet beobachtete Stellen mit den Komponenten der Feinfühligkeit. Die Szene erlaubt eine Bewertung der beschriebenen Interaktion, aber keine gesicherte Diagnose der Bindungsentwicklung.",
+          "materialIds": [
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        },
+        {
+          "id": "transfer-reaktionen-differenzieren",
+          "type": "matching",
+          "prompt": "Ordne den Handlungen das jeweils besonders deutlich verletzte Merkmal zu.",
+          "pairs": [
+            {
+              "id": "p1",
+              "left": "Die Fachkraft übergeht die deutlich gezeigte Angst.",
+              "right": "Mangelnde Sensitivität"
+            },
+            {
+              "id": "p2",
+              "left": "Die Fachkraft setzt eine Grenze mit einer abwertenden Bemerkung.",
+              "right": "Fehlende Nicht-Feindseligkeit"
+            },
+            {
+              "id": "p3",
+              "left": "Die Fachkraft unterbricht jeden selbstständigen Versuch ungefragt.",
+              "right": "Fehlende Nicht-Intrusivität"
+            }
+          ],
+          "explanation": "Die Beispiele setzen unterschiedliche Schwerpunkte: ein Bedürfnis übergehen, abwertend reagieren oder Eigenaktivität verdrängen. Eine Handlung kann mehrere Merkmale berühren; gefragt ist der jeweils besonders deutliche Verstoß.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-mehrere-bindungen",
+          "type": "single",
+          "prompt": "Ein Kind sucht bei Belastung sowohl bei einem Elternteil als auch bei einer vertrauten Fachkraft Schutz. Welche Schlussfolgerung passt zum Bindungsbegriff?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Eine weitere Bindung hebt die bisherige Bindung zum Elternteil auf."
+            },
+            {
+              "id": "a2",
+              "text": "Die pädagogische Beziehung wird dadurch zeitlich unbegrenzt."
+            },
+            {
+              "id": "a3",
+              "text": "Jeder freundliche Kontakt ist deshalb ebenfalls eine Bindung."
+            },
+            {
+              "id": "a4",
+              "text": "Bindung zu mehreren Bezugspersonen ist möglich; die professionellen Rollen bleiben verschieden."
+            }
+          ],
+          "correctOptionIds": [
+            "a4"
+          ],
+          "explanation": "Ein Kind kann zu mehreren Menschen Bindungen entwickeln. Eine Fachkraft kann vertraute Bezugsperson sein, ohne die Familie zu ersetzen oder ihre berufliche Rolle aufzugeben.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        },
+        {
+          "id": "transfer-grenzen-und-trost",
+          "type": "multiple",
+          "prompt": "Ein Kind ist nach einem Konflikt aufgebracht. Welche Handlungen verbinden Nicht-Feindseligkeit, Schutz und erneute Eigenaktivität?",
+          "options": [
+            {
+              "id": "a1",
+              "text": "Eine notwendige Grenze ruhig erklären, ohne das Kind abzuwerten."
+            },
+            {
+              "id": "a2",
+              "text": "Nach der Beruhigung jede selbstständige Erkundung vorsorglich unterbinden."
+            },
+            {
+              "id": "a3",
+              "text": "Trost anbieten und die Bedürfnisse des Kindes ernst nehmen."
+            },
+            {
+              "id": "a4",
+              "text": "Zuwendung davon abhängig machen, ob das Kind die Fachkraft tröstet."
+            },
+            {
+              "id": "a5",
+              "text": "Nach der Beruhigung wieder Raum für eigenes Spiel lassen."
+            }
+          ],
+          "correctOptionIds": [
+            "a1",
+            "a3",
+            "a5"
+          ],
+          "explanation": "Ruhige Grenzen schließen Trost nicht aus. Verlässliche Unterstützung kann Sicherheit herstellen und damit erneute Exploration ermöglichen. Abwertung, erzwungene Gegenleistung oder dauernde Einschränkung passen nicht dazu.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
     }
   ],
   "flashcardSets": [
