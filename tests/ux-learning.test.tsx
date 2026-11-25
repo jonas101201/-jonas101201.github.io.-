@@ -20,6 +20,8 @@ it('shares session progress, pauses background in focus mode and keeps card stat
   const set = catalog.flashcardSets[0]!; window.location.hash = `#/karteikarten/${set.id}`;
   const user = userEvent.setup(); const { container } = render(<LanguageProvider><App/></LanguageProvider>);
   expect(container.querySelector('.learning-session-header')).toBeTruthy();
+  expect(container.querySelector('.focus-mode')).toBeNull();
+  await user.click(screen.getByRole('button', { name: 'Fokusmodus aktivieren' }));
   expect(container.querySelector('.focus-mode')).toBeTruthy();
   expect(screen.getByTestId('waves').getAttribute('data-paused')).toBe('true');
   const progress = screen.getByRole('progressbar', { name: 'Lernrundenfortschritt' }); expect(progress.getAttribute('value')).toBe('0');
@@ -40,11 +42,11 @@ it('frames quizzes with the same header and resets focus defaults for a new lear
   const user = userEvent.setup(); const { container } = render(<LanguageProvider><App/></LanguageProvider>);
   expect(container.querySelector('.learning-session-header h1')?.textContent).toBe(quiz.title);
   expect(screen.getByRole('progressbar', { name: 'Quizfortschritt' }).getAttribute('value')).toBe('0');
-  await user.click(screen.getByRole('button', { name: 'Fokusmodus verlassen' }));
-  expect(container.querySelector('.focus-mode')).toBeNull();
+  await user.click(screen.getByRole('button', { name: 'Fokusmodus aktivieren' }));
+  expect(container.querySelector('.focus-mode')).toBeTruthy();
   fireEvent.keyDown(window, { key: 'k', ctrlKey: true });
   await user.type(screen.getByRole('combobox', { name: 'Suchbegriff' }), catalog.flashcardSets[0]!.title); await user.keyboard('{Enter}');
-  expect(container.querySelector('.focus-mode')).toBeTruthy();
+  expect(container.querySelector('.focus-mode')).toBeNull();
   expect(screen.getByRole('progressbar', { name: 'Lernrundenfortschritt' })).toBeTruthy();
 });
 it('announces real startup loading once and hides decorative placeholders from assistive technology', () => {

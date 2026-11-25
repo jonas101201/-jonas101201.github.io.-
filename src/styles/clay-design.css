@@ -113,7 +113,7 @@
   :root[data-theme] .home-bk-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 0 0 20px; }
   :root[data-theme] .home-bk-heading>svg { display: none; }
   :root[data-theme] .home-bk-badge { display: block; height: auto; flex: none; padding: 0; border: 0; border-radius: 0; background: none; color: var(--clay-ink); font-size: 34px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; }
-  :root[data-theme] .home-bk-heading h3 { color: var(--clay-muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
+  :root[data-theme] .home-bk-heading h2 { color: var(--clay-muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
   :root[data-theme] .home-bk-fields { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
   :root[data-theme] .home-bk-fields a { min-height: 46px; padding: 8px 4px; border: 0; border-radius: 13px; background: var(--clay-control); color: var(--clay-ink); box-shadow: var(--clay-control-shadow); font-size: 13px; font-weight: 500; }
   :root[data-theme] .home-resume-card { min-height: 0; padding: 15px 18px; border-radius: 18px; background: var(--clay-panel); box-shadow: var(--clay-panel-shadow); border: 0; }
@@ -168,7 +168,7 @@
     :root[data-theme] .home-main-grid { gap: 20px; }
     :root[data-theme] .home-bk-groups { gap: 14px; }
     :root[data-theme] .home-bk-group { padding: 18px 12px 15px; }
-    :root[data-theme] .home-bk-heading h3 { font-size: 11px; max-width: 110px; }
+    :root[data-theme] .home-bk-heading h2 { font-size: 11px; max-width: 110px; }
     :root[data-theme] .home-bk-badge { font-size: 31px; }
     :root[data-theme] .home-bk-fields { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
     :root[data-theme] .home-bk-fields a { min-height: 44px; font-size: 12px; }
@@ -308,5 +308,56 @@
     .app-shell .mobile-dock.mobile-dock-five { grid-template-columns: repeat(5,minmax(0,1fr)); }
     .app-shell .mobile-dock.mobile-dock-five .dock-selection { width: calc((100% - 16px) / 5); }
     .app-shell .mobile-dock.mobile-dock-five > :is(a,button) { font-size: 10px; padding-inline: 1px; }
+  }
+}
+
+@media screen {
+  .header-preferences { display: flex; gap: var(--space-1); margin-inline-start: auto; flex: none; }
+  .header-preferences > .icon-button { min-width: var(--target-size); min-height: var(--target-size); }
+  .sidebar-group + .sidebar-group { margin-top: var(--space-1); }
+  .sidebar-group-label { padding: var(--space-1) var(--space-2); font-size: .8rem; }
+  .sidebar-collapsed .sidebar-group-label { display: none; }
+  .learn-ways, .settings-grid { display: grid; gap: var(--space-2); }
+  .learn-ways { grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; }
+  .learn-shortcuts { display: grid; gap: var(--space-1); }
+  .app-shell .learn-shortcuts .subject-card.compact { min-height: var(--target-size); display: flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); }
+  .learn-shortcuts .subject-meta { margin-inline-start: auto; }
+  .learn-shortcuts .search-result { min-height: var(--target-size); }
+  .learn-shortcuts .search-result > span { flex: 1; }
+  .settings-check { display: flex; align-items: center; gap: var(--space-1); min-height: var(--target-size); cursor: pointer; }
+  .settings-check input { accent-color: var(--color-focus); }
+  .app-shell.focus-mode .topbar { flex-wrap: nowrap; }
+  @media (max-width:820px) {
+    :root[data-theme] .app-shell .topbar { min-height: calc(76px + var(--safe-area-top)); }
+    :root[data-theme] .app-shell .topbar .home-mobile-brand { display: inline-flex; align-items: center; font-weight: 700; font-size: 1.5rem; margin-right: auto; }
+    :root[data-theme] .app-shell .topbar .header-preferences { display: flex; }
+    :root[data-theme] .app-shell .topbar .command-trigger { display: none; }
+    :root[data-theme] .app-shell .topbar .focus-toggle { flex: 0 0 var(--target-size); min-height: var(--target-size); padding: 0; justify-content: center; }
+    .topbar .focus-toggle > span { display: none; }
+    html { scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom,0px)); }
+  }
+  @media (max-width:520px) {
+    .learn-ways { grid-template-columns: minmax(0,1fr); }
+  }
+  @media (max-width:350px) {
+    :root[data-theme] .app-shell.focus-capable .home-mobile-brand .brand-wordmark { display: none; }
+  }
+}
+
+@media screen {
+  .field-picker { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-1) var(--space-2); margin-block-end: var(--space-2); padding: var(--space-1) var(--space-2); }
+  .field-picker select { min-height: var(--target-size); max-width: 100%; }
+  .search-group + .search-group { margin-block-start: var(--space-3); }
+  .search-group h2 { margin-block-end: var(--space-1); }
+  .home-resume-progress { display: block; font-size: .85rem; color: var(--color-muted); margin-block-start: var(--space-1); }
+  .home-resume-kind { padding-inline-end: var(--space-4); }
+  .home-dashboard > .dashboard-panels { margin-block: var(--space-3); }
+}
+
+@media screen {
+  :root[data-theme] .app-shell .home-resume-card .home-resume-kind {
+    display: block;
+    font-size: .85rem;
+    line-height: 1.5;
   }
 }

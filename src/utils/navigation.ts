@@ -24,3 +24,16 @@ export function breadcrumbsFor(path: string): Crumb[] {
   if (content) crumbs.push({ to: content.to, label: content.title });
   return crumbs;
 }
+
+export function primaryArea(pathname: string) {
+  const section = pathname.split('/')[1];
+  if (!section) return 0;
+  if (['lernen', 'faecher', 'materialien', 'lernzettel', 'quizze', 'karteikarten', 'pruefungstraining'].includes(section)) return 1;
+  if (section === 'suche') return 2;
+  if (section === 'termine') return 3;
+  return 4;
+}
+
+export function canFocusRoute(pathname: string) {
+  return isLearningSession(pathname) || studySheets.some(sheet => pathname === `/lernzettel/${sheet.id}`) || studyTopics.some(topic => topic.to === pathname);
+}

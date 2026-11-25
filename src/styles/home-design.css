@@ -18,7 +18,6 @@
   .home-resume { min-width: 0; }
   .home-resume-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; min-height: 250px; border-radius: 24px; padding: 26px; background: linear-gradient(135deg,#ffffff05,transparent 70%),#142035f5; border-color: #bbcef02b; box-shadow: inset 0 1px 0 #ffffff0c,0 12px 32px #0207141f; }
   .home-resume-card h2.home-card-label { display: inline-block; font-size: 11px; color: var(--color-accent); text-transform: uppercase; letter-spacing: .07em; padding: 7px 11px; border-radius: 10px; background: #a88cdb1a; margin: 0 0 14px; font-weight: 650; }
-  .home-resume-kind { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .home-resume-card h3 { font-size: clamp(24px,2.5vw,30px); line-height: 1.25; letter-spacing: -.65px; max-width: 100%; overflow-wrap: break-word; margin-bottom: 10px; }
   .home-resume-card p { font-size: 13px; color: var(--home-muted); margin: 0 0 14px; }
   .home-resume-action { display: flex; align-items: center; gap: 14px; margin-top: auto; color: var(--color-accent); font-size: 15px; font-weight: 600; }
@@ -31,7 +30,7 @@
   .home-bk-group { min-width: 0; padding: 16px; border: 1px solid rgba(var(--rgb),.18); border-radius: 22px; background: linear-gradient(135deg,rgba(var(--rgb),.04),transparent),#101b2ff5; box-shadow: inset 0 1px 0 #ffffff08; }
   .home-bk-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .home-bk-heading>span:nth-child(2) { flex: 1; min-width: 0; }
-  .home-bk-heading h3 { font-size: 14px; font-weight: 600; line-height: 1.5; }
+  .home-bk-heading h2 { font-size: 14px; font-weight: 600; line-height: 1.5; }
   .home-bk-heading>svg { color: var(--home-muted); }
   .home-bk-badge { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 12px; color: var(--accent); background: rgba(var(--rgb),.13); font-size: 15px; font-weight: 700; }
   .home-bk-fields { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; }
@@ -91,7 +90,7 @@
     .home-resume-card h3 { font-size: 21px; }
     .home-dashboard h2 { font-size: 20px; }
     .home-bk-group { padding: 13px; }
-    .home-bk-heading h3 { font-size: 12px; }
+    .home-bk-heading h2 { font-size: 12px; }
     .home-quick a { font-size: 12px; }
   }
 }

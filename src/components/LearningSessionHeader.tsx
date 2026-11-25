@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { ContextBackLink } from './ContextLinks';
 import { ArrowLeft } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useI18n } from '../i18n/context';
@@ -10,5 +10,5 @@ export function LearningSessionHeader({ title, context, description, backTo, bac
 }) {
   const { tr } = useI18n();
   const percent = total ? Math.round(current / total * 100) : 0;
-  return <header className="learning-session-header"><Link className="back-link" to={backTo}><ArrowLeft size={16}/>{backLabel}</Link><PageHeading eyebrow={context} title={title} description={description}>{children}</PageHeading><div className="quiz-progress"><span>{positionLabel}</span><span>{tr('{0} % abgeschlossen', [percent])}</span></div><progress value={current} max={Math.max(total, 1)} aria-label={progressLabel}/></header>;
+  return <header className="learning-session-header"><ContextBackLink className="back-link" originLabel={tr('Zurück zur vorherigen Übersicht')} to={backTo}><ArrowLeft size={16}/>{backLabel}</ContextBackLink><PageHeading eyebrow={context} title={title} description={description}>{children}</PageHeading><div className="quiz-progress"><span>{positionLabel}</span><span>{tr('{0} % abgeschlossen', [percent])}</span></div><progress value={current} max={Math.max(total, 1)} aria-label={progressLabel}/></header>;
 }
