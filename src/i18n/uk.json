@@ -4476,5 +4476,7 @@
   "Letztes Ergebnis: {0} %": "Останній результат: {0} %",
   "{0} von {1} Karten gewusst": "Відомо карток: {0} з {1}",
   "Zurück zur vorherigen Übersicht": "Назад до попереднього огляду",
-  "Darstellung (hell, dunkel oder wie im System) und die Einstellung für den animierten Hintergrund bleiben in diesem Browser. Sie aktivieren keine Fortschrittsspeicherung und werden nicht an den Betreiber gesendet. Beim Löschen der Website-Daten werden diese Einstellungen entfernt.": "Вигляд (світлий, темний або системний) та налаштування анімованого тла зберігаються в цьому браузері. Вони не вмикають збереження навчального прогресу й не надсилаються оператору. Видалення даних сайту видаляє ці налаштування."
+  "Darstellung (hell, dunkel oder wie im System) und die Einstellung für den animierten Hintergrund bleiben in diesem Browser. Sie aktivieren keine Fortschrittsspeicherung und werden nicht an den Betreiber gesendet. Beim Löschen der Website-Daten werden diese Einstellungen entfernt.": "Вигляд (світлий, темний або системний) та налаштування анімованого тла зберігаються в цьому браузері. Вони не вмикають збереження навчального прогресу й не надсилаються оператору. Видалення даних сайту видаляє ці налаштування.",
+  "Weitere Fächer anzeigen": "Показати інші предмети",
+  "Weitere Fächer ausblenden": "Приховати інші предмети"
 }
