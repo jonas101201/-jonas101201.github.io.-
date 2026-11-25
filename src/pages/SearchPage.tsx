@@ -12,7 +12,13 @@ export function SearchPage() {
   const field = useRef<HTMLInputElement>(null);
   useEffect(() => { setQuery(q); setInvalid(false); }, [q]);
   const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
-  const results = q ? searchIndex(index, q) : [];
+  const results = useMemo(() => q ? searchIndex(index, q) : [], [index, q]);
+  const groups = new Map<string, typeof results>();
+  for (const result of results) {
+    const group = groups.get(result.kind);
+    if (group) group.push(result);
+    else groups.set(result.kind, [result]);
+  }
   return <><PageHeading eyebrow={tr('SUCHE')} title={q ? tr('Suchergebnisse für „{0}“', [q]) : tr('Was möchtest du lernen?')} description={tr('Durchsuche Unterrichtsmaterialien, Lernzettel, Quizze und Karteikarten.')}/>
     <form className="search-page-form" role="search" noValidate onSubmit={event => {
       event.preventDefault();
@@ -24,6 +30,6 @@ export function SearchPage() {
       setInvalid(false); setParams({ q: query.trim() });
     }}><input ref={field} aria-label={tr('Suchbegriff')} name="q" value={query} onChange={event => { setQuery(event.target.value); setInvalid(false); }} aria-invalid={invalid || undefined} aria-describedby={invalid ? 'search-input-error' : undefined} placeholder={tr('Zum Beispiel: Spielformen')}/><button className="button primary">{tr('Suchen')}</button></form>
     {invalid && <p id="search-input-error" className="input-error" role="alert">{tr('Gib oben einen Begriff ein.')}</p>}
-    {!results.length ? <EmptyState title={q ? tr('Keine Treffer') : tr('Suchbegriff eingeben')}>{q ? tr('Versuche einen anderen Begriff, etwa „Spiel“ oder „Kommunikation“.') : tr('Gib oben einen Begriff ein.')}</EmptyState> : <><p className="result-count" role="status">{results.length} {tr('Treffer')}</p><div className="search-results">{results.map(result => <ContentLink key={result.id} to={result.to} title={result.title} kind={result.kind}/>)}</div></>}
+    {!results.length ? <EmptyState title={q ? tr('Keine Treffer') : tr('Suchbegriff eingeben')}>{q ? tr('Versuche einen anderen Begriff, etwa „Spiel“ oder „Kommunikation“.') : tr('Gib oben einen Begriff ein.')}</EmptyState> : <><p className="result-count" role="status">{results.length} {tr('Treffer')}</p>{[...groups].map(([kind, entries]) => <section key={kind} className="search-group" aria-label={kind}><h2>{kind}</h2><div className="search-results">{entries.map(result => <ContentLink key={result.id} to={result.to} title={result.title} kind={result.kind} context={result.context}/>)}</div></section>)}</>}
   </>;
 }

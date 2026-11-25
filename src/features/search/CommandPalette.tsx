@@ -4,9 +4,11 @@ import { Search, X } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
 import { buildSearchIndex, commandSuggestions, moveSelection, searchIndex } from './index';
 import { lockPageScroll } from '../../utils/scrollLock';
+import { useContentOrigin } from '../../hooks/useContentOrigin';
 export function CommandPalette({ onClose, recentRoutes = [], anchor }: { anchor?: HTMLElement | null; onClose: () => void; recentRoutes?: readonly string[] }) {
   const { tr, language } = useI18n();
   const navigate = useNavigate();
+  const origin = useContentOrigin();
   const dialog = useRef<HTMLDialogElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const resultsRegion = useRef<HTMLDivElement>(null);
@@ -53,7 +55,7 @@ export function CommandPalette({ onClose, recentRoutes = [], anchor }: { anchor?
   }, [active, results]);
   function choose(position: number) {
     const result = results[position];
-    if (result) { navigating.current = true; onClose(); navigate(result.to); }
+    if (result) { navigating.current = true; onClose(); navigate(result.to, { state: origin }); }
   }
   return <dialog ref={dialog} className="command-palette glass" aria-labelledby="command-title" onCancel={e => { e.preventDefault(); onClose(); }} onClick={e => { if (e.target === dialog.current) { const r = dialog.current.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose(); } }} onKeyDown={e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); e.stopPropagation(); onClose(); }
@@ -68,7 +70,7 @@ export function CommandPalette({ onClose, recentRoutes = [], anchor }: { anchor?
     <div className="command-meta">{!query.trim() && <p className="muted command-count">{tr(recentRoutes.length ? 'Zuletzt besucht und Schnellzugriffe' : 'Schnellzugriffe')}</p>}
     <p role="status" className="muted command-count">{results.length} {tr('Treffer')}</p>
     </div><div ref={resultsRegion} className="command-results-region">
-    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={e => { if (e.pointerType === 'mouse') setSelected(i); }} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{!query.trim() && recentRoutes.includes(result.to) ? `${tr('Zuletzt besucht')} · ` : ''}{result.kind}</small></li>)}</ul>
+    <ul id="command-results" role="listbox" aria-label={tr('Suchergebnisse')} className="command-results">{results.map((result, i) => <li id={`command-option-${i}`} key={result.id} role="option" aria-selected={i === active} onPointerMove={e => { if (e.pointerType === 'mouse') setSelected(i); }} onMouseDown={e => e.preventDefault()} onClick={() => choose(i)}><span>{result.title}</span><small>{!query.trim() && recentRoutes.includes(result.to) ? `${tr('Zuletzt besucht')} · ` : ''}{[result.kind, result.context].filter(Boolean).join(" · ")}</small></li>)}</ul>
     {!results.length && <p className="empty-state">{tr('Keine Treffer')}</p>}
     </div>
     <p id="command-help" className="command-help muted">{tr('↑ ↓ auswählen · Eingabe öffnen · Esc schließen')}</p>

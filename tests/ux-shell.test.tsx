@@ -23,7 +23,7 @@ it('opens from global Ctrl+K and Cmd+K, closes with the shortcut, and resumes a 
   fireEvent.keyDown(window, { key: 'K', metaKey: true }); expect(screen.getByRole('dialog')).toBeTruthy();
   await user.type(screen.getByRole('combobox', { name: 'Suchbegriff' }), 'Übersicht'); await user.keyboard('{Enter}');
   expect(screen.getByRole('heading', { name: 'Weiterlernen' })).toBeTruthy();
-  expect(screen.getByRole('link', { name: /Quizze Die vier Spielformen/ })).toBeTruthy();
+  expect(screen.getByRole('link', { name: /Quizze.*Die vier Spielformen/ })).toBeTruthy();
   expect(localStorage.getItem('lernhub:activity:v1')).toBeNull();
   fireEvent.keyDown(window, { key: 'k', ctrlKey: true });
   await user.keyboard('{Control>}k{/Control}'); expect(screen.queryByRole('dialog')).toBeNull();
@@ -39,7 +39,7 @@ it('collapses the desktop sidebar with accessible labels and shows the actual fi
   expect(collapse.getAttribute('aria-controls')).toBe('main-sidebar'); await user.click(collapse);
   expect(container.querySelector('.sidebar-collapsed')).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Seitenleiste ausklappen' }).getAttribute('aria-expanded')).toBe('false');
-  expect(screen.getByRole('navigation', { name: 'LernHub' }).querySelector('a[aria-label="Materialien"]')).toBeTruthy();
+  expect(screen.getByRole('navigation', { name: 'LernHub' }).querySelector('a[aria-label="Unterrichtsmaterialien"]')).toBeTruthy();
   await user.click(screen.getByRole('button', { name: 'Seitenleiste ausklappen' }));
   expect(container.querySelector('.sidebar-collapsed')).toBeNull();
 });

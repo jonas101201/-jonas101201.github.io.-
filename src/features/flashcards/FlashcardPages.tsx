@@ -1,3 +1,5 @@
+import { ContentRouteLink } from '../../components/ContextLinks';
+import { useListFilters } from '../../hooks/useListFilters';
 import { LearningSessionHeader } from '../../components/LearningSessionHeader';
 import { ActionFeedback } from '../../components/ActionFeedback';
 import { changeWithMotion } from '../../utils/motion';
@@ -18,13 +20,12 @@ export function FlashcardList({ subjectId, learningFieldId, embedded = false }: 
     embedded?: boolean;
 }) {
     const { tr } = useI18n();
-    const [subject, setSubject] = useState(subjectId ?? '');
-    const [field, setField] = useState(learningFieldId ?? '');
+    const { subject, field, setSubject, setField, fields } = useListFilters(subjectId, learningFieldId);
     const { progress } = useProgress();
     const sets = catalog.flashcardSets.filter(s => (!subject || s.subjectId === subject) && (!field || s.learningFieldId === field));
     return <>{!embedded && <PageHeading eyebrow={classroom.name} title={tr("Karteikarten")} description={tr("Begriffe und Definitionen nach Fach und Thema. Schwierige Karten gezielt wiederholen.")}/>}
-    {!embedded && <div className="inline-filters"><select aria-label={tr("Karteikarten-Fach")} value={subject} onChange={e => { setSubject(e.target.value); setField(''); }}><option value="">{tr("Alle F\u00E4cher")}</option>{catalog.subjects.map(s => <option key={s.id} value={s.id}>{tr(s.title)}</option>)}</select><select aria-label={tr("Karteikarten-Lernfeld")} value={field} onChange={e => setField(e.target.value)}><option value="">{tr("Alle Lernfelder")}</option>{catalog.learningFields.filter(f => f.subjectId === subject).map(f => <option key={f.id} value={f.id}>{tr(f.title)}</option>)}</select></div>}
-    {sets.length ? <div className="learning-grid">{sets.map(s => { const known = s.cards.filter(c => progress.cards[`${s.id}:${c.id}`]?.status === 'known').length; return <article className="learning-card glass" key={s.id}><span className="feature-icon teal"><Layers size={25}/></span><div className="learning-card-meta">{tr(subjectName(s.subjectId))} · {tr(fieldName(s.learningFieldId))}</div><h2>{tr(s.title)}</h2><p className="muted">{tr(s.description)}</p>{s.example && <ExampleBadge />}<div className="card-set-progress"><span>{known}{tr(" von ")}{s.cards.length}{tr(" gewusst")}</span><progress value={known} max={s.cards.length} aria-label={tr("Bekannte Karten")}/></div><Link className="button primary" to={`/karteikarten/${s.id}`}>{tr("Lernset \u00F6ffnen")}<ArrowRight size={16}/></Link></article>; })}</div> : <EmptyState title={tr("Keine Lernsets vorhanden")}>{tr("F\u00FCr diese Auswahl sind noch keine Karteikarten hinterlegt.")}</EmptyState>}
+    {!embedded && <div className="inline-filters"><select aria-label={tr("Karteikarten-Fach")} value={subject} onChange={e => setSubject(e.target.value)}><option value="">{tr("Alle F\u00E4cher")}</option>{catalog.subjects.map(s => <option key={s.id} value={s.id}>{tr(s.title)}</option>)}</select><select aria-label={tr("Karteikarten-Lernfeld")} disabled={!fields.length} value={field} onChange={e => setField(e.target.value)}><option value="">{tr("Alle Lernfelder")}</option>{fields.map(f => <option key={f.id} value={f.id}>{tr(f.title)}</option>)}</select></div>}
+    {sets.length ? <div className="learning-grid">{sets.map(s => { const known = s.cards.filter(c => progress.cards[`${s.id}:${c.id}`]?.status === 'known').length; return <article className="learning-card glass" key={s.id}><span className="feature-icon teal"><Layers size={25}/></span><div className="learning-card-meta">{tr(subjectName(s.subjectId))} · {tr(fieldName(s.learningFieldId))}</div><h2>{tr(s.title)}</h2><p className="muted">{tr(s.description)}</p>{s.example && <ExampleBadge />}<div className="card-set-progress"><span>{known}{tr(" von ")}{s.cards.length}{tr(" gewusst")}</span><progress value={known} max={s.cards.length} aria-label={tr("Bekannte Karten")}/></div><ContentRouteLink className="button primary" to={`/karteikarten/${s.id}`}>{tr("Lernset \u00F6ffnen")}<ArrowRight size={16}/></ContentRouteLink></article>; })}</div> : <EmptyState title={tr("Keine Lernsets vorhanden")}>{tr("F\u00FCr diese Auswahl sind noch keine Karteikarten hinterlegt.")}</EmptyState>}
   </>;
 }
 export function FlashcardPage() {

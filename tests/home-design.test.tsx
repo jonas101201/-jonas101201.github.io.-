@@ -33,20 +33,22 @@ it('keeps every BK1 and BK2 learning field directly reachable from the homepage'
 it('opens search and a drop-up menu, then restores focus after Escape', async () => {
   const user = userEvent.setup(); const view = show();
   const dock = screen.getByRole('navigation', { name: 'Schnellnavigation' });
-  await user.click(within(dock).getByRole('button', { name: 'Suche' }));
-  expect(screen.getByRole('dialog')).toBeTruthy();
-  await user.click(screen.getByRole('button', { name: 'Suche schließen' }));
+  await user.click(within(dock).getByRole('link', { name: 'Suche' }));
+  expect(screen.getByRole('search')).toBeTruthy();
+  expect(within(dock).getByRole('link', { name: 'Suche' }).getAttribute('aria-current')).toBe('page');
   const more = within(dock).getByRole('button', { name: 'Mehr' });
   await user.click(more);
   const menu = screen.getByRole('dialog', { name: 'Weitere Bereiche' });
-  expect(within(menu).getByRole('link', { name: 'Materialien' })).toBeTruthy();
+  expect(within(menu).getByRole('link', { name: 'Speicher' })).toBeTruthy();
+  expect(within(menu).queryByRole('link', { name: 'Materialien' })).toBeNull();
   expect(view.container.querySelector('.sidebar.is-open')).toBeNull();
   await user.keyboard('{Escape}');
   expect(screen.queryByRole('dialog', { name: 'Weitere Bereiche' })).toBeNull();
   expect(document.activeElement).toBe(more);
 });
-it('leaves the dock out of study sheet pages', () => {
+it('keeps the dock in the learning area on study sheet deep links', () => {
   window.location.hash = '#/lernzettel/bk1-lf3/bindungsphasen'; show();
-  expect(screen.queryByRole('navigation', { name: 'Schnellnavigation' })).toBeNull();
+  const dock = screen.getByRole('navigation', { name: 'Schnellnavigation' });
+  expect(within(dock).getByRole('link', { name: 'Lernen' }).getAttribute('aria-current')).toBe('location');
   expect(screen.getByRole('heading', { name: '2. Bindungsphasen und Entwicklung der Beziehung', level: 1 })).toBeTruthy();
 });

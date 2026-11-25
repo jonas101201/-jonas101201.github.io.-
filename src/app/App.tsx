@@ -1,3 +1,5 @@
+import { SettingsPage } from '../pages/SettingsPage';
+import { LearnPage } from '../pages/LearnPage';
 import { useI18n } from '../i18n/context';
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
@@ -19,7 +21,7 @@ import { EmptyState } from '../components/ui';
 export function App() {
   const { tr } = useI18n();
   return <HashRouter><ProgressProvider><Routes><Route element={<AppLayout/>}>
-    <Route index element={<Dashboard/>}/><Route path="faecher" element={<SubjectsPage/>}/>
+    <Route index element={<Dashboard/>}/><Route path="lernen" element={<LearnPage/>}/><Route path="einstellungen" element={<SettingsPage/>}/><Route path="speicher" element={<AboutPage section="storage"/>}/><Route path="faecher" element={<SubjectsPage/>}/>
     <Route path="faecher/:subjectId" element={<SubjectPage/>}/><Route path="faecher/:subjectId/lernfelder/:fieldId" element={<SubjectPage/>}/>
     <Route path="materialien" element={<MaterialsPage/>}/><Route path="materialien/:id" element={<MaterialPage/>}/>
     <Route path="lernzettel" element={<StudySheetList/>}/><Route path="lernzettel/:id" element={<StudySheetPage/>}/><Route path="lernzettel/:id/:topicId" element={<StudySheetPage/>}/>
@@ -27,7 +29,7 @@ export function App() {
     <Route path="karteikarten" element={<FlashcardList/>}/><Route path="karteikarten/:id" element={<FlashcardPage/>}/>
     <Route path="termine" element={<DatesPage/>}/><Route path="termine/:id" element={<DateDetailPage/>}/><Route path="klasse" element={<ClassroomPage/>}/><Route path="pruefungstraining" element={<ExamPage/>}/>
     <Route path="datenschutz" element={<PrivacyPage/>}/>
-    <Route path="suche" element={<SearchPage/>}/><Route path="ueber" element={<AboutPage/>}/>
+    <Route path="suche" element={<SearchPage/>}/><Route path="ueber" element={<AboutPage section="info"/>}/>
     <Route path="*" element={<EmptyState title="Seite nicht gefunden"><Link className="text-link" to="/">{tr('Zur Übersicht')}</Link></EmptyState>}/>
   </Route></Routes></ProgressProvider></HashRouter>;
 }

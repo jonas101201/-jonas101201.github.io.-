@@ -1,3 +1,4 @@
+import { ContentRouteLink } from './ContextLinks';
 import { useI18n } from "../i18n/context";
 import { ArrowUpRight, ChevronRight, SearchX } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -8,11 +9,11 @@ import { SubjectIcon } from './SubjectIcon';
 export function PageHeading({ eyebrow, title, description, children }: {
     eyebrow?: string;
     title: string;
-    description: string;
+    description?: string;
     children?: ReactNode;
 }) {
     const { tr } = useI18n();
-    return <div className="page-heading"><div>{eyebrow && <p className="eyebrow">{tr(eyebrow)}</p>}<h1>{tr(title)}</h1><p className="muted">{tr(description)}</p></div>{children}</div>;
+    return <div className="page-heading"><div>{eyebrow && <p className="eyebrow">{tr(eyebrow)}</p>}<h1>{tr(title)}</h1>{description && <p className="muted">{tr(description)}</p>}</div>{children}</div>;
 }
 export function EmptyState({ title = 'Keine Inhalte gefunden', children }: {
     title?: string;
@@ -47,6 +48,6 @@ export function SubjectCard({ subject, featured = false }: {
 export function ExampleBadge() { const { tr } = useI18n(); return <span className="badge example">{tr("Beispielinhalt")}</span>; }
 
 /** Consistent title, content kind and destination affordance for discovery/resume. */
-export function ContentLink({ to, title, kind }: { to: string; title: string; kind: string }) {
-    return <Link className="search-result glass" to={to}><div><small className="muted">{kind}</small><h3>{title}</h3></div><ArrowUpRight size={20}/></Link>;
+export function ContentLink({ to, title, kind, context }: { to: string; title: string; kind: string; context?: string }) {
+    return <ContentRouteLink className="search-result glass" to={to}><div><small className="muted">{[kind, context].filter(Boolean).join(" · ")}</small><h3>{title}</h3></div><ArrowUpRight size={20} aria-hidden="true"/></ContentRouteLink>;
 }

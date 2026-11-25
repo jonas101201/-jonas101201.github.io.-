@@ -1,7 +1,7 @@
 import { useI18n } from "../i18n/context";
 import { classroom } from '../features/classroom/config';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, FolderOpen, Layers, Sparkles, BookOpen } from 'lucide-react';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { ArrowLeft, FolderOpen, Layers, Sparkles, BookOpen } from 'lucide-react';
 import { catalog } from '../data/catalog';
 import { EmptyState, PageHeading, SubjectCard } from '../components/ui';
 import { MaterialsPage } from '../features/materials/MaterialsPage';
@@ -16,15 +16,28 @@ export function SubjectPage() {
     const { tr } = useI18n();
     const { subjectId, fieldId } = useParams();
     const [params, setParams] = useSearchParams();
+    const navigate = useNavigate();
     const subject = catalog.subjects.find(s => s.id === subjectId);
     const field = catalog.learningFields.find(f => f.id === fieldId && f.subjectId === subjectId);
     const fields = catalog.learningFields.filter(f => f.subjectId === subjectId);
-    const tab = params.get('bereich') ?? 'materialien';
+    const requestedTab = params.get('bereich');
+    const tab = ['lernzettel', 'quizze', 'karteikarten'].find(format => format === requestedTab) ?? 'materialien';
+    const contextQuery = tab === 'materialien' ? '' : '?bereich=' + tab;
     if (!subject || (fieldId && !field))
         return <EmptyState title={tr("Fach oder Lernfeld nicht gefunden")}><Link to="/faecher">{tr("Alle F\u00E4cher ansehen")}</Link></EmptyState>;
-    return <><Link className="back-link" to={field ? `/faecher/${subject.id}` : '/faecher'}><ArrowLeft size={16}/>{field ? tr("Zur\u00FCck zu {0}", [tr(subject.title)]) : tr('Alle Fächer')}</Link><PageHeading eyebrow={tr(subject.subtitle)} title={field ? tr("{0} \u00B7 {1}", [tr(subject.title), tr(field.title)]) : tr(subject.title)} description={field ? tr(field.description) : tr('Materialien, Lernzettel, Quizze und Karteikarten für dieses Fach.')}/>
-    {!field && fields.length > 0 && <section className="field-section"><h2>{tr("Lernfelder")}</h2><p className="muted">{tr("Konfigurierbare Platzhalter \u00B7 offizielle Benennungen folgen.")}</p><div className="field-grid">{fields.map(f => <Link className="field-card glass" key={f.id} to={`/faecher/${subject.id}/lernfelder/${f.id}`}><span className={`field-number ${subject.color}`}>{String(f.number).padStart(2, '0')}</span><span>{tr(f.title)}</span><ChevronRight size={16}/></Link>)}</div></section>}
-    <nav className="content-tabs" aria-label={tr("Lernbereiche")}>{[{ id: 'materialien', label: 'Unterrichtsmaterialien', Icon: FolderOpen }, { id: 'lernzettel', label: 'Lernzettel', Icon: BookOpen }, { id: 'quizze', label: 'Quizze', Icon: Sparkles }, { id: 'karteikarten', label: 'Karteikarten', Icon: Layers }].map(({ id, label, Icon }) => <button key={id} className={tab === id ? 'active' : ''} aria-pressed={tab === id} onClick={() => setParams({ bereich: id })}><Icon size={17}/>{tr(label)}</button>)}</nav>
+    return <><Link className="back-link" to={field ? `/faecher/${subject.id}${contextQuery}` : '/faecher'}><ArrowLeft size={16}/>{field ? tr("Zur\u00FCck zu {0}", [tr(subject.title)]) : tr('Alle Fächer')}</Link><PageHeading eyebrow={tr(subject.subtitle)} title={field ? tr("{0} \u00B7 {1}", [tr(subject.title), tr(field.title)]) : tr(subject.title)} description={field ? tr(field.description) : tr('Materialien, Lernzettel, Quizze und Karteikarten für dieses Fach.')}/>
+    {fields.length > 0 && <label className="field-picker glass">
+      <span>{tr('Lernfeld')}</span>
+      <select aria-label={tr('Lernfeld')} value={field?.id ?? ''} onChange={event => {
+        const selected = event.target.value;
+        const path = selected ? `/faecher/${subject.id}/lernfelder/${selected}` : `/faecher/${subject.id}`;
+        navigate(path + contextQuery);
+      }}>
+        <option value="">{tr('Alle Lernfelder')}</option>
+        {fields.map(item => <option key={item.id} value={item.id}>{tr(item.title)}</option>)}
+      </select>
+    </label>}
+    <nav className="content-tabs" aria-label={tr("Lernbereiche")}>{[{ id: 'materialien', label: 'Unterrichtsmaterialien', Icon: FolderOpen }, { id: 'lernzettel', label: 'Lernzettel', Icon: BookOpen }, { id: 'quizze', label: 'Quizze', Icon: Sparkles }, { id: 'karteikarten', label: 'Karteikarten', Icon: Layers }].map(({ id, label, Icon }) => <button key={id} className={tab === id ? 'active' : ''} aria-pressed={tab === id} onClick={() => { if (tab !== id) { const next = new URLSearchParams(params); next.set('bereich', id); setParams(next); } }}><Icon size={17}/>{tr(label)}</button>)}</nav>
     {tab === 'lernzettel' ? <StudySheetList key={`${subject.id}-${fieldId}-s`} subjectId={subject.id} learningFieldId={fieldId} embedded/> : tab === 'quizze' ? <QuizList key={`${subject.id}-${fieldId}-q`} subjectId={subject.id} learningFieldId={fieldId} embedded/> : tab === 'karteikarten' ? <FlashcardList key={`${subject.id}-${fieldId}-c`} subjectId={subject.id} learningFieldId={fieldId} embedded/> : <MaterialsPage key={`${subject.id}-${fieldId}-m`} subjectId={subject.id} learningFieldId={fieldId} embedded/>}
   </>;
 }

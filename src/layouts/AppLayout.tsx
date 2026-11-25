@@ -4,28 +4,38 @@ import { TooltipLayer } from '../components/TooltipLayer';
 import { mountDisclosureMotion } from '../utils/disclosureMotion';
 import { ThemeToggle } from '../theme/ThemeToggle';
 import { Breadcrumbs } from '../components/Breadcrumbs';
-import { isLearningSession } from '../utils/navigation';
+import { canFocusRoute, isLearningSession } from '../utils/navigation';
 import { CommandPalette } from '../features/search/CommandPalette';
 import { buildSearchIndex } from '../features/search';
 import { changeWithMotion } from '../utils/motion';
 import { ClayBackground } from '../components/ClayBackground';
-import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
+import { useBackgroundPreference } from '../theme/preferences';
+import { useRouteScroll } from '../hooks/useRouteScroll';
 import { useI18n } from "../i18n/context";
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { CalendarDays, FileText, GraduationCap, Home, Layers, Pause, Menu, Search, Settings2, Users, X, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation, useNavigationType } from 'react-router-dom';
+import { CalendarDays, FileText, GraduationCap, Home, Layers, Search, Settings, Settings2, Database, ShieldCheck, Users, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 const links = [
-    { to: '/', label: 'Übersicht', icon: Home },
+    { to: '/', label: 'Start', icon: Home },
     { to: '/faecher', label: 'Fächer', icon: Layers },
-    { to: '/materialien', label: 'Materialien', icon: FileText },
+    { to: '/materialien', label: 'Unterrichtsmaterialien', icon: FileText },
     { to: '/lernzettel', label: 'Lernzettel', icon: BookOpen },
     { to: '/quizze', label: 'Quizze', icon: Play },
     { to: '/karteikarten', label: 'Karteikarten', icon: BookCopy },
     { to: '/pruefungstraining', label: 'Prüfungstraining', icon: GraduationCap },
     { to: '/termine', label: 'Termine', icon: CalendarDays },
     { to: '/klasse', label: 'Klasse', icon: Users },
+    { to: '/ueber', label: 'Informationen', icon: Settings2 },
+    { to: '/speicher', label: 'Speicher', icon: Database },
+    { to: '/datenschutz', label: 'Datenschutz', icon: ShieldCheck },
+];
+const sidebarGroups = [
+    { label: 'Übersicht', items: links.slice(0, 1) },
+    { label: 'Lernen', items: links.slice(1, 7) },
+    { label: 'Organisation', items: links.slice(7, 9) },
+    { label: 'System', items: links.slice(9) },
 ];
 export function AppLayout() {
     const { tr, language } = useI18n();
@@ -35,19 +45,17 @@ export function AppLayout() {
         return mountDisclosureMotion(shell.current);
     }, []);
     const [collapsed, setCollapsed] = useState(false);
-    const [focusOverride, setFocusOverride] = useState({ path: '', value: true });
-    const [menu, setMenu] = useState(false);
-    const [backgroundPaused, setBackgroundPaused] = useState(false);
+    const [focusPath, setFocusPath] = useState('');
+    const [backgroundPaused] = useBackgroundPreference();
     const [palette, setPalette] = useState(false);
     const searchAnchor = useRef<HTMLElement | null>(null);
     const openSearch = useCallback((anchor?: HTMLElement) => { searchAnchor.current = anchor ?? null; setPalette(true); }, []);
     const closePalette = useCallback(() => setPalette(false), []);
     const searchIndex = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
     const location = useLocation();
-    const learning = isLearningSession(location.pathname);
+    const learning = canFocusRoute(location.pathname);
     const isHome = location.pathname === '/';
-    const dockEnabled = !location.pathname.startsWith('/lernzettel');
-    const focusMode = learning && (focusOverride.path === location.pathname ? focusOverride.value : true);
+    const focusMode = learning && focusPath === location.pathname;
     const { activities, warning, activityWarning, persistenceEnabled, trackActivity } = useProgress();
     const main = useRef<HTMLElement>(null);
     const lastActivityPath = useRef('');
@@ -59,86 +67,51 @@ export function AppLayout() {
         const entry = searchIndex.find(e => e.to === location.pathname && /^(material|sheet|quiz|cards):/.test(e.id));
         if (entry) activityTracker.current(entry.to);
     }, [location.pathname, searchIndex]);
-    const restoreFocus = useRef(false);
-    const trigger = useRef<HTMLButtonElement>(null);
-    const menuTrigger = useRef<HTMLButtonElement | null>(null);
-    const sidebar = useRef<HTMLElement>(null);
+    useRouteScroll(location, useNavigationType(), main);
+    useLayoutEffect(() => { setFocusPath(''); setPalette(false); }, [location.pathname]);
     useEffect(() => {
-        main.current?.focus({ preventScroll: true });
-        window.scrollTo(0, 0);
-    }, [location.pathname]);
-    useEffect(() => {
-        const label = location.pathname === '/datenschutz' ? 'Datenschutz' : links.find(l => l.to !== '/' && location.pathname.startsWith(l.to))?.label ?? (location.pathname === '/' ? 'Übersicht' : 'Informationen');
-        document.title = `${tr(label)} · ${classroom.name} · LernHub`;
+        const label = links.find(link => location.pathname === link.to || location.pathname.startsWith(link.to + '/'))?.label
+          ?? ({ '/lernen': 'Lernen', '/suche': 'Suche', '/einstellungen': 'Einstellungen' }[location.pathname] || 'Informationen');
+        document.title = [tr(label), classroom.name, 'LernHub'].join(' · ');
     }, [location.pathname, tr]);
     useEffect(() => {
-        function keys(e: KeyboardEvent) {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && !e.repeat) {
-                e.preventDefault();
-                setMenu(false); searchAnchor.current = null; setPalette(value => !value);
-            }
-            if (e.key === 'Escape' && menu) {
-                restoreFocus.current = true;
-                setMenu(false);
-            }
-            if (menu && e.key === 'Tab') {
-                const elements = sidebar.current?.querySelectorAll<HTMLElement>('a,button');
-                const first = elements?.[0];
-                const last = elements?.[elements.length - 1];
-                if (e.shiftKey && document.activeElement === first) {
-                    e.preventDefault();
-                    last?.focus();
-                }
-                else if (!e.shiftKey && document.activeElement === last) {
-                    e.preventDefault();
-                    first?.focus();
-                }
+        function keys(event: KeyboardEvent) {
+            if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k' && !event.repeat && !event.defaultPrevented) {
+                event.preventDefault();
+                searchAnchor.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+                setPalette(value => !value);
             }
         }
         window.addEventListener('keydown', keys);
         return () => window.removeEventListener('keydown', keys);
-    }, [menu]);
-    useEffect(() => {
-        if (!menu) {
-            if (restoreFocus.current) {
-                (menuTrigger.current ?? trigger.current)?.focus();
-                restoreFocus.current = false;
-            }
-            return;
-        }
-        const before = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        sidebar.current?.querySelector<HTMLElement>('button')?.focus();
-        return () => { document.body.style.overflow = before; };
-    }, [menu]);
-    useEffect(() => {
-        const media = window.matchMedia('(min-width: 821px)');
-        const close = () => { if (media.matches)
-            setMenu(false); };
-        media.addEventListener('change', close);
-        return () => media.removeEventListener('change', close);
     }, []);
-    return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${dockEnabled ? 'dock-enabled' : ''} ${learning ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${focusMode ? '' : 'dock-enabled'} ${learning ? 'focus-capable' : ''} ${isLearningSession(location.pathname) ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
     <div className="app-safe-area" aria-hidden="true"/>
     <TooltipLayer/>
     {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
     <ClayBackground paused={backgroundPaused || focusMode}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
-    <div className={`nav-overlay ${menu ? 'is-open' : ''}`} aria-hidden="true" onClick={() => { restoreFocus.current = true; setMenu(false); }}/>
-    <aside ref={sidebar} id="main-sidebar" className={`sidebar ${menu ? 'is-open' : ''}`} aria-label={tr("Hauptnavigation")}>
-      <Link to="/" className="brand" aria-label="LernHub" onClick={() => setMenu(false)}><LogoMark/><span className="brand-wordmark">LernHub</span></Link>
-      <button className="icon-button mobile-close" aria-label={tr("Menü schließen")} onClick={() => { restoreFocus.current = true; setMenu(false); }}><X /></button>
-      <nav className="main-nav" aria-label="LernHub">{links.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} aria-label={tr(label)} title={collapsed ? tr(label) : undefined} end={to === '/'} onClick={() => setMenu(false)} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} ${to === '/klasse' ? 'class-nav-link' : ''}`}><Icon size={23} strokeWidth={1.7}/><span>{tr(label)}</span></NavLink>)}</nav>
-      <div className="sidebar-bottom"><div className="sidebar-class"><span>{classroom.name}</span><small>{tr(classroom.program)}</small></div><NavLink to="/ueber" aria-label={tr("Informationen & Speicher")} title={collapsed ? tr("Informationen & Speicher") : undefined} className="nav-link" onClick={() => setMenu(false)}><Settings2 size={21}/><span>{tr("Informationen & Speicher")}</span></NavLink></div>
+    <aside id="main-sidebar" className="sidebar" aria-label={tr('Hauptnavigation')}>
+      <Link to="/" className="brand" aria-label="LernHub"><LogoMark/><span className="brand-wordmark">LernHub</span></Link>
+      <nav className="main-nav" aria-label="LernHub">{sidebarGroups.map(({ label, items }) => (
+        <div className="sidebar-group" key={label} role="group" aria-label={tr(label)}>
+          <p className="sidebar-group-label muted" aria-hidden="true">{tr(label)}</p>
+          {items.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} aria-label={tr(label)} title={collapsed ? tr(label) : undefined} end={to === '/'} className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}><Icon size={23} strokeWidth={1.7} aria-hidden="true"/><span>{tr(label)}</span></NavLink>)}
+        </div>
+      ))}</nav>
+      <div className="sidebar-bottom"><div className="sidebar-class"><span>{classroom.name}</span><small>{tr(classroom.program)}</small></div></div>
     </aside>
-    <div className="workspace" inert={menu}>
-      <header className="topbar">{isHome && <Link className="home-mobile-brand" to="/" aria-label="LernHub"><LogoMark/><span className="brand-wordmark">LernHub</span></Link>}<button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>{learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} onClick={() => { setMenu(false); changeWithMotion(() => setFocusOverride({ path: location.pathname, value: !focusMode })); }}>{focusMode ? <Minimize size={18}/> : <Maximize size={18}/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}<button ref={trigger} className="icon-button mobile-menu" aria-label={tr("Menü öffnen")} aria-expanded={menu} aria-controls="main-sidebar" onClick={event => { menuTrigger.current = event.currentTarget; setMenu(true); }}><Menu /></button><Link to="/" className="mobile-brand"><LogoMark/><span className="brand-wordmark">LernHub</span></Link>
+    <div className="workspace">
+      <header className="topbar">
+        <Link className="home-mobile-brand" to="/" aria-label="LernHub"><LogoMark/><span className="brand-wordmark">LernHub</span></Link>
+        <button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>
+        {learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} aria-label={tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')} title={tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')} onClick={() => changeWithMotion(() => setFocusPath(focusMode ? '' : location.pathname))}>{focusMode ? <Minimize size={18} aria-hidden="true"/> : <Maximize size={18} aria-hidden="true"/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}
         <button className="global-search command-trigger" aria-label={tr('In LernHub suchen …')} aria-haspopup="dialog" onClick={event => openSearch(event.currentTarget)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
-        <button className="icon-button background-motion-toggle" aria-pressed={backgroundPaused} aria-label={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} title={tr(backgroundPaused ? 'Hintergrundanimation fortsetzen' : 'Hintergrundanimation pausieren')} onClick={() => changeWithMotion(() => setBackgroundPaused(value => !value))}><span className="motion-icon">{backgroundPaused ? <Play size={18}/> : <Pause size={18}/>}</span></button><ThemeToggle/><LanguageSwitcher/><Link to="/klasse" className="class-button" aria-label={tr("Klasse {0} \u00F6ffnen", [classroom.name])}><Users size={21}/><span>{classroom.name}</span></Link>
+        <div className="header-preferences"><ThemeToggle/><Link className="icon-button settings-link" to="/einstellungen" aria-label={tr('Einstellungen')} title={tr('Einstellungen')}><Settings size={20} aria-hidden="true"/></Link></div>
       </header>
-      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/ueber">{tr("Speicher verwalten")}</Link></div>}<Breadcrumbs/><div key={location.pathname} className="page-enter"><Outlet /></div></main>
-      <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/ueber">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
+      <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/speicher">{tr("Speicher verwalten")}</Link></div>}<Breadcrumbs/><div key={location.pathname} className="page-enter"><Outlet /></div></main>
+      <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/speicher">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>
     </div>
-    {dockEnabled && !focusMode && <MobileDock sidebarOpen={menu} onSearch={openSearch} searchOpen={palette} backgroundPaused={backgroundPaused} onToggleBackground={() => setBackgroundPaused(value => !value)}/>}
+    {!focusMode && <MobileDock searchOpen={palette}/>}
   </div>;
 }
