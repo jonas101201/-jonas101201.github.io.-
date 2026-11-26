@@ -1,0 +1,152 @@
+@media screen {
+  [data-studio] {
+    --studio-panel: var(--studio-panel-dark);
+    --studio-rim: var(--studio-rim-dark);
+    --studio-accent: var(--studio-accent-dark);
+    --studio-accent-glow: var(--studio-accent-glow-dark);
+    --studio-orb-one: var(--studio-orb-one-dark);
+    --studio-orb-two: var(--studio-orb-two-dark);
+    --studio-orb-three: var(--studio-orb-three-dark);
+    --studio-bar-start: var(--studio-bar-start-dark);
+    --studio-bar-end: var(--studio-bar-end-dark);
+    --studio-celebration-color: var(--studio-celebration-color-dark);
+  }
+  :root[data-theme="light"]:is([data-studio]), :root[data-theme="light"] [data-studio] {
+    --studio-panel: var(--studio-panel-light);
+    --studio-rim: var(--studio-rim-light);
+    --studio-accent: var(--studio-accent-light);
+    --studio-accent-glow: var(--studio-accent-glow-light);
+    --studio-orb-one: var(--studio-orb-one-light);
+    --studio-orb-two: var(--studio-orb-two-light);
+    --studio-orb-three: var(--studio-orb-three-light);
+    --studio-bar-start: var(--studio-bar-start-light);
+    --studio-bar-end: var(--studio-bar-end-light);
+    --studio-celebration-color: var(--studio-celebration-color-light);
+  }
+  :root[data-studio] .clay-orb-one, .studio-preview-orbs i:first-child { background: var(--studio-orb-one, var(--clay-copper)); }
+  :root[data-studio] .clay-orb-two, .studio-preview-orbs i:nth-child(2) { background: var(--studio-orb-two, var(--clay-copper-soft)); }
+  :root[data-studio] .clay-orb-three, .studio-preview-orbs i:last-child { background: var(--studio-orb-three, var(--clay-copper-low)); }
+  :root[data-theme][data-studio-glass] {
+    --clay-panel: var(--studio-panel);
+    --clay-edge: var(--studio-rim);
+  }
+  :root[data-theme][data-studio-accent] {
+    --clay-ring: var(--studio-accent);
+    --clay-halo: var(--studio-accent-glow);
+  }
+  .studio-preview { --studio-default-panel: #2b3848; }
+  :root[data-theme="light"] .studio-preview { --studio-default-panel: #e8edf2; }
+  :root[data-studio-icons] :is(.sidebar,.topbar,.mobile-dock,.breadcrumbs) svg, .studio-preview-icons svg {
+    stroke-width: var(--studio-icon-weight, revert-layer);
+    stroke-linecap: var(--studio-icon-cap, revert-layer);
+    filter: var(--studio-icon-glow, none);
+  }
+  :root[data-studio-logo] .brand-mark, .studio-preview .brand-mark { filter: var(--studio-logo, none); }
+  :root[data-studio-progress] progress::-webkit-progress-value, .studio-preview progress::-webkit-progress-value { 
+    background: linear-gradient(90deg,var(--studio-bar-start,var(--clay-ring)),var(--studio-bar-end,var(--clay-ring)));
+  }
+  :root[data-studio-progress] progress::-moz-progress-bar, .studio-preview progress::-moz-progress-bar { 
+    background: linear-gradient(90deg,var(--studio-bar-start,var(--clay-ring)),var(--studio-bar-end,var(--clay-ring)));
+  }
+  :root[data-theme][data-studio-navigation]:not([data-studio-paused]) .app-shell .page-enter {
+    animation-name: var(--studio-navigation,clay-page-enter);
+  }
+  .studio-preview { animation: var(--studio-navigation,none) 180ms ease-out both; }
+  :root[data-studio-celebration] :is([data-motion-success],.quiz-result), .studio-preview-card {
+    position: relative;
+  }
+  :root[data-studio-celebration] :is([data-motion-success],.quiz-result)::before, .studio-preview-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--studio-celebration-color,transparent);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    animation: var(--studio-celebration,none) 760ms ease-out both;
+  }
+  :root[data-studio-paused] .clay-orb, :root[data-studio-paused] :is([data-motion-success],.quiz-result)::before,
+  [data-studio-paused].studio-preview, [data-studio-paused] .studio-preview-card::before, [data-studio-paused] .studio-preview-orbs i { animation-play-state: paused; }
+  .studio-layout { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%, 265px),1fr)); gap: var(--space-2); align-items: start; }
+  .studio-layout > * { min-width: 0; }
+  .studio-controls { display: grid; gap: var(--space-1); grid-template-columns: repeat(auto-fit,minmax(min(100%,160px),1fr)); }
+  .studio-field { display: grid; gap: .3rem; min-width: 0; }
+  .studio-field :is(input,select) {
+    min-height: var(--target-size);
+    width: 100%;
+    padding: .45rem .65rem;
+    background: var(--clay-control);
+    color: var(--clay-ink);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    font-size: 1rem;
+  }
+  .studio-preview {
+    --studio-panel-dark: initial;
+    --studio-panel-light: initial;
+    --studio-rim-dark: initial;
+    --studio-rim-light: initial;
+    --studio-accent-dark: initial;
+    --studio-accent-light: initial;
+    --studio-accent-glow-dark: initial;
+    --studio-accent-glow-light: initial;
+    --studio-orb-one-dark: initial;
+    --studio-orb-one-light: initial;
+    --studio-orb-two-dark: initial;
+    --studio-orb-two-light: initial;
+    --studio-orb-three-dark: initial;
+    --studio-orb-three-light: initial;
+    --studio-bar-start-dark: initial;
+    --studio-bar-start-light: initial;
+    --studio-bar-end-dark: initial;
+    --studio-bar-end-light: initial;
+    --studio-celebration-color-dark: initial;
+    --studio-celebration-color-light: initial;
+    --studio-celebration: initial;
+    --studio-navigation: initial;
+    --studio-logo: initial;
+    --studio-icon-weight: initial;
+    --studio-icon-cap: initial;
+    --studio-icon-glow: initial;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--radius-panel);
+    background: var(--clay-base);
+    padding: var(--space-2);
+    margin-bottom: var(--space-1);
+  }
+  .studio-preview-orbs { position: absolute; z-index: -1; inset: 0; overflow: hidden; }
+  .studio-preview-orbs i { position: absolute; display: block; width: 62%; aspect-ratio: 1; border-radius: 50%; box-shadow: inset 0 0 16px #fff3; }
+  [data-studio-preview-background] .studio-preview-orbs i { animation: studio-backdrop-preview 1.3s ease-out both; }
+  [data-studio-preview-background] .studio-preview-orbs i:nth-child(2) { animation-delay: 100ms; }
+  .studio-preview-orbs i:first-child { inset: -21% -9% auto auto; }
+  .studio-preview-orbs i:nth-child(2) { inset: auto auto -20% -18%; }
+  .studio-preview-orbs i:last-child { inset: 43% -28% auto auto; }
+  .studio-preview-card { display: grid; gap: var(--space-1); padding: var(--space-1); background: var(--studio-panel,var(--studio-default-panel,#2b3848)); color: var(--clay-ink); border: 1px solid var(--studio-rim,var(--color-border)); border-radius: var(--radius-panel); }
+  .studio-preview-header, .studio-preview-icons { display: flex; align-items: center; gap: var(--space-1); }
+  .studio-preview-icons { justify-content: space-around; color: var(--studio-accent,var(--clay-ink)); }
+  .studio-preview .brand-mark { width: 30px; height: 30px; }
+  .studio-preview progress { width: 100%; }
+  .studio-companion { width: min(100%,145px); margin-inline: auto; display: block; overflow: visible; }
+  .studio-companion[data-playing="true"] .studio-companion-float { animation: studio-float 4s ease-in-out infinite; }
+  .studio-companion-card { display: grid; gap: var(--space-1); align-content: start; }
+  .studio-preset-list { display: grid; gap: var(--space-1); list-style: none; padding: 0; }
+  .studio-preset-list li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1); }
+  .studio-preset-list strong { margin-inline-end: auto; overflow-wrap: anywhere; }
+  .studio-preset-form { align-items: end; }
+
+  @keyframes studio-backdrop-preview { from { transform: translate(-8px,7px); } to { transform: none; } }
+  @keyframes studio-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  @keyframes studio-nova { 0% { opacity: .7; transform: scale(.95); } 100% { opacity: 0; transform: scale(1); } }
+  @keyframes studio-ripple { 0% { opacity: .65; clip-path: inset(0 80% 0 0); } 100% { opacity: 0; clip-path: inset(0 0 0 80%); } }
+  @keyframes studio-page-drift { from { opacity: .75; transform: translateX(6px); } to { opacity: 1; transform: none; } }
+  @keyframes studio-page-fade { from { opacity: .72; } to { opacity: 1; } }
+  @keyframes studio-page-lift { from { opacity: .8; transform: translateY(7px) scale(.994); } to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root[data-theme][data-studio] .app-shell .page-enter,
+    .studio-preview, .studio-preview-orbs i, .studio-companion[data-playing] .studio-companion-float,
+    :root[data-studio-celebration] :is([data-motion-success],.quiz-result)::before, .studio-preview-card::before { animation: none !important; }
+  }
+}

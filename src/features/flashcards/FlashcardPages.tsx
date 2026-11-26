@@ -1,3 +1,5 @@
+import { CompletionReward } from '../progression/CompletionReward';
+import { recordLearningCompletion } from '../progression/completion';
 import { ContentRouteLink } from '../../components/ContextLinks';
 import { useListFilters } from '../../hooks/useListFilters';
 import { LearningSessionHeader } from '../../components/LearningSessionHeader';
@@ -47,6 +49,20 @@ function CardSession({ set }: {
     const [completed, setCompleted] = useState(false);
     const flipButton = useRef<HTMLButtonElement>(null);
     const pendingMove = useRef(false);
+    const rated = useRef(new Set<string>());
+    const ratedKnown = useRef(new Set<string>());
+    const roundRecorded = useRef(false);
+    const startedAt = useRef(Date.now());
+    const [reward, setReward] = useState<{ xp: number; credits: number } | null>(null);
+    const roundVersion = useRef(0);
+    function resetRound() {
+        rated.current.clear();
+        ratedKnown.current.clear();
+        roundRecorded.current = false;
+        startedAt.current = Date.now();
+        roundVersion.current++;
+        setReward(null);
+    }
     const card = cards[index];
     const status = card && progress.cards[`${set.id}:${card.id}`]?.status;
     const difficult = set.cards.filter(c => progress.cards[`${set.id}:${c.id}`]?.status === 'difficult');
@@ -60,16 +76,29 @@ function CardSession({ set }: {
             return;
         pendingMove.current = true;
         markCard(set.id, card.id, value);
+        rated.current.add(card.id);
+        if (value === 'known') ratedKnown.current.add(card.id);
+        else ratedKnown.current.delete(card.id);
+        if (!roundRecorded.current && !difficultOnly && rated.current.size === set.cards.length) {
+            roundRecorded.current = true;
+            const version = roundVersion.current;
+            void recordLearningCompletion({
+                id: crypto.randomUUID(), at: new Date().toISOString(), kind: 'cards', contentId: set.id,
+                subjectId: set.subjectId, learningFieldId: set.learningFieldId,
+                attempted: rated.current.size, total: set.cards.length, selfKnown: ratedKnown.current.size,
+                elapsedMs: Date.now() - startedAt.current,
+            }).then(result => { if (roundVersion.current === version) setReward(result); });
+        }
         setMessage(value === 'known' ? 'Als gewusst markiert.' : 'Für die Wiederholung vorgemerkt.');
         if (index < cards.length - 1) {
             changeWithMotion(() => { setIndex(index + 1); setFlipped(false); pendingMove.current = false; }, { direction: 'forward' });
         }
         else { setCompleted(true); pendingMove.current = false; }
     }
-    function selectCards(onlyDifficult: boolean) { if (pendingMove.current) return; setDifficultOnly(onlyDifficult); setCards(onlyDifficult ? difficult : set.cards); setIndex(0); setFlipped(false); setCompleted(false); setMessage(''); }
+    function selectCards(onlyDifficult: boolean) { if (pendingMove.current) return; resetRound(); setDifficultOnly(onlyDifficult); setCards(onlyDifficult ? difficult : set.cards); setIndex(0); setFlipped(false); setCompleted(false); setMessage(''); }
     return <div className="learning-session"><LearningSessionHeader title={tr(set.title)} context={`${tr(subjectName(set.subjectId))} / ${tr(fieldName(set.learningFieldId))}`} description={tr('Karte umdrehen und mit „Gewusst“ oder „Noch üben“ bewerten.')} backTo="/karteikarten" backLabel={tr('Alle Karteikarten')} current={completed ? cards.length : index} total={cards.length} positionLabel={completed ? tr('Lernrunde abgeschlossen') : tr('Karte {0} von {1}', [cards.length ? index + 1 : 0, cards.length])} progressLabel={tr('Lernrundenfortschritt')}>{set.example && <ExampleBadge/>}</LearningSessionHeader>
-    <div className="flash-toolbar"><div className="segmented"><button className={!difficultOnly ? 'active' : ''} aria-pressed={!difficultOnly} onClick={() => selectCards(false)}>{tr("Alle Karten (")}{set.cards.length})</button><button className={difficultOnly ? 'active' : ''} aria-pressed={difficultOnly} onClick={() => selectCards(true)}>{tr("Schwierige (")}{difficult.length})</button></div><button className="button secondary" onClick={() => { if (pendingMove.current) return; setCards(c => shuffle(c)); setIndex(0); setFlipped(false); setCompleted(false); setMessage('Karten neu gemischt.'); }} disabled={!cards.length}><Shuffle size={16}/>{tr("Mischen")}</button></div>
-    {completed ? <div className="empty-state glass"><CircleSuccess /><h2>{tr("Lernrunde abgeschlossen")}</h2><p>{tr("Die Kartenbewertungen wurden erfasst. Schwierige Karten k\u00F6nnen separat wiederholt werden.")}</p><div className="button-row centered"><button className="button primary" onClick={() => selectCards(false)}><RotateCcw size={16}/>{tr("Neue Runde")}</button><button className="button secondary" onClick={() => selectCards(true)}>{tr("Schwierige wiederholen (")}{difficult.length})</button></div></div> : card ? <div className="flash-session"><div className="flash-meta"><span>{tr("Karte ")}{index + 1}{tr(" von ")}{cards.length}</span><span>{status === 'known' ? tr('✓ Bereits gewusst') : status === 'difficult' ? tr('Zur Wiederholung markiert') : tr('Noch nicht bewertet')}</span></div><button ref={flipButton} className={`flashcard glass ${flipped ? 'flipped' : ''}`} onClick={() => { if (!pendingMove.current) changeWithMotion(() => setFlipped(f => !f), { direction: 'flip' }); }} aria-label={tr("{0}: {1}. Zum Umdrehen aktivieren.", [flipped ? tr('Antwort') : tr('Begriff'), flipped ? tr(card.back) : tr(card.front)])}><span className="eyebrow">{flipped ? tr('DIE ERKLÄRUNG') : tr('WAS BEDEUTET …?')}</span><span key={`${card.id}-${flipped ? 'back' : 'front'}`} className={flipped ? 'flash-back' : 'flash-front'}>{flipped ? tr(card.back) : tr(card.front)}</span><span className="flip-hint"><RotateCcw size={15}/>{tr("Klicken oder Leertaste zum Umdrehen")}</span></button>{flipped && <MaterialSources ids={card.materialIds}/>}<div className="flash-actions"><button className="button secondary" disabled={!flipped} onClick={() => mark('difficult')}><RotateCcw size={17}/>{tr("Noch \u00FCben")}</button><button className="button primary" disabled={!flipped} onClick={() => mark('known')}><ThumbsUp size={17}/>{tr("Gewusst")}</button></div><div className="flash-navigation"><button className="icon-button" aria-label={tr("Vorherige Karte")} disabled={index === 0} onClick={() => move(index - 1)}><ChevronLeft /></button><span>{index + 1} / {cards.length}</span><button className="icon-button" aria-label={tr("Nächste Karte")} disabled={index === cards.length - 1} onClick={() => move(index + 1)}><ChevronRight /></button></div></div> : <EmptyState title={tr("Aktuell keine schwierigen Karten.")}>{tr("Markiere Karten beim Lernen mit \u201ENoch \u00FCben\u201C, um sie hier gezielt zu wiederholen.")}</EmptyState>}
+    <div className="flash-toolbar"><div className="segmented"><button className={!difficultOnly ? 'active' : ''} aria-pressed={!difficultOnly} onClick={() => selectCards(false)}>{tr("Alle Karten (")}{set.cards.length})</button><button className={difficultOnly ? 'active' : ''} aria-pressed={difficultOnly} onClick={() => selectCards(true)}>{tr("Schwierige (")}{difficult.length})</button></div><button className="button secondary" onClick={() => { if (pendingMove.current) return; resetRound(); setCards(c => shuffle(c)); setIndex(0); setFlipped(false); setCompleted(false); setMessage('Karten neu gemischt.'); }} disabled={!cards.length}><Shuffle size={16}/>{tr("Mischen")}</button></div>
+    {completed ? <div className="empty-state glass"><CircleSuccess /><CompletionReward reward={reward}/><h2>{tr("Lernrunde abgeschlossen")}</h2><p>{tr("Die Kartenbewertungen wurden erfasst. Schwierige Karten k\u00F6nnen separat wiederholt werden.")}</p><div className="button-row centered"><button className="button primary" onClick={() => selectCards(false)}><RotateCcw size={16}/>{tr("Neue Runde")}</button><button className="button secondary" onClick={() => selectCards(true)}>{tr("Schwierige wiederholen (")}{difficult.length})</button></div></div> : card ? <div className="flash-session"><div className="flash-meta"><span>{tr("Karte ")}{index + 1}{tr(" von ")}{cards.length}</span><span>{status === 'known' ? tr('✓ Bereits gewusst') : status === 'difficult' ? tr('Zur Wiederholung markiert') : tr('Noch nicht bewertet')}</span></div><button ref={flipButton} className={`flashcard glass ${flipped ? 'flipped' : ''}`} onClick={() => { if (!pendingMove.current) changeWithMotion(() => setFlipped(f => !f), { direction: 'flip' }); }} aria-label={tr("{0}: {1}. Zum Umdrehen aktivieren.", [flipped ? tr('Antwort') : tr('Begriff'), flipped ? tr(card.back) : tr(card.front)])}><span className="eyebrow">{flipped ? tr('DIE ERKLÄRUNG') : tr('WAS BEDEUTET …?')}</span><span key={`${card.id}-${flipped ? 'back' : 'front'}`} className={flipped ? 'flash-back' : 'flash-front'}>{flipped ? tr(card.back) : tr(card.front)}</span><span className="flip-hint"><RotateCcw size={15}/>{tr("Klicken oder Leertaste zum Umdrehen")}</span></button>{flipped && <MaterialSources ids={card.materialIds}/>}<div className="flash-actions"><button className="button secondary" disabled={!flipped} onClick={() => mark('difficult')}><RotateCcw size={17}/>{tr("Noch \u00FCben")}</button><button className="button primary" disabled={!flipped} onClick={() => mark('known')}><ThumbsUp size={17}/>{tr("Gewusst")}</button></div><div className="flash-navigation"><button className="icon-button" aria-label={tr("Vorherige Karte")} disabled={index === 0} onClick={() => move(index - 1)}><ChevronLeft /></button><span>{index + 1} / {cards.length}</span><button className="icon-button" aria-label={tr("Nächste Karte")} disabled={index === cards.length - 1} onClick={() => move(index + 1)}><ChevronRight /></button></div></div> : <EmptyState title={tr("Aktuell keine schwierigen Karten.")}>{tr("Markiere Karten beim Lernen mit \u201ENoch \u00FCben\u201C, um sie hier gezielt zu wiederholen.")}</EmptyState>}
     <MaterialSources ids={set.materialIds} title={tr("Unterlagen zu diesem Lernset")}/><ActionFeedback message={tr(message)}/><p className="local-note">{persistenceEnabled ? tr('Deine Einschätzungen werden nur in diesem Browser gespeichert.') : tr('Deine Einschätzungen bleiben bis zum Neuladen in diesem Tab erhalten.')}{tr(" Du kannst sie jederzeit neu bewerten.")}</p>
   </div>;
 }

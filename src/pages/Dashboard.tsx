@@ -1,6 +1,7 @@
 import { CurrentDate } from '../components/CurrentDate';
 import { buildSearchIndex } from '../features/search';
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
+import { useProgressionConsent } from '../features/progression/useProgressionConsent';
 import { useI18n } from '../i18n/context';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight, BarChart3, CalendarDays, ChevronRight } from 'lucide-react';
@@ -11,8 +12,11 @@ import { useProgress } from '../hooks/useProgress';
 import { ClassEvents } from '../features/classroom/ClassEvents';
 import { studySheets } from '../features/study-sheets/data';
 
+const ProgressHomeStats = lazy(() => import('../features/progression/ProgressHomeStats').then(module => ({ default: module.ProgressHomeStats })));
+
 export function Dashboard() {
   const { tr, count, language } = useI18n();
+  const progressionActive = useProgressionConsent();
   const { progress, activities, persistenceEnabled } = useProgress();
   const index = useMemo(() => buildSearchIndex(tr, language), [tr, language]);
   const recent = activities.flatMap(a => { const entry = index.find(e => e.to === a.to); return entry ? [entry] : []; });
@@ -59,7 +63,7 @@ export function Dashboard() {
       </section>
     </div>
     <section className="home-subjects home-subject-shortcuts" aria-label={tr('Weitere Fächer')}><div className="home-section-heading"><h2>{tr('Weitere Fächer')}</h2></div><div>{catalog.subjects.filter(subject => !['bk1', 'bk2'].includes(subject.id)).map(subject => <Link className={`home-subject-chip ${subject.color}`} to={`/faecher/${subject.id}`} key={subject.id}>{tr(subject.title)}<ArrowUpRight size={14} aria-hidden="true"/></Link>)}</div></section>
-      <div className="dashboard-panels">      <section className="dashboard-panel glass"><div className="panel-heading"><h2><CalendarDays size={22}/>{tr('Nächste Termine')}</h2><Link to="/termine" className="icon-button" aria-label={tr('Alle Klassentermine anzeigen')}><ArrowUpRight size={18}/></Link></div><ClassEvents limit={3}/></section><section className="dashboard-panel glass"><div className="panel-heading"><h2><BarChart3 size={22}/>{tr('Dein Fortschritt')}</h2><Link to="/speicher" className="icon-button" aria-label={tr('Lernverlauf anzeigen')}><ArrowUpRight size={18}/></Link></div><div className="progress-overview"><div className="progress-ring" role="img" aria-label={tr('{0} von {1} Karten gewusst, {2} Prozent', [known, cards.length, percent])}><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="65" className="ring-track"/><circle cx="80" cy="80" r="65" className="ring-value" pathLength="100" strokeDasharray={`${percent} 100`}/></svg><div><strong>{percent}<span> %</span></strong><small>{tr('Karten gewusst')}</small></div></div><dl className="progress-metrics"><div><dt>{tr('Gewusste Karten')}</dt><dd>{known}<span> / {cards.length}</span></dd></div><div><dt>{tr('Noch üben')}</dt><dd>{count(difficult, 'cards')}</dd></div><div><dt>{tr('Quizversuche')}</dt><dd>{progress.quizResults.length}</dd></div></dl></div><p className="panel-footnote">{persistenceEnabled ? tr('Fortschritt wird nur in diesem Browser gespeichert.') : tr('Fortschritt bleibt bis zum Neuladen erhalten. Dauerhafte Speicherung kannst du freiwillig aktivieren.')}</p></section>
+      <div className="dashboard-panels">      <section className="dashboard-panel glass"><div className="panel-heading"><h2><CalendarDays size={22}/>{tr('Nächste Termine')}</h2><Link to="/termine" className="icon-button" aria-label={tr('Alle Klassentermine anzeigen')}><ArrowUpRight size={18}/></Link></div><ClassEvents limit={3}/></section><section className="dashboard-panel glass"><div className="panel-heading"><h2><BarChart3 size={22}/>{tr('Dein Fortschritt')}</h2><Link to="/fortschritt" className="icon-button" aria-label={tr('Fortschritt öffnen')}><ArrowUpRight size={18}/></Link></div><div className="progress-overview"><div className="progress-ring" role="img" aria-label={tr('{0} von {1} Karten gewusst, {2} Prozent', [known, cards.length, percent])}><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="65" className="ring-track"/><circle cx="80" cy="80" r="65" className="ring-value" pathLength="100" strokeDasharray={`${percent} 100`}/></svg><div><strong>{percent}<span> %</span></strong><small>{tr('Karten gewusst')}</small></div></div><dl className="progress-metrics"><div><dt>{tr('Gewusste Karten')}</dt><dd>{known}<span> / {cards.length}</span></dd></div><div><dt>{tr('Noch üben')}</dt><dd>{count(difficult, 'cards')}</dd></div><div><dt>{tr('Quizversuche')}</dt><dd>{progress.quizResults.length}</dd></div></dl></div>{progressionActive && <Suspense fallback={null}><ProgressHomeStats/></Suspense>}<p className="panel-footnote">{persistenceEnabled ? tr('Fortschritt wird nur in diesem Browser gespeichert.') : tr('Fortschritt bleibt bis zum Neuladen erhalten. Dauerhafte Speicherung kannst du freiwillig aktivieren.')}</p><Link className="text-link progress-compact-link" to="/speicher">{tr('Lernverlauf anzeigen')}</Link></section>
 </div>
       <section className="recent-section"><SectionHeading title={tr('Zuletzt hinzugefügt')} to="/materialien" link={tr('Alle Materialien')}/><div className="recent-materials">{latest.map(m => <MaterialCard material={m} key={m.id}/>)}</div></section>
   </div>;

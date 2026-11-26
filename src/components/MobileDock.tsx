@@ -1,11 +1,12 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
-import { BookOpen, CalendarDays, Database, Home, MoreHorizontal, Search, Settings2, ShieldCheck, Users, X } from 'lucide-react';
+import { BarChart3, BookOpen, CalendarDays, Database, Home, MoreHorizontal, Search, Settings2, ShieldCheck, Users, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { primaryArea } from '../utils/navigation';
 import { useDockSelection } from '../features/dock/useDockSelection';
 
 const moreLinks = [
+  { to: '/fortschritt', label: 'Fortschritt', Icon: BarChart3 },
   { to: '/klasse', label: 'Klasse', Icon: Users },
   { to: '/ueber', label: 'Informationen', Icon: Settings2 },
   { to: '/speicher', label: 'Speicher', Icon: Database },

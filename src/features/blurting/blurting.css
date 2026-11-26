@@ -1,0 +1,132 @@
+.blurting-picker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-block-end: var(--space-2);
+}
+
+.blurting-picker select {
+  min-height: var(--target-size);
+  max-width: 100%;
+}
+
+.blurting-session, .blurting-panel {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-2);
+}
+
+.blurting-session > .back-link, .blurting-panel > .button {
+  justify-self: start;
+}
+
+.blurting-session .page-heading {
+  margin-block: 0;
+}
+
+.blurting-panel .blurting-panel {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.blurting-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-2);
+}
+
+.blurting-editor {
+  width: 100%;
+  min-height: clamp(12rem, 42dvh, 34rem);
+  padding: var(--space-2);
+  background: var(--surface-control);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text);
+  font-size: max(1rem, 16px);
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.blurting-answer {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 50dvh;
+  overflow: auto;
+}
+
+.blurting-meta, .blurting-clock {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.blurting-meta {
+  color: var(--color-muted);
+  font-size: .9rem;
+}
+
+.blurting-clock {
+  gap: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.blurting-check {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--space-1);
+  min-height: var(--target-size);
+}
+
+.blurting-check input {
+  flex: none;
+  accent-color: var(--color-focus);
+}
+
+.blurting-concept {
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  padding: var(--space-1) var(--space-2);
+}
+
+.blurting-concept legend {
+  padding-inline: var(--space-1);
+  font-weight: 600;
+}
+
+.blurting-links {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.blurting-links .text-link {
+  min-height: var(--target-size);
+}
+
+.blurting-summary {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.blurting-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.blurting-summary dd {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 820px) {
+  .blurting-comparison { grid-template-columns: minmax(0, 1fr); }
+}

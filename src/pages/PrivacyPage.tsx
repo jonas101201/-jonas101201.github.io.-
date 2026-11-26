@@ -81,6 +81,13 @@ export function PrivacyPage() {
 
       <h2>{tr("12. Externe Links und \u00C4nderungen")}</h2>
       <p>{tr("Beim \u00D6ffnen externer Quellen oder Anbieterhinweise gelten die Datenschutzregeln der Zielwebsite. Der Link allein l\u00E4dt deren Inhalte nicht in LernHub ein. \u00C4nderungen an verwendeten Diensten oder Datenverarbeitungen werden in diesen Hinweisen ber\u00FCcksichtigt. Die Datenschutzerkl\u00E4rung ist ohne Anmeldung \u00FCber den Footer erreichbar.")}</p>
+    <section aria-labelledby="privacy-progress">
+      <h2 id="privacy-progress">{tr('LernHub Progress')}</h2>
+      <p>{tr('LernHub Progress ist separat und freiwillig aktivierbar. Es speichert Lernabschlüsse, Selbsteinschätzungen, Wiederholungstermine, Belohnungen, Missionen und Designwahl in der IndexedDB dieses Browsers. Die Funktion sendet diese Daten nicht an einen Server.')}</p>
+      <p>{tr('Vollständige Wissensabruf-Texte und Entwürfe werden nur mit gesonderter Zustimmung dauerhaft gespeichert. Du entscheidest beim Export separat, ob diese Texte in die heruntergeladene JSON-Sicherung aufgenommen werden.')}</p>
+      <p>{tr('Daten bleiben lokal, bis du sie löschst oder der Browser sie entfernt. In der Speicherverwaltung kannst du beide Speicherfreigaben widerrufen und die zugehörigen Daten löschen. Bereits exportierte Sicherungen löschst du selbst.')}</p>
+      <Link className="text-link" to="/fortschritt/speicher">{tr('Progress-Speicher verwalten')}</Link>
+    </section>
     </article>
   </>;
 }

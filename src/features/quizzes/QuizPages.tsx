@@ -1,3 +1,5 @@
+import { CompletionReward } from '../progression/CompletionReward';
+import { recordLearningCompletion } from '../progression/completion';
 import { ContentRouteLink } from '../../components/ContextLinks';
 import { useListFilters } from '../../hooks/useListFilters';
 import { changeWithMotion } from '../../utils/motion';
@@ -48,6 +50,9 @@ function QuizSession({ quiz, mode }: {
     const [checked, setChecked] = useState(false);
     const [finished, setFinished] = useState(false);
     const saved = useRef(false);
+    const startedAt = useRef(Date.now());
+    const [reward, setReward] = useState<{ xp: number; credits: number } | null>(null);
+    const roundVersion = useRef(0);
     const pendingNext = useRef(false);
     const focus = useRef<HTMLHeadingElement>(null);
     const { saveQuiz } = useProgress();
@@ -56,7 +61,18 @@ function QuizSession({ quiz, mode }: {
     const result = evaluate(questions, answers);
     function finish() {
         if (!saved.current) {
-            saveQuiz({ id: crypto.randomUUID(), quizId: quiz.id, mode, date: new Date().toISOString(), ...result });
+            const id = crypto.randomUUID();
+            const date = new Date().toISOString();
+            saveQuiz({ id, quizId: quiz.id, mode, date, ...result });
+            if (questions.length === quiz.questions.length) {
+                const version = roundVersion.current;
+                void recordLearningCompletion({
+                    id, at: date, kind: mode === 'exam' ? 'exam' : 'quiz', contentId: quiz.id,
+                    subjectId: quiz.subjectId, learningFieldId: quiz.learningFieldId,
+                    attempted: questions.length, total: quiz.questions.length, correct: result.score,
+                    elapsedMs: Date.now() - startedAt.current,
+                }).then(result => { if (roundVersion.current === version) setReward(result); });
+            }
             saved.current = true;
         }
         setFinished(true);
@@ -69,10 +85,13 @@ function QuizSession({ quiz, mode }: {
         setChecked(false);
         setFinished(false);
         saved.current = false;
+        startedAt.current = Date.now();
+        roundVersion.current++;
+        setReward(null);
     }
     const sessionHeader = <LearningSessionHeader title={tr(quiz.title)} context={`${tr(subjectName(quiz.subjectId))} / ${tr(fieldName(quiz.learningFieldId))}`} description={mode === 'learn' ? tr('Lernmodus · Direktes Feedback nach jeder Antwort.') : tr('Prüfungsmodus · Die Auswertung erhältst du am Ende.')} backTo="/quizze" backLabel={tr('Alle Quizze')} current={finished ? questions.length : index} total={questions.length} positionLabel={finished ? tr('Quiz abgeschlossen') : tr('Frage {0} von {1}', [index + 1, questions.length])} progressLabel={tr('Quizfortschritt')}>{quiz.example && <ExampleBadge/>}</LearningSessionHeader>;
     if (finished)
-        return <div className="learning-session">{sessionHeader}<div className="quiz-result glass"><span className="feature-icon violet"><Trophy size={30}/></span><p className="eyebrow">{tr("DEIN ERGEBNIS")}</p><h2 className="result-percent" tabIndex={-1} ref={focus}>{Math.round(result.score / result.total * 100)}<span> %</span></h2><h2>{result.score === result.total ? tr('Alle Fragen richtig beantwortet') : tr('Quiz abgeschlossen')}</h2><p className="muted">{result.score}{tr(" von ")}{result.total}{tr(" Fragen richtig \u00B7 ")}{mode === 'exam' ? tr('Prüfungsmodus') : tr('Lernmodus')}</p><p className="muted">{tr("Das Ergebnis ist in deinem lokalen Lernverlauf erfasst.")}</p><div className="button-row centered"><button className="button primary" onClick={() => restart()}><RotateCcw size={16}/>{tr("Alles wiederholen")}</button>{result.wrongQuestionIds.length > 0 && <button className="button secondary" onClick={() => restart(true)}>{tr("Nur Fehler wiederholen (")}{result.wrongQuestionIds.length})</button>}</div></div>
+        return <div className="learning-session">{sessionHeader}<div className="quiz-result glass"><span className="feature-icon violet"><Trophy size={30}/></span><CompletionReward reward={reward}/><p className="eyebrow">{tr("DEIN ERGEBNIS")}</p><h2 className="result-percent" tabIndex={-1} ref={focus}>{Math.round(result.score / result.total * 100)}<span> %</span></h2><h2>{result.score === result.total ? tr('Alle Fragen richtig beantwortet') : tr('Quiz abgeschlossen')}</h2><p className="muted">{result.score}{tr(" von ")}{result.total}{tr(" Fragen richtig \u00B7 ")}{mode === 'exam' ? tr('Prüfungsmodus') : tr('Lernmodus')}</p><p className="muted">{tr("Das Ergebnis ist in deinem lokalen Lernverlauf erfasst.")}</p><div className="button-row centered"><button className="button primary" onClick={() => restart()}><RotateCcw size={16}/>{tr("Alles wiederholen")}</button>{result.wrongQuestionIds.length > 0 && <button className="button secondary" onClick={() => restart(true)}>{tr("Nur Fehler wiederholen (")}{result.wrongQuestionIds.length})</button>}</div></div>
       {result.wrongQuestionIds.length > 0 && <><h2 className="review-heading">{tr("Falsch beantwortete Fragen")}</h2><div className="review-list">{questions.filter(q => result.wrongQuestionIds.includes(q.id)).map(q => <article key={q.id} className="glass review-card"><h3>{tr(q.prompt)}</h3><p><strong>{tr("Deine Antwort:")}</strong> {describeAnswer(q, answers[q.id], tr)}</p><p className="correct"><strong>{tr("Richtige Antwort:")}</strong> {solution(q, tr)}</p><p className="muted">{tr(q.explanation)}</p><MaterialSources ids={q.materialIds}/></article>)}</div></>}
       <Sources quiz={quiz}/></div>;
     if (!question)

@@ -1,3 +1,4 @@
+import { ProgressAppearance } from '../features/progression/ProgressAppearance';
 import { LogoMark } from '../components/LogoMark';
 import { MobileDock } from '../components/MobileDock';
 import { TooltipLayer } from '../components/TooltipLayer';
@@ -14,7 +15,7 @@ import { useRouteScroll } from '../hooks/useRouteScroll';
 import { useI18n } from "../i18n/context";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigationType } from 'react-router-dom';
-import { CalendarDays, FileText, GraduationCap, Home, Layers, Search, Settings, Settings2, Database, ShieldCheck, Users, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
+import { BarChart3, CalendarDays, PenLine, FileText, GraduationCap, Home, Layers, Search, Settings, Settings2, Database, ShieldCheck, Users, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 const links = [
@@ -33,8 +34,8 @@ const links = [
 ];
 const sidebarGroups = [
     { label: 'Übersicht', items: links.slice(0, 1) },
-    { label: 'Lernen', items: links.slice(1, 7) },
-    { label: 'Organisation', items: links.slice(7, 9) },
+    { label: 'Lernen', items: [...links.slice(1, 7), { to: '/blurting', label: 'Freier Wissensabruf', icon: PenLine }] },
+    { label: 'Organisation', items: [...links.slice(7, 9), { to: '/fortschritt', label: 'Fortschritt', icon: BarChart3 }] },
     { label: 'System', items: links.slice(9) },
 ];
 export function AppLayout() {
@@ -70,7 +71,7 @@ export function AppLayout() {
     useRouteScroll(location, useNavigationType(), main);
     useLayoutEffect(() => { setFocusPath(''); setPalette(false); }, [location.pathname]);
     useEffect(() => {
-        const label = links.find(link => location.pathname === link.to || location.pathname.startsWith(link.to + '/'))?.label
+        const label = sidebarGroups.flatMap(group => group.items).find(link => location.pathname === link.to || location.pathname.startsWith(link.to + '/'))?.label
           ?? ({ '/lernen': 'Lernen', '/suche': 'Suche', '/einstellungen': 'Einstellungen' }[location.pathname] || 'Informationen');
         document.title = [tr(label), classroom.name, 'LernHub'].join(' · ');
     }, [location.pathname, tr]);
@@ -86,6 +87,7 @@ export function AppLayout() {
         return () => window.removeEventListener('keydown', keys);
     }, []);
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${focusMode ? '' : 'dock-enabled'} ${learning ? 'focus-capable' : ''} ${isLearningSession(location.pathname) ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    <ProgressAppearance/>
     <div className="app-safe-area" aria-hidden="true"/>
     <TooltipLayer/>
     {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}

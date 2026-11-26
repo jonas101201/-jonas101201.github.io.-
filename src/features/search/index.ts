@@ -7,6 +7,7 @@ export const destinations = [
   ['/lernzettel', 'Lernzettel'], ['/quizze', 'Quizze'], ['/karteikarten', 'Karteikarten'],
   ['/pruefungstraining', 'Prüfungstraining'], ['/klasse', 'Klasse'],
   ['/ueber', 'Informationen & Speicher'], ['/datenschutz', 'Datenschutz'],
+  ['/blurting', 'Freier Wissensabruf'], ['/fortschritt', 'Fortschritt'],
   ['/lernen', 'Lernen'], ['/suche', 'Suche'], ['/termine', 'Termine'], ['/einstellungen', 'Einstellungen'], ['/speicher', 'Speicher'],
 ] as const;
 const normalize = (text: string) => text.toLocaleLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');

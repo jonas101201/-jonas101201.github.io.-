@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Monitor, Moon, Sun } from 'lucide-react';
 import { PageHeading } from '../components/ui';
 import { useI18n } from '../i18n/context';
@@ -31,6 +32,10 @@ export function SettingsPage() {
       <section className="glass prose" aria-labelledby="language-heading">
         <h2 id="language-heading">{tr('Sprache')}</h2>
         <LanguageSwitcher/>
+      </section>
+      <section className="glass prose" aria-labelledby="learning-progress-settings">
+        <h2 id="learning-progress-settings">{tr('LernHub Progress')}</h2>
+        <Link className="button secondary" to="/fortschritt/speicher">{tr('Progress-Speicher verwalten')}</Link>
       </section>
     </div>
   </>;

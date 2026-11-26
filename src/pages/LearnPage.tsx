@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { BookCopy, BookOpen, ChevronDown, ChevronUp, FolderOpen, GraduationCap, Sparkles, ArrowUpRight } from 'lucide-react';
+import { BookCopy, BookOpen, ChevronDown, ChevronUp, PenLine, FolderOpen, GraduationCap, Sparkles, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AnimatedDisclosure } from '../components/AnimatedDisclosure';
 import { PageHeading, SubjectCard } from '../components/ui';
@@ -15,6 +15,7 @@ const formats = [
   { to: '/quizze', label: 'Quizze', Icon: Sparkles },
   { to: '/karteikarten', label: 'Karteikarten', Icon: BookCopy },
   { to: '/pruefungstraining', label: 'Prüfungstraining', Icon: GraduationCap },
+  { to: '/blurting', label: 'Freier Wissensabruf', Icon: PenLine },
 ];
 
 export function LearnPage() {

@@ -20,7 +20,7 @@ it('enters through Lernen and keeps the field and format when switching between 
   const user = userEvent.setup();
   await user.click(within(screen.getByRole('navigation', { name: 'Schnellnavigation' })).getByRole('link', { name: 'Lernen' }));
   const subjects = screen.getByRole('region', { name: 'Nach Fach lernen' });
-  expect(within(screen.getByRole('region', { name: 'Nach Lernformat lernen' })).getAllByRole('link')).toHaveLength(5);
+  expect(within(screen.getByRole('region', { name: 'Nach Lernformat lernen' })).getAllByRole('link')).toHaveLength(6);
   await user.click(within(subjects).getByRole('link', { name: /^BK1/ }));
   await user.selectOptions(screen.getByRole('combobox', { name: 'Lernfeld' }), 'bk1-lf3');
   await user.click(screen.getByRole('button', { name: 'Lernzettel' }));
