@@ -113,6 +113,18 @@ export const cosmetics: readonly Cosmetic[] = [
 ];
 
 const byId = new Map(cosmetics.map(item => [item.id, item] as const));
+const companionSlots: ReadonlySet<Slot> = new Set([
+  'companion', 'body', 'eyes', 'expression', 'crystals', 'rings', 'crown', 'particles', 'companion-color',
+]);
+
+export function isCompanionSlot(slot: Slot) {
+  return companionSlots.has(slot);
+}
+
+export function isEffectSlot(slot: Slot) {
+  return slot === 'progress' || slot === 'celebration' || slot === 'navigation';
+}
+
 export function cosmeticById(id?: string) {
   return id === undefined ? undefined : byId.get(id);
 }

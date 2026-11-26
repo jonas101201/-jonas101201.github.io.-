@@ -8,12 +8,29 @@ import './item-artwork.css';
 import './worlds.css';
 import './garden-clay.css';
 
-export function CosmeticSurface({ preview = false }: { preview?: boolean }) {
+export function CosmeticSurface({ preview = false }: { preview?: boolean | 'studio' }) {
   const { enabled: optedIn, state } = useProgression();
   const enabled = optedIn || preview;
   const [backgroundPaused] = useBackgroundPreference();
+  const [temporary, setTemporary] = useState<Look>({});
   const [visible, setVisible] = useState(() => !document.hidden);
-  const look = useMemo<Look>(() => preview ? enchantedGarden.look : compatibleLook(state.equipped, state.owned), [preview, state.equipped, state.owned]);
+  const look = useMemo<Look>(() => preview === 'studio' ? temporary : preview ? enchantedGarden.look : compatibleLook(state.equipped, state.owned),
+    [preview, state.equipped, state.owned, temporary]);
+
+  useLayoutEffect(() => {
+    if (preview !== 'studio') return;
+    function receive(event: MessageEvent<unknown>) {
+      const data = event.data;
+      if (event.source !== window.parent || event.origin !== window.location.origin ||
+          !data || typeof data !== 'object' || !('type' in data) || data.type !== 'lernhub-look-preview' ||
+          !('look' in data) || !data.look || typeof data.look !== 'object' || Array.isArray(data.look)) return;
+      const entries = Object.entries(data.look).filter((entry): entry is [string, string] => typeof entry[1] === 'string');
+      setTemporary(compatibleLook(Object.fromEntries(entries)));
+    }
+    window.addEventListener('message', receive);
+    window.parent.postMessage({ type: 'lernhub-look-ready' }, window.location.origin);
+    return () => window.removeEventListener('message', receive);
+  }, [preview]);
   const variables = useMemo(() => {
     // Living Garden supplies its own scoped Clay tokens.
     if (look.glass !== 'garden-clay') return lookVariables(look);

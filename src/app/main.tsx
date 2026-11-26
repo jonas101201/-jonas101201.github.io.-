@@ -21,7 +21,7 @@ import '../styles/desktop-design.css';
 import '../styles/interaction-finish.css';
 import '../styles/clay-design.css';
 applyTheme(currentTheme());
-startWebAnalytics();
+if (window.self === window.top) startWebAnalytics();
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

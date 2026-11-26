@@ -4,8 +4,9 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useI18n } from '../../i18n/context';
 import { cosmetics, rarityLabels, slots, type Cosmetic } from './cosmetics';
 import { useProgression } from './store';
-import { CosmeticArtwork, StudioPreview } from './StudioPreview';
+import { CosmeticArtwork } from './StudioPreview';
 import { companions } from './companions';
+import { CosmeticTryOn } from './CosmeticTryOn';
 import { ShopSpotlight } from './ShopSpotlight';
 import { WorldShowcase } from './WorldShowcase';
 import './studio.css';
@@ -126,19 +127,10 @@ export function RewardStore() {
         </select>
       </label>
     </div>
-    {selected && <div className="glass dashboard-panel studio-layout" id="store-preview">
-      <StudioPreview key={selected.id} look={['body','eyes','expression','crystals','rings','crown','particles','companion-color'].includes(selected.slot)
-        ? { companion: 'orbit', [selected.slot]: selected.id } : { [selected.slot]: selected.id }}/>
-      <div>
-        <h3 id="store-preview-heading" tabIndex={-1}>{selected.name} · {tr('Vorschau')}</h3>
-        <p>{tr(selected.description)}</p>
-        <p>{conditionLabel(selected, tr)}</p>
-        <button className="button secondary" type="button" onClick={() => {
-          document.getElementById(`preview-${selected.id}`)?.focus();
-          setSelected(null);
-        }}>{tr('Vorschau schließen')}</button>
-      </div>
-    </div>}
+    {selected && <CosmeticTryOn key={selected.id} item={selected} state={state} condition={conditionLabel(selected, tr)} close={() => {
+      document.getElementById(`preview-${selected.id}`)?.focus();
+      setSelected(null);
+    }}/>}
     {(message || error) && <p role="status" className="notice">{tr(error ?? message)}</p>}
     {filtered.length === 0 && <p className="muted">{tr('Keine passenden Gegenstände.')}{!enabled && scope !== 'all' && <> · <Link className="text-link" to="/fortschritt/speicher">{tr('Progress freiwillig aktivieren')}</Link></>}</p>}
     <div className="progress-tile-grid collection-shop-grid">

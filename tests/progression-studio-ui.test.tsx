@@ -12,8 +12,8 @@ import { CosmeticSurface } from '../src/features/progression/CosmeticSurface';
 const mock = vi.hoisted(() => ({ value: null as unknown }));
 vi.mock('../src/features/progression/store', () => ({ useProgression: () => mock.value }));
 
-function show(node: React.ReactNode) {
-  return render(<LanguageProvider><MemoryRouter>{node}</MemoryRouter></LanguageProvider>);
+function show(node: React.ReactNode, path = '/') {
+  return render(<LanguageProvider><MemoryRouter initialEntries={[path]}>{node}</MemoryRouter></LanguageProvider>);
 }
 beforeEach(() => {
   localStorage.clear();
@@ -30,6 +30,12 @@ it('offers previews without consent, with a separate confirmed purchase for enab
   const aurora = screen.getByRole('heading', { name: 'Aurora' }).closest('article')!;
   await user.click(within(aurora).getByRole('button', { name: 'Vorschau für Aurora' }));
   expect(screen.getByRole('heading', { name: 'Aurora · Vorschau' })).toBeTruthy();
+  expect(screen.getByTitle('LernHub-Startseite als Vorschau').getAttribute('src')).toContain('#/?anprobe=studio');
+  expect(screen.getByRole('link', { name: 'Im Studio kombinieren' }).getAttribute('href')).toContain('?vorschau=aurora');
+  await user.click(screen.getByRole('button', { name: 'Produktansicht' }));
+  expect(screen.queryByTitle('LernHub-Startseite als Vorschau')).toBeNull();
+  await user.click(screen.getByRole('button', { name: 'Vorschau schließen' }));
+  expect(document.activeElement).toBe(within(aurora).getByRole('button', { name: 'Vorschau für Aurora' }));
   expect((within(aurora).getByRole('button', { name: 'Eintauschen' }) as HTMLButtonElement).disabled).toBe(true);
   expect(dispatch).not.toHaveBeenCalled();
 
@@ -55,6 +61,19 @@ it('does not equip locked cosmetics and applies two owned slots together', async
   await user.selectOptions(screen.getByLabelText('Akzentfarbe', { exact: false }), 'accent-iris');
   await user.click(screen.getByRole('button', { name: 'Design anwenden' }));
   expect(dispatch).toHaveBeenCalledWith({ type: 'equip', equipped: { background: 'aurora', accent: 'accent-iris' } });
+});
+
+it('opens a shop accessory in the companion preview and discards it without equipping', async () => {
+  const user = userEvent.setup();
+  const dispatch = vi.fn();
+  mock.value = { state: emptyState(), enabled: true, dispatch, error: null };
+  const view = show(<Studio/>, '/fortschritt/studio?vorschau=eyes-dual');
+  expect(screen.getByRole('button', { name: /^Begleiter$/ }).getAttribute('aria-pressed')).toBe('true');
+  expect(view.container.querySelector('.studio-character-preview img')?.getAttribute('src')).toContain('orbit-stage-0-dual.webp');
+  expect((screen.getByRole('button', { name: 'Design anwenden' }) as HTMLButtonElement).disabled).toBe(true);
+  await user.click(screen.getByRole('button', { name: 'Änderungen verwerfen' }));
+  expect(view.container.querySelector('.studio-character-preview img')?.getAttribute('src')).toContain('orbit-poster.webp');
+  expect(dispatch).not.toHaveBeenCalled();
 });
 
 it('clears the equipped surface on unmount without modifying other slots', () => {

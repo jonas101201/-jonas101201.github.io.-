@@ -1,37 +1,29 @@
-import { BookOpen, CalendarDays, House, Search, Settings, ShoppingBag, Sun } from 'lucide-react';
+import { BookOpen, CalendarDays, House } from 'lucide-react';
 import { useStudioMotionPaused } from './studioMotion';
 import { LogoMark } from '../../components/LogoMark';
 import { useI18n } from '../../i18n/context';
 import { CompanionVisual } from './Companion';
-import { lookVariables, type Cosmetic, type Look, type LookStyle } from './cosmetics';
+import { isCompanionSlot, lookVariables, type Cosmetic, type Look, type LookStyle } from './cosmetics';
 import './item-artwork.css';
 import type { CompanionId } from './companions';
 
-export function StudioPreview({ look, stage = 0, dashboard = false }: { look: Look; stage?: number; dashboard?: boolean }) {
+export function StudioPreview({ look }: { look: Look }) {
   const { tr } = useI18n();
   const pause = useStudioMotionPaused();
   return <div className="studio-preview" role="group" data-studio="" data-studio-logo={look.logo} data-studio-glass={look.glass} data-studio-progress={look.progress} data-cosmetic-scene={look.background} data-living-clay={look.glass} data-garden-growth={look.progress === 'garden-growth' ? '' : undefined} data-garden-fireflies={look.environment === 'garden-fireflies' ? '' : undefined} data-studio-preview-background={look.background ? '' : undefined} data-studio-paused={pause ? '' : undefined} style={lookVariables(look)} aria-label={tr('Designvorschau')}>
     <div className="studio-preview-orbs" aria-hidden="true"><i/><i/><i/></div>
     <div className="studio-preview-card">
-      <div className="studio-preview-header"><LogoMark/><strong>LernHub</strong>{dashboard && <span className="world-preview-header-controls" aria-hidden="true"><Sun/><Settings/></span>}</div>
-      {look.companion && <CompanionVisual id={look.companion as CompanionId} stage={stage} look={look} interactive/>}
-      {dashboard && <div className="world-dashboard-preview" aria-label="Beispiel der LernHub-Startseite">
-        {['BK1', 'BK2'].map(subject => <div key={subject}><strong>{subject}</strong><div className="world-field-grid">{Array.from({ length: 8 }, (_, index) => <span key={index}>LF {index + 1}</span>)}</div></div>)}
-        <div>{tr('Weiterlernen')}</div>
-      </div>}
+      <div className="studio-preview-header"><LogoMark/><strong>LernHub</strong></div>
       {look.progress === 'garden-growth' ? <GardenStem value={64} label={tr('Beispiel für einen Fortschrittsbalken')}/> :
         <progress max={100} value={64} aria-label={tr('Beispiel für einen Fortschrittsbalken')}/>}
-      {dashboard ? <div className="studio-preview-icons world-preview-dock" aria-hidden="true">
-        {([[House, 'Start'], [BookOpen, 'Lernen'], [Search, 'Suche'], [CalendarDays, 'Termine'], [ShoppingBag, 'Shop']] as const).map(([Icon, label]) =>
-          <span key={label}><Icon/>{tr(label)}</span>)}
-      </div> : <div className="studio-preview-icons" aria-hidden="true"><House/><BookOpen/><CalendarDays/></div>}
+      <div className="studio-preview-icons" aria-hidden="true"><House/><BookOpen/><CalendarDays/></div>
     </div>
   </div>;
 }
 
 export function CosmeticArtwork({ item }: { item: Cosmetic }) {
   const { slot, id, visual } = item;
-  const companion = slot === 'companion' || ['body', 'eyes', 'expression', 'crystals', 'rings', 'crown', 'particles', 'companion-color'].includes(slot);
+  const companion = isCompanionSlot(slot);
   const artStyle: LookStyle = {
     ...lookVariables({ [slot]: id }),
     '--studio-art-color': visual.palette?.[0] ?? '#85a9ce',

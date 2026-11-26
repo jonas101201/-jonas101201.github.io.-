@@ -35,7 +35,7 @@ export function companionProgress(state: State, id: string) {
   const labels = id === 'pflanziska' ? ['Original', 'Awakened', 'Flourishing', 'Celestial'] : stages;
   const required = companionThresholds[stage + 1];
   return {
-    stage, stageName: labels[stage], points,
+    stage, stageName: labels[stage], labels, points,
     next: required === undefined ? undefined : { required, label: labels[stage + 1]! },
     unlocked: state.owned.includes(id) || id === 'orbit',
   };

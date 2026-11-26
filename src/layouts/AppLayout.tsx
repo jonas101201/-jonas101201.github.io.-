@@ -65,7 +65,7 @@ export function AppLayout() {
     const location = useLocation();
     const learning = canFocusRoute(location.pathname);
     const isHome = location.pathname === '/';
-    const gardenPreview = isHome && window.self !== window.top && new URLSearchParams(location.search).get('anprobe') === 'enchanted-garden';
+    const previewMode = isHome && window.self !== window.top ? new URLSearchParams(location.search).get('anprobe') : null;
     const focusMode = learning && focusPath === location.pathname;
     const { activities, warning, activityWarning, persistenceEnabled, trackActivity } = useProgress();
     const main = useRef<HTMLElement>(null);
@@ -97,8 +97,8 @@ export function AppLayout() {
         window.addEventListener('keydown', keys);
         return () => window.removeEventListener('keydown', keys);
     }, [menuOpen]);
-    return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${focusMode ? '' : 'dock-enabled'} ${learning ? 'focus-capable' : ''} ${isLearningSession(location.pathname) ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
-    <ProgressAppearance preview={gardenPreview}/>
+    return <div ref={shell} inert={previewMode === 'studio'} className={`app-shell ${isHome ? 'home-route' : ''} ${focusMode ? '' : 'dock-enabled'} ${learning ? 'focus-capable' : ''} ${isLearningSession(location.pathname) ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
+    <ProgressAppearance preview={previewMode === 'studio' ? 'studio' : previewMode === 'enchanted-garden'}/>
     <div className="app-safe-area" aria-hidden="true"/>
     <TooltipLayer/>
     {menuOpen && <LernHubMenu anchor={menuTrigger} onClose={closeMenu}/>}
