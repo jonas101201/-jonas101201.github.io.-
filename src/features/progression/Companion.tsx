@@ -1,62 +1,86 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../../i18n/context';
 import { useStudioMotionPaused } from './studioMotion';
 import { companionProgress, companions, type CompanionId } from './companions';
-import { cosmeticById, type Look } from './cosmetics';
+import type { Look } from './cosmetics';
 import { recommendMissions } from './missions';
 import { useProgression } from './store';
 import './studio.css';
 
-const silhouettes: Record<CompanionId, string> = {
-  orbit: 'M65 35a30 30 0 1 1 0 60 30 30 0 1 1 0-60Z',
-  ember: 'M66 28c3 18 28 25 28 44a29 29 0 0 1-58 0c0-14 12-26 30-44Z',
-  spectre: 'M65 30c20 0 26 17 38 36-18 5-24 27-38 35-14-8-20-30-38-35 12-19 18-36 38-36Z',
-  bloom: 'M65 32c16-8 30 9 26 20 17 6 17 28 2 35-3 15-24 21-28 10-11 11-28 5-30-10-16-7-16-29 1-35-3-15 11-28 29-20Z',
-  glitch: 'M48 35h31l17 17v29L80 98H46L33 82V51Z',
-  cosmo: 'M65 30l12 18 24 3-13 19 6 24-23-8-18 17-4-24-23-9 20-14 1-24Z',
+export type CompanionMotion = 'idle' | 'greet' | 'celebrate' | 'still';
+export type CompanionExpression = 'neutral' | 'happy' | 'excited' | 'curious' | 'focused' | 'surprised' | 'proud' | 'thoughtful';
+const modelRoot = import.meta.env.BASE_URL + 'worlds/models/';
+const spriteDurations: Record<CompanionId, Record<Exclude<CompanionMotion, 'still'>, string>> = {
+  orbit: { idle: '3s', greet: '.95s', celebrate: '1.2s' },
+  ember: { idle: '1.9s', greet: '.68s', celebrate: '1.18s' },
+  spectre: { idle: '3.8s', greet: '1.22s', celebrate: '1.48s' },
+  bloom: { idle: '3.2s', greet: '1.08s', celebrate: '1.43s' },
+  glitch: { idle: '2.1s', greet: '.75s', celebrate: '1s' },
+  cosmo: { idle: '3.5s', greet: '1.17s', celebrate: '1.49s' },
+  pflanziska: { idle: '3.6s', greet: '1.16s', celebrate: '1.4s' },
 };
 
-export function CompanionVisual({ id, stage = 0, look = {} }: { id: CompanionId; stage?: number; look?: Look }) {
-  const gradient = useId();
-  const node = useRef<SVGSVGElement>(null);
+export function CompanionVisual({ id, stage = 0, look = {}, motion = 'idle', expression, interactive = false, accessoryPreview }: {
+  id: CompanionId; stage?: number; look?: Look; motion?: CompanionMotion; expression?: CompanionExpression; interactive?: boolean; accessoryPreview?: string;
+}) {
+  const node = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [loaded, setLoaded] = useState('');
   const paused = useStudioMotionPaused();
+  const layers = [look.rings, look.crystals, look.particles, look.crown].filter(Boolean);
+  const eyes = look.eyes === 'eyes-dual';
+  const face = expression ?? (look.expression === 'expression-smile' ? 'happy' : 'neutral');
+  const expressionSuffix = (eyes ? '-dual' : '') + (face === 'neutral' ? '' : face === 'happy' ? '-smile' : '-' + face);
+  const poster = accessoryPreview && id === 'orbit' ? accessoryPreview + '-accessory.webp'
+    : stage || expressionSuffix ? id + '-stage-' + stage + expressionSuffix + '.webp' : id + '-poster.webp';
+  const canAnimate = !accessoryPreview && !expressionSuffix && !layers.length;
+  const sprite = interactive && visible && !paused && canAnimate && motion !== 'still' ? modelRoot + id + (stage ? '-stage-' + stage : '') + '-' + motion + '-sprite.webp' : '';
   useEffect(() => {
-    const observer = typeof IntersectionObserver === 'function' ? new IntersectionObserver(entries => setVisible(entries.some(entry => entry.isIntersecting))) : null;
-    if (node.current) observer?.observe(node.current);
-    return () => observer?.disconnect();
-  }, []);
-  const palette = cosmeticById(look['companion-color'] ?? id)?.visual.palette;
-  const body = look.body ? '#b9c7d4' : palette?.[0] ?? '#99cfee';
-  const rings = stage >= 1 || Boolean(look.rings);
-  return <svg ref={node} className="studio-companion" viewBox="0 0 130 130" aria-hidden="true" focusable="false" data-playing={visible && !paused} style={{ color: body }}>
-    <defs><radialGradient id={gradient} cx="32%" cy="24%">
-      <stop offset="0" stopColor="#fff" stopOpacity=".85"/>
-      <stop offset=".38" stopColor={body}/>
-      <stop offset="1" stopColor={palette?.[1] ?? '#31599c'}/>
-    </radialGradient></defs>
-    <g className="studio-companion-float">
-      {rings && <ellipse cx="65" cy="65" rx="50" ry="18" transform="rotate(-26 65 65)" fill="none" stroke="currentColor" strokeWidth="1.5"/>}
-      {stage >= 2 && <ellipse cx="65" cy="65" rx="47" ry="31" transform="rotate(39 65 65)" fill="none" stroke="currentColor" opacity=".45"/>}
-      <path d={silhouettes[id]} fill={`url(#${gradient})`} stroke="currentColor" strokeWidth={stage >= 3 ? 3 : 1.5}/>
-      {stage >= 2 && <path d={silhouettes[id]} transform="translate(13 13) scale(.8)" fill="none" stroke="#fff" opacity=".55"/>}
-      <g fill="#162236">
-        {look.eyes ? <><rect x="50" y="61" width="10" height="4" rx="2"/><rect x="70" y="61" width="10" height="4" rx="2"/></>
-          : <><circle cx="54" cy="63" r="3"/><circle cx="75" cy="63" r="3"/></>}
-      </g>
-      {look.expression && <path d="M59 74q6 7 12 0" fill="none" stroke="#162236" strokeWidth="2" strokeLinecap="round"/>}
-      {(stage >= 2 || look.crystals) && <path d="M22 34l4 7-4 7-4-7Z M105 83l5 8-5 8-5-8Z" fill="currentColor"/>}
-      {(stage >= 3 || look.crown) && <path d="M49 19l7 4 9-12 9 12 7-4-4 13H53Z" fill="currentColor" stroke="#fff" strokeWidth=".7"/>}
-      {(stage >= 3 || look.particles) && <path d="M16 64h4 M18 62v4 M106 31h6 M109 28v6 M82 111h6 M85 108v6" fill="none" stroke="currentColor" strokeWidth="2"/>}
-    </g>
-  </svg>;
+    if (!interactive) return;
+    if (typeof IntersectionObserver !== 'function') { setVisible(true); return; }
+    const observer = new IntersectionObserver(entries => setVisible(entries.some(entry => entry.isIntersecting)));
+    if (node.current) observer.observe(node.current);
+    return () => observer.disconnect();
+  }, [interactive]);
+  useEffect(() => {
+    if (!sprite || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const image = new Image();
+    image.onload = () => setLoaded(sprite);
+    image.src = sprite;
+    return () => { image.onload = null; };
+  }, [sprite]);
+  const animated = Boolean(sprite && loaded === sprite);
+  const duration = motion === 'still' ? '.8s' : spriteDurations[id][motion];
+  return <div ref={node} className="companion-model companion-figure" data-character={id} data-motion={motion} data-visible={interactive && visible && !paused}
+      data-sprite={animated || undefined} data-body={look.body} data-companion-color={look['companion-color']}>
+    <div className="companion-figure-art">
+      <img className="companion-poster" src={modelRoot + poster} width="400" height="400" decoding="async" loading="lazy" alt=""/>
+      {!accessoryPreview && layers.map(layer =>
+        <img key={layer} className="companion-accessory" src={modelRoot + id + '-' + layer + '.webp'}
+          width="176" height="176" decoding="async" loading="lazy" alt=""/>)}
+      {animated && <span key={sprite} className="companion-sprite" aria-hidden="true" style={{ backgroundImage: `url("${sprite}")`, '--companion-duration': duration } as CSSProperties}/>}
+    </div>
+  </div>;
 }
 
 export function Companion() {
   const { tr } = useI18n();
   const { state, enabled, dispatch } = useProgression();
   const [previewStage, setPreviewStage] = useState<number | null>(null);
+  const [testMotion, setTestMotion] = useState<'idle' | 'greet' | 'celebrate'>('greet');
+  const [replay, setReplay] = useState<{ id: CompanionId; motion: 'idle' | 'greet' | 'celebrate'; count: number }>();
+  const [previewExpression, setPreviewExpression] = useState<CompanionExpression | undefined>();
+  useEffect(() => {
+    if (!replay) return;
+    const duration = Number.parseFloat(spriteDurations[replay.id][replay.motion]) * 1000;
+    const timer = window.setTimeout(() => setReplay(undefined), duration + 450);
+    return () => window.clearTimeout(timer);
+  }, [replay]);
+  const expressions: readonly [CompanionExpression, string][] = [
+    ['neutral','Neutral'], ['happy','Glücklich'], ['excited','Begeistert'], ['curious','Neugierig'],
+    ['focused','Konzentriert'], ['surprised','Überrascht'], ['proud','Stolz'], ['thoughtful','Nachdenklich'],
+  ];
   const active = companions.find(item => item.id === state.activeCompanion) ?? companions[0];
   const recommendation = enabled ? recommendMissions(state, new Date().toISOString())[0] : undefined;
   return <section className="progress-section">
@@ -66,17 +90,43 @@ export function Companion() {
       {recommendation && <p>{tr('Vorschlag: {0}', [tr(recommendation.title)])} · <Link className="text-link" to="/fortschritt#missionen">{tr('Lernmissionen')}</Link></p>}
       <p><Link className="text-link" to="/fortschritt/studio">{tr('LernHub Studio')}</Link></p>
       <label className="studio-field">{tr('Entwicklungsstufe ansehen')}
-        <select value={previewStage ?? ''} onChange={event => setPreviewStage(event.target.value === '' ? null : Number(event.target.value))}>
+        <select value={previewStage ?? ''} onChange={event => { setReplay(undefined); setPreviewStage(event.target.value === '' ? null : Number(event.target.value)); }}>
           <option value="">{tr('Aktuelle Stufe')}</option>
           {['Origin','Awakened','Ascended','Celestial'].map((name, index) => <option value={index} key={name}>{name}</option>)}
+        </select>
+      </label>
+      <label className="studio-field">{tr('Gesichtsausdruck ansehen')}
+        <select value={previewExpression ?? ''} onChange={event => { setReplay(undefined); setPreviewExpression(expressions.find(([value]) => value === event.target.value)?.[0]); }}>
+          <option value="">{tr('Automatisch')}</option>
+          {expressions.map(([value, label]) => <option key={value} value={value}>{tr(label)}</option>)}
+        </select>
+      </label>
+      <label className="studio-field">{tr('Bewegung testen')}
+        <select value={testMotion} onChange={event => {
+          const value = event.target.value;
+          if (value === 'idle' || value === 'greet' || value === 'celebrate') {
+            setTestMotion(value);
+            setReplay(undefined);
+          }
+        }}>
+          <option value="idle">{tr('Ruhebewegung')}</option>
+          <option value="greet">{tr('Begrüßung')}</option>
+          <option value="celebrate">{tr('Lernabschluss')}</option>
         </select>
       </label>
     </div>
     <div className="progress-tile-grid">
       {companions.map(item => {
         const progress = companionProgress(state, item.id);
+        const rehearsing = replay?.id === item.id ? replay : undefined;
         return <article className="glass dashboard-panel studio-companion-card" key={item.id}>
-          <CompanionVisual id={item.id} stage={previewStage ?? progress.stage} look={state.equipped}/>
+          <button type="button" className="companion-motion-preview" aria-label={tr('Bewegung von {0} abspielen', [item.name])}
+            onClick={() => setReplay(previous => ({ id: item.id, motion: testMotion, count: (previous?.count ?? 0) + 1 }))}>
+            <CompanionVisual key={rehearsing?.count ?? 0} id={item.id}
+              stage={previewStage ?? progress.stage} look={rehearsing ? undefined : state.equipped}
+              expression={rehearsing ? undefined : previewExpression} interactive={Boolean(rehearsing) || state.activeCompanion === item.id}
+              motion={rehearsing?.motion ?? 'idle'}/>
+          </button>
           <h3>{item.name} · {tr(item.role)}</h3>
           <p>{tr(item.description)}</p>
           <p>{progress.unlocked ? progress.stageName : tr(item.requirement)}</p>

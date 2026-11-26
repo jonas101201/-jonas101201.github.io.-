@@ -75,8 +75,10 @@ function canonicalMissionId(kind: MissionPlan['kind'], scope: string) {
 
 /** Stored plans outlive catalogue labels and balancing. Validate only their
  * stable identity and internal routes. The current catalogue governs new plans. */
+export const plantMissionId = 'quick:pflanziska';
+
 export function validStoredMissionPlan(plan: MissionPlan) {
-  if (plan.id !== canonicalMissionId(plan.kind, scopeOf(plan)) ||
+  if ((plan.id !== canonicalMissionId(plan.kind, scopeOf(plan)) && !(plan.id === plantMissionId && plan.kind === 'quick' && plan.learningFieldId === 'bk1-lf3')) ||
     new Set(plan.steps.map(step => step.id)).size !== plan.steps.length ||
     new Set(plan.steps.map(step => step.kind)).size < 2) return false;
   return plan.steps.every(step => {
@@ -94,7 +96,8 @@ export function validStoredMissionPlan(plan: MissionPlan) {
 export function validMissionPlan(plan: MissionPlan) {
   if (!validStoredMissionPlan(plan)) return false;
   const config = missionClasses[plan.kind];
-  if (plan.id !== canonicalMissionId(plan.kind, scopeOf(plan)) || plan.estimatedMinutes !== config.estimatedMinutes ||
+  if (plan.id === plantMissionId && plan.steps.some((step, index) => step.id !== plantMission()?.steps[index]?.id)) return false;
+  if (plan.estimatedMinutes !== config.estimatedMinutes ||
       plan.reward.xp !== config.reward.xp || plan.reward.credits !== config.reward.credits ||
       plan.steps.length !== config.steps || new Set(plan.steps.map(step => step.id)).size !== plan.steps.length ||
       new Set(plan.steps.map(step => step.kind)).size < 2) return false;
@@ -116,6 +119,20 @@ for (const ref of references) {
   const group = scopeGroups.get(scope) ?? [];
   group.push(ref);
   scopeGroups.set(scope, group);
+}
+
+export function plantMission(): MissionPlan | null {
+  const scope = scopeGroups.get('bk1-lf3') ?? [];
+  const recall = scope.find(ref => ref.kind === 'blurting');
+  const quiz = scope.find(ref => ref.kind === 'quiz');
+  if (!recall || !quiz) return null;
+  return {
+    id: plantMissionId, kind: 'quick', title: 'Pflanziskas Lernmission',
+    reason: 'Rufe dein Wissen über Bindung ab und überprüfe es im passenden Quiz. Damit schaltest du Pflanziska frei.',
+    subjectId: 'bk1', learningFieldId: 'bk1-lf3',
+    estimatedMinutes: missionClasses.quick.estimatedMinutes, reward: missionClasses.quick.reward,
+    steps: [reuseReference(recall), reuseReference(quiz)],
+  };
 }
 
 const preferredMethods: Record<string, readonly LearningKind[]> = {

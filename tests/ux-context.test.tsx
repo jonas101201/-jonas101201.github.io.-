@@ -10,6 +10,8 @@ beforeEach(() => {
   localStorage.clear();
   window.location.hash = '#/';
   vi.stubGlobal('scrollTo', vi.fn());
+  HTMLDialogElement.prototype.showModal = function () { this.setAttribute('open', ''); };
+  HTMLDialogElement.prototype.close = function () { this.removeAttribute('open'); };
   vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }));
 });
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
@@ -34,7 +36,9 @@ it('enters through Lernen and keeps the field and format when switching between 
 it('applies settings to the header and the global background across routes and reloads', async () => {
   const view = show();
   const user = userEvent.setup();
-  await user.click(screen.getByRole('link', { name: 'Einstellungen' }));
+  await user.click(screen.getByRole('button', { name: 'LernHub-Menü' }));
+  await user.click(within(screen.getByRole('dialog', { name: 'LernHub-Menü' })).getByRole('link', { name: 'Erscheinungsbild' }));
+  expect(window.location.hash).toBe('#/einstellungen#appearance-heading');
   await user.click(screen.getByRole('button', { name: 'Hell' }));
   await user.click(screen.getByRole('checkbox', { name: 'Animierter Hintergrund' }));
   expect(screen.getByRole('button', { name: 'Dunklen Modus aktivieren' })).toBeTruthy();

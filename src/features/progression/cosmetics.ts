@@ -1,9 +1,10 @@
 import type { CSSProperties } from 'react';
+import { premiumCosmetics } from './worlds';
 
 export const slots = {
   background: 'Hintergrund', glass: 'Glasmaterial', accent: 'Akzentfarbe', icons: 'Icon-Paket',
   logo: 'LernHub-Logo', celebration: 'Abschlussanimation', progress: 'Fortschrittsbalken',
-  navigation: 'Navigationsanimation', companion: 'Lernbegleiter',
+  navigation: 'Navigationsanimation', companion: 'Lernbegleiter', environment: 'Umgebungseffekt',
   body: 'Körpermaterial', eyes: 'Augen', expression: 'Gesichtsausdruck', crystals: 'Kristalle',
   rings: 'Ringe', crown: 'Krone', particles: 'Partikel', 'companion-color': 'Begleiter-Farbe',
 } as const;
@@ -13,7 +14,7 @@ export type Look = Partial<Record<Slot, string>>;
 export type Rarity = 'common' | 'rare' | 'epic' | 'legendary' | 'mythic';
 export type Condition = { type: 'credits'; price: number }
   | { type: 'level'; level: number }
-  | { type: 'achievement' | 'collection' | 'companion'; id: string };
+  | { type: 'achievement' | 'collection' | 'companion' | 'world'; id: string };
 type Palette = readonly [dark: string, light: string];
 type Visual = {
   palette?: Palette;
@@ -47,6 +48,7 @@ function item(id: string, name: string, slot: Slot, rarity: Rarity, condition: C
 }
 
 export const cosmetics: readonly Cosmetic[] = [
+  ...premiumCosmetics,
   item('aurora', 'Aurora', 'background', 'common', credits(160), 'Grüne und violette Lichtkörper ziehen über den Hintergrund.', { palette: ['#256457', '#99ceb5'], glow: ['#514479', '#cabbe8'], third: ['#284247', '#aec9d5'] }),
   item('nebula', 'Nebula', 'background', 'rare', credits(550), 'Staubiges Violett trifft auf einen kühlen blauen Nebel.', { palette: ['#694662', '#dfb6d8'], glow: ['#354d76', '#a7bfda'], third: ['#483055', '#c3abd8'] }),
   item('deep-space', 'Deep Space', 'background', 'rare', level(10), 'Ein dunkler Orbit mit zurückhaltenden blauen Reflexen.', { palette: ['#274770', '#9ab5db'], glow: ['#3b5076', '#b3c7e7'], third: ['#283349', '#c4d1e1'] }),
@@ -74,13 +76,14 @@ export const cosmetics: readonly Cosmetic[] = [
   item('logo-chrome', 'Chrome', 'logo', 'common', credits(240), 'Das Buchzeichen erhält einen silbrigen Glanz.', { style: 'grayscale(1) contrast(1.09) brightness(1.08)' }),
   item('logo-obsidian', 'Obsidian', 'logo', 'rare', credits(610), 'Ein kühles, dunkleres Finish für das Buchzeichen.', { style: 'grayscale(.85) hue-rotate(18deg) contrast(1.22) brightness(.88)' }),
   item('logo-holographic', 'Holographic', 'logo', 'epic', credits(1600), 'Das Buchzeichen schimmert in einem violetten Finish.', { style: 'hue-rotate(48deg) saturate(1.6) brightness(1.08)' }),
+  item('logo-herbarium', 'Herbarium', 'logo', 'common', credits(240), 'Ein offenes Buch aus cremefarbenem Ton, umrahmt von Efeu auf moosgrünem Clay.', {}),
   item('logo-gold', 'Gold', 'logo', 'legendary', level(50), 'Goldton für das unverwechselbare Buchzeichen.', { style: 'sepia(.72) saturate(1.45) brightness(1.12)' }),
 
   item('celebrate-nova', 'Nova', 'celebration', 'common', credits(250), 'Ein heller Lichtsaum wächst kurz um ein Ergebnis.', { style: 'studio-nova', palette: ['#99d9ee', '#327991'] }),
   item('celebrate-ripple', 'Liquid Ripple', 'celebration', 'rare', credits(650), 'Ein weicher Glanz läuft über die Abschlusskarte.', { style: 'studio-ripple', palette: ['#a1ebd8', '#216e62'] }),
-  item('celebrate-aurora', 'Aurora Wave', 'celebration', 'epic', credits(1350), 'Ein violetter Reflex kennzeichnet den Abschluss.', { style: 'studio-ripple', palette: ['#c9abfa', '#694397'] }),
-  item('celebrate-golden', 'Golden Ascension', 'celebration', 'legendary', credits(3600), 'Goldenes Licht steigt auf der Abschlusskarte auf.', { style: 'studio-nova', palette: ['#ffd290', '#876020'] }),
-  item('celebrate-singularity', 'Singularity', 'celebration', 'mythic', collection('exams'), 'Ein blauer Lichtimpuls sammelt sich am Rand der Abschlusskarte.', { style: 'studio-ripple', palette: ['#9abdfc', '#3c57a5'] }),
+  item('celebrate-aurora', 'Aurora Wave', 'celebration', 'epic', credits(1350), 'Ein violetter Reflex kennzeichnet den Abschluss.', { style: 'studio-aurora-wave', palette: ['#c9abfa', '#694397'] }),
+  item('celebrate-golden', 'Golden Ascension', 'celebration', 'legendary', credits(3600), 'Goldenes Licht steigt auf der Abschlusskarte auf.', { style: 'studio-ascension', palette: ['#ffd290', '#876020'] }),
+  item('celebrate-singularity', 'Singularity', 'celebration', 'mythic', collection('exams'), 'Ein blauer Lichtimpuls sammelt sich am Rand der Abschlusskarte.', { style: 'studio-singularity', palette: ['#9abdfc', '#3c57a5'] }),
 
   item('bar-plasma', 'Plasma', 'progress', 'common', credits(190), 'Ein klarer violetter Verlauf für Fortschrittsbalken.', { palette: ['#c195f1', '#6a429d'], glow: ['#e3b0f3', '#9b3975'] }),
   item('bar-crystal', 'Crystal Bar', 'progress', 'rare', credits(490), 'Eisblau und Türkis markieren den Fortschritt.', { palette: ['#86d9ec', '#275d90'], glow: ['#83efd5', '#18766a'] }),
@@ -97,6 +100,7 @@ export const cosmetics: readonly Cosmetic[] = [
   item('bloom', 'Bloom', 'companion', 'epic', companion('bloom'), 'Entwicklungsbegleiter für Lernlücken und Verbesserungen.', { palette: ['#a6e6a7', '#347142'], style: 'bloom' }),
   item('glitch', 'Glitch', 'companion', 'legendary', companion('glitch'), 'Stratege für Prüfungsvorbereitung und Lernplanung.', { palette: ['#82eadb', '#166e71'], style: 'glitch' }),
   item('cosmo', 'Cosmo', 'companion', 'mythic', companion('cosmo'), 'Entdecker für neue Fächer und Lernmethoden.', { palette: ['#fac1de', '#8b416b'], style: 'cosmo' }),
+  item('pflanziska', 'Pflanziska', 'companion', 'legendary', companion('pflanziska'), 'Die Klassenpflanze mit selbst gebasteltem Papierschmuck.', { palette: ['#87b177', '#32543a'] }),
 
   item('body-mercury', 'Mercury Skin', 'body', 'rare', credits(520), 'Silbrige Reflexe auf dem Körper des Begleiters.', { style: 'mercury' }),
   item('eyes-dual', 'Twin Lens', 'eyes', 'common', credits(170), 'Zwei schmale Lichtlinsen als Augen.', { style: 'dual' }),

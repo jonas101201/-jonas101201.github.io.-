@@ -1,5 +1,6 @@
 import { ProgressAppearance } from '../features/progression/ProgressAppearance';
 import { LogoMark } from '../components/LogoMark';
+import { LernHubMenu } from '../components/LernHubMenu';
 import { MobileDock } from '../components/MobileDock';
 import { TooltipLayer } from '../components/TooltipLayer';
 import { mountDisclosureMotion } from '../utils/disclosureMotion';
@@ -15,7 +16,7 @@ import { useRouteScroll } from '../hooks/useRouteScroll';
 import { useI18n } from "../i18n/context";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigationType } from 'react-router-dom';
-import { BarChart3, CalendarDays, PenLine, FileText, GraduationCap, Home, Layers, Search, Settings, Settings2, Database, ShieldCheck, Users, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
+import { BarChart3, CalendarDays, PenLine, FileText, GraduationCap, Home, Layers, Search, Settings, ShoppingBag, Palette, Settings2, Database, ShieldCheck, Users, Play, BookCopy, BookOpen, PanelLeftClose, PanelLeftOpen, Maximize, Minimize } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { classroom } from '../features/classroom/config';
 const links = [
@@ -35,7 +36,12 @@ const links = [
 const sidebarGroups = [
     { label: 'Übersicht', items: links.slice(0, 1) },
     { label: 'Lernen', items: [...links.slice(1, 7), { to: '/blurting', label: 'Freier Wissensabruf', icon: PenLine }] },
-    { label: 'Organisation', items: [...links.slice(7, 9), { to: '/fortschritt', label: 'Fortschritt', icon: BarChart3 }] },
+    { label: 'Mein LernHub', items: [
+        { to: '/fortschritt/store', label: 'Shop', icon: ShoppingBag },
+        { to: '/fortschritt/studio', label: 'LernHub Studio', icon: Palette },
+        { to: '/fortschritt', label: 'Fortschritt', icon: BarChart3 },
+    ] },
+    { label: 'Organisation', items: links.slice(7, 9) },
     { label: 'System', items: links.slice(9) },
 ];
 export function AppLayout() {
@@ -49,6 +55,9 @@ export function AppLayout() {
     const [focusPath, setFocusPath] = useState('');
     const [backgroundPaused] = useBackgroundPreference();
     const [palette, setPalette] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const menuTrigger = useRef<HTMLButtonElement>(null);
+    const closeMenu = useCallback(() => setMenuOpen(false), []);
     const searchAnchor = useRef<HTMLElement | null>(null);
     const openSearch = useCallback((anchor?: HTMLElement) => { searchAnchor.current = anchor ?? null; setPalette(true); }, []);
     const closePalette = useCallback(() => setPalette(false), []);
@@ -56,6 +65,7 @@ export function AppLayout() {
     const location = useLocation();
     const learning = canFocusRoute(location.pathname);
     const isHome = location.pathname === '/';
+    const gardenPreview = isHome && window.self !== window.top && new URLSearchParams(location.search).get('anprobe') === 'enchanted-garden';
     const focusMode = learning && focusPath === location.pathname;
     const { activities, warning, activityWarning, persistenceEnabled, trackActivity } = useProgress();
     const main = useRef<HTMLElement>(null);
@@ -70,6 +80,7 @@ export function AppLayout() {
     }, [location.pathname, searchIndex]);
     useRouteScroll(location, useNavigationType(), main);
     useLayoutEffect(() => { setFocusPath(''); setPalette(false); }, [location.pathname]);
+    useLayoutEffect(() => { closeMenu(); }, [location.key, closeMenu]);
     useEffect(() => {
         const label = sidebarGroups.flatMap(group => group.items).find(link => location.pathname === link.to || location.pathname.startsWith(link.to + '/'))?.label
           ?? ({ '/lernen': 'Lernen', '/suche': 'Suche', '/einstellungen': 'Einstellungen' }[location.pathname] || 'Informationen');
@@ -77,7 +88,7 @@ export function AppLayout() {
     }, [location.pathname, tr]);
     useEffect(() => {
         function keys(event: KeyboardEvent) {
-            if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k' && !event.repeat && !event.defaultPrevented) {
+            if (!menuOpen && (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k' && !event.repeat && !event.defaultPrevented) {
                 event.preventDefault();
                 searchAnchor.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
                 setPalette(value => !value);
@@ -85,11 +96,12 @@ export function AppLayout() {
         }
         window.addEventListener('keydown', keys);
         return () => window.removeEventListener('keydown', keys);
-    }, []);
+    }, [menuOpen]);
     return <div ref={shell} className={`app-shell ${isHome ? 'home-route' : ''} ${focusMode ? '' : 'dock-enabled'} ${learning ? 'focus-capable' : ''} ${isLearningSession(location.pathname) ? 'learning-route' : ''} ${collapsed ? 'sidebar-collapsed' : ''} ${focusMode ? 'focus-mode' : ''}`}>
-    <ProgressAppearance/>
+    <ProgressAppearance preview={gardenPreview}/>
     <div className="app-safe-area" aria-hidden="true"/>
     <TooltipLayer/>
+    {menuOpen && <LernHubMenu anchor={menuTrigger} onClose={closeMenu}/>}
     {palette && <CommandPalette anchor={searchAnchor.current} onClose={closePalette} recentRoutes={activities.map(a => a.to)}/>}
     <ClayBackground paused={backgroundPaused || focusMode}/>
     <a href="#main-content" className="skip-link" onClick={e => { e.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>{tr("Zum Inhalt springen")}</a>
@@ -98,7 +110,7 @@ export function AppLayout() {
       <nav className="main-nav" aria-label="LernHub">{sidebarGroups.map(({ label, items }) => (
         <div className="sidebar-group" key={label} role="group" aria-label={tr(label)}>
           <p className="sidebar-group-label muted" aria-hidden="true">{tr(label)}</p>
-          {items.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} aria-label={tr(label)} title={collapsed ? tr(label) : undefined} end={to === '/'} className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}><Icon size={23} strokeWidth={1.7} aria-hidden="true"/><span>{tr(label)}</span></NavLink>)}
+          {items.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} aria-label={tr(label)} title={collapsed ? tr(label) : undefined} end={to === '/' || to === '/fortschritt'} className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}><Icon size={23} strokeWidth={1.7} aria-hidden="true"/><span>{tr(label)}</span></NavLink>)}
         </div>
       ))}</nav>
       <div className="sidebar-bottom"><div className="sidebar-class"><span>{classroom.name}</span><small>{tr(classroom.program)}</small></div></div>
@@ -109,7 +121,7 @@ export function AppLayout() {
         <button className="icon-button desktop-sidebar-toggle" aria-controls="main-sidebar" aria-expanded={!collapsed} aria-label={tr(collapsed ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen')} onClick={() => changeWithMotion(() => setCollapsed(value => !value))}>{collapsed ? <PanelLeftOpen size={20}/> : <PanelLeftClose size={20}/>}</button>
         {learning && <button className="button secondary focus-toggle" aria-pressed={focusMode} aria-label={tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')} title={tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')} onClick={() => changeWithMotion(() => setFocusPath(focusMode ? '' : location.pathname))}>{focusMode ? <Minimize size={18} aria-hidden="true"/> : <Maximize size={18} aria-hidden="true"/>}<span>{tr(focusMode ? 'Fokusmodus verlassen' : 'Fokusmodus aktivieren')}</span></button>}
         <button className="global-search command-trigger" aria-label={tr('In LernHub suchen …')} aria-haspopup="dialog" onClick={event => openSearch(event.currentTarget)}><Search size={20}/><span>{tr('In LernHub suchen …')}</span><kbd>{typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : tr('Strg K')}</kbd></button>
-        <div className="header-preferences"><ThemeToggle/><Link className="icon-button settings-link" to="/einstellungen" aria-label={tr('Einstellungen')} title={tr('Einstellungen')}><Settings size={20} aria-hidden="true"/></Link></div>
+        <div className="header-preferences"><ThemeToggle/><button ref={menuTrigger} type="button" className="icon-button settings-link" aria-label={tr('LernHub-Menü')} title={tr('LernHub-Menü')} aria-haspopup="dialog" aria-expanded={menuOpen} aria-controls={menuOpen ? 'lernhub-menu' : undefined} onClick={() => setMenuOpen(true)}><Settings size={20} aria-hidden="true"/></button></div>
       </header>
       <main id="main-content" tabIndex={-1} ref={main} className="main-content">{(warning || activityWarning) && <div role="status" className="notice warning">{tr(warning || activityWarning || undefined)} <Link to="/speicher">{tr("Speicher verwalten")}</Link></div>}<Breadcrumbs/><div key={location.pathname} className="page-enter"><Outlet /></div></main>
       <footer className="page-footer"><span>{tr("LernHub \u00B7 ")}{classroom.name}</span><div className="footer-links"><Link to="/datenschutz">{tr("Datenschutz")}</Link><Link to="/speicher">{persistenceEnabled ? tr('Speicher verwalten') : tr('Speicherung aktivieren')}</Link><Link to="/ueber">{tr("Informationen & Speicher")}</Link></div></footer>

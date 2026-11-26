@@ -1,3 +1,4 @@
+import { ActiveCompanion } from '../progression/ActiveCompanion';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Brain, Clock3 } from 'lucide-react';
@@ -295,6 +296,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     </>}
     {phase === 'complete' && outcome && <section className="glass dashboard-panel blurting-panel">
       <h2 ref={title} tabIndex={-1}>{tr('Wissensabruf abgeschlossen')}</h2>
+      <ActiveCompanion context="completion"/>
       <dl className="blurting-summary">
         {ratings.map(rating => <div key={rating}><dt>{tr(ratingLabels[rating])}</dt><dd>{states[rating]}</dd></div>)}
       </dl>

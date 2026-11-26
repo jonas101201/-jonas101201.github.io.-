@@ -4,6 +4,7 @@ import { achievementDefinitions, challengeDefinitions, collectionDefinitions } f
 import { activityKey, assessedWell, challengeProgress, eventCounts } from './analytics';
 import { companionProgress, companionQualified, companions } from './companions';
 import { compatibleLook, cosmeticById, cosmetics } from './cosmetics';
+import { premiumWorldById, premiumWorlds } from './worlds';
 import { dateSchema, keySchema, learningKinds, learningReference, missionRecordSchema, validMissionPlan, validStoredMissionPlan, type MissionPlan } from './missions';
 import { activityRewards, DAY_MS, elapsedDays, INITIAL_REWARDED_REVIEWS, levelFor, LONG_TERM_REWARD_GAP_DAYS, MAX_REWARDED_REVIEWS, MIN_BLURTING_WORDS, milestoneLevels, REVIEW_DAYS, type Reward } from './rules';
 
@@ -88,9 +89,12 @@ export type Action =
   | { type: 'complete'; event: LearningEvent }
   | { type: 'cosmetic-buy'; id: string; at: string }
   | { type: 'cosmetic-wishlist'; id: string }
+  | { type: 'world-buy'; id: string; at: string }
+  | { type: 'world-equip' | 'world-wishlist'; id: string }
   | { type: 'equip'; equipped: Record<string, string> }
   | { type: 'preset-save'; id: string; name: string }
   | { type: 'preset-delete'; id: string }
+  | { type: 'preset-rename'; id: string; name: string }
   | { type: 'companion-select'; id: string }
   | { type: 'mission-start'; mission: MissionPlan; at: string }
   | { type: 'mission-pause' | 'mission-resume' | 'mission-cancel' | 'mission-complete'; id: string; at: string }
@@ -128,6 +132,17 @@ export const stateSchema = stateDataSchema.superRefine((state, ctx) => {
   if (credits !== state.credits) inconsistent('credits');
   if (xp !== state.xp) inconsistent('xp');
   if (!unique(state.owned) || !unique(state.wishlist) || !unique(state.unlocks) || !unique(state.resolvedGaps)) inconsistent('unlocks');
+  for (const world of premiumWorlds) {
+    const purchase = state.transactions.find(tx => tx.id === `purchase:world:${world.id}`);
+    const count = world.cosmeticIds.filter(id => state.owned.includes(id)).length;
+    if (purchase ? purchase.kind !== 'purchase' || purchase.credits >= 0 || count !== world.cosmeticIds.length : count !== 0) {
+      inconsistent('owned');
+    }
+  }
+  if (state.transactions.some(tx => {
+    if (tx.id.startsWith('purchase:world:')) return !premiumWorldById(tx.id.slice('purchase:world:'.length));
+    return tx.kind === 'purchase' && cosmeticById(tx.id.slice('purchase:'.length))?.condition.type === 'world';
+  })) inconsistent('transactions');
   if (!state.owned.includes('orbit') || !state.owned.includes(state.activeCompanion) || !companions.some(item => item.id === state.activeCompanion)) inconsistent('activeCompanion');
   for (const [slot, id] of Object.entries(state.equipped)) {
     if (!state.owned.includes(id) || cosmeticById(id)?.slot !== slot || (slot === 'companion' && id !== state.activeCompanion)) inconsistent('equipped');
@@ -199,6 +214,11 @@ function addOwned(state: State, id: string) {
   return true;
 }
 
+export function ownsWorld(state: State, id: string) {
+  const world = premiumWorldById(id);
+  return Boolean(world && world.cosmeticIds.every(cosmeticId => state.owned.includes(cosmeticId)));
+}
+
 export function cosmeticAvailable(state: State, id: string) {
   const item = cosmeticById(id);
   if (!item) return false;
@@ -206,6 +226,7 @@ export function cosmeticAvailable(state: State, id: string) {
   const condition = item.condition;
   switch (condition.type) {
     case 'credits': return state.credits >= condition.price;
+    case 'world': return false;
     case 'level': return levelFor(state.xp).level >= condition.level;
     case 'companion': return companionQualified(state, condition.id);
     case 'collection':
@@ -323,8 +344,27 @@ export function applyAction(current: State, action: Action): State {
       addOwned(state, item.id);
       return state;
     }
+    case 'world-buy': {
+      const world = premiumWorldById(action.id);
+      if (!world || state.credits < world.price || state.transactions.some(tx => tx.id === `purchase:world:${world.id}`)) return current;
+      const items = Object.entries(world.look);
+      if (items.length !== 6 || world.cosmeticIds.length !== items.length || !unique(world.cosmeticIds) || items.some(([slot, id]) => {
+        const item = cosmeticById(id);
+        return !world.cosmeticIds.includes(id) || !item || item.slot !== slot || item.condition.type !== 'world' || item.condition.id !== world.id || state.owned.includes(id);
+      })) return current;
+      grant(state, { id: `purchase:world:${world.id}`, kind: 'purchase', title: world.name, at: action.at, xp: 0, credits: -world.price });
+      for (const id of world.cosmeticIds) addOwned(state, id);
+      return state;
+    }
+    case 'world-equip': {
+      const world = premiumWorldById(action.id);
+      if (!world || !ownsWorld(state, world.id)) return current;
+      setLook(state, { ...state.equipped, ...world.look });
+      return state;
+    }
+    case 'world-wishlist':
     case 'cosmetic-wishlist': {
-      if (!cosmeticById(action.id)) return current;
+      if (action.type === 'world-wishlist' ? !premiumWorldById(action.id) : !cosmeticById(action.id) || cosmeticById(action.id)?.condition.type === 'world') return current;
       state.wishlist = state.wishlist.includes(action.id) ? state.wishlist.filter(id => id !== action.id) : [...state.wishlist, action.id];
       return state;
     }
@@ -337,6 +377,13 @@ export function applyAction(current: State, action: Action): State {
       if (!name.success || (state.presets.length >= 12 && !state.presets.some(preset => preset.id === action.id))) return current;
       const preset = { id: action.id, name: name.data, equipped: { ...state.equipped } };
       state.presets = [...state.presets.filter(item => item.id !== action.id), preset];
+      return state;
+    }
+    case 'preset-rename': {
+      const name = shortText.safeParse(action.name);
+      const preset = state.presets.find(item => item.id === action.id);
+      if (!name.success || !preset || preset.name === name.data) return current;
+      preset.name = name.data;
       return state;
     }
     case 'preset-delete': {

@@ -1,0 +1,155 @@
+/* Each artwork describes the item itself. These layers are decorative and stay
+   confined to the card, except for finish tokens used by equipped materials. */
+@media screen {
+  [data-studio-glass="crystal-glass"], [data-item-art="crystal-glass"] {
+    --item-finish: linear-gradient(130deg,#e7f8ff37 0%,transparent 34%,#b2deef18 35%,transparent 70%);
+  }
+  [data-studio-glass="frosted-glass"], [data-item-art="frosted-glass"] {
+    --item-finish: radial-gradient(ellipse at 26% 15%,#fff7,transparent 72%), repeating-linear-gradient(125deg,#e7f3fb12 0 1px,transparent 1px 3px);
+  }
+  [data-studio-glass="obsidian-glass"], [data-item-art="obsidian-glass"] {
+    --item-finish: linear-gradient(118deg,transparent 57%,#abb1c82e 58%,transparent 62%), linear-gradient(147deg,#151c3033,transparent 48%);
+  }
+  [data-studio-glass="champagne-glass"], [data-item-art="champagne-glass"] {
+    --item-finish: radial-gradient(ellipse at 84% 7%,#e8bd7754,transparent 61%), linear-gradient(20deg,transparent 70%,#fae6b329);
+  }
+  [data-studio-glass="emerald-glass"], [data-item-art="emerald-glass"] {
+    --item-finish: linear-gradient(152deg,#70dcb151,transparent 48%),repeating-linear-gradient(125deg,transparent 0 20px,#c5ffeb17 20px 22px,transparent 22px 36px);
+  }
+  [data-studio-glass="prismatic-glass"], [data-item-art="prismatic-glass"] {
+    --item-finish: conic-gradient(from 220deg at 84% 8%,#a894ef55,#70bed232,#eebdb340,#a894ef55);
+  }
+
+  :root[data-theme][data-studio-glass]:not([data-living-clay]) .app-shell
+    :is(.home-bk-group,.home-resume-card,.subject-card,.field-card,.dashboard-panel):not(.cosmetic-product),
+  .studio-preview[data-studio-glass]:not([data-living-clay="garden-clay"]) .studio-preview-card {
+    background-image: var(--item-finish, none);
+  }
+
+  .cosmetic-art[data-item-art][data-art-slot="glass"] i {
+    background: var(--item-finish, linear-gradient(140deg,#fff5,transparent)), var(--studio-art-color);
+  }
+  .cosmetic-art[data-art-slot][data-item-art="crystal-glass"] i:first-child { transform: translate(-22%,12%) skewY(-12deg); border-radius: .45rem; }
+  .cosmetic-art[data-art-slot][data-item-art="crystal-glass"] i:nth-child(2) { transform: translate(22%,-12%) skewY(-12deg); border-radius: .45rem; }
+  .cosmetic-art[data-art-slot][data-item-art="frosted-glass"] i:first-child { width: 55%; height: 66%; transform: rotate(-8deg); border-radius: 50%; }
+  .cosmetic-art[data-art-slot][data-item-art="frosted-glass"] i:nth-child(2) { width: 34%; height: 50%; transform: translate(54%,19%); border-radius: 50%; }
+  .cosmetic-art[data-art-slot][data-item-art="obsidian-glass"] i { border-radius: 0; clip-path: polygon(25% 0,100% 0,100% 68%,70% 100%,0 100%,0 25%); }
+  .cosmetic-art[data-art-slot][data-item-art="obsidian-glass"] i:first-child { transform: translate(-35%,7%); }
+  .cosmetic-art[data-art-slot][data-item-art="obsidian-glass"] i:nth-child(2) { transform: translate(33%,-7%); }
+  .cosmetic-art[data-art-slot][data-item-art="champagne-glass"] i:first-child { width: 51%; height: 53%; transform: translate(-18%,9%); border-radius: 999px; }
+  .cosmetic-art[data-art-slot][data-item-art="champagne-glass"] i:nth-child(2) { width: 51%; height: 53%; transform: translate(18%,-11%); border-radius: 999px; }
+  .cosmetic-art[data-art-slot][data-item-art="emerald-glass"] i { border-radius: .35rem; width: 42%; height: 47%; }
+  .cosmetic-art[data-art-slot][data-item-art="emerald-glass"] i:first-child { transform: translate(-33%,25%) rotate(45deg); }
+  .cosmetic-art[data-art-slot][data-item-art="emerald-glass"] i:nth-child(2) { transform: translate(32%,-15%) rotate(45deg); }
+  .cosmetic-art[data-art-slot][data-item-art="prismatic-glass"] i { width: 26%; height: 65%; border-radius: .35rem; }
+  .cosmetic-art[data-art-slot][data-item-art="prismatic-glass"] i:first-child { transform: translate(-77%,7%) skewX(-17deg); }
+  .cosmetic-art[data-art-slot][data-item-art="prismatic-glass"] i:nth-child(2) { transform: translate(0,-3%) skewX(-17deg); }
+  .cosmetic-art[data-art-slot][data-item-art="prismatic-glass"] i:last-child { display: block; transform: translate(77%,6%) skewX(-17deg); }
+  .cosmetic-art[data-art-slot][data-item-art="garden-clay"] i { background: url('/worlds/garden-relief.webp') right bottom / contain no-repeat, var(--studio-art-color); }
+
+  [data-cosmetic-scene="aurora"] { --studio-scene: radial-gradient(ellipse 90% 58% at 53% -5%, transparent 44%, #83dfb0 54%, #458b85 61%, transparent 74%), radial-gradient(ellipse 80% 63% at 82% 15%, transparent 31%, #876b9c 42%, #283451 62%, transparent 68%), #0f2334; }
+  [data-cosmetic-scene="nebula"] { --studio-scene: radial-gradient(ellipse at 29% 38%, #f5b3b84a,transparent 31%), radial-gradient(ellipse at 46% 48%,#b562855c,transparent 50%), radial-gradient(ellipse at 80% 74%,#52669c,transparent 54%), #1e1934; }
+  [data-cosmetic-scene="deep-space"] { --studio-scene: radial-gradient(circle at 12% 32%,#d3e7fc 0 1px,transparent 2px) 0 0/25% 40%, radial-gradient(circle at 20% 20%,#a3c2df 0 1px,transparent 2px) 10% 20%/16% 27%, linear-gradient(145deg,#101626,#182441); }
+  [data-cosmetic-scene="oceanic"] { --studio-scene: repeating-linear-gradient(162deg, transparent 0 11%,#66c9cc54 12% 13%,#76dadd27 14%,transparent 20%), radial-gradient(ellipse at 45% 0%,#3d8992,#0d2e46 85%); }
+  [data-cosmetic-scene="glacier"] { --studio-scene: linear-gradient(124deg,transparent 24%,#d5f1f8c4 25% 27%,transparent 28% 54%,#79c4e096 55% 62%,transparent 63%), conic-gradient(from 225deg at 54% 64%,#294b68,#b9e5f1,#46677e,#86badd,#294b68); }
+  .cosmetic-art[data-art-slot][data-item-art="solar-flare"] i:first-child { width: 37%; aspect-ratio: 1; border-radius: 50%; transform: translate(30%,35%); box-shadow: 0 0 24px #fca371a6; border: 1px solid #ffbb79; background: #693b34; }
+  .cosmetic-art[data-art-slot][data-item-art="nebula"] i:first-child { width: 53%; height: 63%; border-radius: 50%; transform: rotate(-28deg); filter: blur(9px); background: #d99ca633; }
+  .cosmetic-art[data-art-slot][data-item-art="deep-space"] i:first-child { width: 39%; aspect-ratio: 1; transform: translate(48%,18%); border-radius: 50%; background: radial-gradient(circle at 36% 30%,#6489ad,#293e66 45%,#141a2a 76%); box-shadow: -3px -2px 8px #a2c8f045; }
+
+  .cosmetic-art[data-art-slot][data-item-art="accent-iris"] i:first-child { inset: 28% 31%; border-radius: 42% 58% 48% 52%; transform: rotate(-12deg); }
+  .cosmetic-art[data-art-slot][data-item-art="accent-mint"] i:first-child { inset: 30% 24%; border-radius: .55rem; }
+  .cosmetic-art[data-art-slot][data-item-art="accent-mint"] i:nth-child(2) { width: 25%; height: 2px; align-self: end; margin-bottom: 17%; background: #8de8c6; box-shadow: 0 0 11px #8de8c6; }
+  .cosmetic-art[data-art-slot][data-item-art="accent-amber"] i:first-child { inset: 35% 21%; border-radius: 0; clip-path: polygon(7% 0,93% 0,100% 50%,93% 100%,7% 100%,0 50%); background: #a97441; }
+  .cosmetic-art[data-art-slot][data-item-art="accent-amber"] i:nth-child(2) { inset: 36% 23%; border-radius: .1rem; background: #2b2830; }
+
+  .cosmetic-art[data-art-slot][data-item-art="icons-line"] { background: linear-gradient(180deg,#203247,#172334); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-bold"] { background: radial-gradient(ellipse,#395367,#1d2c3b 68%); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-cut"] { background: repeating-linear-gradient(90deg,#202a45 0 26%,#1d2540 27% 51%); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-radiant"] { background: radial-gradient(ellipse at 50% 45%,#585988,#1c223e 65%); }
+  .cosmetic-art[data-art-slot="icons"] .studio-preview-icons span { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; }
+  .cosmetic-art[data-art-slot][data-item-art="icons-line"] .studio-preview-icons { border-block: 1px solid #7593aa; padding-block: .5rem; }
+  .cosmetic-art[data-art-slot][data-item-art="icons-bold"] .studio-preview-icons span { background: #587c9c; border-radius: 50%; }
+  .cosmetic-art[data-art-slot][data-item-art="icons-cut"] .studio-preview-icons span { outline: 1px solid #8da2c3; border-radius: 0; transform: translateY(.22rem); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-cut"] .studio-preview-icons span:nth-child(2) { transform: translateY(-.22rem); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-radiant"] .studio-preview-icons { background: radial-gradient(ellipse,#444963,transparent); }
+  .cosmetic-art[data-art-slot][data-item-art="icons-radiant"] .studio-preview-icons span:nth-child(2) { transform: scale(1.4); }
+
+  .cosmetic-art[data-art-slot][data-item-art="logo-chrome"] { background: repeating-linear-gradient(135deg,#141c2a 0 8%,#3b4755 11%,#141c2a 22%); }
+  .cosmetic-art[data-art-slot][data-item-art="logo-obsidian"] { background: conic-gradient(from 60deg at 48% 47%,#151a25,#3b4458,#111621,#1d273d,#151a25); }
+  .cosmetic-art[data-art-slot][data-item-art="logo-holographic"] { background: conic-gradient(from 110deg at 54% 56%,#2b4366,#71527f,#425f6f,#383759,#2b4366); }
+  .cosmetic-art[data-art-slot][data-item-art="logo-gold"] { background: radial-gradient(ellipse at center,#77553d,#252034 74%); }
+  .cosmetic-art[data-art-slot][data-item-art="logo-herbarium"] { background: url('/worlds/enchanted-garden-small.webp') center / cover; }
+
+  .cosmetic-art[data-art-slot][data-item-art="bar-plasma"] i:nth-child(2) { box-shadow: 0 0 11px #e3b0f3; }
+  .cosmetic-art[data-art-slot][data-item-art="bar-crystal"] i:nth-child(2) { border-radius: 0; clip-path: polygon(0 0,93% 0,100% 50%,93% 100%,0 100%); }
+  .cosmetic-art[data-art-slot][data-item-art="bar-aurora"] i:nth-child(2) { background: linear-gradient(110deg,#6fe1b1,#a994e9 72%,#e3b8f4); inset-block: 39%; }
+  .cosmetic-art[data-art-slot][data-item-art="bar-gold"] i:nth-child(2) { background: repeating-linear-gradient(100deg,#c37c3e 0 13%,#ffe6a3 14% 18%,#d8965c 19% 28%); box-shadow: 0 2px 4px #241913; }
+  .cosmetic-art[data-art-slot][data-item-art="garden-growth"] i { display: none; }
+
+  .cosmetic-art:is([data-art-slot="navigation"],[data-art-slot="celebration"]) i { transform: none; background: none; }
+  .cosmetic-art:is([data-art-slot="navigation"],[data-art-slot="celebration"]) i:last-child { background: none; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-drift"] i:first-child { transform: translateX(-30%); opacity: .25; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-drift"] i:nth-child(2) { transform: translateX(-10%); opacity: .55; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-drift"] i:last-child { transform: translateX(27%); background: #384f68; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-fade"] i:first-child { transform: scale(1.25); opacity: .23; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-fade"] i:nth-child(2) { transform: scale(1.1); opacity: .48; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-lift"] i:first-child { transform: translateY(30%); background: #202e46; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-lift"] i:nth-child(2) { transform: translateY(6%); background: #314762; }
+  .cosmetic-art[data-art-slot][data-item-art="nav-lift"] i:last-child { transform: translateY(-21%); background: #4b6582; }
+
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-nova"] i { width: 15%; height: auto; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 28px #99d9ee; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-nova"] i:nth-child(2) { transform: scale(1.9); opacity: .5; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-nova"] i:last-child { transform: scale(2.7); opacity: .26; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-ripple"] i { width: 52%; height: 27%; border-radius: 50%; transform: rotate(-12deg); }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-ripple"] i:nth-child(2) { transform: rotate(-12deg) scale(1.28); opacity: .63; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-ripple"] i:last-child { transform: rotate(-12deg) scale(1.58); opacity: .32; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-aurora"] { background: radial-gradient(ellipse at 62% 85%,#73619a,#1c253c 67%); }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-aurora"] i { border: 0; width: 68%; height: 30%; border-top: 3px solid #d2b5ed; border-radius: 64% 36% 52% 48%; transform: rotate(-22deg); }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-aurora"] i:nth-child(2) { translate: 4% 15%; opacity: .49; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-aurora"] i:last-child { translate: -6% -15%; opacity: .43; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-golden"] { background: radial-gradient(ellipse at center bottom,#8e593e,#222239 70%); }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-golden"] i { width: 4%; height: 47%; border: 0; border-radius: 100% 100% 0 0; background: linear-gradient(transparent,#ffd58d); rotate: -18deg; translate: -200% 0; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-golden"] i:nth-child(2) { rotate: 0deg; translate: 0 -10%; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-golden"] i:last-child { background: linear-gradient(transparent,#ffd58d); rotate: 18deg; translate: 200% 0; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-singularity"] i { width: 26%; aspect-ratio: 1; height: auto; border-radius: 50%; border-color: #b4ccff; box-shadow: 0 0 12px #6c96f4; transform: scale(1.35); opacity: .48; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-singularity"] i:nth-child(2) { transform: none; opacity: 1; background: #0c1224; }
+  .cosmetic-art[data-art-slot][data-item-art="celebrate-singularity"] i:last-child { transform: scale(.28); background: #adc9ff; opacity: 1; }
+  .cosmetic-art[data-art-slot][data-item-art="garden-bloom"] { background: radial-gradient(ellipse,#527854,#192d26 72%); }
+  .cosmetic-art[data-art-slot][data-item-art="garden-bloom"] i { display: none; }
+  .cosmetic-art[data-art-slot][data-item-art="garden-bloom"]::after { content: ''; position: absolute; inset: 5%; background: url('/worlds/garden-relief.webp') center / contain no-repeat; }
+
+  .cosmetic-art[data-art-slot="companion"] .companion-figure { width: min(64%,7.75rem); }
+  .cosmetic-art[data-art-slot][data-item-art="eyes-dual"] .companion-figure, .cosmetic-art[data-art-slot][data-item-art="expression-smile"] .companion-figure { transform: scale(1.44); }
+  .cosmetic-art[data-art-slot][data-item-art="body-mercury"] { background: linear-gradient(136deg,#34404f,#707f95 48%,#27313e); }
+  .cosmetic-art[data-art-slot][data-item-art="crystals-satellite"] { background: conic-gradient(from 55deg at 45% 74%,#1a2639,#4f4f78,#202739,#1a2639); }
+  .cosmetic-art[data-art-slot][data-item-art="rings-holo"] { background: radial-gradient(ellipse,#424676,#1e2939 72%); }
+  .cosmetic-art[data-art-slot][data-item-art="crown-stellar"] { background: radial-gradient(ellipse at 52% 9%,#7b654a,#202b38 72%); }
+  .cosmetic-art[data-art-slot][data-item-art="particles-stardust"] { background: radial-gradient(circle at 27% 34%,#d4e7ff 0 1px,transparent 3px),radial-gradient(circle at 72% 55%,#d4e7ff 0 1px,transparent 3px),#1d293e; }
+  .cosmetic-art[data-art-slot][data-item-art="companion-indigo"] { background: radial-gradient(ellipse,#4b4c82,#1a2237 74%); }
+
+  @keyframes studio-aurora-wave { 0% { opacity: .7; clip-path: inset(55% 100% 0 0); } 50% { opacity: .65; clip-path: inset(0 0 20% 0); } 100% { opacity: 0; clip-path: inset(0); } }
+  @keyframes studio-ascension { from { opacity: .75; clip-path: inset(100% 0 0); } 64% { opacity: .65; clip-path: inset(0); } to { opacity: 0; } }
+  @keyframes studio-singularity { 0% { opacity: .75; scale: 1.05; } 55% { opacity: .8; scale: .98; } to { opacity: 0; scale: 1; } }
+}
+
+@media screen {
+  :root[data-theme][data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .clay-background,
+  .studio-preview[data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .studio-preview-orbs {
+    background: var(--studio-scene);
+  }
+  :root[data-theme="dark"][data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .clay-background { opacity: .53; }
+  :root[data-theme="light"][data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .clay-background { opacity: .36; }
+  :root[data-theme][data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .learning-route .clay-background { opacity: .18; }
+  :root[data-theme][data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .clay-orb,
+  .studio-preview[data-cosmetic-scene]:not([data-cosmetic-scene="garden-forest"]) .studio-preview-orbs i { opacity: .19; }
+
+  [data-studio-progress="bar-plasma"] progress { box-shadow: 0 0 .6rem var(--studio-bar-start); }
+  [data-studio-progress="bar-crystal"] progress { border-radius: .12rem; }
+  [data-studio-progress="bar-aurora"] progress { box-shadow: inset 0 1px 1px #fff6, 0 2px 5px #271e3975; }
+  :is(:root[data-studio-progress="bar-gold"],.studio-preview[data-studio-progress="bar-gold"]) progress::-webkit-progress-value {
+    background: repeating-linear-gradient(100deg,var(--studio-bar-start) 0 11%,var(--studio-bar-end) 12% 18%,var(--studio-bar-start) 19% 28%);
+  }
+  :is(:root[data-studio-progress="bar-gold"],.studio-preview[data-studio-progress="bar-gold"]) progress::-moz-progress-bar {
+    background: repeating-linear-gradient(100deg,var(--studio-bar-start) 0 11%,var(--studio-bar-end) 12% 18%,var(--studio-bar-start) 19% 28%);
+  }
+}

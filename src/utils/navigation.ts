@@ -31,7 +31,8 @@ export function primaryArea(pathname: string) {
   if (['lernen', 'faecher', 'materialien', 'lernzettel', 'quizze', 'karteikarten', 'pruefungstraining', 'blurting'].includes(section)) return 1;
   if (section === 'suche') return 2;
   if (section === 'termine') return 3;
-  return 4;
+  if (pathname === '/fortschritt/store' || pathname.startsWith('/fortschritt/store/')) return 4;
+  return undefined;
 }
 
 export function canFocusRoute(pathname: string) {

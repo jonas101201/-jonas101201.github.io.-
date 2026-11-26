@@ -10,6 +10,8 @@ import './studio.css';
 export function Studio() {
   const { tr } = useI18n();
   const { state, enabled, dispatch, error } = useProgression();
+  const [area, setArea] = useState<'surface' | 'companion' | 'presets'>('surface');
+  const [presetEdit, setPresetEdit] = useState<{ id: string; name: string } | null>(null);
   const [editing, setEditing] = useState<Look | null>(null);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
@@ -44,17 +46,21 @@ export function Studio() {
 
   return <section className="progress-section">
     <h2>{tr('LernHub Studio')}</h2>
+    <div className="progress-actions" aria-label="Studio-Bereiche">
+      {([['surface', 'Oberfläche'], ['companion', 'Begleiter'], ['presets', 'Presets']] as const).map(([id, label]) =>
+        <button type="button" key={id} className={'button ' + (area === id ? 'primary' : 'secondary')} aria-pressed={area === id} onClick={() => setArea(id)}>{tr(label)}</button>)}
+    </div>
     <div className="studio-layout">
       <div className="glass dashboard-panel">
-        <StudioPreview key={play} look={look} stage={look.companion ? companionProgress(state, look.companion).stage : 0}/>
+        <StudioPreview dashboard key={play} look={look} stage={look.companion ? companionProgress(state, look.companion).stage : 0}/>
         <div className="progress-actions">
           <button className="button secondary" type="button" onClick={() => setPlay(value => value + 1)}>{tr('Effekte in der Vorschau abspielen')}</button>
           <Link className="button secondary" to="/fortschritt/store">{tr('Reward Store')}</Link>
         </div>
       </div>
       <div className="glass dashboard-panel progress-status">
-        <div className="studio-controls">
-          {(Object.entries(slots) as [Slot, string][]).map(([slot, label]) => <label className="studio-field" key={slot}>
+        <div className="studio-controls" hidden={area === 'presets'}>
+          {(Object.entries(slots) as [Slot, string][]).filter(([slot]) => area === 'surface' ? !['companion', 'body', 'eyes', 'expression', 'crystals', 'rings', 'crown', 'particles', 'companion-color'].includes(slot) : ['companion', 'body', 'eyes', 'expression', 'crystals', 'rings', 'crown', 'particles', 'companion-color'].includes(slot)).map(([slot, label]) => <label className="studio-field" key={slot}>
             {tr(label)}
             <select value={look[slot] ?? ''} onChange={event => {
               const next = { ...look };
@@ -80,7 +86,7 @@ export function Studio() {
         {(status || error) && <p role="status">{tr(error ?? status)}</p>}
       </div>
     </div>
-    {enabled && <div className="glass dashboard-panel progress-status">
+    {enabled && <div className="glass dashboard-panel progress-status" hidden={area !== 'presets'}>
       <h3>{tr('Gespeicherte Designs')}</h3>
       <form className="progress-actions studio-preset-form" onSubmit={event => { event.preventDefault(); void savePreset(); }}>
         <label className="studio-field">{tr('Name des Designs')}<input value={name} maxLength={40} onChange={event => setName(event.target.value)}/></label>
@@ -88,7 +94,15 @@ export function Studio() {
       </form>
       {themeChanged && <p className="muted">{tr('Wende das Design an, bevor du es speicherst.')}</p>}
       <ul className="studio-preset-list">{state.presets.map(preset => <li key={preset.id}>
-        <strong>{preset.name}</strong>
+        {presetEdit?.id === preset.id ? <form className="progress-actions" onSubmit={async event => {
+          event.preventDefault();
+          if (presetEdit.name.trim() && await dispatch({ type: 'preset-rename', id: preset.id, name: presetEdit.name })) setPresetEdit(null);
+        }}>
+          <label>{tr('Name des Designs')}<input maxLength={40} value={presetEdit.name} onChange={event => setPresetEdit({ id: preset.id, name: event.target.value })}/></label>
+          <button type="submit" className="button secondary">{tr('Speichern')}</button>
+          <button type="button" className="button secondary" onClick={() => setPresetEdit(null)}>{tr('Abbrechen')}</button>
+        </form> : <strong>{preset.name}</strong>}
+        <button type="button" className="button secondary" onClick={() => setPresetEdit({ id: preset.id, name: preset.name })}>{tr('Umbenennen')}</button>
         <button type="button" className="button secondary" onClick={() => setEditing(compatibleLook(preset.equipped, state.owned))}>{tr('Vorschau')}</button>
         <button type="button" className="button secondary" aria-label={tr('Design {0} löschen', [preset.name])} onClick={() => void dispatch({ type: 'preset-delete', id: preset.id })}>{tr('Löschen')}</button>
       </li>)}</ul>

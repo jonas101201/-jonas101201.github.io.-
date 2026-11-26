@@ -17,7 +17,7 @@ describe('Studio catalog and compatibility', () => {
     expect(new Set(cosmetics.map(item => item.id)).size).toBe(cosmetics.length);
     expect(new Set(cosmetics.map(item => item.slot))).toEqual(new Set(Object.keys(slots)));
     expect(cosmetics.every(item => item.version === 1 && item.description.length > 0 && item.compatibility.length > 0)).toBe(true);
-    expect(cosmetics.filter(item => item.slot === 'companion')).toHaveLength(6);
+    expect(cosmetics.filter(item => item.slot === 'companion')).toHaveLength(7);
     expect(cosmetics.filter(item => item.rarity === 'mythic').every(item => item.condition.type !== 'credits')).toBe(true);
   });
 

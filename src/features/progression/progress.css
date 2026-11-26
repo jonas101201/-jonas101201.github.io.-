@@ -12,3 +12,56 @@
   .progress-tile-grid input, .progress-tile-grid select { max-width: 100%; min-height: var(--target-size); }
   .progress-compact-link { display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--target-size); }
 }
+
+@media screen {
+  .progress-hero-summary {
+    position: relative;
+    padding: clamp(1rem, 3vw, 1.8rem);
+    gap: .75rem;
+  }
+  :root[data-theme] .app-shell .progress-hero-summary {
+    background-image: radial-gradient(ellipse at 94% 0%, var(--clay-highlight), transparent 57%);
+  }
+  .progress-hero-summary :is(h2,p) { margin: 0; }
+  .progress-hero-header, .progress-missions-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: .65rem;
+  }
+  .progress-hero-header h2 { font-size: clamp(1.65rem, 4vw, 2.4rem); font-weight: 640; letter-spacing: -.035em; }
+  .progress-hero-counters { display: flex; gap: .4rem; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+  .progress-hero-counters span, .progress-milestones li {
+    border-radius: var(--radius-control);
+    padding: .4rem .65rem;
+    background: var(--clay-control);
+    box-shadow: var(--clay-control-shadow);
+  }
+  .progress-hero-summary progress { height: .55rem; width: 100%; border-radius: 999px; overflow: hidden; }
+  .progress-milestones summary, .progress-mission-steps summary { cursor: pointer; padding-block: .45rem; }
+  .progress-milestones ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    list-style: none;
+    padding: 0;
+  }
+  .progress-milestones li[data-reached] { box-shadow: inset 0 0 0 1px var(--clay-ring); }
+  .progress-missions-header h2 { margin: 0; }
+  .progress-missions-header .settings-check { flex-wrap: wrap; max-width: 100%; }
+  .progress-missions-header select { max-width: min(100%, 19rem); }
+  .progress-missions .progress-tile-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+  .progress-mission-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem;
+    gap: .65rem;
+    overflow-wrap: anywhere;
+  }
+  .progress-mission-card :is(h3,p,ol) { margin: 0; }
+  .progress-mission-card .eyebrow { color: var(--clay-muted); letter-spacing: .055em; }
+  .progress-mission-footer { margin-top: auto; display: flex; gap: .45rem; flex-wrap: wrap; align-items: center; justify-content: space-between; width: 100%; }
+  .progress-mission-footer p { font-size: .84rem; font-variant-numeric: tabular-nums; color: var(--clay-muted); }
+}

@@ -3,7 +3,7 @@ import { useProgressionConsent } from './useProgressionConsent';
 
 const Surface = lazy(() => import('./CosmeticSurface').then(module => ({ default: module.CosmeticSurface })));
 
-export function ProgressAppearance() {
+export function ProgressAppearance({ preview = false }: { preview?: boolean }) {
   const enabled = useProgressionConsent();
-  return enabled ? <Suspense fallback={null}><Surface/></Suspense> : null;
+  return enabled || preview ? <Suspense fallback={null}><Surface preview={preview}/></Suspense> : null;
 }

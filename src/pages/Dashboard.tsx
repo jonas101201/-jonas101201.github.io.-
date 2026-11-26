@@ -1,6 +1,7 @@
 import { CurrentDate } from '../components/CurrentDate';
 import { buildSearchIndex } from '../features/search';
 import { lazy, Suspense, useMemo } from 'react';
+import { ActiveCompanion } from '../features/progression/ActiveCompanion';
 import { useProgressionConsent } from '../features/progression/useProgressionConsent';
 import { useI18n } from '../i18n/context';
 import { Link } from 'react-router-dom';
@@ -38,12 +39,13 @@ export function Dashboard() {
     <header className="home-heading">
       <h1 id="home-fields-heading">{tr('Deine Lernfelder')}</h1>
       <p className="home-date"><CurrentDate compact/></p>
+      <ActiveCompanion context="home"/>
     </header>
     <div className="home-main-grid">
       <section className="home-fields" aria-labelledby="home-fields-heading">
         <div className="home-bk-groups">{bkSubjects.map(subject => {
           const fields = catalog.learningFields.filter(field => field.subjectId === subject.id).sort((a, b) => a.number - b.number);
-          return <article className={`home-bk-group ${subject.color}`} key={subject.id}>
+          return <article className={`home-bk-group ${subject.color}`} data-subject={subject.id} key={subject.id}>
             <Link className="home-bk-heading" to={`/faecher/${subject.id}`} aria-label={tr('{0} öffnen', [tr(subject.title)])}>
               <span className="home-bk-badge">{tr(subject.title)}</span>
               <h2>{tr(subject.subtitle)}</h2><ChevronRight size={20} aria-hidden="true"/>

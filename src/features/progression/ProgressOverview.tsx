@@ -7,12 +7,14 @@ import { useProgress } from '../../hooks/useProgress';
 import { buildSearchIndex } from '../search';
 import {
   achievementDefinitions, challengeDefinitions, challengeProgress, collectionDefinitions,
-  levelFor, reviewFor, statistics, type State,
+  levelFor, ownsWorld, reviewFor, statistics, type State,
 } from './engine';
-import { learningReference, missionSteps, recommendMissions, type MissionRecord } from './missions';
+import { learningReference, missionSteps, plantMission, recommendMissions, type MissionRecord } from './missions';
 import { milestoneLevels, missionClasses, xpForLevel } from './rules';
 import { cosmeticById } from './cosmetics';
+import { premiumWorldById } from './worlds';
 import { useProgression } from './store';
+import { GardenStem } from './StudioPreview';
 import { ProgressStoragePanel } from './ProgressStoragePanel';
 
 const fieldStatus = { started: 'In Bearbeitung', due: 'Wiederholung empfohlen', verified: 'Mehrfach erfolgreich überprüft' };
@@ -38,24 +40,35 @@ export function ProgressSummary({ state }: { state: State }) {
   const { tr, locale } = useI18n();
   const { level, floor, next, earned, remaining } = levelFor(state.xp);
   const milestone = milestoneLevels.find(value => value > level);
-  const wanted = state.wishlist.map(cosmeticById).find(item => item && !state.owned.includes(item.id));
-  const cost = wanted?.condition.type === 'credits' ? wanted.condition.price : null;
+  const wanted = state.wishlist.flatMap(id => {
+    const world = premiumWorldById(id);
+    if (world && !ownsWorld(state, id)) return [{ name: world.name, cost: world.price, to: '/fortschritt/store?welt=' + id }];
+    const item = cosmeticById(id);
+    return item && !state.owned.includes(id) ? [{ name: item.name, cost: item.condition.type === 'credits' ? item.condition.price : null, to: '/fortschritt/store?auswahl=wishlist' }] : [];
+  })[0];
+  const cost = wanted?.cost ?? null;
   const number = new Intl.NumberFormat(locale);
-  return <section className="glass prose progress-section" aria-labelledby="progress-level-heading">
-    <h2 id="progress-level-heading">{tr('Level {0}', [level])}</h2>
-    <p>{number.format(state.xp)} XP · {number.format(state.credits)} HUB Credits</p>
+  return <section className="glass progress-section progress-hero-summary" aria-labelledby="progress-level-heading">
+    <div className="progress-hero-header">
+      <h2 id="progress-level-heading">{tr('Level {0}', [level])}</h2>
+      <p className="progress-hero-counters"><span>{number.format(state.xp)} XP</span><span>{number.format(state.credits)} HUB Credits</span></p>
+    </div>
     {next === null ? <p>{tr('Alle verfügbaren Level erreicht.')}</p> : <>
-      <progress aria-label={tr('Fortschritt zum nächsten Level')} value={earned} max={next - floor}/>
+      {state.equipped.progress === 'garden-growth' ? <GardenStem value={Math.round(earned / (next - floor) * 100)} label={tr('Fortschritt zum nächsten Level')}/> :
+        <progress aria-label={tr('Fortschritt zum nächsten Level')} value={earned} max={next - floor}/>}
       <p>{tr('Noch {0} XP bis Level {1}', [number.format(remaining), level + 1])}</p>
     </>}
     {milestone && <p>{tr('Nächster Meilenstein: Level {0} bei {1} XP', [milestone, number.format(xpForLevel(milestone))])}</p>}
-    <ol className="progress-step-list">{milestoneLevels.map(value =>
-      <li key={value}>{tr('Level {0}', [value])} · {tr(level >= value ? 'Erreicht' : 'Offen')}</li>)}</ol>
+    <details className="progress-milestones">
+      <summary>{tr('Meilensteine')}</summary>
+      <ol className="progress-step-list">{milestoneLevels.map(value =>
+        <li key={value} data-reached={level >= value || undefined}>{tr('Level {0}', [value])} · {tr(level >= value ? 'Erreicht' : 'Offen')}</li>)}</ol>
+    </details>
     {wanted && <div className="notice">
       <strong>{tr('Dein Freischaltziel')} · {tr(wanted.name)}</strong>
       {cost !== null && <><p>{number.format(Math.min(state.credits, cost))} / {number.format(cost)} HUB Credits</p>
         <progress aria-label={tr('Fortschritt zum Freischaltziel')} max={cost} value={Math.min(state.credits, cost)}/></>}
-      <Link className="text-link progress-compact-link" to="/fortschritt/store">{tr('Reward Store')}</Link>
+      <Link className="text-link progress-compact-link" to={wanted.to}>{tr('Shop')}</Link>
     </div>}
   </section>;
 }
@@ -73,7 +86,11 @@ function MissionSection() {
     const index = buildSearchIndex(tr, language);
     return activities.map(activity => index.find(entry => entry.to === activity.to)?.learningFieldId).find(Boolean);
   }, [activities, tr, language]);
-  const plans = recommendMissions(state, new Date().toISOString(), recentField);
+  const plant = plantMission();
+  const plans = [
+    ...(plant && !state.missions.some(item => item.id === plant.id && item.status !== 'cancelled') ? [plant] : []),
+    ...recommendMissions(state, new Date().toISOString(), recentField),
+  ];
   const active = state.missions.some(item => item.status === 'active');
   const current = state.missions.filter(item => item.status === 'active' || item.status === 'paused');
 
@@ -81,8 +98,8 @@ function MissionSection() {
     void dispatch({ type, id: mission.id, at: new Date().toISOString() });
   }
 
-  return <section className="progress-section" aria-labelledby="missionen">
-    <h2 id="missionen" ref={heading} tabIndex={-1}>{tr('Lernmissionen')}</h2>
+  return <section className="progress-section progress-missions" aria-labelledby="missionen">
+    <div className="progress-missions-header"><h2 id="missionen" ref={heading} tabIndex={-1}>{tr('Lernmissionen')}</h2>
     {active && <p className="muted">{tr('Du kannst jeweils eine Mission aktiv bearbeiten. Pausiere sie, um eine andere zu starten.')}</p>}
     <label className="settings-check">{tr('Mein Lernziel')}
       <select value={state.goalFieldId ?? ''} onChange={event => void dispatch({ type: 'set-goal', learningFieldId: event.target.value || undefined })}>
@@ -90,6 +107,7 @@ function MissionSection() {
         {catalog.learningFields.map(field => <option key={field.id} value={field.id}>{tr(subjectName(field.subjectId))} · {tr(field.title)}</option>)}
       </select>
     </label>
+    </div>
     <div className="progress-tile-grid">
       {current.map(mission => <article key={mission.id} className="glass prose">
         <h3>{tr(mission.plan.title)}</h3>
@@ -105,13 +123,18 @@ function MissionSection() {
           <button className="button secondary" onClick={() => missionAction('mission-cancel', mission)}>{tr('Mission abbrechen')}</button>
         </div>
       </article>)}
-      {plans.map(plan => <article key={plan.id} className="glass prose">
+      {plans.map(plan => <article key={plan.id} className="glass progress-mission-card" data-mission-kind={plan.kind}>
         <p className="eyebrow">{missionClasses[plan.kind].label} · {tr('Ca. {0} Min.', [plan.estimatedMinutes])}</p>
         <h3>{tr(plan.title)}</h3>
         <p>{tr(plan.reason)}</p>
-        <ol className="progress-step-list">{plan.steps.map(step => <li key={step.id}>{tr(methodLabels[step.kind])} · {tr(step.title)}</li>)}</ol>
-        <p>{plan.reward.xp} XP · {plan.reward.credits} HUB Credits</p>
-        <button className="button primary" disabled={active} onClick={() => void dispatch({ type: 'mission-start', mission: plan, at: new Date().toISOString() })}>{tr('Mission starten')}</button>
+        <details className="progress-mission-steps">
+          <summary>{tr('Missionsschritte')}</summary>
+          <ol className="progress-step-list">{plan.steps.map(step => <li key={step.id}>{tr(methodLabels[step.kind])} · {tr(step.title)}</li>)}</ol>
+        </details>
+        <div className="progress-mission-footer">
+          <p>{plan.reward.xp} XP · {plan.reward.credits} HUB Credits</p>
+          <button className="button primary" disabled={active} onClick={() => void dispatch({ type: 'mission-start', mission: plan, at: new Date().toISOString() })}>{tr('Mission starten')}</button>
+        </div>
       </article>)}
     </div>
     {state.missions.some(mission => mission.status === 'completed') && <details className="glass prose">
@@ -173,7 +196,7 @@ function Achievements({ state }: { state: State }) {
   const { dispatch } = useProgression();
   const achievements = new Map(achievementDefinitions.map(item => [item.id, item]));
   return <div className="progress-section">
-    <section className="glass prose"><h2>{tr('Herausforderungen')}</h2>
+    <section className="glass prose"><h2 id="erfolge">{tr('Herausforderungen')}</h2>
       <div className="progress-tile-grid">{challengeDefinitions.map(item => {
         const progress = challengeProgress(state, item.id);
         return <article key={item.id} className="glass prose">

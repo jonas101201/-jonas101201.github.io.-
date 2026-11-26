@@ -1,0 +1,31 @@
+@media screen {
+  .home-heading:has(> .active-companion-home) { position: relative; }
+  .active-companion {
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+  .active-companion-home {
+    position: absolute;
+    inset: 50% 4.5rem auto auto;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-control);
+    z-index: 2;
+    cursor: pointer;
+  }
+  .active-companion-home[data-fits="false"] { visibility: hidden; }
+  .active-companion-home:focus-visible { outline: 2px solid var(--clay-ring); outline-offset: 1px; }
+  .active-companion-home .companion-model { width: 42px; }
+  .active-companion-home .studio-plant { width: 31px; }
+  .active-companion-completion {
+    width: 5.5rem;
+    height: 5.75rem;
+    margin-inline: auto;
+  }
+  .active-companion-completion .companion-model { width: 5.5rem; }
+  .active-companion-completion .studio-plant { width: 3.5rem; }
+}

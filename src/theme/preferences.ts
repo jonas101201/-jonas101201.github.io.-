@@ -47,3 +47,11 @@ export function useBackgroundPreference() {
   const [value, setValue] = usePreference(BACKGROUND_KEY, decodeBackground);
   return [value === 'true', (paused: boolean) => setValue(paused ? 'true' : 'false')] as const;
 }
+
+
+const COMPANION_VISIBILITY_KEY = 'lernhub:companion-hidden:v1';
+
+export function useCompanionVisibility() {
+  const [value, setValue] = usePreference(COMPANION_VISIBILITY_KEY, decodeBackground);
+  return [value !== 'true', (visible: boolean) => setValue(visible ? 'false' : 'true')] as const;
+}

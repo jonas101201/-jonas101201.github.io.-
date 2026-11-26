@@ -1,0 +1,271 @@
+/* Paint layers do not participate in sizing, hit testing, or focus order. */
+@media screen and (forced-colors: none) {
+  :is(:root[data-theme], .studio-preview)[data-living-clay="garden-clay"] {
+    --clay-base: #202c25;
+    --clay-panel: #303d31;
+    --clay-control: #394738;
+    --clay-selected: #4e6045;
+    --clay-ink: #f2ead3;
+    --clay-muted: #d4cdb4;
+    --clay-line: #68735b;
+    --clay-highlight: #bca67827;
+    --clay-shade: #111e15a1;
+    --clay-edge: #c5ad7152;
+    --clay-dim: #111f176f;
+    --clay-copper: #8c784e;
+    --clay-copper-soft: #6f7751;
+    --clay-copper-low: #58623f;
+  }
+
+  :root[data-theme="light"][data-living-clay="garden-clay"],
+  :root[data-theme="light"] .studio-preview[data-living-clay="garden-clay"] {
+    --clay-base: #e5e5d1;
+    --clay-panel: #ece5ce;
+    --clay-control: #e6dfc6;
+    --clay-selected: #c9d1ad;
+    --clay-ink: #263329;
+    --clay-muted: #46513c;
+    --clay-line: #7b896a;
+    --clay-highlight: #fff5db80;
+    --clay-shade: #68684d42;
+    --clay-edge: #b4aa80ad;
+    --clay-dim: #76826355;
+    --clay-copper: #b7a777;
+    --clay-copper-soft: #b4bb8f;
+    --clay-copper-low: #a6ad83;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"]:not([data-studio-accent]) {
+    --clay-ring: #efd49a;
+    --clay-halo: #cda36250;
+  }
+
+  :root[data-theme="light"][data-living-clay="garden-clay"]:not([data-studio-accent]) {
+    --clay-ring: #506847;
+    --clay-halo: #637e4d38;
+  }
+
+  .studio-preview[data-living-clay="garden-clay"] .studio-preview-card {
+    --studio-panel: var(--clay-panel);
+    --studio-rim: var(--clay-edge);
+  }
+
+  .studio-preview[data-living-clay="garden-clay"] .world-field-grid span {
+    box-shadow: var(--clay-control-shadow);
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .app-shell .home-resume-card {
+    background-image: radial-gradient(ellipse at 86% 0%, var(--clay-highlight), transparent 48%),
+      linear-gradient(145deg, var(--clay-panel), var(--clay-control));
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group[data-subject="bk2"]::after {
+    inset: auto -4px -4px auto;
+    width: clamp(54px, 33%, 125px);
+    height: 73px;
+    background: url('/worlds/garden-relief.webp') bottom right / contain no-repeat;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group {
+    --clay-ink: #f2ead3;
+    --clay-muted: #d9d4ba;
+    --garden-floor: #27392e;
+    --garden-apron: #45563b;
+    --garden-bevel: #b0a06b75;
+    --garden-bottom: #101b13bc;
+    --garden-shadow: #10181392;
+    --garden-well: #17251b9e;
+    --garden-control: #3f5140;
+    --garden-control-light: #56664c;
+    --garden-focus: #f5daa0;
+    position: relative;
+    isolation: isolate;
+    background:
+      repeating-linear-gradient(115deg, #c9ac7409 0 .5px, transparent 1px 4px),
+      radial-gradient(ellipse at 92% 2%, #a8965940, transparent 48%),
+      linear-gradient(155deg, var(--garden-apron), var(--garden-floor) 58%);
+    box-shadow: inset 0 2px 0 var(--garden-bevel), inset 0 -4px 6px var(--garden-bottom),
+      inset 3px 0 7px #c2ad6929, 0 9px 16px var(--garden-shadow);
+  }
+
+  :root[data-theme="light"][data-living-clay="garden-clay"] .home-bk-group {
+    --clay-ink: #243327;
+    --clay-muted: #3d4935;
+    --garden-floor: #bec6a4;
+    --garden-apron: #e9ddbd;
+    --garden-bevel: #fff3d79e;
+    --garden-bottom: #52634672;
+    --garden-shadow: #524a3748;
+    --garden-well: #70816575;
+    --garden-control: #a9b695;
+    --garden-control-light: #c6cfad;
+    --garden-focus: #3b593a;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: 4px;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px var(--garden-well), inset 0 1px 1px var(--garden-bevel);
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: -8px -6px auto auto;
+    width: clamp(62px, 38%, 140px);
+    height: 103px;
+    background: url('/worlds/garden-bk1-ivy.webp') top right / contain no-repeat;
+    filter: drop-shadow(-2px 5px 2px #1a231876);
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group .home-bk-fields a {
+    --garden-tile: var(--garden-control);
+    --garden-tile-light: var(--garden-control-light);
+    --garden-tile-ink: var(--clay-ink);
+    background: linear-gradient(143deg, var(--garden-tile-light), var(--garden-tile) 74%);
+    color: var(--garden-tile-ink);
+    box-shadow: inset 0 1px 1px var(--garden-bevel), inset 0 -3px 4px var(--garden-well),
+      0 3px 4px var(--garden-shadow);
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group a:focus-visible {
+    outline: 2px solid var(--garden-focus);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) {
+    :root[data-theme][data-living-clay="garden-clay"] .home-bk-group .home-bk-fields a:hover {
+      box-shadow: inset 0 1px 2px var(--garden-bevel), inset 0 -3px 4px var(--garden-well),
+        0 3px 4px var(--garden-shadow), 0 0 0 1px var(--garden-focus);
+    }
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .home-bk-group .home-bk-fields a:active {
+    box-shadow: inset 0 3px 6px var(--garden-well), inset 0 -1px 1px var(--garden-bevel);
+  }
+}
+
+@media screen and (forced-colors: none) {
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .clay-background {
+    background:
+      linear-gradient(90deg, #14261e6b, #182b2252 54%, #14261e32),
+      url('/worlds/enchanted-garden.webp') center 46% / cover;
+  }
+
+  :root[data-theme="light"][data-cosmetic-scene="garden-forest"] .clay-background {
+    background:
+      linear-gradient(155deg, #ecdfba55, transparent 36%, #8a9c6552),
+      url('/worlds/enchanted-garden.webp') center 46% / cover;
+  }
+
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .clay-orb:not(.clay-orb-one) {
+    background: none;
+    box-shadow: none;
+    animation: none;
+  }
+
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .clay-orb-one {
+    inset: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: radial-gradient(ellipse at 79% 11%, #e8d4923b, transparent 49%);
+    box-shadow: none;
+    animation: garden-canopy-light 12s ease-in-out 2 alternate both;
+  }
+
+  @media (max-width: 600px) {
+    :root[data-theme][data-cosmetic-scene="garden-forest"] .clay-background {
+      background-image: linear-gradient(90deg, #1d2d2157, transparent 84%), url('/worlds/enchanted-garden-small.webp');
+      background-position: 65% center;
+    }
+
+    :root[data-theme="light"][data-cosmetic-scene="garden-forest"] .clay-background {
+      background-image: linear-gradient(145deg, #eadba85c, #9eab773d), url('/worlds/enchanted-garden-small.webp');
+    }
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .app-shell
+  :is(.home-resume-card, .dashboard-panel, .classroom-info, .subject-header, .subject-card, .field-card, .home-subject-chip):not(.blurting-panel, .cosmetic-product, .garden-detail) {
+    --garden-ornament: url('/worlds/garden-relief.webp');
+    --garden-ornament-size: clamp(4rem, 28%, 11rem);
+    --garden-ornament-position: right -1rem bottom -1.05rem;
+    background-image: var(--garden-ornament), radial-gradient(ellipse at 96% 92%, var(--clay-highlight), transparent 56%);
+    background-repeat: no-repeat;
+    background-size: var(--garden-ornament-size) auto, auto;
+    background-position: var(--garden-ornament-position), center;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .app-shell
+  :is(.field-card:nth-child(even), .subject-card:nth-child(even), .dashboard-panel:nth-child(even)) {
+    --garden-ornament: url('/worlds/garden-bk1-ivy.webp');
+    --garden-ornament-size: clamp(2.7rem, 16%, 5.6rem);
+    --garden-ornament-position: right -.6rem top -.6rem;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .app-shell .home-resume-card {
+    --garden-ornament-position: right 2.8rem bottom -1.05rem;
+  }
+
+  :root[data-theme][data-living-clay="garden-clay"] .app-shell .home-subject-chip {
+    --garden-ornament-size: 3.15rem;
+    --garden-ornament-position: right -.35rem bottom -.55rem;
+  }
+
+  @keyframes garden-canopy-light {
+    from { opacity: .4; }
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root[data-theme][data-cosmetic-scene="garden-forest"] .clay-orb-one { animation: none; }
+  }
+}
+
+@media screen and (forced-colors: none) {
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .home-heading {
+    position: relative;
+    isolation: isolate;
+    color: #fff2d9;
+  }
+
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .home-heading::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -5px 0;
+    border-radius: var(--radius-control);
+    pointer-events: none;
+    background: linear-gradient(100deg, #17291fee, #273625e8);
+    box-shadow: inset 0 1px 0 #e1c18a4a, 0 3px 8px #14251960;
+  }
+
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .home-heading :is(h1, .home-date) {
+    background: none;
+    color: inherit;
+  }
+
+  :root[data-theme][data-cosmetic-scene="garden-forest"] .home-heading .home-date {
+    color: #e8d8b6;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :root[data-theme="light"][data-cosmetic-scene="garden-forest"] .home-heading {
+    color: #273a2d;
+  }
+
+  :root[data-theme="light"][data-cosmetic-scene="garden-forest"] .home-heading::before {
+    background: linear-gradient(100deg, #f1e7cde8, #e4dfc2ef);
+    box-shadow: inset 0 1px 0 #fffae6c2, 0 3px 8px #41473050;
+  }
+
+  :root[data-theme="light"][data-cosmetic-scene="garden-forest"] .home-heading .home-date {
+    color: #46543c;
+  }
+}

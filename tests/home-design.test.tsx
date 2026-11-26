@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { App } from '../src/app/App';
 import { LanguageProvider } from '../src/i18n/LanguageProvider';
@@ -30,21 +30,28 @@ it('keeps every BK1 and BK2 learning field directly reachable from the homepage'
   expect(screen.getByRole('heading', { name: 'BK1 · Lernfeld 3' })).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Unterrichtsmaterialien', pressed: true })).toBeTruthy();
 });
-it('opens search and a drop-up menu, then restores focus after Escape', async () => {
+it('opens the shop in one tap and moves the supplementary links to the header menu', async () => {
   const user = userEvent.setup(); const view = show();
   const dock = screen.getByRole('navigation', { name: 'Schnellnavigation' });
   await user.click(within(dock).getByRole('link', { name: 'Suche' }));
   expect(screen.getByRole('search')).toBeTruthy();
   expect(within(dock).getByRole('link', { name: 'Suche' }).getAttribute('aria-current')).toBe('page');
-  const more = within(dock).getByRole('button', { name: 'Mehr' });
-  await user.click(more);
-  const menu = screen.getByRole('dialog', { name: 'Weitere Bereiche' });
-  expect(within(menu).getByRole('link', { name: 'Speicher' })).toBeTruthy();
+  expect(within(dock).getAllByRole('link').map(link => link.textContent)).toEqual(['Start', 'Lernen', 'Suche', 'Termine', 'Shop']);
+  await user.click(within(dock).getByRole('link', { name: 'Shop' }));
+  expect(window.location.hash).toBe('#/fortschritt/store');
+  expect(within(dock).getByRole('link', { name: 'Shop' }).getAttribute('aria-current')).toBe('page');
+  const trigger = screen.getByRole('button', { name: 'LernHub-Menü' });
+  await user.click(trigger);
+  const menu = screen.getByRole('dialog', { name: 'LernHub-Menü' });
+  for (const label of ['Fortschritt', 'Klasse', 'Speicher', 'Datenschutz', 'Über LernHub']) {
+    expect(within(menu).getByRole('link', { name: label })).toBeTruthy();
+  }
+  expect(within(menu).getByRole('link', { name: 'Wunschliste' }).getAttribute('href')).toBe('#/fortschritt/store?auswahl=wishlist');
   expect(within(menu).queryByRole('link', { name: 'Materialien' })).toBeNull();
   expect(view.container.querySelector('.sidebar.is-open')).toBeNull();
-  await user.keyboard('{Escape}');
-  expect(screen.queryByRole('dialog', { name: 'Weitere Bereiche' })).toBeNull();
-  expect(document.activeElement).toBe(more);
+  fireEvent(menu, new Event('cancel', { cancelable: true }));
+  expect(screen.queryByRole('dialog', { name: 'LernHub-Menü' })).toBeNull();
+  expect(document.activeElement).toBe(trigger);
 });
 it('keeps the dock in the learning area on study sheet deep links', () => {
   window.location.hash = '#/lernzettel/bk1-lf3/bindungsphasen'; show();
