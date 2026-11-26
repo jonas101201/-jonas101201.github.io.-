@@ -4,8 +4,9 @@ import { useI18n } from '../../i18n/context';
 import { useStudioMotionPaused } from './studioMotion';
 import { companionProgress, companions, type CompanionId } from './companions';
 import type { Look } from './cosmetics';
-import { recommendMissions } from './missions';
+import { useMissionRecommendations } from './useMissionRecommendations';
 import { useProgression } from './store';
+import { CompanionSpeech } from './CompanionSpeech';
 import './studio.css';
 
 export type CompanionMotion = 'idle' | 'greet' | 'celebrate' | 'still';
@@ -44,7 +45,7 @@ export function CompanionVisual({ id, stage = 0, look = {}, motion = 'idle', exp
     return () => observer.disconnect();
   }, [interactive]);
   useEffect(() => {
-    if (!sprite || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    if (!sprite) return;
     const image = new Image();
     image.onload = () => setLoaded(sprite);
     image.src = sprite;
@@ -82,12 +83,13 @@ export function Companion() {
     ['focused','Konzentriert'], ['surprised','Überrascht'], ['proud','Stolz'], ['thoughtful','Nachdenklich'],
   ];
   const active = companions.find(item => item.id === state.activeCompanion) ?? companions[0];
-  const recommendation = enabled ? recommendMissions(state, new Date().toISOString())[0] : undefined;
+  const activeMission = state.missions.find(mission => mission.status === 'active');
+  const recommendations = useMissionRecommendations(state, enabled);
+  const recommendation = enabled ? activeMission?.plan ?? recommendations[0] : undefined;
   return <section className="progress-section">
     <div className="glass dashboard-panel">
       <h2>{tr('Lernbegleiter')}</h2>
       <p>{tr(active.role)} · {tr(active.description)}</p>
-      {recommendation && <p>{tr('Vorschlag: {0}', [tr(recommendation.title)])} · <Link className="text-link" to="/fortschritt#missionen">{tr('Lernmissionen')}</Link></p>}
       <p><Link className="text-link" to="/fortschritt/studio">{tr('LernHub Studio')}</Link></p>
       <label className="studio-field">{tr('Entwicklungsstufe ansehen')}
         <select value={previewStage ?? ''} onChange={event => { setReplay(undefined); setPreviewStage(event.target.value === '' ? null : Number(event.target.value)); }}>
@@ -127,6 +129,7 @@ export function Companion() {
               expression={rehearsing ? undefined : previewExpression} interactive={Boolean(rehearsing) || state.activeCompanion === item.id}
               motion={rehearsing?.motion ?? 'idle'}/>
           </button>
+          {item.id === active.id && recommendation && <CompanionSpeech title={recommendation.title} active={Boolean(activeMission)}/>}
           <h3>{item.name} · {tr(item.role)}</h3>
           <p>{tr(item.description)}</p>
           <p>{progress.unlocked ? progress.stageName : tr(item.requirement)}</p>

@@ -1,5 +1,6 @@
 import { catalog, subjectName, fieldName } from '../../data/catalog';
 import { studySheets, sheetSearchText, studyTopics, topicSearchText } from '../study-sheets/data';
+import { tasks } from '../blurting/tasks';
 import { translateTree, type Language } from '../../i18n/translate';
 export interface SearchEntry { id: string; title: string; kind: string; to: string; text: string; context?: string; subjectId?: string; learningFieldId?: string }
 export const destinations = [
@@ -29,6 +30,7 @@ export function buildSearchIndex(tr: (s: string | undefined) => string, language
     ...catalog.materials.map(m => entry(`material:${m.id}`, m.title, 'Materialien', `/materialien/${m.id}`, `${m.description} ${tr(m.description)} ${m.tags.join(' ')} ${m.originalFilename ?? ''}`, m)),
     ...catalog.quizzes.map(m => entry(`quiz:${m.id}`, m.title, 'Quizze', `/quizze/${m.id}`, `${m.description} ${tr(m.description)} ${m.questions.map(q => q.prompt + ' ' + tr(q.prompt)).join(' ')}`, m)),
     ...catalog.flashcardSets.map(m => entry(`cards:${m.id}`, m.title, 'Karteikarten', `/karteikarten/${m.id}`, `${m.description} ${tr(m.description)} ${m.cards.map(c => `${c.front} ${c.back} ${tr(c.front)} ${tr(c.back)}`).join(' ')}`, m)),
+    ...tasks.map(task => entry(`blurting:${task.id}`, task.title, 'Freier Wissensabruf', `/blurting/${task.id}`, `${task.prompt} ${tr(task.prompt)}`, task)),
     ...studyTopics.map(s => entry(`sheet:${s.id}`, s.title, 'Lernzettel', s.to, `${tr(s.parentTitle)} ${topicSearchText(s.topic)} ${topicSearchText(translateTree(s.topic, language))}`, s)),
     ...studySheets.map(s => entry(`sheet:${s.id}`, s.title, 'Lernzettel', `/lernzettel/${s.id}`, `${sheetSearchText(s)} ${sheetSearchText(translateTree(s, language))}`, s)),
   ];

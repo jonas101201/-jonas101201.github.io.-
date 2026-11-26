@@ -36,3 +36,31 @@ it('does not skip a quiz question on two fast next activations before the snapsh
   expect(pending).toHaveLength(1); act(() => pending.shift()!());
   expect(container.querySelector('.quiz-progress span')?.textContent).toContain('Frage 2 von');
 });
+
+it('returns to unrated cards and only completes the round once all cards are rated', () => {
+  const set = catalog.flashcardSets.find(value => value.cards.length > 2)!;
+  const { container } = show(`/karteikarten/${set.id}`);
+  const rate = () => {
+    fireEvent.click(container.querySelector('.flashcard')!);
+    act(() => pending.shift()!());
+    fireEvent.click(screen.getByRole('button', { name: 'Gewusst' }));
+    if (pending.length) act(() => pending.shift()!());
+  };
+  for (let index = 1; index < set.cards.length; index++) {
+    fireEvent.click(screen.getByRole('button', { name: 'Nächste Karte' }));
+    act(() => pending.shift()!());
+  }
+  rate();
+  expect(screen.queryByRole('heading', { name: 'Lernrunde abgeschlossen' })).toBeNull();
+  expect(container.querySelector('.flash-navigation span')?.textContent).toBe(`1 / ${set.cards.length}`);
+  for (let index = 1; index < set.cards.length; index++) rate();
+  const result = screen.getByRole('heading', { name: 'Lernrunde abgeschlossen' });
+  expect(document.activeElement).toBe(result);
+  expect(screen.getByTestId('reviews').textContent).toBe(String(set.cards.length));
+  expect((screen.getByRole('button', { name: 'Schwierige wiederholen (0)' }) as HTMLButtonElement).disabled).toBe(true);
+});
+
+it('returns a direct exam session to the exam overview', () => {
+  show('/quizze/bk1-lf3-bindung-quiz?modus=pruefung');
+  expect(screen.getByRole('link', { name: 'Prüfungstraining' }).getAttribute('href')).toBe('/pruefungstraining');
+});

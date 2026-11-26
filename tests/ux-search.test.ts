@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildSearchIndex, moveSelection, searchIndex } from '../src/features/search';
+import { tasks } from '../src/features/blurting/tasks';
 import { catalog } from '../src/data/catalog';
 const index = buildSearchIndex(s => s ?? '', 'de');
 describe('Shared metadata search', () => {
@@ -37,4 +38,10 @@ it('searches new topics in Ukrainian while retaining their stable routes', async
   const { translateText } = await import('../src/i18n/translate');
   const uk = buildSearchIndex(s => translateText(s, 'uk'), 'uk');
   expect(searchIndex(uk, 'операціоналізація').some(e => e.to === '/lernzettel/bk2-lf2/hypothesen')).toBe(true);
+});
+
+it('finds free recall exercises without using answers or private attempts', () => {
+  const results = searchIndex(index, 'Freier Wissensabruf Bindung');
+  expect(index.filter(entry => entry.id.startsWith('blurting:'))).toHaveLength(tasks.length);
+  expect(results.some(entry => entry.to === '/blurting/bk1-lf3-bindung' && entry.learningFieldId === 'bk1-lf3')).toBe(true);
 });

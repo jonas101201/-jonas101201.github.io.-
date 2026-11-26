@@ -59,6 +59,9 @@ const references: LearningReference[] = [
 const referenceById = new Map(references.map(ref => [ref.id, ref]));
 export const learningReference = (kind: LearningKind, contentId: string) => referenceById.get(`${kind}:${contentId}`);
 export const scopeOf = (reference: Pick<LearningReference, 'subjectId' | 'learningFieldId'>) => reference.learningFieldId ?? reference.subjectId;
+export function translateMissionTitle(title: string, tr: (source: string) => string) {
+  return title.split(' · ').map(part => tr(part)).join(' · ');
+}
 export function missionSteps(record: MissionRecord) {
   return record.plan.steps.map(step => {
     const current = learningReference(step.kind, step.contentId);

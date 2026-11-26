@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Diamond } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { ContentRouteLink } from '../../components/ContextLinks';
 import { useI18n } from '../../i18n/context';
 import { cosmetics, rarityLabels, slots, type Cosmetic } from './cosmetics';
 import { useProgression } from './store';
@@ -40,45 +41,44 @@ function conditionLabel(item: Cosmetic, tr: ReturnType<typeof useI18n>['tr']) {
 export function RewardStore() {
   const { tr, locale } = useI18n();
   const { state, enabled, dispatch, error } = useProgression();
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const [rarity, setRarity] = useState('');
   const [params, setParams] = useSearchParams();
+  const query = params.get('q') ?? '';
+  const category = params.get('kategorie') ?? '';
+  const rarity = params.get('seltenheit') ?? '';
   const detail = params.get('welt') === 'enchanted-garden';
   const tab = params.get('bereich') ?? 'discover';
   const scope = params.get('auswahl') ?? 'all';
   const discovering = !detail && scope === 'all' && tab === 'discover';
   const groupSlots = filterGroups.find(group => group.id === category)?.slots;
   const creditBalance = new Intl.NumberFormat(locale).format(state.credits);
-  function filterBy(key: string, value: string) {
-    setParams(previous => {
-      const next = new URLSearchParams(previous);
-      next.delete('welt');
+  const [previewId, setPreviewId] = useState<string | null>(null);
+  function filterBy(changes: Record<string, string>, replace = false) {
+    const next = new URLSearchParams(params);
+    next.delete('welt');
+    for (const [key, value] of Object.entries(changes)) {
       if (value) next.set(key, value);
       else next.delete(key);
-      return next;
-    });
-    setSelected(null);
+    }
+    if (next.toString() === params.toString()) return;
+    setParams(next, { replace });
+    resetCatalog();
   }
-  const [selected, setSelected] = useState<Cosmetic | null>(null);
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [confirmId, setConfirmId] = useState<string | null>(null);
   const owned = useMemo(() => new Set(state.owned), [state.owned]);
   const wishlist = useMemo(() => new Set(state.wishlist), [state.wishlist]);
-  const filtered = cosmetics.filter(item => item.condition.type !== 'world' && (tab !== 'companions' || item.slot === 'companion') && (!groupSlots || groupSlots.includes(item.slot)) && (!rarity || rarity === item.rarity)
+  const filtered = cosmetics.filter(item => (item.condition.type !== 'world' || scope === 'owned') && (tab !== 'companions' || item.slot === 'companion') && (!groupSlots || groupSlots.includes(item.slot)) && (!rarity || rarity === item.rarity)
     && (scope === 'all' || (scope === 'owned' ? owned.has(item.id) : wishlist.has(item.id)))
     && [item.name, tr(item.description), tr(slots[item.slot])].some(text => text.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())));
+  const selected = filtered.find(item => item.id === previewId);
   if (discovering && !category && !query.trim()) {
     const featured = ['crystal-glass', 'event-horizon'];
     filtered.sort((a, b) => (featured.indexOf(a.id) + 1 || 3) - (featured.indexOf(b.id) + 1 || 3));
   }
 
   function resetCatalog() {
-    setCategory('');
-    setRarity('');
-    setQuery('');
-    setSelected(null);
+    setPreviewId(null);
     setConfirmId(null);
   }
 
@@ -104,12 +104,9 @@ export function RewardStore() {
     </nav>
     {discovering && <ShopSpotlight/>}
     {detail ? <Link className="text-link" to="?bereich=worlds">{tr('Zu den Premium-Sets')}</Link> : <div className="collection-shop-filters" role="group" aria-label={tr('Kategorie')}>
-      <button className="button secondary" type="button" aria-pressed={!category && tab !== 'worlds' && tab !== 'companions'} onClick={() => { setCategory(''); filterBy('bereich', ''); }}>{tr('Alle')}</button>
-      {filterGroups.map(group => <button className="button secondary" type="button" key={group.id} aria-pressed={category === group.id || (tab === 'companions' && group.id === 'companions')} onClick={() => {
-        setCategory(group.id);
-        filterBy('bereich', '');
-      }}>{tr(group.label)}</button>)}
-      <button className="button secondary" type="button" aria-pressed={tab === 'worlds'} onClick={() => { setCategory(''); filterBy('bereich', 'worlds'); }}>{tr('Premium-Sets')}</button>
+      <button className="button secondary" type="button" aria-pressed={!category && tab !== 'worlds' && tab !== 'companions'} onClick={() => filterBy({ kategorie: '', bereich: '' })}>{tr('Alle')}</button>
+      {filterGroups.map(group => <button className="button secondary" type="button" key={group.id} aria-pressed={category === group.id || (tab === 'companions' && group.id === 'companions')} onClick={() => filterBy({ kategorie: group.id, bereich: '' })}>{tr(group.label)}</button>)}
+      <button className="button secondary" type="button" aria-pressed={tab === 'worlds'} onClick={() => filterBy({ kategorie: '', bereich: 'worlds' })}>{tr('Premium-Sets')}</button>
     </div>}
     {(detail || (tab === 'worlds' && scope === 'all') || (scope === 'owned' ? owned.has('garden-clay') : scope === 'wishlist' && wishlist.has('enchanted-garden'))) &&
       <WorldShowcase key={String(detail)} detail={detail}/>}
@@ -119,9 +116,9 @@ export function RewardStore() {
       <p role="status">{tr('{0} Gegenstände', [filtered.length])}</p>
     </header>
     <div className="collection-shop-tools">
-      <label className="studio-field"><span className="sr-only">{tr('Gegenstände suchen')}</span><input type="search" placeholder={tr('Gegenstände suchen')} value={query} onChange={event => setQuery(event.target.value)}/></label>
+      <label className="studio-field"><span className="sr-only">{tr('Gegenstände suchen')}</span><input type="search" placeholder={tr('Gegenstände suchen')} value={query} onChange={event => filterBy({ q: event.target.value }, true)}/></label>
       <label className="studio-field"><span className="sr-only">{tr('Seltenheit')}</span>
-        <select value={rarity} onChange={event => setRarity(event.target.value)}>
+        <select value={rarity} onChange={event => filterBy({ seltenheit: event.target.value })}>
           <option value="">{tr('Alle Seltenheiten')}</option>
           {Object.entries(rarityLabels).map(([key, label]) => <option key={key} value={key}>{tr(label)}</option>)}
         </select>
@@ -129,7 +126,7 @@ export function RewardStore() {
     </div>
     {selected && <CosmeticTryOn key={selected.id} item={selected} state={state} condition={conditionLabel(selected, tr)} close={() => {
       document.getElementById(`preview-${selected.id}`)?.focus();
-      setSelected(null);
+      setPreviewId(null);
     }}/>}
     {(message || error) && <p role="status" className="notice">{tr(error ?? message)}</p>}
     {filtered.length === 0 && <p className="muted">{tr('Keine passenden Gegenstände.')}{!enabled && scope !== 'all' && <> · <Link className="text-link" to="/fortschritt/speicher">{tr('Progress freiwillig aktivieren')}</Link></>}</p>}
@@ -152,7 +149,7 @@ export function RewardStore() {
           <div className="progress-actions">
             <button id={`preview-${item.id}`} type="button" className="button secondary" aria-label={tr('Vorschau für {0}', [item.name])} aria-expanded={selected?.id === item.id} aria-controls={selected?.id === item.id ? 'store-preview' : undefined}
               onClick={() => {
-                setSelected(item);
+                setPreviewId(item.id);
                 requestAnimationFrame(() => {
                   document.getElementById('store-preview')?.scrollIntoView({ block: 'nearest' });
                   document.getElementById('store-preview-heading')?.focus({ preventScroll: true });
@@ -160,7 +157,7 @@ export function RewardStore() {
               }}>{tr('Vorschau')}</button>
             {enabled && !got && <button type="button" className="button secondary" aria-pressed={wishing}
               onClick={() => void dispatch({ type: 'cosmetic-wishlist', id: item.id })}>{tr(wishing ? 'Auf der Wunschliste' : 'Auf die Wunschliste')}</button>}
-            {got && <Link className="button secondary" to="/fortschritt/studio">{tr('LernHub Studio')}</Link>}
+            {got && <ContentRouteLink className="button secondary" to={'/fortschritt/studio?vorschau=' + encodeURIComponent(item.id)}>{tr('LernHub Studio')}</ContentRouteLink>}
             {!got && price !== null && confirmId !== item.id
               && <button type="button" className="button primary" disabled={!affordable || busy} onClick={() => setConfirmId(item.id)}>{tr('Eintauschen')}</button>}
             {confirmId === item.id && <>

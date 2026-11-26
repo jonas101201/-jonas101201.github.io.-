@@ -1,15 +1,15 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookOpen, Check, CircleArrowRight } from 'lucide-react';
 import { catalog, fieldName, subjectName } from '../../data/catalog';
 import { useI18n } from '../../i18n/context';
-import { useProgress } from '../../hooks/useProgress';
-import { buildSearchIndex } from '../search';
+import { ContentRouteLink } from '../../components/ContextLinks';
+import { useMissionRecommendations } from './useMissionRecommendations';
 import {
   achievementDefinitions, challengeDefinitions, challengeProgress, collectionDefinitions,
   levelFor, ownsWorld, reviewFor, statistics, type State,
 } from './engine';
-import { learningReference, missionSteps, plantMission, recommendMissions, type MissionRecord } from './missions';
+import { learningReference, missionSteps, plantMission, translateMissionTitle, type MissionRecord } from './missions';
 import { milestoneLevels, missionClasses, xpForLevel } from './rules';
 import { cosmeticById } from './cosmetics';
 import { premiumWorldById } from './worlds';
@@ -74,22 +74,18 @@ export function ProgressSummary({ state }: { state: State }) {
 }
 
 function MissionSection() {
-  const { state, dispatch } = useProgression();
-  const { tr, language } = useI18n();
-  const { activities } = useProgress();
+  const { state, dispatch, error } = useProgression();
+  const { tr } = useI18n();
   const { hash } = useLocation();
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (hash === '#missionen') heading.current?.focus();
   }, [hash]);
-  const recentField = useMemo(() => {
-    const index = buildSearchIndex(tr, language);
-    return activities.map(activity => index.find(entry => entry.to === activity.to)?.learningFieldId).find(Boolean);
-  }, [activities, tr, language]);
+  const recommendations = useMissionRecommendations(state);
   const plant = plantMission();
   const plans = [
     ...(plant && !state.missions.some(item => item.id === plant.id && item.status !== 'cancelled') ? [plant] : []),
-    ...recommendMissions(state, new Date().toISOString(), recentField),
+    ...recommendations,
   ];
   const active = state.missions.some(item => item.status === 'active');
   const current = state.missions.filter(item => item.status === 'active' || item.status === 'paused');
@@ -100,6 +96,7 @@ function MissionSection() {
 
   return <section className="progress-section progress-missions" aria-labelledby="missionen">
     <div className="progress-missions-header"><h2 id="missionen" ref={heading} tabIndex={-1}>{tr('Lernmissionen')}</h2>
+    {error && <p className="notice warning" role="status">{tr(error)}</p>}
     {active && <p className="muted">{tr('Du kannst jeweils eine Mission aktiv bearbeiten. Pausiere sie, um eine andere zu starten.')}</p>}
     <label className="settings-check">{tr('Mein Lernziel')}
       <select value={state.goalFieldId ?? ''} onChange={event => void dispatch({ type: 'set-goal', learningFieldId: event.target.value || undefined })}>
@@ -110,12 +107,12 @@ function MissionSection() {
     </div>
     <div className="progress-tile-grid">
       {current.map(mission => <article key={mission.id} className="glass prose">
-        <h3>{tr(mission.plan.title)}</h3>
+        <h3>{translateMissionTitle(mission.plan.title, tr)}</h3>
         <p>{tr(mission.plan.reason)}</p>
         <p>{tr(mission.status === 'paused' ? 'Pausiert' : 'Aktiv')} · {mission.completedStepIds.length} / {mission.plan.steps.length}</p>
         <ol className="progress-step-list">{missionSteps(mission).map(step => <li key={step.id}>
           {step.completed ? <span><Check size={15} aria-hidden="true"/> {tr('Erledigt')} · {tr(step.title)}</span>
-            : mission.status === 'active' && step.to ? <Link className="text-link" to={step.to}>{tr(methodLabels[step.kind])} · {tr(step.title)}</Link>
+            : mission.status === 'active' && step.to ? <ContentRouteLink className="text-link" to={step.to}>{tr(methodLabels[step.kind])} · {tr(step.title)}</ContentRouteLink>
               : <span>{tr(methodLabels[step.kind])} · {tr(step.title)}{!step.to && ' · ' + tr('Inhalt nicht mehr verfügbar')}</span>}
         </li>)}</ol>
         <div className="progress-actions">
@@ -124,8 +121,8 @@ function MissionSection() {
         </div>
       </article>)}
       {plans.map(plan => <article key={plan.id} className="glass progress-mission-card" data-mission-kind={plan.kind}>
-        <p className="eyebrow">{missionClasses[plan.kind].label} · {tr('Ca. {0} Min.', [plan.estimatedMinutes])}</p>
-        <h3>{tr(plan.title)}</h3>
+        <p className="eyebrow">{tr(missionClasses[plan.kind].label)} · {tr('Ca. {0} Min.', [plan.estimatedMinutes])}</p>
+        <h3>{translateMissionTitle(plan.title, tr)}</h3>
         <p>{tr(plan.reason)}</p>
         <details className="progress-mission-steps">
           <summary>{tr('Missionsschritte')}</summary>
@@ -139,7 +136,7 @@ function MissionSection() {
     </div>
     {state.missions.some(mission => mission.status === 'completed') && <details className="glass prose">
       <summary>{tr('Abgeschlossene Missionen')}</summary>
-      <ul>{state.missions.filter(mission => mission.status === 'completed').map(mission => <li key={mission.id}>{tr(mission.plan.title)}</li>)}</ul>
+      <ul>{state.missions.filter(mission => mission.status === 'completed').map(mission => <li key={mission.id}>{translateMissionTitle(mission.plan.title, tr)}</li>)}</ul>
     </details>}
   </section>;
 }

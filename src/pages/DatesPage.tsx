@@ -1,5 +1,6 @@
 import { BookOpen, CalendarDays } from 'lucide-react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
+import { ContextBackLink } from '../components/ContextLinks';
 import { EmptyState, PageHeading } from '../components/ui';
 import { ClassEvents } from '../features/classroom/ClassEvents';
 import { classroom } from '../features/classroom/config';
@@ -12,9 +13,10 @@ export function DatesPage() {
 
 export function DateDetailPage() {
   const { id } = useParams();
+  const { state } = useLocation();
   const { tr, locale } = useI18n();
   const event = classroom.events.find(event => event.id === id);
   if (!event) return <EmptyState title={tr('Termin nicht gefunden')}><Link to="/termine">{tr('Alle Termine')}</Link></EmptyState>;
-  if (event.studySheetId) return <Navigate replace to={`/lernzettel/${event.studySheetId}${event.topicId ? `/${event.topicId}` : ''}`}/>;
-  return <div className="dates-page"><PageHeading eyebrow={tr(event.kind)} title={tr(event.title)} description={new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${event.date}T12:00:00Z`))}/><section className="glass dashboard-panel"><BookOpen size={27} aria-hidden="true"/><h2>{tr('Lernzettel folgt')}</h2><p className="muted">{tr('Für diesen Termin ist noch kein Lernzettel hinterlegt. Sobald er ergänzt ist, führt der Termin direkt dorthin.')}</p><Link className="text-link" to="/termine">{tr('Alle Termine')}</Link></section></div>;
+  if (event.studySheetId) return <Navigate replace state={state} to={`/lernzettel/${event.studySheetId}${event.topicId ? `/${event.topicId}` : ''}`}/>;
+  return <div className="dates-page"><PageHeading eyebrow={tr(event.kind)} title={tr(event.title)} description={new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${event.date}T12:00:00Z`))}/><section className="glass dashboard-panel"><BookOpen size={27} aria-hidden="true"/><h2>{tr('Lernzettel folgt')}</h2><p className="muted">{tr('Für diesen Termin ist noch kein Lernzettel hinterlegt. Sobald er ergänzt ist, führt der Termin direkt dorthin.')}</p><ContextBackLink className="text-link" to="/termine" originLabel={tr('Zurück zur vorherigen Übersicht')}>{tr('Alle Termine')}</ContextBackLink></section></div>;
 }

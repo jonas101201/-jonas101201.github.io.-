@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Brain, Clock3 } from 'lucide-react';
 import { ContextBackLink, ContentRouteLink } from '../../components/ContextLinks';
 import { EmptyState, PageHeading } from '../../components/ui';
 import { catalog, fieldName, subjectName } from '../../data/catalog';
+import { useListFilters } from '../../hooks/useListFilters';
 import { useI18n } from '../../i18n/context';
 import { reviewFor } from '../progression/engine';
 import { useProgression } from '../progression/store';
@@ -24,7 +25,7 @@ const sessionDrafts = new Map<string, { draft: Draft; generation: string | null 
 export function BlurtingList() {
   const { tr, locale } = useI18n();
   const { state, enabled } = useProgression();
-  const [subject, setSubject] = useState('');
+  const { subject, setSubject } = useListFilters();
   const visible = tasks.filter(task => !subject || task.subjectId === subject);
   return <>
     <PageHeading title={tr('Freier Wissensabruf')} description={tr('Schreibe aus dem Gedächtnis, vergleiche deinen Text mit dem Lernzettel und entscheide, was du wiederholen möchtest.')}/>
@@ -36,7 +37,7 @@ export function BlurtingList() {
           .map(item => <option key={item.id} value={item.id}>{tr(item.title)}</option>)}
       </select>
     </label>
-    <div className="learning-grid">
+    {visible.length ? <div className="learning-grid">
       {visible.map(task => {
         const review = enabled ? reviewFor(state, 'blurting', task.id) : undefined;
         return <article key={task.id} className="learning-card glass">
@@ -50,7 +51,7 @@ export function BlurtingList() {
           </ContentRouteLink>
         </article>;
       })}
-    </div>
+    </div> : <EmptyState/>}
   </>;
 }
 
@@ -233,7 +234,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
   const states = draft ? summarizeRatings(Object.values(draft.ratings)) : summarizeRatings([]);
   const gaps = draft ? task.concepts.filter(concept => draft.ratings[concept.id] !== 'remembered') : [];
   return <div className="blurting-session">
-    <ContextBackLink className="back-link" to="/blurting"><ArrowLeft size={16} aria-hidden="true"/>{tr('Alle Wissensabruf-Aufgaben')}</ContextBackLink>
+    <ContextBackLink className="back-link" to="/blurting" originLabel={tr('Zurück zur vorherigen Übersicht')}><ArrowLeft size={16} aria-hidden="true"/>{tr('Alle Wissensabruf-Aufgaben')}</ContextBackLink>
     <PageHeading eyebrow={context} title={task.title} description={tr(difficultyLabels[task.difficulty]) + ' · ' + tr('Ca. {0} Min.', [task.estimatedMinutes])}/>
     {draftError && <p className="notice warning" role="status">{tr('Der Entwurf konnte nicht im Browserspeicher aktualisiert werden.')}</p>}
     {phase === 'prepare' && <section className="glass dashboard-panel blurting-panel">
@@ -296,7 +297,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     </>}
     {phase === 'complete' && outcome && <section className="glass dashboard-panel blurting-panel">
       <h2 ref={title} tabIndex={-1}>{tr('Wissensabruf abgeschlossen')}</h2>
-      <ActiveCompanion context="completion"/>
+      <ActiveCompanion context="completion" encouraging={gaps.length > 0}/>
       <dl className="blurting-summary">
         {ratings.map(rating => <div key={rating}><dt>{tr(ratingLabels[rating])}</dt><dd>{states[rating]}</dd></div>)}
       </dl>

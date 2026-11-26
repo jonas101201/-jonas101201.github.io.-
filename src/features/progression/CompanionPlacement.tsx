@@ -1,59 +1,45 @@
-import { useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
 import { CompanionVisual } from './Companion';
-import { companionProgress, companions } from './companions';
-import { useProgression } from './store';
 import './companion-placement.css';
+import { companionProgress, companions } from './companions';
+import { useMissionRecommendations } from './useMissionRecommendations';
+import { useCompanionGreeting } from './studioMotion';
+import { useProgression } from './store';
 
-export function CompanionPlacement({ context }: { context: 'home' | 'completion' }) {
+export function CompanionPlacement({ context, encouraging = false, fallback, children }: { context: 'home' | 'completion'; encouraging?: boolean; fallback?: ReactNode; children?: ReactNode }) {
   const { tr } = useI18n();
   const { enabled, state } = useProgression();
-  const [reaction, setReaction] = useState(context === 'completion');
-  const [fits, setFits] = useState(context !== 'home');
-  const button = useRef<HTMLButtonElement>(null);
-  const timeout = useRef<number>(0);
+  const [reaction, replay] = useCompanionGreeting(context === 'completion');
   const character = companions.find(item => item.id === state.activeCompanion);
   const development = character && companionProgress(state, character.id);
+  const activeMission = state.missions.find(mission => mission.status === 'active');
+  const recommendations = useMissionRecommendations(state, enabled && context === 'home');
+  const suggestion = activeMission?.plan ?? recommendations[0];
 
-  useEffect(() => () => window.clearTimeout(timeout.current), []);
-  useEffect(() => {
-    if (!reaction) return;
-    const handle = window.setTimeout(() => setReaction(false), 1700);
-    return () => window.clearTimeout(handle);
-  }, [reaction]);
-
-  useEffect(() => {
-    if (context !== 'home' || !enabled) return;
-    const root = button.current?.closest('.home-heading');
-    const heading = root?.querySelector('h1');
-    const date = root?.querySelector('.home-date');
-    if (!root || !heading || !date) return;
-    const fit = () => {
-      const dateBox = date.getBoundingClientRect();
-      if (button.current) button.current.style.insetInlineEnd = (root.getBoundingClientRect().right - dateBox.left + 6) + 'px';
-      setFits(dateBox.left - heading.getBoundingClientRect().right >= 56);
-    };
-    fit();
-    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(fit) : undefined;
-    for (const item of [root, heading, date]) observer?.observe(item);
-    window.addEventListener('resize', fit);
-    return () => { observer?.disconnect(); window.removeEventListener('resize', fit); };
-  }, [context, enabled]);
-
-  if (!enabled || !character || !development?.unlocked) return null;
-  const label = tr('{0} · {1}', [character.name, development.stageName]);
+  if (!enabled || !character || !development?.unlocked) return fallback;
   const look = state.equipped;
+
   if (context === 'home') {
-    return <button type="button" ref={button} className="active-companion active-companion-home" data-fits={fits}
-      title={label} aria-label={label} onClick={() => {
-        window.clearTimeout(timeout.current);
-        setReaction(false);
-        timeout.current = window.setTimeout(() => setReaction(true), 20);
-      }}>
-      <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? 'greet' : 'idle'} interactive/>
-    </button>;
+    return <div className="glass active-companion-home">
+      <button type="button" className="active-companion companion-greeting"
+        aria-label={tr('Bewegung von {0} abspielen', [character.name])}
+        onClick={replay}>
+        <CompanionVisual key={reaction} id={character.id} stage={development.stage} look={look} motion={reaction ? 'greet' : 'idle'} interactive/>
+        <span>{character.name}</span>
+      </button>
+      <div className="companion-speech companion-home-dialogue">
+        <span className="companion-cloud" aria-hidden="true"/>
+        {children}
+        {suggestion && <Link className="text-link companion-mission-link" to="/fortschritt#missionen">
+          {tr(activeMission ? 'Mission fortsetzen' : 'Lernmissionen')} <ArrowUpRight size={14} aria-hidden="true"/>
+        </Link>}
+      </div>
+    </div>;
   }
   return <div className="active-companion active-companion-completion" aria-hidden="true">
-    <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? 'celebrate' : 'still'} interactive/>
+    <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'still'} interactive/>
   </div>;
 }

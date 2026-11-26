@@ -7,7 +7,7 @@ export interface ContentOrigin {
 }
 
 export function useContentOrigin(): ContentOrigin {
-  const { pathname, search, key } = useLocation();
+  const { pathname, search, hash, key } = useLocation();
   const fromIndex = window.history.state?.idx;
-  return { from: pathname + search, fromIndex, fromKey: key };
+  return { from: pathname + search + hash, fromIndex, fromKey: key };
 }

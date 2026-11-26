@@ -125,14 +125,5 @@
 
 @media screen {
   .garden-live-frame { width: min(100%, 54rem); }
-  .garden-live-frame iframe {
-    display: block;
-    width: 100%;
-    height: clamp(37rem, 83vh, 49rem);
-    border: 1px solid var(--clay-edge);
-    border-radius: var(--radius-panel);
-    background: var(--clay-base);
-    box-shadow: var(--clay-panel-shadow);
-    pointer-events: none;
-  }
+  .garden-live-frame .look-preview-frame { max-width: 54rem; }
 }

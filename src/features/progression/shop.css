@@ -84,7 +84,11 @@
   .collection-shop-catalog h2 { margin: 0; font-size: clamp(1.12rem, 3vw, 1.5rem); }
   .collection-shop-catalog p { flex: none; font-size: .8rem; }
   .collection-shop-tools { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); gap: .5rem; max-width: 32rem; }
-  .collection-shop-tools input, .collection-shop-tools select { font-size: .85rem; }
+  .collection-shop-tools .studio-field { grid-template-columns: minmax(0, 1fr); }
+  .collection-shop-tools :is(input, select) { min-width: 0; font-size: .85rem; }
+  @media (max-width: 360px) {
+    .collection-shop-tools { grid-template-columns: minmax(0, 1fr); }
+  }
   .collection-shop .collection-shop-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(.5rem, 2vw, 1rem);

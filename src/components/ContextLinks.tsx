@@ -12,7 +12,7 @@ export function ContextBackLink({ to, children, originLabel, ...props }: Omit<Li
   const navigate = useNavigate();
   const origin = location.state as ContentOrigin | null;
   const from = origin?.from;
-  if (typeof from !== 'string' || !/^\/(?!\/|\\)/.test(from) || from === location.pathname + location.search) {
+  if (typeof from !== 'string' || !/^\/(?!\/|\\)/.test(from) || from === location.pathname + location.search + location.hash) {
     return <Link {...props} to={to}>{children}</Link>;
   }
   const currentIndex = window.history.state?.idx;

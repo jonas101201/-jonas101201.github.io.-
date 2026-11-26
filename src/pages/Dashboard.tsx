@@ -39,7 +39,6 @@ export function Dashboard() {
     <header className="home-heading">
       <h1 id="home-fields-heading">{tr('Deine Lernfelder')}</h1>
       <p className="home-date"><CurrentDate compact/></p>
-      <ActiveCompanion context="home"/>
     </header>
     <div className="home-main-grid">
       <section className="home-fields" aria-labelledby="home-fields-heading">
@@ -55,13 +54,22 @@ export function Dashboard() {
         })}</div>
       </section>
       <section className="home-resume" aria-labelledby="continue-heading">
-        <Link className="home-resume-card glass" to={entry?.to ?? `/lernzettel/${starter.id}`}>
-          <h2 id="continue-heading" className="home-card-label">{tr(entry ? 'Weiterlernen' : 'Dein Einstieg')}</h2>
-          {entry && <span className="home-resume-kind">{[entry.kind, entry.context].filter(Boolean).join(' · ')}</span>}
-          <h3>{entry?.title ?? tr(starter.title)}</h3>
-          {resumeProgress && <span className="home-resume-progress">{resumeProgress}</span>}
-          <span className="home-resume-action"><span className="sr-only">{tr(entry ? 'Fortsetzen' : 'Lernzettel öffnen')}</span><ArrowRight size={22} aria-hidden="true"/></span>
-        </Link>
+        <ActiveCompanion context="home" fallback={
+          <Link className="home-resume-card glass" to={entry?.to ?? `/lernzettel/${starter.id}`}>
+            <h2 id="continue-heading" className="home-card-label">{tr(entry ? 'Weiterlernen' : 'Dein Einstieg')}</h2>
+            {entry && <span className="home-resume-kind">{[entry.kind, entry.context].filter(Boolean).join(' · ')}</span>}
+            <h3>{entry?.title ?? tr(starter.title)}</h3>
+            {resumeProgress && <span className="home-resume-progress">{resumeProgress}</span>}
+            <span className="home-resume-action"><span className="sr-only">{tr(entry ? 'Fortsetzen' : 'Lernzettel öffnen')}</span><ArrowRight size={22} aria-hidden="true"/></span>
+          </Link>
+        }>
+          <h2 id="continue-heading">{tr(entry ? 'Bereit für die nächste Runde?' : 'Lust auf eine Lernrunde?')}</h2>
+          <Link className="companion-resume-link" to={entry?.to ?? `/lernzettel/${starter.id}`}>
+            <span><small>{tr(entry ? 'Weiterlernen' : 'Dein Einstieg')}</small><strong>{entry?.title ?? tr(starter.title)}</strong></span>
+            <ArrowRight size={19} aria-hidden="true"/>
+          </Link>
+          {resumeProgress && <p className="companion-resume-progress">{resumeProgress}</p>}
+        </ActiveCompanion>
       </section>
     </div>
     <section className="home-subjects home-subject-shortcuts" aria-label={tr('Weitere Fächer')}><div className="home-section-heading"><h2>{tr('Weitere Fächer')}</h2></div><div>{catalog.subjects.filter(subject => !['bk1', 'bk2'].includes(subject.id)).map(subject => <Link className={`home-subject-chip ${subject.color}`} to={`/faecher/${subject.id}`} key={subject.id}>{tr(subject.title)}<ArrowUpRight size={14} aria-hidden="true"/></Link>)}</div></section>

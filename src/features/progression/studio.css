@@ -399,3 +399,23 @@
     .studio-area-jump { display: inline-flex; }
   }
 }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .companion-figure[data-motion="idle"] .companion-sprite { animation-iteration-count: infinite; }
+  .companion-figure[data-visible="true"]:not([data-sprite])[data-motion="idle"] .companion-figure-art {
+    transform-origin: 50% 77%;
+    animation: var(--companion-idle) var(--companion-idle-duration) ease-in-out infinite;
+  }
+  .companion-figure[data-character="orbit"] { --companion-idle: companion-idle-float; --companion-idle-duration: 4.8s; }
+  .companion-figure[data-character="ember"] { --companion-idle: companion-idle-breathe; --companion-idle-duration: 2.8s; }
+  .companion-figure[data-character="spectre"] { --companion-idle: companion-idle-float; --companion-idle-duration: 6s; }
+  .companion-figure[data-character="bloom"] { --companion-idle: companion-idle-sway; --companion-idle-duration: 5.7s; }
+  .companion-figure[data-character="glitch"] { --companion-idle: companion-idle-twitch; --companion-idle-duration: 4.2s; }
+  .companion-figure[data-character="cosmo"] { --companion-idle: companion-idle-orbit; --companion-idle-duration: 6.2s; }
+  .companion-figure[data-character="pflanziska"] { --companion-idle: companion-idle-sway; --companion-idle-duration: 6.6s; }
+  @keyframes companion-idle-float { 50% { transform: translateY(-3%); } }
+  @keyframes companion-idle-breathe { 45% { transform: scale(1.02, .985); } 70% { transform: translateY(-1%); } }
+  @keyframes companion-idle-sway { 32% { transform: rotate(-1.3deg); } 70% { transform: rotate(1.1deg); } }
+  @keyframes companion-idle-twitch { 70%, 90% { transform: none; } 78% { transform: translate(.8%, -1%) rotate(.75deg); } 84% { transform: translate(-.5%, -.5%); } }
+  @keyframes companion-idle-orbit { 25% { transform: translate(1.6%, -2%); } 55% { transform: translate(-1%, -3%); } }
+}

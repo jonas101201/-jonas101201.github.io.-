@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { ContextBackLink } from '../../components/ContextLinks';
 import { useI18n } from '../../i18n/context';
 import { useProgression } from './store';
 import { compatibleLook, cosmeticById, cosmetics, isCompanionSlot, isEffectSlot, slots, type Look, type Slot } from './cosmetics';
@@ -7,12 +8,14 @@ import { companionProgress, companions } from './companions';
 import { StudioPreview } from './StudioPreview';
 import { CompanionVisual } from './Companion';
 import { LookPreviewFrame } from './LookPreviewFrame';
+import { useCompanionGreeting } from './studioMotion';
 import './studio.css';
 
 export function Studio() {
   const { tr } = useI18n();
   const { state, enabled, dispatch, error } = useProgression();
   const [params, setParams] = useSearchParams();
+  const { state: origin } = useLocation();
   const incoming = cosmeticById(params.get('vorschau') ?? undefined);
   const [area, setArea] = useState<'surface' | 'companion' | 'presets'>(() => incoming && isCompanionSlot(incoming.slot) ? 'companion' : 'surface');
   const [surfaceView, setSurfaceView] = useState<'home' | 'effects'>(() => incoming && isEffectSlot(incoming.slot) ? 'effects' : 'home');
@@ -23,6 +26,7 @@ export function Studio() {
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
   const [play, setPlay] = useState(0);
+  const [greeting, replayGreeting] = useCompanionGreeting();
   const previewPane = useRef<HTMLDivElement>(null);
   const editPane = useRef<HTMLDivElement>(null);
   const equipped = compatibleLook(state.equipped, state.owned);
@@ -45,7 +49,7 @@ export function Studio() {
     if (incoming) {
       const next = new URLSearchParams(params);
       next.delete('vorschau');
-      setParams(next, { replace: true });
+      setParams(next, { replace: true, state: origin });
     }
   }
 
@@ -77,7 +81,7 @@ export function Studio() {
         <h2>{tr('LernHub Studio')}</h2>
         <p className="muted">{tr('Probiere einen Look aus und wende ihn an, wenn er dir gefällt.')}</p>
       </div>
-      <Link className="button secondary" to="/fortschritt/store">{tr('Reward Store')}</Link>
+      <ContextBackLink className="button secondary" to="/fortschritt/store" originLabel={tr('Zurück zum Shop')}>{tr('Reward Store')}</ContextBackLink>
     </header>
     <div className="progress-actions studio-areas" role="group" aria-label={tr('Studio-Bereiche')}>
       {([['surface', 'Oberfläche'], ['companion', 'Begleiter'], ['presets', 'Presets']] as const).map(([id, label]) =>
@@ -92,7 +96,7 @@ export function Studio() {
         <button type="button" className="button secondary studio-area-jump" onClick={() => revealPane(editPane.current)}>{tr('Design bearbeiten')}</button>
         {area === 'companion' ? <>
           <div className="studio-character-preview">
-            <CompanionVisual key={play} id={character.id} look={look} stage={stage} motion={play ? 'greet' : 'idle'} interactive/>
+            <CompanionVisual key={greeting} id={character.id} look={look} stage={stage} motion={greeting ? 'greet' : 'idle'} interactive/>
             <strong>{character.name}</strong>
           </div>
           <div className="studio-character-tools">
@@ -102,7 +106,7 @@ export function Studio() {
                 {development.labels.map((label, index) => <option key={label} value={index}>{label}</option>)}
               </select>
             </label>
-            <button className="button secondary" type="button" onClick={() => setPlay(value => value + 1)}>{tr('Bewegung abspielen')}</button>
+            <button className="button secondary" type="button" onClick={replayGreeting}>{tr('Bewegung abspielen')}</button>
           </div>
         </> : <>
           <div className="progress-actions" role="group" aria-label={tr('Designvorschau')}>
