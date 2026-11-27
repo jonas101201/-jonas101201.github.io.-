@@ -4898,5 +4898,7 @@
   "LernHub speichert Antworten und KI-Ausgaben nicht auf dem Worker. Das KI-Ergebnis bleibt im geöffneten Tab. Deine bestätigte Selbsteinschätzung wird nach den bestehenden Einstellungen zur freiwilligen lokalen Speicherung verarbeitet.": "LernHub не зберігає відповіді й результати ШІ у Worker. Результат залишається у відкритій вкладці. Підтверджена самооцінка обробляється відповідно до чинних налаштувань добровільного локального зберігання.",
   "Hinweise zur Datenverarbeitung bei Cloudflare Workers AI": "Інформація про обробку даних у Cloudflare Workers AI",
   "Beleg aus dem Lernzettel": "Цитата з конспекту",
-  "Die Lernzettel öffnen sich in einem neuen Tab.": "Конспекти відкриваються в новій вкладці."
+  "Die Lernzettel öffnen sich in einem neuen Tab.": "Конспекти відкриваються в новій вкладці.",
+  "KI-Auswertung verfügbar ab {0}. Du kannst deine Antwort jetzt selbst kontrollieren.": "Оцінювання ШІ доступне з {0}. Ти вже можеш самостійно перевірити відповідь.",
+  "Der Browser konnte die geschützte Anfrage nicht öffnen. Melde dich bei Cloudflare Access an. Falls du im App-Browser bist, öffne LernHub in Safari. Deine Antwort bleibt hier erhalten.": "Браузер не зміг відкрити захищений запит. Увійди через Cloudflare Access. Якщо ти у вбудованому браузері застосунку, відкрий LernHub у Safari. Твоя відповідь залишиться тут."
 }

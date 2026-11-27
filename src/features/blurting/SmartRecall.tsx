@@ -6,7 +6,7 @@ import { useI18n } from '../../i18n/context';
 import { ActiveCompanion } from '../progression/ActiveCompanion';
 import type { CompanionId } from '../progression/companions';
 import type { Rating } from './analysis';
-import { requestSmartRecall, smartRecallLoginUrl, smartRecallMaxAnswer, type SmartRecallResult, type SmartRecallError } from './smartRecall';
+import { requestSmartRecall, smartRecallLoginUrl, smartRecallMaxAnswer, smartRecallNotBefore, type SmartRecallResult, type SmartRecallError } from './smartRecall';
 import type { BlurtingTask } from './tasks';
 
 const statusLabels = {
@@ -17,6 +17,7 @@ const statusLabels = {
 const statusIcons = { correct: Check, partial: Minus, incomplete: Minus, wrong: X, missing: Minus, uncertain: CircleHelp };
 
 const errors: Record<SmartRecallError, string> = {
+  access_connection: 'Der Browser konnte die geschützte Anfrage nicht öffnen. Melde dich bei Cloudflare Access an. Falls du im App-Browser bist, öffne LernHub in Safari. Deine Antwort bleibt hier erhalten.',
   unauthorized: 'Melde dich bei Cloudflare Access an und versuche es danach erneut.',
   disabled: 'Die KI-Auswertung ist derzeit deaktiviert. Du kannst deine Antwort selbst kontrollieren.',
   invalid_request: 'Die Anfrage konnte nicht verarbeitet werden. Prüfe die Antwortlänge oder nutze die Selbstkontrolle.',
@@ -62,12 +63,18 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
   const [problem, setProblem] = useState('');
   const request = useRef<AbortController | null>(null);
   const resultHeading = useRef<HTMLHeadingElement>(null);
+  const [pilotOpen, setPilotOpen] = useState(() => !(smartRecallNotBefore > Date.now()));
+  useEffect(() => {
+    if (pilotOpen) return;
+    const timer = window.setTimeout(() => setPilotOpen(true), smartRecallNotBefore - Date.now());
+    return () => window.clearTimeout(timer);
+  }, [pilotOpen]);
   const eligible = answer.trim().length > 0 && answer.length <= smartRecallMaxAnswer;
   useEffect(() => () => request.current?.abort(), []);
   useEffect(() => { resultHeading.current?.focus(); }, [result]);
 
   async function evaluate() {
-    if (!eligible || request.current || complete || result) return;
+    if (!pilotOpen || !eligible || request.current || complete || result) return;
     const controller = new AbortController();
     request.current = controller;
     setWaiting(true);
@@ -116,16 +123,19 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
     <h2 id="smart-recall-title" ref={resultHeading} tabIndex={-1}>{tr('Smart Recall · KI-Auswertung')}</h2>
     {!result && !complete && <>
       <div className="button-row">
-        {!disclose && <button className="button primary" onClick={() => { setProblem(''); setDisclose(true); }} disabled={!eligible}>{tr('KI-Auswertung starten')}</button>}
+        {!disclose && <button className="button primary" onClick={() => { setProblem(''); setDisclose(true); }} disabled={!pilotOpen || !eligible}>{tr('KI-Auswertung starten')}</button>}
         {!manual && <button className="button secondary" onClick={() => { cancel(); showManual(); }}>{tr('Selbst kontrollieren')}</button>}
         <button className="button secondary" onClick={() => { cancel(); edit(); }}>{tr('Antwort bearbeiten')}</button>
       </div>
+      {!pilotOpen && <p className="notice">{tr('KI-Auswertung verfügbar ab {0}. Du kannst deine Antwort jetzt selbst kontrollieren.', [
+        new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' }).format(smartRecallNotBefore),
+      ])}</p>}
       {!eligible && <p>{tr('Die KI-Auswertung unterstützt Antworten bis {0} Zeichen. Die Selbstkontrolle bleibt verfügbar.', [smartRecallMaxAnswer])}</p>}
       {disclose && <div className="notice">
         <p>{tr('Wenn du fortfährst, werden deine Antwort und passende Auszüge aus den Lernzetteln zur Bewertung an Cloudflare Workers AI gesendet. Bitte verwende keine Namen oder anderen persönlichen Daten.')}</p>
         <p><Link className="text-link" to="/datenschutz#smart-recall-privacy">{tr('Datenschutz')}</Link> · <a className="text-link" href={smartRecallLoginUrl()} target="_blank" rel="noopener noreferrer">{tr('Bei Cloudflare Access anmelden')}</a></p>
         <div className="button-row">
-          <button type="button" className="button primary" disabled={waiting || !eligible} onClick={() => void evaluate()}>{tr('Antwort senden und bewerten')}</button>
+          <button type="button" className="button primary" disabled={!pilotOpen || waiting || !eligible} onClick={() => void evaluate()}>{tr('Antwort senden und bewerten')}</button>
           <button type="button" className="button secondary" onClick={cancel}>{tr('Abbrechen')}</button>
         </div>
       </div>}

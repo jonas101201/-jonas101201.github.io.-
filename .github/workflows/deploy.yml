@@ -42,6 +42,7 @@ jobs:
           VITE_BASE_PATH: ${{ steps.pages.outputs.base_path || '/' }}
           VITE_MATERIALS_API_ORIGIN: ${{ vars.MATERIALS_API_ORIGIN }}
           VITE_SMART_RECALL: "true"
+          VITE_SMART_RECALL_NOT_BEFORE: "2026-11-28T00:00:00Z"
           VITE_SMART_RECALL_ALL_TASKS: "false"
           VITE_SMART_RECALL_API_ORIGIN: https://lernhub-materials-api.spathjonas.workers.dev
         run: npm run build

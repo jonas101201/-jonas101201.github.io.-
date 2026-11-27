@@ -10,6 +10,7 @@ export function isSmartRecallTaskEnabled(taskId: string) {
 }
 
 export const smartRecallMaxAnswer = 3000;
+export const smartRecallNotBefore = Date.parse(import.meta.env.VITE_SMART_RECALL_NOT_BEFORE ?? '');
 
 export const recallStatuses = ['correct', 'partial', 'incomplete', 'wrong', 'missing', 'uncertain'] as const;
 const text = z.string().max(1000);
@@ -30,7 +31,7 @@ const schema = z.object({
 });
 
 export type SmartRecallResult = z.infer<typeof schema>;
-export type SmartRecallError = 'unauthorized' | 'disabled' | 'invalid_request' | 'unsupported_task' | 'busy' | 'user_budget' | 'budget' | 'unavailable' | 'invalid_result' | 'timeout';
+export type SmartRecallError = 'access_connection' | 'unauthorized' | 'disabled' | 'invalid_request' | 'unsupported_task' | 'busy' | 'user_budget' | 'budget' | 'unavailable' | 'invalid_result' | 'timeout';
 const errors = new Set<string>(['unauthorized', 'disabled', 'invalid_request', 'unsupported_task', 'busy', 'user_budget', 'budget', 'unavailable', 'invalid_result', 'timeout']);
 
 export function parseSmartRecallResult(raw: unknown, task: BlurtingTask, answer: string) {
@@ -58,6 +59,9 @@ export async function requestSmartRecall(task: BlurtingTask, answer: string, att
     method: 'POST', credentials: 'include', redirect: 'error', cache: 'no-store', signal,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ taskId: task.id, answer, attemptId, language }),
+  }).catch((error: unknown) => {
+    if (!signal.aborted && error instanceof TypeError && navigator.onLine) throw new Error('access_connection');
+    throw error;
   });
   if (!response.ok) {
     if (response.status === 401 || response.status === 403) throw new Error('unauthorized');
