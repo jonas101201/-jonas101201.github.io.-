@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, Check, CircleArrowRight } from 'lucide-react';
+import { Activity, BookOpen, Brain, Check, CircleArrowRight, Clock3, Compass, Crown, Flag, Layers3, Target, Trophy, Zap } from 'lucide-react';
 import { catalog, fieldName, subjectName } from '../../data/catalog';
 import { useI18n } from '../../i18n/context';
 import { ContentRouteLink } from '../../components/ContextLinks';
@@ -17,6 +17,7 @@ import { useProgression } from './store';
 import { GardenStem } from './StudioPreview';
 import { ProgressStoragePanel } from './ProgressStoragePanel';
 
+const missionIcons = { quick: Zap, focus: Target, expert: Flag, master: Crown };
 const fieldStatus = { started: 'In Bearbeitung', due: 'Wiederholung empfohlen', verified: 'Mehrfach erfolgreich überprüft' };
 const methodLabels = { quiz: 'Quiz', exam: 'Prüfungstraining', cards: 'Karteikarten', blurting: 'Freier Wissensabruf' };
 
@@ -95,7 +96,7 @@ function MissionSection() {
   }
 
   return <section className="progress-section progress-missions" aria-labelledby="missionen">
-    <div className="progress-missions-header"><h2 id="missionen" ref={heading} tabIndex={-1}>{tr('Lernmissionen')}</h2>
+    <div className="progress-missions-header"><h2 className="progress-section-title" id="missionen" ref={heading} tabIndex={-1}><Compass aria-hidden="true"/>{tr('Lernmissionen')}</h2>
     {error && <p className="notice warning" role="status">{tr(error)}</p>}
     {active && <p className="muted">{tr('Du kannst jeweils eine Mission aktiv bearbeiten. Pausiere sie, um eine andere zu starten.')}</p>}
     <label className="settings-check">{tr('Mein Lernziel')}
@@ -105,11 +106,11 @@ function MissionSection() {
       </select>
     </label>
     </div>
-    <div className="progress-tile-grid">
-      {current.map(mission => <article key={mission.id} className="glass prose">
+    {current.map(mission => <article key={mission.id} className="glass progress-mission-card progress-current-mission" data-mission-kind={mission.plan.kind}>
+        <div className="progress-mission-meta"><Flag size={18} aria-hidden="true"/><strong>{tr(mission.status === 'paused' ? 'Pausiert' : 'Aktiv')}</strong><span>{mission.completedStepIds.length} / {mission.plan.steps.length}</span></div>
         <h3>{translateMissionTitle(mission.plan.title, tr)}</h3>
         <p>{tr(mission.plan.reason)}</p>
-        <p>{tr(mission.status === 'paused' ? 'Pausiert' : 'Aktiv')} · {mission.completedStepIds.length} / {mission.plan.steps.length}</p>
+        <progress className="progress-track" aria-label={tr('Missionsschritte')} max={mission.plan.steps.length} value={mission.completedStepIds.length}/>
         <ol className="progress-step-list">{missionSteps(mission).map(step => <li key={step.id}>
           {step.completed ? <span><Check size={15} aria-hidden="true"/> {tr('Erledigt')} · {tr(step.title)}</span>
             : mission.status === 'active' && step.to ? <ContentRouteLink className="text-link" to={step.to}>{tr(methodLabels[step.kind])} · {tr(step.title)}</ContentRouteLink>
@@ -120,19 +121,27 @@ function MissionSection() {
           <button className="button secondary" onClick={() => missionAction('mission-cancel', mission)}>{tr('Mission abbrechen')}</button>
         </div>
       </article>)}
-      {plans.map(plan => <article key={plan.id} className="glass progress-mission-card" data-mission-kind={plan.kind}>
-        <p className="eyebrow">{tr(missionClasses[plan.kind].label)} · {tr('Ca. {0} Min.', [plan.estimatedMinutes])}</p>
-        <h3>{translateMissionTitle(plan.title, tr)}</h3>
-        <p>{tr(plan.reason)}</p>
-        <details className="progress-mission-steps">
-          <summary>{tr('Missionsschritte')}</summary>
-          <ol className="progress-step-list">{plan.steps.map(step => <li key={step.id}>{tr(methodLabels[step.kind])} · {tr(step.title)}</li>)}</ol>
-        </details>
-        <div className="progress-mission-footer">
-          <p>{plan.reward.xp} XP · {plan.reward.credits} HUB Credits</p>
-          <button className="button primary" disabled={active} onClick={() => void dispatch({ type: 'mission-start', mission: plan, at: new Date().toISOString() })}>{tr('Mission starten')}</button>
-        </div>
-      </article>)}
+    <div className="progress-tile-grid">
+      {plans.map(plan => {
+        const Icon = missionIcons[plan.kind];
+        return <article key={plan.id} className="glass progress-mission-card" data-mission-kind={plan.kind}>
+          <div className="progress-mission-meta">
+            <span className="progress-emblem"><Icon size={20} aria-hidden="true"/></span>
+            <strong>{tr(missionClasses[plan.kind].label)}</strong>
+            <span><Clock3 size={14} aria-hidden="true"/>{tr('Ca. {0} Min.', [plan.estimatedMinutes])}</span>
+          </div>
+          <h3>{translateMissionTitle(plan.title, tr)}</h3>
+          <p>{tr(plan.reason)}</p>
+          <details className="progress-mission-steps">
+            <summary>{tr('Missionsschritte')}</summary>
+            <ol className="progress-step-list">{plan.steps.map(step => <li key={step.id}>{tr(methodLabels[step.kind])} · {tr(step.title)}</li>)}</ol>
+          </details>
+          <div className="progress-mission-footer">
+            <p className="progress-reward"><Trophy size={15} aria-hidden="true"/> {plan.reward.xp} XP · {plan.reward.credits} HUB Credits</p>
+            <button className="button primary" disabled={active} onClick={() => void dispatch({ type: 'mission-start', mission: plan, at: new Date().toISOString() })}>{tr('Mission starten')}</button>
+          </div>
+        </article>;
+      })}
     </div>
     {state.missions.some(mission => mission.status === 'completed') && <details className="glass prose">
       <summary>{tr('Abgeschlossene Missionen')}</summary>
@@ -150,25 +159,37 @@ function LearningOverview({ state }: { state: State }) {
     return reference && review ? [[reference.id, { reference, review }] as const] : [];
   })).values()].sort((a, b) => a.review.dueAt.localeCompare(b.review.dueAt));
   return <section className="progress-section" aria-labelledby="learning-overview-heading">
-    <h2 id="learning-overview-heading">{tr('Lernstatistik')}</h2>
-    <div className="progress-tile-grid">
-      <article className="glass prose"><h3>{tr('Lernaktivität')}</h3>
-        <p>{tr('{0} qualifizierte Lernabschlüsse', [stats.completed])}</p>
-        <p>{tr('{0} zeitversetzte Wiederholungen', [stats.reviewed])}</p>
-        <p>{tr('{0} Verbesserungen bei Quizergebnissen', [stats.improved])}</p>
-        {stats.cardRatings.count > 0 && <p>{tr('Karten als gewusst bewertet: {0} von {1}', [stats.cardRatings.known, stats.cardRatings.attempted])}</p>}
+    <h2 className="progress-section-title" id="learning-overview-heading"><Activity aria-hidden="true"/>{tr('Lernstatistik')}</h2>
+    <div className="progress-tile-grid progress-stat-grid">
+      <article className="glass progress-stat-card">
+        <h3><Activity aria-hidden="true"/>{tr('Lernaktivität')}</h3>
+        <dl className="progress-stat-values">
+          <div><dt>{tr('Qualifizierte Lernabschlüsse')}</dt><dd>{stats.completed}</dd></div>
+          <div><dt>{tr('Zeitversetzte Wiederholungen')}</dt><dd>{stats.reviewed}</dd></div>
+          <div><dt>{tr('Verbesserte Quizergebnisse')}</dt><dd>{stats.improved}</dd></div>
+        </dl>
+        {stats.cardRatings.count > 0 && <p className="muted">{tr('Karten als gewusst bewertet: {0} von {1}', [stats.cardRatings.known, stats.cardRatings.attempted])}</p>}
       </article>
-      <article className="glass prose"><h3>{tr('Überprüfte Antworten')}</h3>
-        <p>{stats.objective.count ? tr('{0} von {1} Quizantworten richtig', [stats.objective.correct, stats.objective.total]) : tr('Noch keine überprüften Antworten.')}</p>
+      <article className="glass progress-stat-card">
+        <h3><Target aria-hidden="true"/>{tr('Überprüfte Antworten')}</h3>
+        {stats.objective.total > 0 ? <>
+          <p className="progress-quiz-ratio"><strong>{stats.objective.correct}</strong><span> / {stats.objective.total}</span></p>
+          <progress className="progress-track" aria-label={tr('Überprüfte Antworten')} max={stats.objective.total} value={stats.objective.correct}/>
+          <p className="muted">{tr('Richtige Quizantworten')}</p>
+        </> : <p className="muted">{tr('Noch keine überprüften Antworten.')}</p>}
       </article>
-      <article className="glass prose"><h3>{tr('Selbstauswertung im Wissensabruf')}</h3>
-        <p>{tr('{0} vollständig · {1} teilweise · {2} offen · {3} falsch verstanden', [
-          stats.self.remembered, stats.self.partial, stats.self.missing, stats.self.misunderstood,
-        ])}</p>
-        <p>{tr('{0} aufgearbeitete Kernaspekte', [stats.resolvedGaps])}</p>
+      <article className="glass progress-stat-card">
+        <h3><Brain aria-hidden="true"/>{tr('Selbstauswertung im Wissensabruf')}</h3>
+        <dl className="progress-stat-values progress-recall-values">
+          <div><dt>{tr('Vollständig')}</dt><dd>{stats.self.remembered}</dd></div>
+          <div><dt>{tr('Teilweise')}</dt><dd>{stats.self.partial}</dd></div>
+          <div><dt>{tr('Offen')}</dt><dd>{stats.self.missing}</dd></div>
+          <div><dt>{tr('Falsch verstanden')}</dt><dd>{stats.self.misunderstood}</dd></div>
+        </dl>
+        <p className="muted">{tr('{0} aufgearbeitete Kernaspekte', [stats.resolvedGaps])}</p>
       </article>
     </div>
-    <details className="glass prose"><summary>{tr('Fächer und Lernfelder')}</summary>
+    <details className="glass progress-stat-card"><summary><Layers3 size={18} aria-hidden="true"/> {tr('Fächer und Lernfelder')}</summary>
       <ul className="progress-ledger">{catalog.subjects.flatMap(subject => {
         const fields = catalog.learningFields.filter(field => field.subjectId === subject.id);
         const entries = fields.length ? fields : [{ id: subject.id, title: subject.title }];
@@ -193,13 +214,14 @@ function Achievements({ state }: { state: State }) {
   const { dispatch } = useProgression();
   const achievements = new Map(achievementDefinitions.map(item => [item.id, item]));
   return <div className="progress-section">
-    <section className="glass prose"><h2 id="erfolge">{tr('Herausforderungen')}</h2>
+    <section className="progress-section"><h2 className="progress-section-title" id="erfolge"><Trophy aria-hidden="true"/>{tr('Herausforderungen')}</h2>
       <div className="progress-tile-grid">{challengeDefinitions.map(item => {
         const progress = challengeProgress(state, item.id);
-        return <article key={item.id} className="glass prose">
-          <p className="eyebrow">{tr(item.difficulty)}</p>
+        return <article key={item.id} className="glass progress-mission-card">
+          <div className="progress-mission-meta"><span className="progress-emblem"><Trophy size={20} aria-hidden="true"/></span><strong>{tr(item.difficulty)}</strong><span>{progress.current} / {progress.target}</span></div>
           <h3>{tr(item.title)}</h3><p>{tr(item.description)}</p>
-          <p>{progress.current} / {progress.target} · {item.reward.xp} XP · {item.reward.credits} HUB Credits</p>
+          <progress className="progress-track" aria-label={tr(item.title)} value={progress.current} max={progress.target}/>
+          <p className="progress-reward"><Zap size={15} aria-hidden="true"/> {item.reward.xp} XP · {item.reward.credits} HUB Credits</p>
           {progress.complete ? <strong>{tr('Erreicht')}</strong> : progress.joined ? <span>{tr('Aktiv')}</span> :
             <button className="button secondary" onClick={() => void dispatch({ type: 'challenge-join', id: item.id, at: new Date().toISOString() })}>{tr('Herausforderung annehmen')}</button>}
         </article>;
