@@ -41,10 +41,9 @@ jobs:
         env:
           VITE_BASE_PATH: ${{ steps.pages.outputs.base_path || '/' }}
           VITE_MATERIALS_API_ORIGIN: ${{ vars.MATERIALS_API_ORIGIN }}
-          # Keep the public build disabled until the real model and Access checks pass.
-          VITE_SMART_RECALL: "false"
-          VITE_SMART_RECALL_ALL_TASKS: ${{ vars.SMART_RECALL_ALL_TASKS }}
-          VITE_SMART_RECALL_API_ORIGIN: ${{ vars.SMART_RECALL_API_ORIGIN }}
+          VITE_SMART_RECALL: "true"
+          VITE_SMART_RECALL_ALL_TASKS: "false"
+          VITE_SMART_RECALL_API_ORIGIN: https://lernhub-materials-api.spathjonas.workers.dev
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

@@ -2,9 +2,10 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { DatabaseSync } from 'node:sqlite';
 import worker from './index.js';
+import { qwenRecallModel } from './recall-qwen.js';
 import { RecallBudget } from './recall-budget.js';
 import knowledge from './recall-index.json' with { type: 'json' };
-import { modelInput, recallModel, validateRecallResult } from './recall.js';
+import { gemmaRecallModel, modelInput, recallModel, validateRecallResult } from './recall.js';
 
 const task = knowledge.tasks['bk2-lf4-spiel'];
 const origin = 'https://example.org';
@@ -46,6 +47,10 @@ test('assesses fixed rubric, verifies references and calculates score on the ser
   assert.equal(result.sources[0].to, '/lernzettel/bk2-lf4/spiel');
   assert.ok(!Object.hasOwn(result.sources[0], 'text'));
 
+  const missing = fixture();
+  missing.criteria[0].excerpt = 'Aus mehreren Stellen zusammengesetzt';
+  assert.equal(validateRecallResult(task, answer, provider(missing)).criteria[0].excerpt, '');
+
   const uncertain = fixture();
   uncertain.criteria[0].status = 'uncertain';
   assert.deepEqual(validateRecallResult(task, answer, provider(uncertain)).score, { earned: .5, maxEarned: 1.5, possible: 3 });
@@ -53,7 +58,7 @@ test('assesses fixed rubric, verifies references and calculates score on the ser
   for (const mutate of [
     f => { f.criteria[0].sourceId = 'erfunden'; },
     f => { f.criteria[0].sourceQuote = 'Nicht im Lernzettel zu finden'; },
-    f => { f.criteria[0].excerpt = 'Nicht in der Antwort zu finden'; },
+    f => { f.criteria.find(x => x.status === 'partial').excerpt = 'Nicht in der Antwort zu finden'; },
     f => { f.criteria[0].id = f.criteria[1].id; },
     f => { f.criteria[0].status = 'wrong'; },
     f => { f.score = 100; },
@@ -80,6 +85,15 @@ test('treats adversarial answer text as data, supplies the same sources and send
   assert.equal(real.store, false);
   assert.equal(real.tools, undefined);
   assert.equal(modelInput(task, '😀'.repeat(7000), 'de'), null);
+});
+
+test('Qwen quality checks use a separate rubric and the same fixed source data', () => {
+  const candidate = modelInput(task, answer, 'de', qwenRecallModel);
+  const defaultInput = modelInput(task, answer, 'de', gemmaRecallModel);
+  assert.notEqual(candidate.messages[0].content, defaultInput.messages[0].content);
+  assert.equal(candidate.messages[1].content, defaultInput.messages[1].content);
+  assert.equal(candidate.response_format, defaultInput.response_format);
+  assert.match(candidate.messages[0].content, /Fehlende weitere Bereiche/);
 });
 
 test('durable SQL budget enforces deduplication, per-user, concurrency and global limits', async () => {

@@ -62,3 +62,31 @@ Die Cloudflare-Verbindung konnte den bestehenden Worker und seine Binding-Namen 
 - Pages-Build mit aktivierter Pilot-UI und fiktiver HTTPS-Test-Origin bestanden, Index-Abgleich und `git diff --check` bestanden.
 - Wrangler 4.168.0 Dry Run bestanden und bestätigt die AI- und SQLite-Bindings sowie `RECALL_ENABLED=false`. Paketgröße rund 211 KiB gzip. Der Dry Run verbindet keine Ressourcen mit einem deployten Worker.
 - Chromium Desktop bei 1440 px und WebKit mit mobilem Viewport bei 390 px mit gemockter API ausgeführt. Geprüft wurden separater Sendehinweis, deaktivierter automatischer Versand, markierter Text, Quellen, Begleiter, manuelle Übernahme, Abschluss, Fehler und Abbruch. Die 17 fachlichen Referenzfälle sind erwartete Bewertungen und noch keine gemessenen Modellbewertungen.
+
+## Echte Gemma-Prüfung am 27. November 2026
+
+Der Betreiber bestätigte den aktiven Workers-Free-Tarif im Dashboard. Die Cloudflare-Anbindung konnte Gemma 4 tatsächlich aufrufen. Im ersten Durchlauf bestanden 6 von 17 Referenzfällen. 5 gültige Ergebnisse wichen fachlich ab, 3 weitere Antworten scheiterten an der Zitatvalidierung und 3 wurden am Ausgabelimit abgeschnitten. Die 17 Fachtests verbrauchten zusammen rund 560 Neurons. Im wichtigsten Negativfall bewertete Gemma einen themenfremden Satz mit dem Begriff „motorische Entwicklung“ intern als korrekt. Der Worker verwarf die Ausgabe wegen eines ungültigen Quellenzitats. Diese Validierung verhindert keine semantisch falschen Bewertungen mit formal gültigem Zitat, daher bleibt der Pilot gesperrt.
+
+Der Systemprompt wurde lokal danach präzisiert. Fachbegriffe zählen bei Aufzählungen nur mit Bezug zur erfragten Ursache. Kriterien werden getrennt beurteilt und Quellenbelege sollen kurze, zusammenhängende Originalzitate sein. Die Referenzbewertungen und die serverseitige Zitatprüfung bleiben unverändert.
+
+Mit dem präzisierten Prompt bestanden zwei der drei Pflichtfälle. Der themenfremde Satz erhielt weiterhin einen Punkt für „Motorik“, diesmal mit formal gültigem Quellenzitat. Der experimentelle Prompt wurde deshalb verworfen. Die drei Nachtests verbrauchten rund 81 Neurons. Die Deployment-Flags bleiben aus. Qwen 3.8 27B ist eine mögliche Workers-AI-Alternative für einen getrennten, gedeckelten Modellvergleich. Modellqualität und Verbrauch sind dafür erneut zu messen. [Workers-AI-Modellpreise](https://developers.cloudflare.com/workers-ai/platform/pricing/)
+
+### Freigabeprüfung mit Qwen 3.8 27B
+
+Am 27. November wurde `@cf/qwen/qwen3.8-27b` mit den drei Pflichtfällen auf demselben Workers-Free-Konto getestet. Mit dem bestehenden Prompt und mit einer klareren Anweisung zur unabhängigen Bewertung je Kriterium bestanden jeweils zwei von drei Fällen. Qwen wertete weder die falsche Verneinung noch die themenfremde Motorik-Aussage positiv. Die fachlich korrekte Erklärung zur sozialen Entwicklung wurde in beiden Läufen lediglich als teilweise korrekt eingestuft. Alle sechs Modellantworten bestanden die formale Quellenvalidierung. Die sechs Aufrufe verbrauchten zusammen rund 1.569 Neurons im Freikontingent. Der weitere fachliche Prüfsatz und der produktive Access-Test werden erst nach Bestehen dieser Pflichtfälle fortgesetzt. Weder der Modellwechsel noch der experimentelle Prompt wurden übernommen.
+
+### Qwen-Prompt mit getrennten Bewertungsregeln
+
+`worker/src/recall-qwen.js` enthält einen reproduzierbaren Prüfkandidaten mit Beispielen für fachlich gleichwertige Antworten, falsche Ursachen und Aufzählungsfragen. Der Qualitätsrunner unterstützt `--qwen`. Das Produktionsmodell bleibt Gemma. Bei `missing` liefert der Server bewusst kein Antwortzitat aus. Zu allen anderen Statuswerten werden Antwortzitate weiterhin wörtlich geprüft. Quellenzitate bleiben bei jedem Status verpflichtend.
+
+Mit der vorletzten Prompt-Fassung bestanden 8 von 9 geprüften Spiel-Fällen. Die zulässige Kurzantwort „Motorik.“ wurde bei der reinen Aufzählungsfrage zu streng bewertet. In der letzten Fassung bestanden alle drei gezielt erneut geprüften Fälle. „Motorik.“ erhielt volle Punkte für das einzelne Kriterium, die fachfremde Motorik-Aussage blieb ohne Punkte, und die unverbundene Stichwortliste blieb ohne Punkte. Der letzte Dreierlauf kostete rund 714 Neurons. Der vollständige Abnahmesatz inklusive Wiederholungen und produktiver Access-Test bleibt offen. Weitere Modellläufe wurden gestoppt, um nach den Tests und Prompt-Iterationen einen Puffer im geteilten Free-Tageskontingent zu lassen. Die Freigabeschalter bleiben aus.
+
+### Fortsetzung der Freigabeprüfung
+
+Zwei weitere echte Qwen-Tests mit der endgültigen Prompt-Fassung bestanden. Die umgangssprachliche Erklärung zur Feinfühligkeit wurde korrekt anerkannt. Die falsche Interpretation von Vorzeichen und Stärke der Korrelation erhielt keine Punkte für beide betroffenen Kriterien. Beide Ergebnisse bestanden die Quellenvalidierung und kosteten zusammen rund 541 Neurons. Damit sind fünf unterschiedliche Fälle mit exakt dieser Prompt-Fassung belegt. Der vollständige Referenzsatz einschließlich Wiederholung und der produktive Access-Test stehen aus. Die bisher protokollierten Modellläufe haben den geplanten Tagesrahmen von rund 8.000 Neurons nahezu ausgeschöpft. Die Freigabeschalter bleiben aus.
+
+### Freigabe des begrenzten Qwen-Piloten
+
+Der Betreiber hat die Pilotaktivierung ohne weitere Modelltests ausdrücklich freigegeben. Der geschützte Worker und der Pages-Build verwenden Qwen 3.8 27B für die drei Pilotaufgaben. Die restliche fachliche Abnahme sowie ein Test mit echter Access-Sitzung auf einem iPhone bleiben offen. Der Check ist optional und beeinflusst Lernbelohnungen nur über die manuell bestätigte Selbsteinschätzung.
+
+CORS gilt für den LernHub-Ursprung. Die bestehende Access-Policy und Audience blieben erhalten. Vor dem Upload war die letzte Worker-Version `94d2a62c-0708-4984-884f-15c03b720dc1`. Wegen des höheren Qwen-Verbrauchs reserviert der Worker 1.200 Neurons je Anfrage. Bei 8.000 Neurons pro UTC-Tag sind so höchstens sechs Pilotbewertungen möglich. Wegen der bereits ausgeführten Modelltests kann der Pilot erstmals am 28. November 2026 um 00:00 UTC bewerten. Das entspricht 01:00 Uhr deutscher Zeit.

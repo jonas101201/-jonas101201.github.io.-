@@ -1,8 +1,10 @@
 import { z } from 'zod';
 import knowledge from './recall-index.json' with { type: 'json' };
+import { qwenRecallInstructions, qwenRecallModel } from './recall-qwen.js';
 import { requestNeuronReserve } from './recall-budget.js';
 
-export const recallModel = '@cf/google/gemma-4-26b-a4b-it';
+export const gemmaRecallModel = '@cf/google/gemma-4-26b-a4b-it';
+export const recallModel = qwenRecallModel;
 const encoder = new TextEncoder();
 const maxBody = 16_000;
 const maxInput = 15_000;
@@ -43,11 +45,11 @@ const instructions = [
   'Schreibe kurzes fachliches Feedback in der gewünschten Sprache. Erzeuge ausschließlich das vorgeschriebene JSON, keine Gesamtpunktzahl.',
 ].join('\n');
 
-export function modelInput(task, answer, language) {
+export function modelInput(task, answer, language, model = recallModel) {
   const sources = task.sources.map(({ id, text }) => ({ id, text }));
   const content = JSON.stringify({ language, topic: task.title, question: task.prompt, criteria: task.criteria, sources, answer });
   const input = {
-    messages: [{ role: 'system', content: instructions }, { role: 'user', content }],
+    messages: [{ role: 'system', content: model === qwenRecallModel ? qwenRecallInstructions : instructions }, { role: 'user', content }],
     response_format: responseFormat,
     max_completion_tokens: maxOutputTokens,
     chat_template_kwargs: { enable_thinking: false },
@@ -73,14 +75,14 @@ export function validateRecallResult(task, answer, providerResponse) {
     const result = results.get(criterion.id);
     const source = sources.get(result?.sourceId);
     if (!result || !source || !source.text.includes(result.sourceQuote) ||
-        (result.excerpt && !answer.includes(result.excerpt)) ||
+        (result.status !== 'missing' && result.excerpt && !answer.includes(result.excerpt)) ||
         (['correct', 'partial', 'wrong', 'incomplete'].includes(result.status) && !result.excerpt) ||
         (result.status === 'wrong' && !result.correction)) return null;
     possible += criterion.weight;
     if (result.status === 'uncertain') uncertain += criterion.weight;
     if (result.status === 'correct') earned += criterion.weight;
     if (result.status === 'partial') earned += criterion.weight / 2;
-    criteria.push(result);
+    criteria.push(result.status === 'missing' ? { ...result, excerpt: '' } : result);
   }
   return {
     status: uncertain ? 'uncertain' : 'evaluated',
@@ -139,6 +141,9 @@ export async function handleRecall(request, env, ctx, verifyAccess, security) {
     headers.set('Content-Type', 'text/plain; charset=utf-8');
     return new Response('LernHub Smart Recall: Anmeldung erfolgreich. Du kannst zum LernHub-Tab zurückkehren.', { headers });
   }
+
+  const notBefore = env.RECALL_NOT_BEFORE;
+  if (notBefore && (!Number.isFinite(Date.parse(notBefore)) || Date.now() < Date.parse(notBefore))) return error('budget', 429);
 
   if (request.headers.get('Content-Type')?.split(';')[0]?.trim().toLowerCase() !== 'application/json') return error('invalid_request', 415);
   const parsed = requestSchema.safeParse(await boundedBody(request));

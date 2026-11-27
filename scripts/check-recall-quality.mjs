@@ -1,11 +1,14 @@
 import { parseArgs } from 'node:util';
 import { recallQualityCases, qualityTask, checkQualityCase } from '../worker/fixtures/recall-quality.mjs';
-import { recallModel, modelInput, validateRecallResult } from '../worker/src/recall.js';
+import { gemmaRecallModel, modelInput, validateRecallResult } from '../worker/src/recall.js';
+
+import { qwenRecallModel } from '../worker/src/recall-qwen.js';
 
 const { values } = parseArgs({ options: {
   case: { type: 'string', multiple: true },
   'confirm-workers-free': { type: 'boolean' },
   list: { type: 'boolean' },
+  qwen: { type: 'boolean' },
 } });
 if (values.list) {
   for (const entry of recallQualityCases) console.log(entry.id);
@@ -22,12 +25,13 @@ if (values.list) {
     throw new Error('CLOUDFLARE_ACCOUNT_ID und CLOUDFLARE_API_TOKEN aus einem autorisierten Workers-Free-Konto setzen.');
   }
 
+  const model = values.qwen ? qwenRecallModel : gemmaRecallModel;
   for (const example of cases) {
     try {
       const task = qualityTask(example.taskId);
-      const input = modelInput(task, example.answer, 'de');
+      const input = modelInput(task, example.answer, 'de', model);
       if (!input) throw new Error('Kontextlimit überschritten.');
-      const response = await fetch('https://api.cloudflare.com/client/v4/accounts/' + account + '/ai/run/' + recallModel, {
+      const response = await fetch('https://api.cloudflare.com/client/v4/accounts/' + account + '/ai/run/' + model, {
         method: 'POST',
         headers: { 'content-type': 'application/json', authorization: 'Bearer ' + token },
         body: JSON.stringify(input),

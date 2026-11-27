@@ -1,4 +1,4 @@
-export const requestNeuronReserve = 200;
+export const requestNeuronReserve = 1200;
 const leaseMs = 5 * 60_000;
 
 export class RecallBudget {
