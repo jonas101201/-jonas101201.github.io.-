@@ -1,5 +1,8 @@
 // Access protects the hostname; verify its signed identity again at the origin.
 import catalog from '../../src/data/catalog.json' with { type: 'json' };
+import { handleRecall } from './recall.js';
+export { RecallBudget } from './recall-budget.js';
+
 const files = new Map(catalog.materials.flatMap(m => [[m.path, m.originalFilename ?? m.path.split('/').pop()], ...(m.preview ? [[m.preview.path, m.preview.path.split('/').pop()]] : [])]));
 const types = { pdf: 'application/pdf', png: 'image/png', txt: 'text/plain; charset=utf-8', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', zip: 'application/zip' };
 const security = { 'cache-control': 'private, no-store', 'x-content-type-options': 'nosniff', 'referrer-policy': 'no-referrer', 'content-security-policy': "default-src 'none'; sandbox; frame-ancestors 'none'" };
@@ -22,7 +25,8 @@ async function verifyAccess(request, env, ctx) {
     if (ctx?.access) {
       if (ctx.access.aud !== env.ACCESS_AUD) return false;
       const identity = await ctx.access.getIdentity();
-      return typeof identity?.email === 'string' && allowed.includes(identity.email.toLowerCase());
+      const email = typeof identity?.email === 'string' ? identity.email.toLowerCase() : '';
+      return allowed.includes(email) ? email : false;
     }
     // Hostname-based Access and older runtimes use the signed assertion header.
     if (!jwt || jwt.length > 16384) return false;
@@ -46,12 +50,16 @@ async function verifyAccess(request, env, ctx) {
     const jwk = cached.keys.find(k => k.kid === header.kid && k.kty === 'RSA' && (!k.alg || k.alg === 'RS256') && (!k.use || k.use === 'sig'));
     if (!jwk) return false;
     const key = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
-    return await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, bytes(s), new TextEncoder().encode(h + '.' + p));
+    return await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, bytes(s), new TextEncoder().encode(h + '.' + p))
+      ? payload.email.toLowerCase() : false;
   } catch { return false; }
 }
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url), path = url.pathname.slice(1);
+    if (path === 'api/recall/evaluate' || path === 'api/recall/session') {
+      return handleRecall(request, env, ctx, verifyAccess, security);
+    }
     if (!/^materials\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(pdf|txt|pptx|docx|zip|png)$/.test(path) || !files.has(path)) return response('Not found', 404);
     if (!['GET', 'HEAD'].includes(request.method)) return response('Method not allowed', 405);
     if (!await verifyAccess(request, env, ctx)) return response('Unauthorized', 401);

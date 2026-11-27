@@ -12,3 +12,25 @@ GITHUB_REPO = "lernhub-unterrichtsmaterialien"
 GITHUB_REF = "main"
 ACCESS_TEAM_DOMAIN = "https://winter-sun-b4da.cloudflareaccess.com"
 ACCESS_AUD = "153f8f60c2b6f28990bdc358e9bec205b9d4feb46b53c1ee8fd66a9896e4720a"
+RECALL_ENABLED = "false"
+RECALL_ALL_TASKS = "false"
+RECALL_ORIGIN = "https://jonas101201.github.io"
+RECALL_DAILY_NEURONS = "8000"
+RECALL_RESERVED_NEURONS = "2000"
+RECALL_PER_USER = "3"
+
+[ai]
+binding = "AI"
+
+[[durable_objects.bindings]]
+name = "RECALL_BUDGET"
+class_name = "RecallBudget"
+
+[[migrations]]
+tag = "recall-v1"
+new_sqlite_classes = ["RecallBudget"]
+
+[build]
+command = "node scripts/build-recall-index.mjs"
+cwd = "."
+watch_dir = ["src/data", "src/features/blurting", "scripts"]

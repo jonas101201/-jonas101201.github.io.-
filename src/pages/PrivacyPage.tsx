@@ -88,6 +88,13 @@ export function PrivacyPage() {
       <p>{tr('Daten bleiben lokal, bis du sie löschst oder der Browser sie entfernt. In der Speicherverwaltung kannst du beide Speicherfreigaben widerrufen und die zugehörigen Daten löschen. Bereits exportierte Sicherungen löschst du selbst.')}</p>
       <Link className="text-link" to="/fortschritt/speicher">{tr('Progress-Speicher verwalten')}</Link>
     </section>
+    <section aria-labelledby="smart-recall-privacy">
+      <h2 id="smart-recall-privacy">{tr('Smart Recall · Freiwillige KI-Auswertung')}</h2>
+      <p>{tr('Erst nach deiner ausdrücklichen Freigabe verarbeitet Cloudflare Workers AI deine Antwort zusammen mit der Aufgabe und den dafür ausgewählten Lernzettelauszügen. Die Übermittlung dient deiner eigenen Lernkontrolle. Die Selbstkontrolle geht auch ohne KI und ohne Anmeldung.')}</p>
+      <p>{tr('Die Berechtigung wird über Cloudflare Access geprüft. An das Modell gehen keine E-Mail-Adresse, kein Lernverlauf und kein Profil. Gib im Antworttext bitte keine persönlichen Daten ein. Für die Begrenzung der Anfragen werden nur technische Zähler und Kennungen verarbeitet.')}</p>
+      <p>{tr('LernHub speichert Antworten und KI-Ausgaben nicht auf dem Worker. Das KI-Ergebnis bleibt im geöffneten Tab. Deine bestätigte Selbsteinschätzung wird nach den bestehenden Einstellungen zur freiwilligen lokalen Speicherung verarbeitet.')}</p>
+      <a {...external} href="https://developers.cloudflare.com/workers-ai/platform/data-usage/">{tr('Hinweise zur Datenverarbeitung bei Cloudflare Workers AI')}</a>
+    </section>
     </article>
   </>;
 }

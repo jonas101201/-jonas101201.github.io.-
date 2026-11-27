@@ -39,6 +39,18 @@ export function CompanionPlacement({ context, encouraging = false, fallback, chi
       </div>
     </div>;
   }
+  if (children) return <div className="glass active-companion-home">
+    <button type="button" className="active-companion companion-greeting"
+      aria-label={tr('Bewegung von {0} abspielen', [character.name])} onClick={replay}>
+      <CompanionVisual key={reaction} id={character.id} stage={development.stage} look={look}
+        motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'idle'} interactive/>
+      <span>{character.name}</span>
+    </button>
+    <div className="companion-speech companion-home-dialogue">
+      <span className="companion-cloud" aria-hidden="true"/>
+      {children}
+    </div>
+  </div>;
   return <div className="active-companion active-companion-completion" aria-hidden="true">
     <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'still'} interactive/>
   </div>;

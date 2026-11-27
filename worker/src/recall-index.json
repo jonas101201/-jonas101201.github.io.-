@@ -1,0 +1,834 @@
+{
+  "schemaVersion": 1,
+  "tasks": {
+    "bk1-lf1-kompetenzen": {
+      "version": "sha256:73db9073879e609bba84129ede16ccaf27a617f79763ea6e99277bdcf297da58",
+      "taskId": "bk1-lf1-kompetenzen",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf1",
+      "title": "3. Berufliche Handlungskompetenz",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "bereiche",
+          "title": "Kompetenzbereiche",
+          "explanation": "Sechs Kompetenzbereiche wirken zusammen: Fachkompetenz, Methodenkompetenz, Sozialkompetenz, kommunikative Kompetenz, Selbstkompetenz und Lernkompetenz. Sie beschreiben unterschiedliche Anforderungen und werden im beruflichen Handeln miteinander verbunden.",
+          "weight": 1
+        },
+        {
+          "id": "transfer",
+          "title": "Transfer",
+          "explanation": "Kompetenz zeigt sich im Transfer: Eine Definition auswendig zu kennen ist Fachwissen; in einer unübersichtlichen Situation relevante Informationen auszuwählen, begründet zu handeln und Verantwortung zu übernehmen macht daraus Handlungskompetenz. Wissen, Können und Haltung müssen deshalb gemeinsam betrachtet werden.",
+          "weight": 1
+        },
+        {
+          "id": "praxis",
+          "title": "Konflikt als Anwendungsbeispiel",
+          "explanation": "Anwendungsbeispiel Konflikt: Fachkompetenz hilft, Entwicklungsstand und Bedürfnisse einzuordnen; Methodenkompetenz strukturiert das Vorgehen; Sozialkompetenz hält die Beziehung; kommunikative Kompetenz macht Grenzen verständlich. Selbstkompetenz hilft, eigenen Ärger zu regulieren, Lernkompetenz beim anschließenden Prüfen einer besseren Handlungsalternative.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf1/kompetenzen",
+          "sheetId": "bk1-lf1",
+          "sectionId": "kompetenzen",
+          "title": "3. Berufliche Handlungskompetenz",
+          "to": "/lernzettel/bk1-lf1/kompetenzen",
+          "text": "3. Berufliche Handlungskompetenz\nBerufliche Handlungskompetenz ist die Fähigkeit, Anforderungen fachlich begründet, verantwortungsbewusst und situationsgerecht zu bewältigen. Wissen, Können, persönliche Haltung und Zusammenarbeit werden im Handeln miteinander verbunden.\n- Sechs Kompetenzbereiche wirken zusammen: Fachkompetenz, Methodenkompetenz, Sozialkompetenz, kommunikative Kompetenz, Selbstkompetenz und Lernkompetenz. Sie beschreiben unterschiedliche Anforderungen und werden im beruflichen Handeln miteinander verbunden.\n- Kompetenz zeigt sich im Transfer: Eine Definition auswendig zu kennen ist Fachwissen; in einer unübersichtlichen Situation relevante Informationen auszuwählen, begründet zu handeln und Verantwortung zu übernehmen macht daraus Handlungskompetenz. Wissen, Können und Haltung müssen deshalb gemeinsam betrachtet werden.\n- Anwendungsbeispiel Konflikt: Fachkompetenz hilft, Entwicklungsstand und Bedürfnisse einzuordnen; Methodenkompetenz strukturiert das Vorgehen; Sozialkompetenz hält die Beziehung; kommunikative Kompetenz macht Grenzen verständlich. Selbstkompetenz hilft, eigenen Ärger zu regulieren, Lernkompetenz beim anschließenden Prüfen einer besseren Handlungsalternative.\n- Lernentwicklung konkret planen: Nicht nur „Ich muss sicherer werden“ notieren, sondern eine Handlung auswählen, etwa Beobachtungen vor einer Teambesprechung sachlich zu protokollieren. Durchführung, Rückmeldung und erneutes Erproben verbinden die Kompetenzbereiche. Hilfe rechtzeitig einzuholen ist verantwortliches Handeln, kein Gegenbeweis von Kompetenz.\nKompetenzbereich | Bedeutung | Anwendung\nFachkompetenz | Fachwissen und Können situationsgerecht anwenden. | Entwicklungsstand und Bedürfnisse in einem Konflikt einordnen.\nMethodenkompetenz | Vorgehen planen, strukturieren, Methoden auswählen und auswerten. | Beobachtung, Vorgehen und Auswertung strukturiert vorbereiten.\nSozialkompetenz | Beziehungen gestalten, kooperieren und empathisch handeln. | Bei unterschiedlichen Interessen die Zusammenarbeit aufrechterhalten.\nKommunikative Kompetenz | Verstehen, sich ausdrücken, zuhören und Perspektiven einnehmen. | Grenzen verständlich erklären und die andere Person ausreden lassen.\nSelbstkompetenz | Sich selbst wahrnehmen, reflektieren und eigenverantwortlich handeln. | Eigenen Ärger und eigene Grenzen erkennen und Unterstützung nutzen.\nLernkompetenz | Informationen aufnehmen, bewerten, nutzen und lebenslang weiterlernen. | Rückmeldungen prüfen und eine bessere Handlungsalternative erproben.\nMerksatz: Sechs Kompetenzbereiche: Fach-, Methoden-, Sozial-, kommunikative, Selbst- und Lernkompetenz. Handlungskompetenz verbindet sie im begründeten, verantwortlichen Handeln.\nBeispiel: Für eine neue Gruppe soll ein Bewegungsangebot vorbereitet werden.\nAnalyse: Entwicklungswissen ist Fachkompetenz; die Planung geeigneter Stationen Methodenkompetenz; Absprachen mit dem Team Sozial- und Kommunikationskompetenz. Eigene Unsicherheiten wahrzunehmen betrifft Selbstkompetenz.\nHandlung: Voraussetzungen beobachten, begründet planen, Unterstützung organisieren und nach dem Angebot die Wirkung prüfen. Neue Erkenntnisse für die nächste Planung nutzen: So wird Lernkompetenz praktisch sichtbar.",
+          "materialIds": [
+            "bk1-lf1-mindmap-professionalisierung"
+          ]
+        }
+      ]
+    },
+    "bk1-lf2-faktoren": {
+      "version": "sha256:31f43aff66d9d2b0ae4cd1426a9766d8d17b8cae9ef5861e4931415e1dc1e612",
+      "taskId": "bk1-lf2-faktoren",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf2",
+      "title": "6. Anlage, Umwelt und Selbststeuerung",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "wechselwirkung",
+          "title": "Wechselwirkung",
+          "explanation": "Historische Erb- und Milieutheorien betonen jeweils eine Seite. Das Wechselwirkungsverständnis verbindet die Faktoren.",
+          "weight": 1
+        },
+        {
+          "id": "umwelt",
+          "title": "Einflüsse der Umwelt auf Gene",
+          "explanation": "Der Epigenetik-Fachtext veranschaulicht Einflüsse der Umwelt auf die Aktivität von Genen. Daraus folgt keine beliebige Steuerbarkeit von Entwicklung und keine sichere Vorhersage für ein einzelnes Kind.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf2/faktoren",
+          "sheetId": "bk1-lf2",
+          "sectionId": "faktoren",
+          "title": "6. Anlage, Umwelt und Selbststeuerung",
+          "to": "/lernzettel/bk1-lf2/faktoren",
+          "text": "6. Anlage, Umwelt und Selbststeuerung\nAnlage, Umwelt und Selbststeuerung sind miteinander verflochtene Entwicklungsfaktoren. Biologische Voraussetzungen, soziale und materielle Bedingungen sowie eigene Interessen und Entscheidungen beeinflussen die jeweiligen Entwicklungsmöglichkeiten.\n- Historische Erb- und Milieutheorien betonen jeweils eine Seite. Das Wechselwirkungsverständnis verbindet die Faktoren.\n- Der Epigenetik-Fachtext veranschaulicht Einflüsse der Umwelt auf die Aktivität von Genen. Daraus folgt keine beliebige Steuerbarkeit von Entwicklung und keine sichere Vorhersage für ein einzelnes Kind.\nAnlage – endogen: Genetische und biologische Voraussetzungen.\nUmwelt – exogen: Äußere Einflüsse, etwa Beziehungen, Sprache, Bildungsangebote und materielle Bedingungen.\nSelbststeuerung – autogen: Eigenaktivität, Interessen, Entscheidungen und Ziele des Kindes.\nAspekt | Bedeutung und Anwendung\nUmweltbereiche | Umwelt im Informationstext differenzieren: Die natürliche Umwelt umfasst beispielsweise Landschaft und Klima, die kulturelle Sprache und Werte, die soziale Beziehungen und Gruppen. Unter „ökologische Umwelt“ nennt die Vorlage auch Wohn- und Vermögensverhältnisse. Für die Praxis ist wichtig, materielle Bedingungen ausdrücklich mitzubetrachten.\nZusammenwirken am Sportbeispiel | Wechselwirkung am Sportbeispiel: Körperliche Voraussetzungen können Bewegung erleichtern; Familie, Übungsgelegenheiten und Vorbilder eröffnen Zugänge; das Kind entwickelt eigene Interessen und entscheidet mit, was es wiederholt. Sportliche Eltern beweisen weder eine bestimmte Vererbung des Könnens noch ein zwangsläufiges späteres Talent.\nSelbststeuerung und ihre Bedingungen | Selbststeuerung ist kein grenzenloser freier Wille: Eigenaktivität benötigt zugängliche Gelegenheiten und hängt von Entwicklung und Lebensbedingungen ab. Pädagogisch werden Wahlmöglichkeiten, Erkundung und Unterstützung geschaffen. Erb- oder Milieutheorien erklären zu einseitig, wenn sie die jeweils anderen Einflüsse und das aktive Kind ausblenden.\nEpigenetik | Epigenetik genau einordnen: Änderungen der Genaktivität sind nicht gleichbedeutend mit einer Änderung der DNA-Sequenz. Der Fachtext enthält unterschiedliche Beispiele biologischer und umweltbezogener Einflüsse; nicht jedes Beispiel belegt denselben Mechanismus. Aus journalistischen Einzelfällen folgt keine bestimmte Erziehungsmethode und keine Schuldzuweisung an Eltern.\nMerksatz: Anlage = endogen; Umwelt = exogen; Selbststeuerung = autogen. Entwicklung entsteht aus ihrer Wechselwirkung; weder Vererbung noch Lebensbedingungen erklären sie allein.\nBeispiel: Zwei gleichaltrige Kinder bauen eine Brücke. Mira erklärt lange Pläne und bittet häufig um Hilfe beim Verbinden. Sam spricht wenig in der Gruppe, verbindet die Teile sicher und probiert nach einem Einsturz eine neue Stütze.\nAnalyse: Zwischen den Kindern liegen interindividuelle Unterschiede vor; unterschiedliche Stärken innerhalb eines Kindes zeigen intraindividuelle Variabilität. Motorische Voraussetzungen gehören zur Anlage, erreichbares Material und sprachliche Begleitung zur Umwelt, Sams eigene Versuche zur Selbststeuerung. Die Szene zeigt Wechselwirkungen, beweist aber weder genetische Ursachen noch eine Sprachverzögerung.\nHandlung: Beide Kinder über mehrere Situationen beobachten, auch in vertrauten Sprach- und Spielkontexten. Unterschiedliche Verbindungsmaterialien und Möglichkeiten zum Zeigen, Sprechen und gemeinsamen Planen anbieten. Nach vereinbarter Zeit vergleichen, ob Beteiligung und selbstständiges Problemlösen zunehmen. Bleiben Fragen, mit Familie und zuständigen Fachpersonen weitere Schritte abstimmen.",
+          "materialIds": [
+            "bk1-lf2-14-anlage-umwelt-selbststeuerung-informationstext",
+            "bk1-lf2-15-anlage-umwelt-selbststeuerung-ubersicht",
+            "bk1-lf2-17-anlage-und-umwelt-fallbeispiel-boris-becker",
+            "bk1-lf2-22-epigenetik-fachtext"
+          ]
+        }
+      ]
+    },
+    "bk1-lf2-entwicklungsbereiche": {
+      "version": "sha256:8a46e4b21fd7802cdce73f0642921f34f9e09c312b6022bd1df077b3e914e93d",
+      "taskId": "bk1-lf2-entwicklungsbereiche",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf2",
+      "title": "2. Neun Entwicklungsbereiche mit Beispielen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "zusammenspiel",
+          "title": "Zusammenspiel von Entwicklungsbereichen",
+          "explanation": "Wechselwirkung: Beim gemeinsamen Bauen greifen Denken und Feinmotorik ineinander. Sprache erleichtert Absprachen, emotionale Sicherheit ermöglicht neue Versuche, soziale Regeln helfen beim Teilen. Förderung sollte deshalb keine isolierte Fähigkeit ohne ihren Kontext betrachten.",
+          "weight": 1
+        },
+        {
+          "id": "unterscheidung",
+          "title": "Entwicklungsbereiche unterscheiden",
+          "explanation": "Bereiche am selben Vorgang unterscheiden: Beim Obstschneiden wirken Körperkraft und Feinmotorik, die Wahrnehmung von Härte und Form, das Planen der Handlung, sprachliche Absprachen sowie Regeln zur Sicherheit zusammen. Eine Schwierigkeit beim Schneiden lässt deshalb nicht eindeutig auf einen einzigen Entwicklungsbereich schließen.",
+          "weight": 1
+        },
+        {
+          "id": "beobachtung",
+          "title": "Konkrete Beobachtung",
+          "explanation": "Beobachtung bereichsspezifisch formulieren: „Hält die Schüssel mit einer Hand und rührt mit der anderen“ beschreibt Koordination; „bittet ein anderes Kind um Hilfe“ zeigt kommunikatives und soziales Handeln. Solche Beispiele sind genauer als eine globale Aussage wie „altersgemäß entwickelt“.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf2/entwicklungsbereiche",
+          "sheetId": "bk1-lf2",
+          "sectionId": "entwicklungsbereiche",
+          "title": "2. Neun Entwicklungsbereiche mit Beispielen",
+          "to": "/lernzettel/bk1-lf2/entwicklungsbereiche",
+          "text": "2. Neun Entwicklungsbereiche mit Beispielen\nEntwicklungsbereiche gliedern die vielfältigen Veränderungen eines Menschen. Sie sind analytische Perspektiven auf dieselbe Person und wirken im Alltag zusammen; kein Kind besteht aus voneinander unabhängigen Einzelfähigkeiten.\n- Wechselwirkung: Beim gemeinsamen Bauen greifen Denken und Feinmotorik ineinander. Sprache erleichtert Absprachen, emotionale Sicherheit ermöglicht neue Versuche, soziale Regeln helfen beim Teilen. Förderung sollte deshalb keine isolierte Fähigkeit ohne ihren Kontext betrachten.\n- Bereiche am selben Vorgang unterscheiden: Beim Obstschneiden wirken Körperkraft und Feinmotorik, die Wahrnehmung von Härte und Form, das Planen der Handlung, sprachliche Absprachen sowie Regeln zur Sicherheit zusammen. Eine Schwierigkeit beim Schneiden lässt deshalb nicht eindeutig auf einen einzigen Entwicklungsbereich schließen.\n- Beobachtung bereichsspezifisch formulieren: „Hält die Schüssel mit einer Hand und rührt mit der anderen“ beschreibt Koordination; „bittet ein anderes Kind um Hilfe“ zeigt kommunikatives und soziales Handeln. Solche Beispiele sind genauer als eine globale Aussage wie „altersgemäß entwickelt“.\n- Unterstützung ganzheitlich planen: Materialien zugänglich machen, ausreichend Zeit geben und verschiedene Ausdrucksweisen zulassen. Ein Kind kann eine Lösung zeigen, obwohl ihm das sprachliche Erklären schwerfällt. Ressourcen eines Bereichs dürfen als Zugang genutzt werden, ohne Unterstützungsbedarf in anderen Bereichen zu übersehen.\nAspekt | Bedeutung und Anwendung\nKörperliche Entwicklung | Veränderungen von Körperbau, Größe und körperlichen Funktionen; zum Beispiel längere Arme und eine größere Reichweite. Körperliche Veränderung allein erklärt noch nicht, wie geschickt ein Kind handelt.\nMotorische Entwicklung | Bewegungen steuern und koordinieren; grobmotorisch etwa balancieren, feinmotorisch eine Perle auffädeln. Kraft, Gleichgewicht, Wahrnehmung und Übung wirken zusammen.\nWahrnehmungsentwicklung | Sinneseindrücke aufnehmen, unterscheiden und verarbeiten. Ein Kind erkennt den Unterschied zwischen rauem und glattem Material und nutzt ihn beim Sortieren.\nKognitive Entwicklung | Denken, Erinnern, Vorstellen und Problemlösen verändern sich. Beim Brückenbau prüft ein Kind, ob ein breiterer Unterbau die Konstruktion stabilisiert.\nSprachlich-kommunikative Entwicklung | Sprache verstehen, sich ausdrücken und Verständigung gestalten. Ein Kind erklärt seinen Bauplan mit Worten, Gesten oder unterstützter Kommunikation. Mehrsprachigkeit ist nicht mit einer Sprachstörung gleichzusetzen.\nSoziale Entwicklung | Beziehungen gestalten, kooperieren und Perspektiven berücksichtigen. Zwei Kinder handeln aus, wer welche Bauteile verwendet.\nEmotionale Entwicklung | Gefühle wahrnehmen, benennen, ausdrücken und zunehmend regulieren. Nach dem Einsturz des Turms sucht ein Kind Trost und beginnt später erneut.\nMoralische Entwicklung | Vorstellungen von richtig und falsch sowie die Begründung von Regeln verändern sich. Ein Kind erklärt, warum alle beim Verteilen von Material berücksichtigt werden sollen.\nSexuelle Entwicklung | Körperwahrnehmung, Identität, Nähe und persönliche Grenzen entwickeln sich. Körperteile sachlich benennen, eigene Grenzen äußern und Grenzen anderer achten sind passende pädagogische Anlässe; kindliche Entwicklung wird nicht mit erwachsener Sexualität gleichgesetzt.\nMerksatz: Neun Bereiche: körperlich, motorisch, Wahrnehmung, kognitiv, sprachlich-kommunikativ, sozial, emotional, moralisch und sexuell. Eine Tätigkeit kann mehrere Bereiche zugleich berühren.\nBeispiel: Beim Tischdecken zählt ein Kind Teller, trägt sie zum Tisch und fragt andere nach ihrem Platz.\nAnalyse: Zählen betrifft Denken, Tragen Motorik und Körperkoordination, Fragen Sprache und Kooperation. Eine Alltagshandlung verbindet mehrere Entwicklungsbereiche.\nHandlung: Die Handlung ganzheitlich beobachten und Unterstützung gezielt dosieren. Motorische Hilfe darf beispielsweise nicht dazu führen, dem Kind auch alle sprachlichen Entscheidungen abzunehmen.",
+          "materialIds": [
+            "bk1-lf2-01-entwicklungsbereiche-informationstext",
+            "bk1-lf2-02-entwicklungsbereiche-schaubild"
+          ]
+        }
+      ]
+    },
+    "bk1-lf3-bindung": {
+      "version": "sha256:2e10ee121b1090b1fe0fb042129bcfa7183b4d5ce96c65ddb90a55256bc473df",
+      "taskId": "bk1-lf3-bindung",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "1. Bindung, Beziehung und Bindungsverhalten",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "beziehung",
+          "title": "Kontakt, Kommunikation und Zusammenarbeit",
+          "explanation": "Beziehungen ermöglichen Kontakt, Kommunikation und Zusammenarbeit. Sie können oberflächlich oder tief gehend sein und sich relativ leicht verändern. Bindung entwickelt sich dagegen über längere Zeit und bleibt vergleichsweise stabil. Nicht jede Verbindung erfüllt dieselbe Funktion für das Kind.",
+          "weight": 1
+        },
+        {
+          "id": "naehe",
+          "title": "Nähe und Sicherheit",
+          "explanation": "Für das Kind steht bei Bindung das Bedürfnis nach Nähe und Sicherheit im Mittelpunkt. Bei Angst oder Unsicherheit sucht es Nähe zu einer vertrauten Bezugsperson. Wiederholte positive Erfahrungen mit dieser Person bilden Vertrauen: Die Beziehung wird als verlässlich erlebt.",
+          "weight": 1
+        },
+        {
+          "id": "bezug",
+          "title": "Mehrere Bezugspersonen",
+          "explanation": "Ein Kind kann viele unterschiedliche Beziehungen und zu mehreren Menschen eine Bindung aufbauen. Als primäre Bezugspersonen sind nicht nur Eltern bedeutsam; unter entsprechenden Bedingungen kann auch eine pädagogische Fachkraft zur vertrauten Bezugsperson werden.",
+          "weight": 1
+        },
+        {
+          "id": "merkmale",
+          "title": "Merkmale einer Bindungsbeziehung",
+          "explanation": "Merkmale einer Bindungsbeziehung sind tiefe emotionale Verankerung, Stabilität, Verbundenheit und gemeinsame Erlebnisse. Die Bindung hilft, schwierige Situationen zu meistern, zu lernen und sich weiterzuentwickeln. Sichtbares Bindungsverhalten kann nachlassen, während die emotionale Bindung bestehen bleibt.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf3/bindung",
+          "sheetId": "bk1-lf3",
+          "sectionId": "bindung",
+          "title": "1. Bindung, Beziehung und Bindungsverhalten",
+          "to": "/lernzettel/bk1-lf3/bindung",
+          "text": "1. Bindung, Beziehung und Bindungsverhalten\nBindung ist eine besondere emotionale Beziehung eines Kindes zu seinen primären Bezugspersonen. Sie ist im Gefühl verankert und besteht über Raum und Zeit hinweg. Beziehung ist der umfassendere Begriff für Verbindungen zwischen Menschen; nicht jede Beziehung ist eine Bindung. Bindung vermittelt Halt, Sicherheit, Unterstützung und Geborgenheit.\n- Beziehungen ermöglichen Kontakt, Kommunikation und Zusammenarbeit. Sie können oberflächlich oder tief gehend sein und sich relativ leicht verändern. Bindung entwickelt sich dagegen über längere Zeit und bleibt vergleichsweise stabil. Nicht jede Verbindung erfüllt dieselbe Funktion für das Kind.\n- Für das Kind steht bei Bindung das Bedürfnis nach Nähe und Sicherheit im Mittelpunkt. Bei Angst oder Unsicherheit sucht es Nähe zu einer vertrauten Bezugsperson. Wiederholte positive Erfahrungen mit dieser Person bilden Vertrauen: Die Beziehung wird als verlässlich erlebt.\n- Ein Kind kann viele unterschiedliche Beziehungen und zu mehreren Menschen eine Bindung aufbauen. Als primäre Bezugspersonen sind nicht nur Eltern bedeutsam; unter entsprechenden Bedingungen kann auch eine pädagogische Fachkraft zur vertrauten Bezugsperson werden.\n- Bindungsverhalten und Exploration beschreiben unterschiedliche Ausrichtungen: Bei einem Bedürfnis nach Schutz wendet sich das Kind der Bezugsperson zu; mit ausreichender Sicherheit erkundet es wieder seine Umwelt. Die emotionale Bindung besteht auch über die gerade sichtbare Handlung hinaus.\n- Merkmale einer Bindungsbeziehung sind tiefe emotionale Verankerung, Stabilität, Verbundenheit und gemeinsame Erlebnisse. Die Bindung hilft, schwierige Situationen zu meistern, zu lernen und sich weiterzuentwickeln. Sichtbares Bindungsverhalten kann nachlassen, während die emotionale Bindung bestehen bleibt.\nAspekt | Beziehung | Bindung\nBedeutung | Allgemeine Verbindung zwischen Menschen | Besonders enge, emotional bedeutsame Beziehung\nEntstehung und Veränderung | Kann relativ leicht entstehen und sich verändern | Entwickelt sich über längere Zeit und ist relativ stabil\nFunktion | Kontakt, Kommunikation und Zusammenarbeit | Vertrauen, Sicherheit und Schutz; Hilfe bei Angst und Unsicherheit\nMögliche Verbindungen | Viele unterschiedliche soziale Beziehungen | Bindung zu mehreren Bezugspersonen möglich\nBeispiele | Freundschaften, Kind-Erzieher- und Schüler-Lehrer-Beziehungen | Kind und primäre Bezugsperson\nMerksatz: Bindung bleibt bestehen; Bindungsverhalten zeigt sich situationsabhängig. Nicht jede Beziehung ist eine Bindung.\nBeispiel: Im Fallbeispiel sucht Emma bei Gefahr Nähe und Trost bei der emotional verfügbaren Erzieherin und geht danach zurück zum Spiel.\nAnalyse: Trost und Nähe erfüllen die Funktion des sicheren Hafens; Sicherheit für erneutes Erkunden gehört zur sicheren Basis.\nHandlung: Emmas Bedürfnisse wahrnehmen, Sicherheit und Trost anbieten und ihre anschließende Rückkehr zum Erkunden unterstützen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl",
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        }
+      ]
+    },
+    "bk1-lf3-bindungsphasen": {
+      "version": "sha256:a2269a11a7d1fc40b0c9bba938d1e73da1aefe12a41734929a155c1da46854fc",
+      "taskId": "bk1-lf3-bindungsphasen",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "2. Bindungsphasen und Entwicklung der Beziehung",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "vorbindung",
+          "title": "Vorbindungsphase",
+          "explanation": "Vorbindungsphase: Das starke Bedürfnis nach Nähe besteht bereits, richtet sich aber noch nicht eindeutig auf eine bestimmte Person. Im Mittelpunkt stehen der enge Kontakt und die Befriedigung von Bedürfnissen.",
+          "weight": 1
+        },
+        {
+          "id": "beginn",
+          "title": "Beginnende Bindungsphase",
+          "explanation": "Beginnende Bindungsphase: Zwischen 2 und 8 Monaten werden vertraute und fremde Personen unterschiedlich beantwortet. Die wachsende Vertrautheit ist mit beginnendem Vertrauen verbunden.",
+          "weight": 1
+        },
+        {
+          "id": "eindeutig",
+          "title": "Eindeutige Bindung",
+          "explanation": "Eindeutige Bindung: Zwischen 8 Monaten und 3 Jahren wird die Ausrichtung auf die Bezugsperson deutlich. Fremdeln und Trennungsängste gehören zu den Merkmalen dieser Phase; das Bindungsverhalten richtet sich gezielt auf die vertraute Person.",
+          "weight": 1
+        },
+        {
+          "id": "reziprok",
+          "title": "Reziproke Beziehung",
+          "explanation": "Reziproke Beziehung: Ab 3 Jahren gestaltet das Kind die Beziehung stärker mit. Es bringt Wünsche sprachlich zum Ausdruck, fragt nach und verhandelt. Wechselseitigkeit hebt die Verantwortung der erwachsenen Bezugsperson nicht auf.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf3/bindungsphasen",
+          "sheetId": "bk1-lf3",
+          "sectionId": "bindungsphasen",
+          "title": "2. Bindungsphasen und Entwicklung der Beziehung",
+          "to": "/lernzettel/bk1-lf3/bindungsphasen",
+          "text": "2. Bindungsphasen und Entwicklung der Beziehung\nBindung entwickelt sich von noch wenig unterschiedener Nähe zu einer eindeutigen Bindung an vertraute Personen und schließlich zu einer wechselseitigen Beziehung. Vier Phasen unterscheiden sich darin, wie das Kind auf Menschen reagiert, Nähe sucht und die Beziehung aktiv mitgestaltet.\n- Vorbindungsphase: Das starke Bedürfnis nach Nähe besteht bereits, richtet sich aber noch nicht eindeutig auf eine bestimmte Person. Im Mittelpunkt stehen der enge Kontakt und die Befriedigung von Bedürfnissen.\n- Beginnende Bindungsphase: Zwischen 2 und 8 Monaten werden vertraute und fremde Personen unterschiedlich beantwortet. Die wachsende Vertrautheit ist mit beginnendem Vertrauen verbunden.\n- Eindeutige Bindung: Zwischen 8 Monaten und 3 Jahren wird die Ausrichtung auf die Bezugsperson deutlich. Fremdeln und Trennungsängste gehören zu den Merkmalen dieser Phase; das Bindungsverhalten richtet sich gezielt auf die vertraute Person.\n- Reziproke Beziehung: Ab 3 Jahren gestaltet das Kind die Beziehung stärker mit. Es bringt Wünsche sprachlich zum Ausdruck, fragt nach und verhandelt. Wechselseitigkeit hebt die Verantwortung der erwachsenen Bezugsperson nicht auf.\nPhase | Zeitraum | Merkmale und Verhalten\n1. Vorbindungsphase | Früheste Phase | Das Baby steht in engem Kontakt zu Menschen und hat ein starkes Nähebedürfnis. Seine Bedürfnisse können noch von allen Menschen befriedigt werden.\n2. Beginnende Bindungsphase | 2–8 Monate | Unterschiedliche soziale Reaktionsbereitschaft: Das Baby reagiert auf bekannte Bezugspersonen anders als auf Fremde und beginnt, Vertrauen zu entwickeln.\n3. Eindeutige Bindung | 8 Monate bis 3 Jahre | Zielkorrigiertes Bindungsverhalten: deutliche Bindung zur Bezugsperson, Fremdeln gegenüber fremden Personen und Trennungsängste.\n4. Reziproke (wechselseitige) Beziehung | Ab 3 Jahren | Zielkorrigierte Partnerschaft: Das Kind versteht die Bezugsperson zunehmend, äußert eigene Wünsche, stellt Fragen und verhandelt.\nMerksatz: Vorbindung → beginnende Bindung (2–8 Monate) → eindeutige Bindung (8 Monate bis 3 Jahre) → reziproke Beziehung (ab 3 Jahren).\nBeispiel: Im Fallbeispiel sucht Emma bei Gefahr Nähe und Trost bei der emotional verfügbaren Erzieherin und geht danach zurück zum Spiel.\nAnalyse: Trost und Nähe erfüllen die Funktion des sicheren Hafens; Sicherheit für erneutes Erkunden gehört zur sicheren Basis.\nHandlung: Emmas Bedürfnisse wahrnehmen, Sicherheit und Trost anbieten und ihre anschließende Rückkehr zum Erkunden unterstützen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
+    },
+    "bk1-lf3-feinfuehligkeit": {
+      "version": "sha256:5840773c5e27fde58fc97cc302ed796b85f79a2565bd94eca3d9a71a0019a985",
+      "taskId": "bk1-lf3-feinfuehligkeit",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "3. Vier Komponenten der Feinfühligkeit",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "wahrnehmung",
+          "title": "Wahrnehmung",
+          "explanation": "Wahrnehmung: Die Bezugsperson muss Signale überhaupt bemerken. Dazu gehören Weinen, Lächeln, Körperbewegungen und Blickkontakt. Aufmerksame Wahrnehmung vermittelt dem Kind, dass es gesehen wird und seine Bedürfnisse wichtig sind. Werden Signale übersehen oder ignoriert, fehlt diese Erfahrung des Wahrgenommenwerdens.",
+          "weight": 1
+        },
+        {
+          "id": "interpretation",
+          "title": "Richtige Interpretation",
+          "explanation": "Richtige Interpretation: Die Bezugsperson erkennt die Bedürfnislage und berücksichtigt den zeitlichen Kontext des Verhaltens. Sie versetzt sich in das Kind hinein und überträgt nicht ihre eigenen Wünsche, Launen oder Gefühle auf das Kind. Hunger, Müdigkeit und das Bedürfnis nach Nähe verlangen unterschiedliche Antworten.",
+          "weight": 1
+        },
+        {
+          "id": "antwort",
+          "title": "Angemessene Antwort",
+          "explanation": "Angemessene Antwort: Die Reaktion passt zum Bedürfnis und zum Entwicklungsstand. Ein hungriges Baby braucht keine Spielaufforderung; ein müdes Baby braucht nicht automatisch Nahrung. Bei Übererregung, Spannung oder beginnender Verzweiflung werden Tempo und Intensität angepasst. Bei Langeweile kann Anregung, bei Überforderung Beruhigung passend sein.",
+          "weight": 1
+        },
+        {
+          "id": "promptheit",
+          "title": "Promptheit",
+          "explanation": "Promptheit: Die Antwort soll zeitnah erfolgen, damit das Kind Signal und Reaktion miteinander verbinden kann. Verlässliche zeitnahe Reaktionen fördern die Erwartung, bei Bedarf Hilfe zu erhalten. Langsame, unvorhersehbare oder ausbleibende Antworten können dagegen Unsicherheit vermitteln.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf3/feinfuehligkeit",
+          "sheetId": "bk1-lf3",
+          "sectionId": "feinfuehligkeit",
+          "title": "3. Vier Komponenten der Feinfühligkeit",
+          "to": "/lernzettel/bk1-lf3/feinfuehligkeit",
+          "text": "3. Vier Komponenten der Feinfühligkeit\nFeinfühligkeit nach Mary Ainsworth beschreibt die Qualität der Reaktion einer Bezugsperson auf kindliche Signale. Vier Komponenten wirken zusammen: Wahrnehmung, richtige Interpretation, angemessene Antwort und prompte Reaktion. Dadurch werden emotionale Sicherheit, Verlässlichkeit und Vertrauen unterstützt.\n- Wahrnehmung: Die Bezugsperson muss Signale überhaupt bemerken. Dazu gehören Weinen, Lächeln, Körperbewegungen und Blickkontakt. Aufmerksame Wahrnehmung vermittelt dem Kind, dass es gesehen wird und seine Bedürfnisse wichtig sind. Werden Signale übersehen oder ignoriert, fehlt diese Erfahrung des Wahrgenommenwerdens.\n- Richtige Interpretation: Die Bezugsperson erkennt die Bedürfnislage und berücksichtigt den zeitlichen Kontext des Verhaltens. Sie versetzt sich in das Kind hinein und überträgt nicht ihre eigenen Wünsche, Launen oder Gefühle auf das Kind. Hunger, Müdigkeit und das Bedürfnis nach Nähe verlangen unterschiedliche Antworten.\n- Angemessene Antwort: Die Reaktion passt zum Bedürfnis und zum Entwicklungsstand. Ein hungriges Baby braucht keine Spielaufforderung; ein müdes Baby braucht nicht automatisch Nahrung. Bei Übererregung, Spannung oder beginnender Verzweiflung werden Tempo und Intensität angepasst. Bei Langeweile kann Anregung, bei Überforderung Beruhigung passend sein.\n- Promptheit: Die Antwort soll zeitnah erfolgen, damit das Kind Signal und Reaktion miteinander verbinden kann. Verlässliche zeitnahe Reaktionen fördern die Erwartung, bei Bedarf Hilfe zu erhalten. Langsame, unvorhersehbare oder ausbleibende Antworten können dagegen Unsicherheit vermitteln.\n- Zusammenhang: Das Bemerken eines Signals reicht allein ebenso wenig wie Schnelligkeit. Die Bezugsperson muss auch verstehen, worum es geht, und passend reagieren. Erlebt das Kind diese Verbindung wiederholt, kann es die Bezugsperson als sicheren Hafen nutzen und sich mit größerer Sicherheit wieder der Umwelt zuwenden.\n- Autonomie beachten: Dem Kind nicht ständig abnehmen, was es bereits selbst tun kann. Überbehütung kann seine Selbstständigkeit behindern. Feinfühligkeit umfasst auch freudige Signale wie ausgestreckte Arme, aufgeregtes Grüßen, Lächeln und zärtliche Berührungen; sie beschränkt sich nicht auf Weinen oder Not.\nKomponente | Aufgabe der Bezugsperson | Bedeutung für das Kind\nWahrnehmung | Signale bemerken: Weinen, Lächeln, Bewegung, Blickkontakt | Ich werde gesehen; meine Bedürfnisse sind wichtig.\nInterpretation | Das ausgedrückte Bedürfnis verstehen | Meine Signale und Bedürfnisse werden verstanden.\nAngemessene Antwort | Passend und kindgerecht reagieren | Mein Signal kann passende Hilfe auslösen.\nPromptheit | Zeitnah und verlässlich antworten | Wenn ich mich melde, ist Unterstützung erreichbar.\nMerksatz: Wahrnehmen → deuten → angemessen antworten → zeitnah reagieren. Jede Komponente muss am konkreten Verhalten begründet werden.\nBeispiel: Marie meldet sich lange im Erzählkreis. Die Fachkraft bemerkt sie spät und reagiert nur knapp auf ihre Erzählungen.\nAnalyse: Verspätetes Bemerken betrifft Wahrnehmung und Promptheit. Knappe, kaum inhaltlich anschließende Antworten betreffen Interpretation und Angemessenheit.\nHandlung: Maries Signale, ihre erkennbare Mitteilungsabsicht und die Reaktion der Fachkraft anhand aller vier Komponenten untersuchen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl",
+            "bk1-lf3-02-bindung-und-erziehung"
+          ]
+        }
+      ]
+    },
+    "bk1-lf3-sicherheit-exploration": {
+      "version": "sha256:08022c7b2562aaf8ebd27765cf81c848f4f8fdeabe7ce8c7347e4577bd37df25",
+      "taskId": "bk1-lf3-sicherheit-exploration",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "4. Emotionale Verfügbarkeit und ihre vier Merkmale",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "sensitivitaet",
+          "title": "Sensitivität",
+          "explanation": "Sensitivität: Signale und Gefühle des Kindes wahrnehmen und angemessen beantworten. Ein weinendes Kind zu trösten ist eine konkrete Form dieser Zugewandtheit. Nicht nur das Verhalten wird bemerkt; auf das ausgedrückte Bedürfnis wird eingegangen.",
+          "weight": 1
+        },
+        {
+          "id": "strukturierung",
+          "title": "Strukturierung",
+          "explanation": "Strukturierung: Orientierung geben und unterstützen, ohne dem Kind alles abzunehmen. Hilfestellung beim Klettern verbindet Begleitung mit eigener Tätigkeit des Kindes. Unterstützung und Eigenaktivität werden miteinander verbunden.",
+          "weight": 1
+        },
+        {
+          "id": "intrusivitaet",
+          "title": "Nicht-Intrusivität",
+          "explanation": "Nicht-Intrusivität: Die Eigenaktivität und Autonomie des Kindes respektieren. Beobachten statt ständig einzugreifen lässt dem Kind Raum für sein eigenes Handeln. Zugewandtheit ist damit nicht gleichbedeutend mit dauernder Einmischung.",
+          "weight": 1
+        },
+        {
+          "id": "feindseligkeit",
+          "title": "Nicht-Feindseligkeit",
+          "explanation": "Nicht-Feindseligkeit: Respektvoll und wertschätzend reagieren, ohne Abwertung oder Drohung. Ruhiges Grenzensetzen verbindet Orientierung mit einem nicht feindseligen Umgang. Das Kind erhält Grenzen, ohne dabei abgewertet zu werden.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf3/sicherheit-exploration",
+          "sheetId": "bk1-lf3",
+          "sectionId": "sicherheit-exploration",
+          "title": "4. Emotionale Verfügbarkeit und ihre vier Merkmale",
+          "to": "/lernzettel/bk1-lf3/sicherheit-exploration",
+          "text": "4. Emotionale Verfügbarkeit und ihre vier Merkmale\nEmotionale Verfügbarkeit ist die Fähigkeit von Bezugsperson und Kind, emotional miteinander in Kontakt zu treten und angemessen aufeinander zu reagieren. Die Bezugsperson nimmt Signale und Bedürfnisse wahr, antwortet angemessen, gibt Orientierung und Unterstützung und lässt zugleich genügend Raum für Eigenständigkeit.\n- Sensitivität: Signale und Gefühle des Kindes wahrnehmen und angemessen beantworten. Ein weinendes Kind zu trösten ist eine konkrete Form dieser Zugewandtheit. Nicht nur das Verhalten wird bemerkt; auf das ausgedrückte Bedürfnis wird eingegangen.\n- Strukturierung: Orientierung geben und unterstützen, ohne dem Kind alles abzunehmen. Hilfestellung beim Klettern verbindet Begleitung mit eigener Tätigkeit des Kindes. Unterstützung und Eigenaktivität werden miteinander verbunden.\n- Nicht-Intrusivität: Die Eigenaktivität und Autonomie des Kindes respektieren. Beobachten statt ständig einzugreifen lässt dem Kind Raum für sein eigenes Handeln. Zugewandtheit ist damit nicht gleichbedeutend mit dauernder Einmischung.\n- Nicht-Feindseligkeit: Respektvoll und wertschätzend reagieren, ohne Abwertung oder Drohung. Ruhiges Grenzensetzen verbindet Orientierung mit einem nicht feindseligen Umgang. Das Kind erhält Grenzen, ohne dabei abgewertet zu werden.\n- Bindung und Exploration: Bei Gefahr sucht Emma die Erzieherin auf und braucht Nähe und Trost. Nach der Beruhigung geht sie wieder zum Spiel. Der sichere Hafen beantwortet das Bindungsbedürfnis; die sichere Basis ermöglicht das Explorationsbedürfnis. Emotionale Verfügbarkeit verbindet beide Funktionen.\nMerkmal | Bedeutung | Konkretes Handeln\nSensitivität | Signale und Gefühle wahrnehmen und beantworten | Ein weinendes Kind trösten\nStrukturierung | Orientieren und helfen, ohne alles abzunehmen | Hilfestellung beim Klettern\nNicht-Intrusivität | Eigenaktivität und Autonomie respektieren | Beobachten, nicht ständig eingreifen\nNicht-Feindseligkeit | Ohne Abwertung oder Drohung reagieren | Ruhig Grenzen setzen\nMerksatz: Vier Merkmale: Sensitivität, Strukturierung, Nicht-Intrusivität und Nicht-Feindseligkeit. Unterstützung und Eigenständigkeit gehören zusammen.\nBeispiel: Im Fallbeispiel sucht Emma bei Gefahr Nähe und Trost bei der emotional verfügbaren Erzieherin und geht danach zurück zum Spiel.\nAnalyse: Trost und Nähe erfüllen die Funktion des sicheren Hafens; Sicherheit für erneutes Erkunden gehört zur sicheren Basis.\nHandlung: Emmas Bedürfnisse wahrnehmen, Sicherheit und Trost anbieten und ihre anschließende Rückkehr zum Erkunden unterstützen.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
+    },
+    "bk1-lf3-resilienz": {
+      "version": "sha256:e7b58c2d38c2327c6a7fd8858f9ca298bb21e44dceb5219651ad48875cc8cc26",
+      "taskId": "bk1-lf3-resilienz",
+      "subjectId": "bk1",
+      "learningFieldId": "bk1-lf3",
+      "title": "8. Resilienz, Risiko- und Schutzfaktoren",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "bewaltigung",
+          "title": "Fähigkeiten und soziale Unterstützung",
+          "explanation": "Eigene Fähigkeiten und soziale Unterstützung gehören zusammen. Bewältigung wird nicht nur auf eine Leistung des Kindes reduziert: Auch verfügbare Bezugspersonen und entlastende Unterstützung sind bedeutsam.",
+          "weight": 1
+        },
+        {
+          "id": "faktoren",
+          "title": "Risiko- und Schutzfaktoren",
+          "explanation": "Risiko- und Schutzfaktoren betreffen Wahrscheinlichkeiten: Risiken können gesunde Entwicklung erschweren, Schutzfaktoren können sie unterstützen und negative Auswirkungen abmildern. Deshalb werden Belastungen und Ressourcen gemeinsam betrachtet.",
+          "weight": 1
+        },
+        {
+          "id": "kompensation",
+          "title": "Kompensatorische Beziehungserfahrungen",
+          "explanation": "Kompensatorische Beziehungserfahrungen sind neue, verlässliche Erfahrungen nach früheren belastenden oder unsicheren Beziehungen. Sie können diese teilweise ausgleichen und andere Erwartungen an Beziehungen ermöglichen. Die Bedeutung liegt in der neuen Erfahrung von Verlässlichkeit.",
+          "weight": 1
+        },
+        {
+          "id": "grenzen",
+          "title": "Grenzen der Kompensation",
+          "explanation": "Kompensation hat Grenzen: Neue sichere Beziehungserfahrungen löschen frühere belastende Erfahrungen nicht einfach aus. Sie können jedoch innere Arbeitsmodelle, also Erwartungen an Beziehungen, verändern und weitere Entwicklung unterstützen. Verlässliche Reaktionen, ruhige Grenzen, ernst genommene Gefühle und zugetraute Selbstständigkeit ermöglichen alternative Erfahrungen.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk1-lf3/resilienz",
+          "sheetId": "bk1-lf3",
+          "sectionId": "resilienz",
+          "title": "8. Resilienz, Risiko- und Schutzfaktoren",
+          "to": "/lernzettel/bk1-lf3/resilienz",
+          "text": "8. Resilienz, Risiko- und Schutzfaktoren\nResilienz ist die Kompetenz, entwicklungsgefährdende Belastungen, Lebensumstände und Krisen im Laufe des Lebens positiv zu meistern und nicht psychisch daran zu zerbrechen. Sie entsteht im Zusammenspiel von Kind, Beziehungen, Umwelt und verfügbaren personalen, familiären und sozialen Ressourcen.\n- Eigene Fähigkeiten und soziale Unterstützung gehören zusammen. Bewältigung wird nicht nur auf eine Leistung des Kindes reduziert: Auch verfügbare Bezugspersonen und entlastende Unterstützung sind bedeutsam.\n- Risiko- und Schutzfaktoren betreffen Wahrscheinlichkeiten: Risiken können gesunde Entwicklung erschweren, Schutzfaktoren können sie unterstützen und negative Auswirkungen abmildern. Deshalb werden Belastungen und Ressourcen gemeinsam betrachtet.\n- Kompensatorische Beziehungserfahrungen sind neue, verlässliche Erfahrungen nach früheren belastenden oder unsicheren Beziehungen. Sie können diese teilweise ausgleichen und andere Erwartungen an Beziehungen ermöglichen. Die Bedeutung liegt in der neuen Erfahrung von Verlässlichkeit.\n- Der Zusammenhang zur Bindung: Feinfühligkeit und emotionale Verfügbarkeit unterstützen eine sichere Beziehung. Diese Beziehung kann eine Ressource sein, wenn das Kind Belastungen bewältigt. Sicherheit, Schutz und soziale Unterstützung werden damit miteinander verbunden.\n- Resilienz ist keine angeborene Unverwundbarkeit und keine feste Eigenschaft, die ein Kind entweder besitzt oder nicht besitzt. Belastungen können wirksam bleiben. Resilienz verändert sich im Entwicklungsverlauf und kann durch Unterstützung und verlässliche Beziehungen gefördert werden.\n- Kompensation hat Grenzen: Neue sichere Beziehungserfahrungen löschen frühere belastende Erfahrungen nicht einfach aus. Sie können jedoch innere Arbeitsmodelle, also Erwartungen an Beziehungen, verändern und weitere Entwicklung unterstützen. Verlässliche Reaktionen, ruhige Grenzen, ernst genommene Gefühle und zugetraute Selbstständigkeit ermöglichen alternative Erfahrungen.\nBegriff | Erklärung | Bedeutung für Bindung\nRisikofaktoren | Bedingungen, die das Risiko von Beeinträchtigungen erhöhen können | Können die Entwicklung sicherer Bindung erschweren\nSchutzfaktoren | Ressourcen und Bedingungen, die unterstützen und Risiken abmildern können | Unterstützen sichere Beziehungserfahrungen\nKompensatorische Beziehungserfahrungen | Neue verlässliche Erfahrungen nach früheren Belastungen | Können neue Erwartungen an Beziehungen ermöglichen\nMerksatz: Risiken sind Wahrscheinlichkeiten, Schutzfaktoren sind Ressourcen. Resilienz entsteht im Zusammenspiel mit Unterstützung und verlässlichen Beziehungen.\nBeispiel: Noah erlebt zu Hause belastende und wenig vorhersehbare Situationen. In der Kita sucht er oft eine bestimmte Fachkraft. Sie begrüßt ihn jeden Morgen verlässlich, begleitet ihn ruhig bei starken Gefühlen, hält Absprachen ein und ermutigt ihn, Neues selbst auszuprobieren.\nAnalyse: Belastende und unvorhersehbare Situationen sind Risiken. Die verlässliche Fachkraft, ruhige Gefühlsbegleitung und Unterstützung eigener Aktivität sind Schutzfaktoren. Diese neuen Erfahrungen können frühere Unsicherheit teilweise kompensieren und neue Beziehungserwartungen ermöglichen.\nHandlung: Verlässliche Begrüßung, eingehaltene Absprachen, ruhige Begleitung und Ermutigung zur Eigenständigkeit fortsetzen; Belastungen und vorhandene Ressourcen gemeinsam betrachten.",
+          "materialIds": [
+            "bk1-lf3-03-bindung-diehl"
+          ]
+        }
+      ]
+    },
+    "bk2-lf1-bilder": {
+      "version": "sha256:970576958d3dd8571c3cabc5e41a49635013b74c743730a9f78e76347707d068",
+      "taskId": "bk2-lf1-bilder",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf1",
+      "title": "1. Selbstbild, Fremdbild und Metabild",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "wechselwirkung",
+          "title": "Wechselwirkung durch Rückmeldungen",
+          "explanation": "Wechselwirkung statt Einbahnstraße: Rückmeldungen beeinflussen, was ich mir zutraue; mein Auftreten wiederum verändert die Reaktionen anderer. Erwartungen können über angebotene Chancen und Unterstützung wirksam werden. Der Pygmalion- beziehungsweise Rosenthal-Effekt beschreibt einen möglichen Erwartungszusammenhang, keine unausweichliche Festlegung der Persönlichkeit.",
+          "weight": 1
+        },
+        {
+          "id": "gespraech",
+          "title": "Fragebogen als Gesprächsanlass",
+          "explanation": "Den Fragebogen als Gesprächsanlass nutzen: Bewertungen zunächst unabhängig abgeben, anschließend Situationen und Unterschiede vergleichen. Eine Zahl oder ein Adjektiv ist keine objektive Messung der Person. Konkrete Beispiele, unterschiedliche Kontexte und mögliche Wahrnehmungsfehler helfen, aus dem Vergleich einen realistischen Entwicklungsschritt abzuleiten.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf1/bilder",
+          "sheetId": "bk2-lf1",
+          "sectionId": "bilder",
+          "title": "1. Selbstbild, Fremdbild und Metabild",
+          "to": "/lernzettel/bk2-lf1/bilder",
+          "text": "1. Selbstbild, Fremdbild und Metabild\nSelbstbild, Fremdbild und Metabild beschreiben unterschiedliche Wahrnehmungsperspektiven. Sie beeinflussen Erwartungen und Zusammenarbeit, dürfen aber nicht als unveränderliche Eigenschaften oder objektive Gesamturteile über eine Person verstanden werden.\n- Wechselwirkung statt Einbahnstraße: Rückmeldungen beeinflussen, was ich mir zutraue; mein Auftreten wiederum verändert die Reaktionen anderer. Erwartungen können über angebotene Chancen und Unterstützung wirksam werden. Der Pygmalion- beziehungsweise Rosenthal-Effekt beschreibt einen möglichen Erwartungszusammenhang, keine unausweichliche Festlegung der Persönlichkeit.\n- Den Fragebogen als Gesprächsanlass nutzen: Bewertungen zunächst unabhängig abgeben, anschließend Situationen und Unterschiede vergleichen. Eine Zahl oder ein Adjektiv ist keine objektive Messung der Person. Konkrete Beispiele, unterschiedliche Kontexte und mögliche Wahrnehmungsfehler helfen, aus dem Vergleich einen realistischen Entwicklungsschritt abzuleiten.\nSelbstbild: Meine Wahrnehmung und Einschätzung der eigenen Person.\nFremdbild: Die Wahrnehmung einer anderen Person von mir.\nMetabild: Meine Vermutung darüber, wie andere mich sehen.\nReal-Selbst / Ideal-Selbst: Meine gegenwärtige Selbsteinschätzung / mein Bild davon, wie ich sein möchte.\nAspekt | Bedeutung und Anwendung\nEntstehung des Selbstbildes | Erlebnisse, Selbstbeobachtung und Rückmeldungen prägen das Selbstbild. Auch meine Deutung einer Erfahrung ist entscheidend.\nErwartungen und Zuschreibungen | Erwartungen von Bezugspersonen können Verhalten und Selbstbild beeinflussen. Zuschreibungen wie „Das kannst du sowieso nicht“ deshalb kritisch reflektieren.\nDrei Wahrnehmungsperspektiven | Drei Perspektiven auf dieselbe Situation: Ich halte mich im Elterngespräch für klar und sachlich (Selbstbild); die Kollegin erlebt mich als sehr schnell sprechend (Fremdbild); ich vermute, sie halte mich für unsicher (Metabild). Erst eine Rückfrage zeigt, ob meine Vermutung über ihre Einschätzung überhaupt zutrifft.\nMerksatz: Selbstbild = meine Sicht auf mich; Fremdbild = die Sicht anderer auf mich; Metabild = meine Vermutung über deren Sicht. Das Metabild ist noch keine tatsächliche Rückmeldung.\nBeispiel: Eine Lernende meint, alle hielten sie für unzuverlässig, obwohl niemand dies ausgesprochen hat.\nAnalyse: Ihre Vermutung ist ein Metabild. Ein tatsächliches Fremdbild benötigt eine Rückmeldung anderer; auch diese beschreibt eine Perspektive und muss konkretisiert werden.\nHandlung: Gezielt nach beobachtbaren Beispielen und auch nach gelungenen Situationen fragen. Eigene Erwartungen mit tatsächlichen Rückmeldungen vergleichen, ohne Kritik oder Anerkennung pauschal zu verallgemeinern.",
+          "materialIds": [
+            "bk2-lf1-1-0-zusammenhang-selbstbild-fremdbild",
+            "bk2-lf1-1-2-selbstwahrnehmung-und-fremdwahrnehmung",
+            "bk2-lf1-pp-1-berufliche-orientierung-und-professionelle-selbstreflexion"
+          ]
+        }
+      ]
+    },
+    "bk2-lf1-feedbackpraxis": {
+      "version": "sha256:01ca2c352681f9146c31ff6f960f85fbb5063c60f916dce870f63a382c206b94",
+      "taskId": "bk2-lf1-feedbackpraxis",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf1",
+      "title": "4. Feedback geben, annehmen und prüfen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "johari",
+          "title": "Der blinde Fleck",
+          "explanation": "Johari anwenden: Eine Kollegin bemerkt meine hektische Sprechweise, die mir nicht auffällt — ein möglicher blinder Fleck. Teile ich freiwillig mit, dass mich Zeitdruck belastet, wird etwas bisher Geheimes öffentlich. Das Unbekannte wird nicht allein dadurch sichtbar, dass andere über mich urteilen; das Modell ist eine Reflexionshilfe, kein Persönlichkeitstest.",
+          "weight": 1
+        },
+        {
+          "id": "situativ",
+          "title": "Geltungsbereich begrenzen",
+          "explanation": "Feedback beschränkt den Geltungsbereich: „Heute im Übergabegespräch …“ statt „Du machst immer …“. Beobachtung, eigene Wirkung und Wunsch werden unterscheidbar formuliert. Eine positive Rückmeldung benennt ebenfalls Verhalten und Wirkung, etwa dass die Zusammenfassung am Ende das gemeinsame Verständnis erleichtert hat.",
+          "weight": 1
+        },
+        {
+          "id": "abschluss",
+          "title": "Eine Rückmeldung abschließen",
+          "explanation": "Eine Rückmeldung abschließen: Das Verstandene zusammenfassen und eine überprüfbare Erprobung vereinbaren. „Im nächsten Gespräch lasse ich nach einer Frage bewusst Antwortzeit“ ist konkreter als „Ich werde kommunikativer“. Später erneut nachfragen und auch prüfen, ob das eigene Bild zu streng oder zu günstig war.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf1/feedbackpraxis",
+          "sheetId": "bk2-lf1",
+          "sectionId": "feedbackpraxis",
+          "title": "4. Feedback geben, annehmen und prüfen",
+          "to": "/lernzettel/bk2-lf1/feedbackpraxis",
+          "text": "4. Feedback geben, annehmen und prüfen\nFeedback ist eine Rückmeldung zu wahrgenommenem Verhalten und seiner Wirkung. Es unterstützt Lernen, wenn es konkret, respektvoll, nachvollziehbar und auf veränderbares Handeln bezogen ist.\n- Johari anwenden: Eine Kollegin bemerkt meine hektische Sprechweise, die mir nicht auffällt — ein möglicher blinder Fleck. Teile ich freiwillig mit, dass mich Zeitdruck belastet, wird etwas bisher Geheimes öffentlich. Das Unbekannte wird nicht allein dadurch sichtbar, dass andere über mich urteilen; das Modell ist eine Reflexionshilfe, kein Persönlichkeitstest.\n- Feedback beschränkt den Geltungsbereich: „Heute im Übergabegespräch …“ statt „Du machst immer …“. Beobachtung, eigene Wirkung und Wunsch werden unterscheidbar formuliert. Eine positive Rückmeldung benennt ebenfalls Verhalten und Wirkung, etwa dass die Zusammenfassung am Ende das gemeinsame Verständnis erleichtert hat.\n- Das Auswertungsvorgehen der Vorlage beginnt mit Übereinstimmungen, nimmt anschließend positivere Fremdeinschätzungen auf und bespricht dann kritische Abweichungen. So werden nicht nur Defizite gesammelt. Die empfangende Person prüft, welche Rückmeldung durch Beispiele gestützt wird und welche Veränderung fachlich sinnvoll ist.\n- Eine Rückmeldung abschließen: Das Verstandene zusammenfassen und eine überprüfbare Erprobung vereinbaren. „Im nächsten Gespräch lasse ich nach einer Frage bewusst Antwortzeit“ ist konkreter als „Ich werde kommunikativer“. Später erneut nachfragen und auch prüfen, ob das eigene Bild zu streng oder zu günstig war.\nAspekt | Bedeutung und Anwendung\nFeedback geben | Geben: Einverständnis und passenden Zeitpunkt klären, beobachtetes Verhalten konkret beschreiben, eigene Wirkung benennen und einen umsetzbaren Wunsch formulieren. „Beim Gespräch hast du mich dreimal unterbrochen; ich konnte meinen Gedanken nicht beenden“ ist hilfreicher als „Du bist respektlos“. Auch Stärken konkret rückmelden.\nFeedback annehmen | Annehmen: Erst zuhören, bei Unklarheit nach Beispielen fragen, das Verstandene zusammenfassen und eigene Sicht ergänzen. Nicht sofort rechtfertigen, aber auch nicht jede Zuschreibung übernehmen. Rückmeldungen aus unterschiedlichen Situationen helfen zu erkennen, ob ein Muster oder ein einzelner Eindruck vorliegt.\nVereinbarungen und Auswertung | Auswertung: Eine konkrete Änderung vereinbaren, etwa in der nächsten Besprechung bewusst ausreden lassen. Danach erneut Rückmeldung erfragen. Empathie bedeutet, die Perspektive nachzuvollziehen; Wertschätzung respektiert die Person; Kongruenz verlangt glaubwürdiges, zugleich rollenbewusstes Handeln. Keines davon verpflichtet zur grenzenlosen Selbstoffenbarung.\nMerksatz: Feedback geben: konkretes Verhalten, eigene Wirkung, umsetzbarer Wunsch. Feedback annehmen: zuhören, nachfragen, prüfen und eine Veränderung vereinbaren; Rückmeldungen sind Perspektiven.\nBeispiel: Du hältst dich in Gruppen für ruhig und unterstützend. Eine Mitschülerin sagt nach einer Aufgabe: „Du hast zweimal meinen Satz beendet und dann deine Lösung vorgeschlagen.“ Du hattest vermutet, dass alle dich als gute Zuhörerin erleben.\nAnalyse: Das Selbstbild betrifft deine eigene Einschätzung, das Fremdbild ihre Wahrnehmung. Die Vermutung über alle war dein Metabild. Das unbemerkte Unterbrechen kann ein blinder Fleck sein; eine einzelne Rückmeldung ist dennoch kein Beweis einer festen Eigenschaft. Vielleicht hat Zeitdruck eine Rolle gespielt.\nHandlung: Nach dem konkreten Moment fragen, die Wirkung zusammenfassen und den eigenen Zeitdruck erklären, ohne ihn als Entschuldigung zu benutzen. Für die nächste Gruppenarbeit vereinbaren: erst ausreden lassen, dann nachfragen und Beiträge zusammenfassen. Anschließend Rückmeldung vergleichen und eine gelungene Veränderung ebenso bewusst wahrnehmen wie weiteren Lernbedarf.",
+          "materialIds": [
+            "bk2-lf1-1-2-selbstwahrnehmung-und-fremdwahrnehmung",
+            "bk2-lf1-1-3-das-johari-fenster"
+          ]
+        }
+      ]
+    },
+    "bk2-lf2-trennen": {
+      "version": "sha256:916098978fe3ccbb588c4910fdef24cffafdefe4ba5c81ac6e904704bed5162e",
+      "taskId": "bk2-lf2-trennen",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf2",
+      "title": "4. Beobachtung, Deutung und Bewertung trennen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "etiketten",
+          "title": "Beschreibung statt Etikett",
+          "explanation": "Etiketten wie „faul“ beschreiben kein konkretes Verhalten und unterstellen leicht eine Absicht. Zeit, Dauer, Reihenfolge und Kontext festhalten.",
+          "weight": 1
+        },
+        {
+          "id": "beschreibung",
+          "title": "Sachliche Beschreibung",
+          "explanation": "Eine sachliche Beschreibung beantwortet Wer, wann, wo und was: konkrete Bewegung, Wortlaut, Reihenfolge und Kontext. „Schaut zweimal zur Tür und legt den Stift ab“ ist beobachtbar; „hat keine Lust auf Leistung“ unterstellt bereits ein inneres Motiv. Auch Wörter wie „ständig“ benötigen überprüfbare Häufigkeitsangaben.",
+          "weight": 1
+        },
+        {
+          "id": "hypothese",
+          "title": "Deutung als Hypothese",
+          "explanation": "Deutung bleibt fachlich wichtig, muss aber als Hypothese erkennbar sein. Mehrere mögliche Erklärungen sammeln und jeweils fragen, welche weiteren Beobachtungen dafür oder dagegen sprechen. Eine Bewertung nennt zusätzlich ihren Maßstab, etwa Beteiligung, Sicherheit oder eine vereinbarte Regel; sie ist nicht mit einer Beschreibung gleichzusetzen.",
+          "weight": 1
+        },
+        {
+          "id": "protokoll",
+          "title": "Getrennt dokumentieren",
+          "explanation": "Praktischer Schreibweg: Zunächst das Beobachtungsprotokoll verfassen, anschließend in einem getrennten Feld Deutungen und offene Fragen ergänzen. Im Elterngespräch konkrete Beispiele nutzen, damit Familien eigene Beobachtungen einbringen können. Ein vorschnelles Etikett kann sowohl die Zusammenarbeit als auch weitere Wahrnehmungen verengen.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf2/trennen",
+          "sheetId": "bk2-lf2",
+          "sectionId": "trennen",
+          "title": "4. Beobachtung, Deutung und Bewertung trennen",
+          "to": "/lernzettel/bk2-lf2/trennen",
+          "text": "4. Beobachtung, Deutung und Bewertung trennen\nBeschreibung hält fest, was tatsächlich wahrnehmbar war. Deutung formuliert mögliche Bedeutungen oder Ursachen; Bewertung beurteilt etwas anhand von Kriterien. Diese Ebenen müssen erkennbar getrennt bleiben, damit Schlussfolgerungen überprüfbar sind.\n- Beobachtung dient dem Kennenlernen von Kindern, ihrer Interessen, Ressourcen und Lernwege. Sie unterstützt passende Angebote, Beziehungen und Gespräche.\n- Etiketten wie „faul“ beschreiben kein konkretes Verhalten und unterstellen leicht eine Absicht. Zeit, Dauer, Reihenfolge und Kontext festhalten.\n- Eine sachliche Beschreibung beantwortet Wer, wann, wo und was: konkrete Bewegung, Wortlaut, Reihenfolge und Kontext. „Schaut zweimal zur Tür und legt den Stift ab“ ist beobachtbar; „hat keine Lust auf Leistung“ unterstellt bereits ein inneres Motiv. Auch Wörter wie „ständig“ benötigen überprüfbare Häufigkeitsangaben.\n- Deutung bleibt fachlich wichtig, muss aber als Hypothese erkennbar sein. Mehrere mögliche Erklärungen sammeln und jeweils fragen, welche weiteren Beobachtungen dafür oder dagegen sprechen. Eine Bewertung nennt zusätzlich ihren Maßstab, etwa Beteiligung, Sicherheit oder eine vereinbarte Regel; sie ist nicht mit einer Beschreibung gleichzusetzen.\n- Praktischer Schreibweg: Zunächst das Beobachtungsprotokoll verfassen, anschließend in einem getrennten Feld Deutungen und offene Fragen ergänzen. Im Elterngespräch konkrete Beispiele nutzen, damit Familien eigene Beobachtungen einbringen können. Ein vorschnelles Etikett kann sowohl die Zusammenarbeit als auch weitere Wahrnehmungen verengen.\nEbene | Beispiel | Einordnung\nBeobachtung | Mila legt den Stift weg und schaut drei Minuten aus dem Fenster. | Konkret sichtbares Verhalten.\nDeutung | Vielleicht ist Mila müde oder braucht eine Pause. | Eine überprüfbare Vermutung.\nBewertung | Ich halte eine Pause unter diesen Bedingungen für sinnvoll. | Einschätzung anhand von Kriterien.\nMerksatz: Beobachtung = wahrnehmbares Geschehen; Deutung = mögliche Erklärung; Bewertung = Urteil nach einem Kriterium. Die drei Ebenen getrennt festhalten.\nBeispiel: Im Protokoll steht: „Lena ist wütend und will ihre Freundin ärgern.“\nAnalyse: Gefühl und Absicht werden als Tatsachen dargestellt, obwohl nur Verhalten von außen beobachtet wurde. Ein genauer Eintrag müsste die Handlung, Worte und Situation nennen.\nHandlung: Beispielsweise notieren: „Lena schiebt den Becher weg und sagt ,Nein‘.“ Vermutungen über Ärger oder Konflikt getrennt festhalten und durch weitere Beobachtung oder ein passendes Gespräch prüfen.",
+          "materialIds": [
+            "bk2-lf2-4-0-funktionen-von-beobachtung",
+            "bk2-lf2-4-3-beobachtung-deutung-bewertung"
+          ]
+        }
+      ]
+    },
+    "bk2-lf2-fehler": {
+      "version": "sha256:ebd155edf3de1fd7c7428c298da6960201cb3eff76fba0529e719f511b4defed",
+      "taskId": "bk2-lf2-fehler",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf2",
+      "title": "11. Fünf Beobachtungsfehler erkennen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "verstaerkung",
+          "title": "Verstärkung von Beobachtungsfehlern",
+          "explanation": "Fehler können sich verstärken: Eine frühe Typisierung beeinflusst die Erwartung, die Erwartung verändert Unterstützung und diese wiederum das beobachtete Verhalten. Deshalb reicht es nicht, nur die Wortwahl im Protokoll zu ändern; auch angebotene Chancen und das Verhalten der Erwachsenen gehören in die Reflexion.",
+          "weight": 1
+        },
+        {
+          "id": "unterscheiden",
+          "title": "Fehlerarten unterscheiden",
+          "explanation": "Unterscheidung am Beispiel: „Das Kind ist laut, also ist es dominant“ verbindet Eigenschaften unbelegt und kann ein logischer Fehler sein. „Lebhafte Kinder sind anstrengend, deshalb übersehe ich seine Hilfsbereitschaft“ zeigt einen persönlichen Bewertungsmaßstab beziehungsweise Subjektivismus. Die Zuordnung wird am Denkweg begründet.",
+          "weight": 1
+        },
+        {
+          "id": "gegenmassnahmen",
+          "title": "Gezielte Gegenmaßnahmen",
+          "explanation": "Gegenmaßnahmen gezielt wählen: Gegen Voreiligkeit weitere Situationen erfassen, gegen Typisierung individuelle Beschreibungen nutzen, gegen Erwartungseffekte gleiche echte Möglichkeiten schaffen. Den eigenen Maßstab prüfen und Gegenbeispiele aktiv suchen. Eine kollegiale Auswertung hilft nur, wenn unterschiedliche Sichtweisen tatsächlich zugelassen werden.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf2/fehler",
+          "sheetId": "bk2-lf2",
+          "sectionId": "fehler",
+          "title": "11. Fünf Beobachtungsfehler erkennen",
+          "to": "/lernzettel/bk2-lf2/fehler",
+          "text": "11. Fünf Beobachtungsfehler erkennen\nBeobachtungsfehler entstehen, wenn Erwartungen, voreilige Urteile oder eigene Maßstäbe Wahrnehmung und Auswertung verzerren. Sie werden durch systematisches Vorgehen, Selbstreflexion und den Vergleich unterschiedlicher Perspektiven begrenzt.\n- Fehler können sich verstärken: Eine frühe Typisierung beeinflusst die Erwartung, die Erwartung verändert Unterstützung und diese wiederum das beobachtete Verhalten. Deshalb reicht es nicht, nur die Wortwahl im Protokoll zu ändern; auch angebotene Chancen und das Verhalten der Erwachsenen gehören in die Reflexion.\n- Unterscheidung am Beispiel: „Das Kind ist laut, also ist es dominant“ verbindet Eigenschaften unbelegt und kann ein logischer Fehler sein. „Lebhafte Kinder sind anstrengend, deshalb übersehe ich seine Hilfsbereitschaft“ zeigt einen persönlichen Bewertungsmaßstab beziehungsweise Subjektivismus. Die Zuordnung wird am Denkweg begründet.\n- Gegenmaßnahmen gezielt wählen: Gegen Voreiligkeit weitere Situationen erfassen, gegen Typisierung individuelle Beschreibungen nutzen, gegen Erwartungseffekte gleiche echte Möglichkeiten schaffen. Den eigenen Maßstab prüfen und Gegenbeispiele aktiv suchen. Eine kollegiale Auswertung hilft nur, wenn unterschiedliche Sichtweisen tatsächlich zugelassen werden.\nAspekt | Bedeutung und Anwendung\nErwartungseffekt | Erwartungseffekt / sich selbst erfüllende Prophezeiung: Die Erwartung „Das kann er nicht“ verändert meine Unterstützung; ich lasse das Kind kaum versuchen und sehe anschließend seine geringe Beteiligung als Bestätigung. Gegenmaßnahme: gleiche echte Gelegenheiten eröffnen und das eigene Verhalten mitbeobachten.\nVoreiligkeit | Nach einer Szene steht das Urteil fest, etwa „Sie spielt immer allein“. Gegenmaßnahme: mehrere Zeiten und Situationen erfassen, den Geltungsbereich begrenzen und alternative Erklärungen notieren.\nTypisierung | Ein Kind wird einem vermeintlichen Typ zugeordnet, etwa „typisches Einzelkind, kann nicht teilen“. Gegenmaßnahme: Gruppenzuschreibungen durch individuelle, konkrete Verhaltensbeschreibungen ersetzen.\nSubjektivismus | Eigene Vorlieben oder Erfahrungen werden zum Maßstab, etwa ruhiges Verhalten grundsätzlich höher zu bewerten als lebhaftes. Gegenmaßnahme: eigene Normen offenlegen, fachliche Kriterien verwenden und andere Perspektiven einbeziehen.\nLogischer Fehler | Von einer Eigenschaft wird ohne Beleg auf eine andere geschlossen, etwa „Wer gut spricht, löst auch alle sozialen Konflikte gut“. Gegenmaßnahme: jeden relevanten Bereich eigenständig beobachten; eine plausible Verbindung ist noch kein Nachweis.\nMerksatz: Fünf Fehler: Erwartungseffekt, Voreiligkeit, Typisierung, Subjektivismus und logischer Fehler. Konkret dokumentieren, Gegenbelege prüfen und andere Perspektiven einbeziehen.\nBeispiel: Ein Kind bekommt keine schwierigen Bauaufgaben, weil eine Fachkraft es für ungeschickt hält.\nAnalyse: Die Erwartung reduziert Lerngelegenheiten. Bleiben Fortschritte aus, wirkt dies scheinbar wie eine Bestätigung; das eigene Verhalten trägt jedoch zur Situation bei.\nHandlung: Reale Versuchsmöglichkeiten mit angemessener Unterstützung anbieten, eigene Eingriffe protokollieren und andere Situationen einbeziehen. Die Zuschreibung an konkreten Gegenbeispielen überprüfen.",
+          "materialIds": [
+            "bk2-lf2-4-15-beobachtungsfehler",
+            "bk2-lf2-4-16-arbeitsblatt-beobachtungsfehler"
+          ]
+        }
+      ]
+    },
+    "bk2-lf3-zuhoeren": {
+      "version": "sha256:35284801f5193ab67bc2a76c233ea98cae56dbca0189af8dd30fef216f8353a2",
+      "taskId": "bk2-lf3-zuhoeren",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf3",
+      "title": "3. Aktiv zuhören und passend fragen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "paraphrase",
+          "title": "Paraphrase und Spiegeln",
+          "explanation": "Paraphrasieren heißt den Inhalt in eigenen Worten zusammenfassen; Gefühle können vorsichtig gespiegelt werden: „Sie sind besorgt, weil Sie nicht wissen, wie der Vormittag verlaufen ist?“ Das Fragezeichen ist bedeutsam: Die andere Person soll korrigieren können. Eine Gefühlsdeutung wird nicht als Tatsache aufgezwungen.",
+          "weight": 1
+        },
+        {
+          "id": "fragen",
+          "title": "Fragen passend einsetzen",
+          "explanation": "Fragen zielgerichtet einsetzen: Mit einer offenen Frage Erleben und Anliegen erschließen, anschließend konkrete Fakten klären und schließlich das Verstandene zusammenfassen. Mehrere Fragen unmittelbar hintereinander können überfordern. Antwortzeit und Pausen ermöglichen auch zurückhaltenden Personen, ihre Perspektive einzubringen.",
+          "weight": 1
+        },
+        {
+          "id": "grenzen",
+          "title": "Zuhören und Grenze verbinden",
+          "explanation": "Zuhören und Grenze verbinden: „Ich möchte verstehen, was passiert ist. Bitte sprechen wir ohne Beleidigungen weiter.“ Wertschätzung verlangt weder das Hinnehmen von Abwertung noch vorschnelle Zustimmung. Mit Kindern wird die Grenze knapp und verständlich formuliert, während Gefühle und Bedürfnisse weiterhin ernst genommen werden.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf3/zuhoeren",
+          "sheetId": "bk2-lf3",
+          "sectionId": "zuhoeren",
+          "title": "3. Aktiv zuhören und passend fragen",
+          "to": "/lernzettel/bk2-lf3/zuhoeren",
+          "text": "3. Aktiv zuhören und passend fragen\nAktives Zuhören richtet die Aufmerksamkeit auf Inhalt, Anliegen und wahrgenommene Gefühle. Paraphrasieren, offene Fragen und behutsames Klären machen Verständnis überprüfbar; Zuhören ist weder automatisches Zustimmen noch vorschnelles Beraten.\n- Paraphrasieren heißt den Inhalt in eigenen Worten zusammenfassen; Gefühle können vorsichtig gespiegelt werden: „Sie sind besorgt, weil Sie nicht wissen, wie der Vormittag verlaufen ist?“ Das Fragezeichen ist bedeutsam: Die andere Person soll korrigieren können. Eine Gefühlsdeutung wird nicht als Tatsache aufgezwungen.\n- Fragen zielgerichtet einsetzen: Mit einer offenen Frage Erleben und Anliegen erschließen, anschließend konkrete Fakten klären und schließlich das Verstandene zusammenfassen. Mehrere Fragen unmittelbar hintereinander können überfordern. Antwortzeit und Pausen ermöglichen auch zurückhaltenden Personen, ihre Perspektive einzubringen.\n- Zuhören und Grenze verbinden: „Ich möchte verstehen, was passiert ist. Bitte sprechen wir ohne Beleidigungen weiter.“ Wertschätzung verlangt weder das Hinnehmen von Abwertung noch vorschnelle Zustimmung. Mit Kindern wird die Grenze knapp und verständlich formuliert, während Gefühle und Bedürfnisse weiterhin ernst genommen werden.\nAspekt | Bedeutung und Anwendung\nAktives Zuhören | Ausreden lassen, Kernaussagen mit eigenen Worten wiedergeben und nachfragen, ob sie richtig verstanden wurden. „Sie wünschen sich vor Ausflügen eine direkte Nachricht — habe ich das richtig verstanden?“ ist präziser als ein rasches „Ja, ja“. Zusammenfassen bedeutet noch keine Zustimmung zu allen Behauptungen.\nOffene, geschlossene und suggestive Fragen | Offene Fragen ermöglichen Erzählungen: „Was hat Ihnen gefehlt?“ Geschlossene Fragen klären gezielt Fakten: „Ging es um den Ausflug am Dienstag?“ Suggestivfragen wie „Sie haben den Aushang wohl wieder nicht gelesen?“ enthalten bereits einen Vorwurf und erschweren die Klärung.\nGespräche mit Kindern | Mit Kindern: Auf Augenhöhe sprechen, kurze verständliche Sätze und ausreichend Antwortzeit anbieten. Gefühle anerkennen, ohne Verhalten ungeprüft zu billigen: „Du bist wütend. Ich lasse nicht zu, dass du schlägst. Zeig mir, was du brauchst.“ Gesten, Bilder oder andere Kommunikationshilfen können Beteiligung eröffnen.\nGesprächskultur im Team | Kritik an überprüfbarem Verhalten ausrichten, Nachfragen ermöglichen und keine Diagnose über Motive stellen. Die drei W — Wahrnehmung, Wirkung, Wunsch — sind hier eine Struktur für eine Ich-Botschaft; sie sind nicht automatisch ein vollständiges Modell Gewaltfreier Kommunikation.\nMerksatz: Aktiv zuhören: ausreden lassen, paraphrasieren, Gefühle vorsichtig spiegeln und Verständnis prüfen. Offene Fragen erkunden; geschlossene klären; Suggestivfragen lenken und sind kritisch zu prüfen.\nBeispiel: Eine Mutter sagt: „Mein Kind erzählt zu Hause gar nichts von der Kita.“\nAnalyse: Dahinter kann eine Sorge um Wohlbefinden, Information oder Beziehung stehen. Die Aussage allein benennt das genaue Anliegen noch nicht.\nHandlung: Zusammenfassen und offen fragen: „Sie wünschen sich mehr Einblick. Was würde Ihnen dabei besonders helfen?“ Anschließend konkrete Beobachtungen und geeignete Informationswege besprechen.",
+          "materialIds": [
+            "bk2-lf3-pp-5-einfuhrung-kommunikation"
+          ]
+        }
+      ]
+    },
+    "bk2-lf3-vorbereiten": {
+      "version": "sha256:b411088e12304b15fbaa1eeca5247f2aee97dd7ace828f528ba3d83655c771b8",
+      "taskId": "bk2-lf3-vorbereiten",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf3",
+      "title": "4. Gespräche vorbereiten",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "anlass",
+          "title": "Anlass und Ziel trennen",
+          "explanation": "Anlass und Ziel trennen: „Eltern berichten von Rückzug“ ist der Anlass; „Beobachtungen abgleichen und nächste Unterstützung vereinbaren“ ein Gesprächsziel. Eine bereits feststehende Diagnose oder Schuldzuweisung ist kein offenes Ziel. Vorab prüfen, was ich tatsächlich weiß und was ich erst erfahren möchte.",
+          "weight": 1
+        },
+        {
+          "id": "beobachten",
+          "title": "Beobachtungen vorbereiten",
+          "explanation": "Beobachtungen vorbereiten: konkrete Situationen, Stärken, Veränderungen und Rahmenbedingungen auswählen. Im Unterrichtsfall Lena sind leises Sprechen und Rückzug bei größeren Gruppenspielen Ausgangspunkte; „Lena ist unsozial“ wäre eine Bewertung. Fragen an die Eltern sollen auch Unterschiede zwischen Zuhause und Einrichtung erschließen.",
+          "weight": 1
+        },
+        {
+          "id": "rahmen",
+          "title": "Gesprächsrahmen gestalten",
+          "explanation": "Rahmen gestalten: ausreichend Zeit, geschützten Ort und nötige Beteiligte einplanen; mögliche sprachliche Verständigungshilfen und Zuständigkeiten klären. Bei emotionaler eigener Beteiligung vorab die Haltung reflektieren. Das Ziel ist ein verständlicher Austausch, nicht das Gewinnen einer Auseinandersetzung.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf3/vorbereiten",
+          "sheetId": "bk2-lf3",
+          "sectionId": "vorbereiten",
+          "title": "4. Gespräche vorbereiten",
+          "to": "/lernzettel/bk2-lf3/vorbereiten",
+          "text": "4. Gespräche vorbereiten\nGesprächsvorbereitung klärt Anlass, Ziel, Beobachtungsgrundlage, offene Fragen, Rahmen und eigene Haltung. Sie schafft Orientierung, ohne die Antworten oder die gemeinsame Lösung bereits vorwegzunehmen.\n- Anlass und Ziel trennen: „Eltern berichten von Rückzug“ ist der Anlass; „Beobachtungen abgleichen und nächste Unterstützung vereinbaren“ ein Gesprächsziel. Eine bereits feststehende Diagnose oder Schuldzuweisung ist kein offenes Ziel. Vorab prüfen, was ich tatsächlich weiß und was ich erst erfahren möchte.\n- Beobachtungen vorbereiten: konkrete Situationen, Stärken, Veränderungen und Rahmenbedingungen auswählen. Im Unterrichtsfall Lena sind leises Sprechen und Rückzug bei größeren Gruppenspielen Ausgangspunkte; „Lena ist unsozial“ wäre eine Bewertung. Fragen an die Eltern sollen auch Unterschiede zwischen Zuhause und Einrichtung erschließen.\n- Rahmen gestalten: ausreichend Zeit, geschützten Ort und nötige Beteiligte einplanen; mögliche sprachliche Verständigungshilfen und Zuständigkeiten klären. Bei emotionaler eigener Beteiligung vorab die Haltung reflektieren. Das Ziel ist ein verständlicher Austausch, nicht das Gewinnen einer Auseinandersetzung.\nGesprächsanlässe mit Eltern: Zum Beispiel Aufnahme-, Entwicklungs-, Beratungs-, Informations-, Beschwerde- und Konfliktgespräche sowie kurze Tür-und-Angel-Gespräche.\nAspekt | Bedeutung und Anwendung\nAnlass und Ziel | Was ist der Anlass? Was soll das Gespräch erreichen?\nBeobachtung und Deutung | Was habe ich konkret beobachtet, und was ist bisher nur meine Deutung?\nOffene Fragen | Was möchte ich von der anderen Person erfahren?\nZeit und Ort | Wann und wo lässt sich das Anliegen angemessen besprechen?\nEigene Haltung | Mit welcher Haltung gehe ich hinein? Bin ich offen für eine andere Perspektive?\nKindgerechter Rahmen | Gespräche mit Kindern an Alter und Entwicklungsstand anpassen: ruhig, verständlich, empathisch und auf Augenhöhe.\nMerksatz: Vorbereitung klärt Anlass, Ziel, Beobachtungen, offene Fragen, Zeit, Ort und eigene Haltung. Mit Kindern zusätzlich Entwicklungsstand und verständliche Ausdruckswege beachten.\nBeispiel: Ein Entwicklungsgespräch soll stattfinden, weil ein Kind selten an großen Gruppenangeboten teilnimmt.\nAnalyse: Nur Schwierigkeiten zu sammeln würde ein einseitiges Bild erzeugen. Auch gelingende Situationen, Interessen und die Sicht der Familie sind relevant.\nHandlung: Sachliche Beispiele, Stärken und offene Fragen vorbereiten, Zeit und ruhigen Raum vereinbaren und mögliche nächste Schritte offen halten. Nach dem Gespräch Zuständigkeiten und Überprüfung festlegen.",
+          "materialIds": [
+            "bk2-lf3-pp-5-einfuhrung-kommunikation"
+          ]
+        }
+      ]
+    },
+    "bk2-lf4-spiel": {
+      "version": "sha256:93a1ce9b25cf8f873ddd8c430d44214eda4ddac661a2f0fa9db24526b5d88bcc",
+      "taskId": "bk2-lf4-spiel",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf4",
+      "title": "1. Merkmale und Bedeutung des Spiels",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "freiheit",
+          "title": "Entscheidungsfreiheit im Freispiel",
+          "explanation": "Im Freispiel entscheiden Kinder im vereinbarten Rahmen weitgehend selbst über Tätigkeit, Material, Partner und Verlauf. Die Fachkraft schafft Bedingungen und begleitet.",
+          "weight": 1
+        },
+        {
+          "id": "entwicklung",
+          "title": "Entwicklung durch Spiel",
+          "explanation": "Spielsituationen können Sprache, Motorik, Problemlösen, Aushandlung und den Umgang mit Gefühlen fördern. Welche Erfahrungen entstehen, hängt von der konkreten Situation ab.",
+          "weight": 1
+        },
+        {
+          "id": "merkmale",
+          "title": "Sechs Spielmerkmale",
+          "explanation": "Sechs Merkmale kennzeichnen Spiel: Zweckfreiheit, konkretes aktives Tun, Wechsel von Anspannung und Entspannung, Gegenwärtigkeit, eine in sich geschlossene Spielwelt und eine Als-ob-Realität. Freiwilligkeit gehört zur inneren Freiheit des Spiels. Pädagogische Lernwirkungen können entstehen, sind aber nicht mit einem von Erwachsenen vorgeschriebenen Produktionsziel gleichzusetzen.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf4/spiel",
+          "sheetId": "bk2-lf4",
+          "sectionId": "spiel",
+          "title": "1. Merkmale und Bedeutung des Spiels",
+          "to": "/lernzettel/bk2-lf4/spiel",
+          "text": "1. Merkmale und Bedeutung des Spiels\nSpiel ist eine aus eigenem Antrieb gestaltete Tätigkeit, deren Sinn vor allem im Spielen selbst liegt. Dabei können Kinder Erfahrungen verarbeiten, Beziehungen gestalten und neue Fähigkeiten erproben, ohne dass jede Spielsituation ein vorgegebenes Lernziel erfüllen muss.\n- Im Freispiel entscheiden Kinder im vereinbarten Rahmen weitgehend selbst über Tätigkeit, Material, Partner und Verlauf. Die Fachkraft schafft Bedingungen und begleitet.\n- Spielsituationen können Sprache, Motorik, Problemlösen, Aushandlung und den Umgang mit Gefühlen fördern. Welche Erfahrungen entstehen, hängt von der konkreten Situation ab.\n- Sechs Merkmale kennzeichnen Spiel: Zweckfreiheit, konkretes aktives Tun, Wechsel von Anspannung und Entspannung, Gegenwärtigkeit, eine in sich geschlossene Spielwelt und eine Als-ob-Realität. Freiwilligkeit gehört zur inneren Freiheit des Spiels. Pädagogische Lernwirkungen können entstehen, sind aber nicht mit einem von Erwachsenen vorgeschriebenen Produktionsziel gleichzusetzen.\n- Aktives Tun bedeutet eine Wechselwirkung mit der Umwelt: Ein geworfener Ball landet anders, als das Kind erwartete; darauf reagiert es mit einem neuen Versuch. Gegenwärtigkeit zeigt sich in der Vertiefung in diese Tätigkeit. Ständige Unterbrechungen können den Zusammenhang und das eigene Weiterentwickeln der Spielidee erschweren.\n- Geschlossene Spielwelt und Als-ob unterscheiden: Zeit, Raum und vereinbarte Regeln begrenzen das Spiel; Fantasie verwandelt einen Stuhl in eine Lokomotive. Diese Spielordnung erlaubt besondere Handlungen und Bedeutungen, hebt reale Schutzgrenzen aber nicht auf. Freiwillige Rollen und ein respektiertes Stoppsignal bleiben nötig.\nDefinition: Spiel: Spiel ist eine freiwillige, aus eigenem Antrieb ausgeübte Tätigkeit, deren Sinn im Spielen selbst liegt und die aktives Handeln mit der Umwelt ermöglicht.\nMerkmal, Funktion und Ziel unterscheiden: Ein Merkmal beschreibt, woran Spiel erkennbar ist. Eine Funktion beschreibt, welche Bedeutung oder Wirkung es haben kann. Ein Ziel beschreibt, was Spielende erreichen möchten oder was pädagogisch ermöglicht werden soll. Diese Ebenen sind nicht gleichzusetzen.\nZiele im Spiel und pädagogische Ziele: Ein Kind kann im Spiel einen Turm bauen oder gewinnen wollen. Pädagogische Ziele können etwa Kommunikation, Kooperation, Bewegung oder Selbstvertrauen betreffen. Zweckfreiheit bedeutet nicht Wirkungslosigkeit: Das Kind muss die pädagogische Absicht nicht als Leistungsauftrag übernehmen.\nMerkmal | Bedeutung\nZweckfreiheit und Freiwilligkeit | Der Sinn liegt im Spielen selbst. Eigene Ziele wie ein hoher Turm sind möglich; ein äußerer Leistungszweck ist nicht erforderlich. Zwang widerspricht dem Wesen des Spiels.\nKonkretes, aktives Tun | Spielende handeln mit ihrer Umwelt und reagieren auf deren Veränderungen. Ein geworfener Ball erhält eine neue Position und regt zur nächsten Handlung an.\nAnspannung und Entspannung | Erwartung, Herausforderung, Gelingen und Erleichterung wechseln sich ab. Eine passende Spannung liegt zwischen Langeweile und Überforderung.\nGegenwärtigkeit | Das Spiel findet im Hier und Jetzt statt. Spielende vertiefen sich in die aktuelle Tätigkeit und lassen sich auf diesen Moment ein.\nIn sich geschlossene Spielwelt | Zeit, Raum und besondere Regeln begrenzen das Spiel. Es entsteht eine vorübergehende eigene Ordnung innerhalb der alltäglichen Welt.\nAls-ob-Realität | Fantasie ermöglicht andere Rollen und Möglichkeiten: Ein Stuhl kann eine Lokomotive sein. Dieses Merkmal gilt nicht für alle Spiele, etwa nicht für jedes Bewegungs- oder experimentierende Materialspiel.\nMerksatz: Sechs Spielmerkmale: Zweckfreiheit, aktives Tun, Anspannung/Entspannung, Gegenwärtigkeit, geschlossene Spielwelt und Als-ob-Realität. Freiwilligkeit gehört zur Zweckfreiheit; der Als-ob-Charakter gilt nicht für jedes Spiel.\nBeispiel: Ein Kind gießt wiederholt Wasser zwischen zwei Behältern um.\nAnalyse: Das Wiederholen kann Freude und intensives Erkunden verbinden. Es muss nicht erst durch eine erwachsene Rechenaufgabe „sinnvoll“ werden; mögliche Erfahrungen betreffen Menge, Bewegung und Material.\nHandlung: Sicheren Rahmen und passende Gefäße anbieten, Interesse beobachten und auf Fragen eingehen. Das eigene Lernergebnis nicht an die Stelle der Spielidee setzen.",
+          "materialIds": [
+            "bk2-lf4-5-0-merkmale-des-spiels",
+            "bk2-lf4-5-4-funktionen-des-spiels",
+            "bk2-lf4-5-7-das-freispiel-im-kindergarten",
+            "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung",
+            "bk2-lf4-5-28-spiel-und-kognitive-entwicklung"
+          ]
+        }
+      ]
+    },
+    "bk2-lf4-freispiel": {
+      "version": "sha256:fb85f95a25a490d4b1fe75cf91d5972093e214c4f21ccb7b823fe5eb0f70e50d",
+      "taskId": "bk2-lf4-freispiel",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf4",
+      "title": "6. Freispiel: Merkmale, Bedeutung und Rahmenbedingungen",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "bedeutung",
+          "title": "Bedeutung des Freispiels",
+          "explanation": "Bedeutung: Eigene Entscheidungen und Ideen ermöglichen Selbstständigkeit und Selbstwirksamkeit. Gemeinsam mit anderen werden Kontakte, Sprache, Kompromisse, Konfliktbearbeitung und der Umgang mit Gefühlen geübt. Kinder können Fähigkeiten wiederholt erproben und voneinander lernen.",
+          "weight": 1
+        },
+        {
+          "id": "zeit",
+          "title": "Zeit und Dauer",
+          "explanation": "Zeit: Ausreichend lange, möglichst ununterbrochene Phasen einplanen. Spiel braucht auch Zeit für Auswahl, Planung, Rollenabsprachen und das Wiederaufnehmen einer Idee; häufiges Unterbrechen erschwert vertieftes Spiel.",
+          "weight": 1
+        },
+        {
+          "id": "raum",
+          "title": "Raum und Material",
+          "explanation": "Raum und Material: Unterschiedliche Spielbereiche, Rückzug und Bewegung ermöglichen, Material zugänglich und anregend anbieten und Vorhaben nach Möglichkeit stehen lassen. Offene Materialien lassen mehrere Verwendungen zu.",
+          "weight": 1
+        },
+        {
+          "id": "begleitung",
+          "title": "Begleitung und Grenzen",
+          "explanation": "Begleitung und Grenzen: Eine erreichbare Fachkraft unterstützt den Einstieg, spielt bei Bedarf kurz mit und zieht sich wieder zurück. Schutz, vereinbarte Regeln und die Rechte anderer bleiben verbindlich. Selbstbestimmung bedeutet nicht, andere zu gefährden oder dauerhaft auszuschließen.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf4/freispiel",
+          "sheetId": "bk2-lf4",
+          "sectionId": "freispiel",
+          "title": "6. Freispiel: Merkmale, Bedeutung und Rahmenbedingungen",
+          "to": "/lernzettel/bk2-lf4/freispiel",
+          "text": "6. Freispiel: Merkmale, Bedeutung und Rahmenbedingungen\nFreispiel bezeichnet selbstbestimmtes Spielen innerhalb eines pädagogisch gestalteten Rahmens. Kinder bestimmen ihre Tätigkeit möglichst selbst; die Fachkraft schafft Bedingungen, beobachtet und unterstützt zurückhaltend. Freispiel ist deshalb weder bloße Restzeit noch eine Zeit ohne pädagogische Verantwortung.\n- Bedeutung: Eigene Entscheidungen und Ideen ermöglichen Selbstständigkeit und Selbstwirksamkeit. Gemeinsam mit anderen werden Kontakte, Sprache, Kompromisse, Konfliktbearbeitung und der Umgang mit Gefühlen geübt. Kinder können Fähigkeiten wiederholt erproben und voneinander lernen.\n- Zeit: Ausreichend lange, möglichst ununterbrochene Phasen einplanen. Spiel braucht auch Zeit für Auswahl, Planung, Rollenabsprachen und das Wiederaufnehmen einer Idee; häufiges Unterbrechen erschwert vertieftes Spiel.\n- Raum und Material: Unterschiedliche Spielbereiche, Rückzug und Bewegung ermöglichen, Material zugänglich und anregend anbieten und Vorhaben nach Möglichkeit stehen lassen. Offene Materialien lassen mehrere Verwendungen zu.\n- Begleitung und Grenzen: Eine erreichbare Fachkraft unterstützt den Einstieg, spielt bei Bedarf kurz mit und zieht sich wieder zurück. Schutz, vereinbarte Regeln und die Rechte anderer bleiben verbindlich. Selbstbestimmung bedeutet nicht, andere zu gefährden oder dauerhaft auszuschließen.\n- Freispielzeit und freies Spiel unterscheiden: Freispielzeit ist ein organisatorischer Abschnitt des Tages und kann auch angeleitete Angebote enthalten. Freies Spiel beschreibt die selbstbestimmte Tätigkeit. Nicht alles, was während der Freispielzeit stattfindet, ist deshalb automatisch freies Spiel.\nEntscheidungsraum | Was Kinder möglichst selbst bestimmen\nSpiel und Thema | Was möchte ich spielen und welche Idee möchte ich verfolgen?\nSpielpartner | Mit wem möchte ich spielen oder möchte ich zunächst allein tätig sein?\nSpielort und Raum | Wo kann meine Spielidee innerhalb der verfügbaren und vereinbarten Möglichkeiten stattfinden?\nSpielmaterial | Welche zugänglichen Dinge möchte ich nutzen und welche Bedeutung gebe ich ihnen?\nSpielzeit | Wie lange und wie intensiv beschäftige ich mich damit, innerhalb des zeitlichen Rahmens?\nMerksatz: Fünf Wahlmöglichkeiten: Spiel, Partner, Ort, Material und Zeit. Damit sie wirksam werden, braucht es Zeit, passende Räume und Materialien sowie eine aufmerksame, zurückhaltende Begleitung.\nBeispiel: Kinder wollen ihre begonnene Ladenlandschaft nach dem Frühstück weiterbauen. Bisher musste jeden Tag alles sofort aufgeräumt werden.\nAnalyse: Eine starre Unterbrechung kann die selbstgewählte Spielidee und die gemeinsam ausgehandelten Rollen beenden. Der zeitliche und räumliche Rahmen entscheidet mit, ob vertieftes Freispiel möglich ist.\nHandlung: Mit den Kindern einen sicheren Bereich zum Stehenlassen und eine verlässliche Fortsetzungszeit vereinbaren. Dabei Zugänge, andere Spielbedürfnisse und gemeinsame Regeln berücksichtigen.",
+          "materialIds": [
+            "bk2-lf4-5-7-das-freispiel-im-kindergarten",
+            "bk2-lf4-5-10-rolle-der-padagogischen-fachkraft"
+          ]
+        }
+      ]
+    },
+    "bk2-lf4-wettbewerb": {
+      "version": "sha256:d0f5a1c6e7dd4f93ed14a5d8ce3b9179e0d6df19532c707bec7f3403fb512bcb",
+      "taskId": "bk2-lf4-wettbewerb",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf4",
+      "title": "12. Wettbewerb, Kooperation und Verlieren",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "unterschied",
+          "title": "Wettkampf, Kooperation und Zufall",
+          "explanation": "Wettkampf, Kooperation und Zufall wirken unterschiedlich: Bei einem Würfelspiel kann ein Kind trotz guter Strategie verlieren; bei einer Geschicklichkeitsaufgabe beeinflusst Übung das Ergebnis stärker. Die Ursachen des Ergebnisses gemeinsam verstehen hilft, Niederlage nicht mit allgemeiner Unfähigkeit gleichzusetzen.",
+          "weight": 1
+        },
+        {
+          "id": "verlieren",
+          "title": "Umgang mit Verlieren",
+          "explanation": "Der Unterrichtstext enthält eine pointierte Position zum Verlieren. Deren Aussagen über Selbstwert sind als Anlass zur Diskussion zu behandeln, nicht als sichere Diagnose jedes enttäuschten Kindes. Heftige Reaktionen verlangen Beobachtung von Situation, bisherigen Erfahrungen, Anforderungen und Begleitung statt einer schnellen Persönlichkeitszuschreibung.",
+          "weight": 1
+        },
+        {
+          "id": "gestaltung",
+          "title": "Wettbewerb gestalten",
+          "explanation": "Wettbewerb passend gestalten: verständliche Regeln, vergleichbare Beteiligungschancen und überschaubare Anforderungen sichern. Kooperative Varianten können den Schwerpunkt vom Rang auf die gemeinsame Lösung verschieben. Auch dort prüfen, ob alle einen echten Beitrag leisten können und nicht nur das schnellste Kind das Ergebnis bestimmt.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf4/wettbewerb",
+          "sheetId": "bk2-lf4",
+          "sectionId": "wettbewerb",
+          "title": "12. Wettbewerb, Kooperation und Verlieren",
+          "to": "/lernzettel/bk2-lf4/wettbewerb",
+          "text": "12. Wettbewerb, Kooperation und Verlieren\nWettbewerb vergleicht Ergebnisse, Kooperation richtet Handlungen auf ein gemeinsames Ziel. Beide Formen können anregen; pädagogisch entscheidend sind faire Beteiligung, verständliche Regeln und ein respektvoller Umgang mit Erfolg und Enttäuschung.\n- Wettkampf, Kooperation und Zufall wirken unterschiedlich: Bei einem Würfelspiel kann ein Kind trotz guter Strategie verlieren; bei einer Geschicklichkeitsaufgabe beeinflusst Übung das Ergebnis stärker. Die Ursachen des Ergebnisses gemeinsam verstehen hilft, Niederlage nicht mit allgemeiner Unfähigkeit gleichzusetzen.\n- Der Unterrichtstext enthält eine pointierte Position zum Verlieren. Deren Aussagen über Selbstwert sind als Anlass zur Diskussion zu behandeln, nicht als sichere Diagnose jedes enttäuschten Kindes. Heftige Reaktionen verlangen Beobachtung von Situation, bisherigen Erfahrungen, Anforderungen und Begleitung statt einer schnellen Persönlichkeitszuschreibung.\n- Wettbewerb passend gestalten: verständliche Regeln, vergleichbare Beteiligungschancen und überschaubare Anforderungen sichern. Kooperative Varianten können den Schwerpunkt vom Rang auf die gemeinsame Lösung verschieben. Auch dort prüfen, ob alle einen echten Beitrag leisten können und nicht nur das schnellste Kind das Ergebnis bestimmt.\nAspekt | Bedeutung und Anwendung\nWettbewerb und Kooperation | Wettbewerb stellt Ergebnisse gegenüber, Kooperation verlangt gemeinsames Handeln für ein Ziel. Beide können im selben Spiel vorkommen. Die pädagogische Frage lautet, welche Erfahrungen die konkrete Gruppe macht: Können alle mitwirken, bleiben Regeln verständlich und Beziehungen respektvoll?\nGlück und Fertigkeit | Glücksspiele und Fertigkeitsspiele unterscheiden: Beim Würfeln bestimmt Zufall viel, beim Zielwerfen spielt Können stärker mit. Wiederholtes Verlieren kann bei ungleichen Voraussetzungen entmutigen. Schwierigkeitsgrad, Teams, Material oder Regeln gemeinsam anpassen, ohne Kinder öffentlich als „schwach“ zu markieren.\nVerlieren begleiten | Gefühl benennen, Trost oder Pause anbieten und nach Beruhigung Regeln und nächsten Versuch besprechen. „Ist doch nur ein Spiel“ kann das Erleben abwerten. Gewinner dürfen sich freuen, ohne andere auszulachen; ein Sieg ist kein Maß für den Wert einer Person.\nKooperative Alternativen | Kooperative Alternative: Gemeinsam eine Strecke oder Bauaufgabe bewältigen statt einzelne Kinder ausscheiden zu lassen. Auch hier auf faire Beteiligung achten, damit nicht ein Kind alles entscheidet. Weder absichtlich inszenierte Niederlagen noch ständiges Gewinnenlassen ersetzen das Lernen eines angemessenen Umgangs mit Ergebnissen.\nMerksatz: Wettbewerb vergleicht Ergebnisse; Kooperation verfolgt ein gemeinsames Ziel. Zufall und Fertigkeit unterscheiden; faire Beteiligung ermöglichen und Freude wie Enttäuschung respektvoll begleiten.\nBeispiel: Beim Zielwerfen verlieren jüngere Kinder wiederholt und möchten aufhören.\nAnalyse: Unterschiedliche Voraussetzungen können das Ergebnis stark prägen. Wiederholte Überforderung wird nicht dadurch hilfreich, dass man „Verlieren lernen“ verlangt.\nHandlung: Gefühle anerkennen, Entfernungen oder Material anpassen und gegebenenfalls ein gemeinsames Gruppenziel anbieten. Ergebnisse von persönlichem Wert trennen und niemanden beschämen.",
+          "materialIds": [
+            "bk2-lf4-5-16-wettbewerb",
+            "bk2-lf4-5-27-spiel-und-sozial-emotionale-entwicklung"
+          ]
+        }
+      ]
+    },
+    "bk2-lf4-raeume": {
+      "version": "sha256:4f31791d5cb2e4d010839f1b7a382b707d5a09a1464d7e8c7544bf0c626eab1b",
+      "taskId": "bk2-lf4-raeume",
+      "subjectId": "bk2",
+      "learningFieldId": "bk2-lf4",
+      "title": "14. Räume, Material und Beteiligung",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "zugang",
+          "title": "Übersicht und Zugang zu Materialien",
+          "explanation": "Erkennbare Bereiche und feste Materialplätze schaffen Übersicht. Geeignete Materialien möglichst selbstständig erreichbar anbieten.",
+          "weight": 1
+        },
+        {
+          "id": "beduerfnisse",
+          "title": "Unterschiedliche Bedürfnisse",
+          "explanation": "Unterschiedliche Fähigkeiten und Bedürfnisse berücksichtigen, Hindernisse verringern und Rückzug sowie Bewegung ermöglichen.",
+          "weight": 1
+        },
+        {
+          "id": "mitbestimmung",
+          "title": "Partizipation bei der Raumplanung",
+          "explanation": "Partizipation in der Raumplanung: Kinder können Lieblingsorte zeigen, Veränderungen mit Materialien erproben und ihre Erfahrungen rückmelden. Eine einzelne Abstimmung genügt nicht, wenn jüngere oder weniger lautsprachliche Kinder nicht zu Wort kommen. Sichtbare Pläne, Bilder und Beobachtung tatsächlicher Nutzung ergänzen das Gespräch.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "bk2-lf4/raeume",
+          "sheetId": "bk2-lf4",
+          "sectionId": "raeume",
+          "title": "14. Räume, Material und Beteiligung",
+          "to": "/lernzettel/bk2-lf4/raeume",
+          "text": "14. Räume, Material und Beteiligung\nRäume und Materialien beeinflussen, welche Tätigkeiten, Begegnungen und Rückzugsmöglichkeiten erreichbar sind. Pädagogische Gestaltung verbindet Orientierung, Sicherheit, sinnliche Bedingungen, Zugänglichkeit und Beteiligung; ein Raumkonzept allein garantiert keine Qualität.\n- Erkennbare Bereiche und feste Materialplätze schaffen Übersicht. Geeignete Materialien möglichst selbstständig erreichbar anbieten.\n- Unterschiedliche Fähigkeiten und Bedürfnisse berücksichtigen, Hindernisse verringern und Rückzug sowie Bewegung ermöglichen.\n- Kinder bei Gestaltung und Nutzung beteiligen. Konzepte anhand der tatsächlichen Bedürfnisse und Bedingungen beurteilen, nicht nur nach ihrem Namen.\n- Sicherheit, Licht, Farbe und Akustik mitprüfen: Verkehrswege freihalten, Gefahrenstellen sichern, ausreichend blendarmes Licht ermöglichen, ruhige und bewegte Bereiche entzerren und Lärm begrenzen. Farben sollen Orientierung unterstützen; pauschale Aussagen wie „Blau beruhigt jedes Kind“ sind keine tragfähige Planungsgrundlage.\n- Raumgestaltung gemeinsam überprüfen: Kinder nach Lieblingsorten und Hindernissen fragen, Nutzung beobachten, Veränderungen erproben und erneut bewerten. Ein ruhiger Bereich ist nur hilfreich, wenn er erreichbar und nicht als Strafe besetzt ist. In offenen und teiloffenen Konzepten müssen Zuständigkeiten, Orientierung und verlässliche Beziehungen klar bleiben. Konkrete Einrichtungen können von den vereinfachten Unterrichtsmodellen abweichen.\n- Raum ist eine Handlungsbedingung: Ein frei zugängliches Regal ermöglicht andere Entscheidungen als ein Materialschrank, den nur Erwachsene öffnen. Ein Durchgang direkt durch die Bauecke kann konzentriertes Bauen stören. Deshalb tatsächliche Wege, Nutzung, Lautstärke und Erreichbarkeit beobachten statt allein die Einrichtung optisch zu beurteilen.\n- Die Modelle unterscheiden Organisation und Wahlmöglichkeiten: Geschlossene Arbeit nutzt feste Gruppenräume; teiloffene Arbeit verbindet Stammgruppen mit zeitweiser Öffnung; offene Arbeit organisiert im Unterrichtsmodell stärker über Funktionsräume. Kein Name garantiert Beteiligung, Sicherheit oder Qualität. Orientierung, Beziehungskontinuität und verlässliche Zuständigkeit müssen jeweils gesichert sein.\n- Partizipation in der Raumplanung: Kinder können Lieblingsorte zeigen, Veränderungen mit Materialien erproben und ihre Erfahrungen rückmelden. Eine einzelne Abstimmung genügt nicht, wenn jüngere oder weniger lautsprachliche Kinder nicht zu Wort kommen. Sichtbare Pläne, Bilder und Beobachtung tatsächlicher Nutzung ergänzen das Gespräch.\nUnterrichtsmodell | Grundidee\nGeschlossen | Feste Gruppe mit Gruppenraum.\nTeiloffen | Stammgruppe und zusätzliche Öffnung von Räumen oder Angeboten.\nOffen | Wahl von Funktionsräumen ohne feste Stammgruppe im dargestellten Modell.\nMerksatz: Raumgestaltung verbindet Orientierung, Zugänglichkeit, Sicherheit, Bewegung, Rückzug, Licht, Farbe, Akustik und Beteiligung. Geschlossene, teiloffene und offene Organisation unterscheiden.\nBeispiel: Der Rückzugsbereich liegt direkt neben einer lauten Bewegungsfläche und wird kaum genutzt.\nAnalyse: Der Name „Ruheecke“ erzeugt noch keine Ruhe. Akustik, Lage, Wege und das Erleben der Kinder bestimmen die tatsächliche Nutzbarkeit.\nHandlung: Kinder nach Bedürfnissen fragen, Nutzung beobachten und Lage oder Schallschutz verändern. Anschließend prüfen, ob Rückzug nun selbstständig und ohne Ausgrenzung möglich ist.",
+          "materialIds": [
+            "bk2-lf4-5-21-kriterien-der-raum-und-materialgestaltung",
+            "bk2-lf4-5-23-raum-und-partizipation",
+            "bk2-lf4-5-25-raumkonzepte-offen-teiloffen-und-geschlossen"
+          ]
+        }
+      ]
+    },
+    "mathematik-regression-korrelation": {
+      "version": "sha256:bd61644fe21e93b1254773f168eea3b4cdf6fd19e8931b23523b728a3fcd06ac",
+      "taskId": "mathematik-regression-korrelation",
+      "subjectId": "mathematik",
+      "title": "10. Korrelationskoeffizient: Richtung und Stärke",
+      "prompt": "Rufe das Thema aus dem Gedächtnis ab. Erkläre die wichtigsten Zusammenhänge in eigenen Worten und ergänze, wenn möglich, ein Beispiel.",
+      "criteria": [
+        {
+          "id": "richtung",
+          "title": "Richtung des Zusammenhangs",
+          "explanation": "Positiv beziehungsweise gleichsinnig: Mit größerem x wird y tendenziell größer — „je mehr, desto mehr“. Negativ beziehungsweise gegensinnig: Mit größerem x wird y tendenziell kleiner — „je mehr, desto weniger“. Eine fallende Gerade erhält bei r das negative Vorzeichen.",
+          "weight": 1
+        },
+        {
+          "id": "rechnung",
+          "title": "Reihenfolge der Berechnung",
+          "explanation": "Zuerst den Quotienten berechnen, dann die Wurzel ziehen und danach das passende Vorzeichen wählen. Zwei negative Steigungen ergeben einen positiven Quotienten unter der Wurzel; die negative Richtung bleibt dennoch im Vorzeichen von r erhalten. Für $m_1$ = −0,38 und $m_2$ = −0,42 erhält man r ≈ −0,9512.",
+          "weight": 1
+        },
+        {
+          "id": "staerke",
+          "title": "Stärke und Betrag",
+          "explanation": "Zur Stärke den Betrag vergleichen: r ≈ −0,95 bedeutet $|r|$ ≈ 0,95 und damit einen sehr hohen gegensinnigen Zusammenhang. Die Einordnung darf nicht allein an „−0,95 ist kleiner als 0,2“ festgemacht werden. Ergibt die Rechnung $|r|>1$, müssen Reihenfolge, Steigungen und Ablesen kontrolliert werden.",
+          "weight": 1
+        }
+      ],
+      "sources": [
+        {
+          "id": "mathematik-regression/korrelation",
+          "sheetId": "mathematik-regression",
+          "sectionId": "korrelation",
+          "title": "10. Korrelationskoeffizient: Richtung und Stärke",
+          "to": "/lernzettel/mathematik-regression/korrelation",
+          "text": "10. Korrelationskoeffizient: Richtung und Stärke\nDer Korrelationskoeffizient r beschreibt Richtung und Stärke des linearen Zusammenhangs. Sein Vorzeichen gibt die Richtung an, sein Betrag $|r|$ die Stärke. r liegt zwischen −1 und +1; nur der Betrag liegt zwischen 0 und 1. Ein großer negativer Betrag bedeutet einen starken gegensinnigen Zusammenhang und nicht einen schwachen Zusammenhang.\n- Positiv beziehungsweise gleichsinnig: Mit größerem x wird y tendenziell größer — „je mehr, desto mehr“. Negativ beziehungsweise gegensinnig: Mit größerem x wird y tendenziell kleiner — „je mehr, desto weniger“. Eine fallende Gerade erhält bei r das negative Vorzeichen.\n- Das Steigungsverhältnis bezieht sich auf die beiden zusammengehörigen Regressionsgeraden in der hier verwendeten Form $y=m\\cdot x+b$. $m_1$ steht für die erste und $m_2$ für die zweite dieser Geraden. Keine Steigungen aus verschiedenen Beispielen oder Datensätzen kombinieren. Wird eine Gleichung stattdessen als $x=a\\cdot y+c$ notiert, ist ihr Koeffizient a nicht unverändert anstelle von $m_2$ einzusetzen.\n- Zuerst den Quotienten berechnen, dann die Wurzel ziehen und danach das passende Vorzeichen wählen. Zwei negative Steigungen ergeben einen positiven Quotienten unter der Wurzel; die negative Richtung bleibt dennoch im Vorzeichen von r erhalten. Für $m_1$ = −0,38 und $m_2$ = −0,42 erhält man r ≈ −0,9512.\n- Zur Stärke den Betrag vergleichen: r ≈ −0,95 bedeutet $|r|$ ≈ 0,95 und damit einen sehr hohen gegensinnigen Zusammenhang. Die Einordnung darf nicht allein an „−0,95 ist kleiner als 0,2“ festgemacht werden. Ergibt die Rechnung $|r|>1$, müssen Reihenfolge, Steigungen und Ablesen kontrolliert werden.\n- Die Grenzwerte in der Tabelle werden eindeutig zugeordnet: Der obere Grenzwert gehört jeweils noch zur vorherigen Stufe. Die Bezeichnungen beschreiben die verwendete Unterrichtsskala. Für das vollständig nachgerechnete Beispiel vom 13.01.2026 ergibt sich aus den ungerundeten Steigungen r ≈ −0,9430 — ebenfalls sehr hoch und gegensinnig.\nBetrag $|r|$ | Stärke nach der verwendeten Unterrichtsskala\n0 bis einschließlich 0,2 | schwach\nüber 0,2 bis einschließlich 0,4 | niedrig\nüber 0,4 bis einschließlich 0,7 | mäßig\nüber 0,7 bis einschließlich 0,9 | hoch\nüber 0,9 bis 1 | sehr hoch\nRechenbeispiel vom 09.02.2026\nDie gegebenen Werte dieses Beispiels werden in den folgenden Rechenschritten verwendet.\nMerksatz: Vorzeichen = Richtung; $|r|$ = Stärke. Im verwendeten Steigungsverfahren gilt $r=\\pm\\sqrt{\\frac{m_1}{m_2}}$; das Vorzeichen folgt der Richtung des Zusammenhangs.\nBeispiel: Die zusammengehörigen Steigungen sind $m_1$ = −0,38 und $m_2$ = −0,42.\nAnalyse: $\\frac{m_1}{m_2}$ = $\\frac{-0{,}38}{-0{,}42}$ = 0,9047619…; die Wurzel beträgt 0,9511897…. Wegen der negativen Richtung gilt r ≈ −0,95.\nHandlung: $|r|$ ≈ 0,95 liegt über 0,9 und höchstens bei 1. Ergebnis: sehr hoher gegensinniger linearer Zusammenhang.\nKorrelationskoeffizient aus den beiden Steigungen: r=\\pm\\sqrt{\\frac{m_1}{m_2}}\nBeide Steigungen gehören zum selben Datensatz und zur Darstellung $y=m\\cdot x+b$.\nWertebereich mit Vorzeichen: -1\\le r\\le1\nBetrag für die Stärke: 0\\le|r|\\le1\nRichtung und Stärke berechnen\nder vorzeichenbehaftete Korrelationskoeffizient und seine Einordnung.\nm_1=-0{,}38\nm_2=-0{,}42\nFormel: r=\\pm\\sqrt{\\frac{m_1}{m_2}}\nDas Verhältnis der Steigungen berechnen\n\\frac{m_1}{m_2}=\\frac{-0{,}38}{-0{,}42}\n\\frac{m_1}{m_2}\\approx0{,}9047619\nZwei Minuszeichen ergeben einen positiven Quotienten unter der Wurzel.\nDie Wurzel für den Betrag ziehen\n|r|=\\sqrt{\\frac{-0{,}38}{-0{,}42}}\n|r|\\approx0{,}9511897\nDas Vorzeichen aus der Richtung übernehmen\nr\\approx-0{,}9511897\nDer Verlauf ist gegensinnig. Deshalb steht vor dem Wurzelergebnis ein Minus.\nErgebnis: r\\approx-0{,}95\nDer Betrag liegt über 0,9: sehr hoher Zusammenhang. Das Minus bedeutet: gegensinnige Richtung.\nProbe:\n0\\le0{,}95\\le1\nDer Betrag liegt im zulässigen Bereich. Die Stärke wird am Betrag, nicht an der negativen Zahl eingeordnet.",
+          "materialIds": [
+            "mathematik-korrelationskoeffizient",
+            "mathematik-geraden-aufstellen"
+          ]
+        }
+      ]
+    }
+  },
+  "unavailable": {}
+}

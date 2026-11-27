@@ -11,6 +11,8 @@ import { reviewFor } from '../progression/engine';
 import { useProgression } from '../progression/store';
 import { matchedKeywords, maxAnswerLength, parseDraft, ratings, summarizeRatings, words, type Draft, type Rating } from './analysis';
 import { blurtingPath, blurtingTaskById, tasks, type BlurtingTask } from './tasks';
+import { SmartRecall } from './SmartRecall';
+import { isSmartRecallTaskEnabled } from './smartRecall';
 import './blurting.css';
 
 const difficultyLabels = { basic: 'Basis', intermediate: 'Aufbau', advanced: 'Vertiefung' };
@@ -72,10 +74,13 @@ type Outcome = {
 };
 
 function BlurtingSession({ task }: { task: BlurtingTask }) {
+  const smartRecallEnabled = isSmartRecallTaskEnabled(task.id);
   const { tr, locale } = useI18n();
   const { state, enabled, ready, error, dispatch, allowTexts, textGeneration, readDraft, saveDraft, finishDraft } = useProgression();
   const [draft, setDraft] = useState<Draft | null>(() => sessionDrafts.get(task.id)?.draft ?? null);
   const [timer, setTimer] = useState(false);
+  const [manual, setManual] = useState(false);
+  const [hasEvaluation, setHasEvaluation] = useState(false);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(false);
@@ -90,6 +95,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
   const controls = useRef({ readDraft, saveDraft, allowTexts, textGeneration });
   controls.current = { readDraft, saveDraft, allowTexts, textGeneration };
   const title = useRef<HTMLHeadingElement>(null);
+  const manualHeading = useRef<HTMLHeadingElement>(null);
   const editor = useRef<HTMLTextAreaElement>(null);
   const phase = outcome ? 'complete' : draft?.phase ?? 'prepare';
   const tokens = useMemo(() => words(draft?.answer ?? ''), [draft?.answer]);
@@ -165,6 +171,8 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     else if (phase !== 'prepare') title.current?.focus();
   }, [phase]);
 
+  useEffect(() => { if (manual) manualHeading.current?.focus(); }, [manual]);
+
   useEffect(() => {
     if (!allowTexts || phase !== 'compare') return;
     let cancelled = false;
@@ -181,6 +189,8 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     setPreviousText(null);
     setOutcome(null);
     setSaveError(false);
+    setManual(false);
+    setHasEvaluation(false);
     update({ version: 1, id: crypto.randomUUID(), phase: 'write', answer: '', ratings: {}, showTimer: timer, startedAt: Date.now() });
   }
 
@@ -256,10 +266,21 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
         <span>{tr(allowTexts && draftGeneration.current === textGeneration ? 'Entwurf wird in diesem Browser zwischengespeichert.' : 'Entwurf bleibt bis zum Neuladen in diesem Tab.')}</span>
       </div>
       <button className="button primary" disabled={!tokens.length} onClick={() => update({ ...draft, phase: 'compare', recallElapsedMs: Math.max(0, Date.now() - draft.startedAt) })}>
-        {tr('Antwort absenden und vergleichen')}<ArrowRight size={16} aria-hidden="true"/>
+        {tr(smartRecallEnabled ? 'Antwort abschließen' : 'Antwort absenden und vergleichen')}<ArrowRight size={16} aria-hidden="true"/>
       </button>
     </section>}
-    {phase === 'compare' && draft && <>
+    {smartRecallEnabled && draft && (phase === 'compare' || phase === 'complete') && <SmartRecall
+      key={draft.id} task={task} answer={draft.answer} attemptId={draft.id} complete={phase === 'complete'} manual={manual}
+      companion={state.activeCompanion} onEvaluated={() => setHasEvaluation(true)}
+      showManual={() => { setManual(true); manualHeading.current?.focus(); }}
+      applyRatings={suggestions => {
+        update({ ...draft, ratings: { ...suggestions, ...draft.ratings } });
+        setManual(true);
+        manualHeading.current?.focus();
+      }}
+      edit={() => { setManual(false); update({ ...draft, phase: 'write', ratings: {} }); }}
+    />}
+    {phase === 'compare' && draft && (!smartRecallEnabled || manual) && <>
       <div className="blurting-comparison">
         <section className="glass dashboard-panel blurting-panel">
           <h2 ref={title} tabIndex={-1}>{tr('Deine Antwort')}</h2>
@@ -270,7 +291,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
           </details>}
         </section>
         <section className="glass dashboard-panel blurting-panel">
-          <h2>{tr('Erwartungshorizont und Selbsteinschätzung')}</h2>
+          <h2 ref={manualHeading} tabIndex={-1}>{tr('Erwartungshorizont und Selbsteinschätzung')}</h2>
           <p className="muted">{tr('Schlagworttreffer sind Hinweise im Text. Ob deine Erklärung fachlich stimmt, beurteilst du anhand des Lernzettels selbst.')}</p>
           {task.concepts.map(concept => {
             const hints = matchedKeywords(tokens, concept);
@@ -297,7 +318,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     </>}
     {phase === 'complete' && outcome && <section className="glass dashboard-panel blurting-panel">
       <h2 ref={title} tabIndex={-1}>{tr('Wissensabruf abgeschlossen')}</h2>
-      <ActiveCompanion context="completion" encouraging={gaps.length > 0}/>
+      {!hasEvaluation && <ActiveCompanion context="completion" encouraging={gaps.length > 0}/>}
       <dl className="blurting-summary">
         {ratings.map(rating => <div key={rating}><dt>{tr(ratingLabels[rating])}</dt><dd>{states[rating]}</dd></div>)}
       </dl>
@@ -311,7 +332,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
       <div className="button-row">
         <Link className="button primary" to="/blurting">{tr('Andere Aufgabe wählen')}</Link>
         {enabled && <Link className="button secondary" to="/fortschritt">{tr('Fortschritt')}</Link>}
-        <button className="button secondary" disabled={saving} onClick={() => { setOutcome(null); update(null); }}>{tr('Neuer Versuch')}</button>
+        <button className="button secondary" disabled={saving} onClick={() => { setOutcome(null); setManual(false); setHasEvaluation(false); update(null); }}>{tr('Neuer Versuch')}</button>
       </div>
     </section>}
   </div>;
