@@ -186,3 +186,14 @@ describe('missions, cosmetics and archive integrity', () => {
     expect(stateSchema.safeParse({ ...preset, credits: preset.credits + 1 }).success).toBe(false);
   });
 });
+
+it('keeps quiz and examination answer totals separate in statistics', () => {
+  const quiz = { ...completed('quiz', quizId, 0), correct: 0 };
+  const exam = completed('exam', quizId, 1);
+  const state = record(record(emptyState(), quiz), exam);
+  expect(statistics(state)).toMatchObject({
+    quiz: { total: quiz.total, correct: 0 },
+    exam: { total: exam.total, correct: exam.total },
+    self: { count: 0 },
+  });
+});

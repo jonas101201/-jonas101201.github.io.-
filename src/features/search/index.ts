@@ -11,7 +11,8 @@ export const destinations = [
   ['/blurting', 'Freier Wissensabruf'], ['/fortschritt', 'Fortschritt'],
   ['/lernen', 'Lernen'], ['/suche', 'Suche'], ['/termine', 'Termine'], ['/einstellungen', 'Einstellungen'], ['/speicher', 'Speicher'],
 ] as const;
-const normalize = (text: string) => text.toLocaleLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+const normalize = (text: string) => text.toLocaleLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/ß/g, 'ss');
+const foldGermanSpelling = (text: string) => text.replace(/ae/g, 'a').replace(/oe/g, 'o').replace(/ue/g, 'u');
 /** Metadata only: never fetch protected files to populate search. */
 const indices = new WeakMap<(text: string | undefined) => string, Map<Language, SearchEntry[]>>();
 export function buildSearchIndex(tr: (s: string | undefined) => string, language: Language): SearchEntry[] {
@@ -38,11 +39,41 @@ export function buildSearchIndex(tr: (s: string | undefined) => string, language
   indices.set(tr, cached);
   return result;
 }
+// A single edit or transposition on a title token, only when exact search is empty.
+function oneTypo(term: string, word: string) {
+  if (term.length < 5 || Math.abs(term.length - word.length) > 1) return false;
+  const [short, long] = term.length <= word.length ? [term, word] : [word, term];
+  let start = 0;
+  while (start < short.length && short[start] === long[start]) start++;
+  if (short.length !== long.length) return short.slice(start) === long.slice(start + 1);
+  if (short.slice(start + 1) === long.slice(start + 1)) return true;
+  return short[start] === long[start + 1] && short[start + 1] === long[start] &&
+    short.slice(start + 2) === long.slice(start + 2);
+}
+
 export function searchIndex(index: SearchEntry[], query: string): SearchEntry[] {
   const words = normalize(query.trim()).split(/\s+/).filter(Boolean);
-  if (!words.length) return index.filter(e => e.id.startsWith('nav:'));
-  const phrase = normalize(query.trim());
-  return index.filter(e => words.every(word => e.text.includes(word))).sort((a, b) => Number(normalize(b.title).includes(phrase)) - Number(normalize(a.title).includes(phrase)));
+  if (!words.length) return index.filter(entry => entry.id.startsWith('nav:'));
+  let phrase = words.join(' ');
+  let matching = index.filter(entry => words.every(word => entry.text.includes(word)));
+  const alternate = words.map(foldGermanSpelling);
+  if (!matching.length && alternate.some((word, i) => word !== words[i])) {
+    matching = index.filter(entry => alternate.every(word => entry.text.includes(word)));
+    if (matching.length) phrase = alternate.join(' ');
+  }
+  if (matching.length) {
+    return matching.map(entry => {
+      const title = normalize(entry.title);
+      const score = title === phrase ? 3 : title.startsWith(phrase) ? 2 : title.includes(phrase) ? 1 : 0;
+      return { entry, score };
+    }).sort((a, b) => b.score - a.score).map(({ entry }) => entry);
+  }
+  if (words.length > 6 || phrase.length > 120) return [];
+  return index.filter(entry => {
+    const titleTokens = normalize(entry.title).match(/[\p{L}\p{N}]+/gu) ?? [];
+    const missing = words.filter(word => !entry.text.includes(word));
+    return missing.length === 1 && titleTokens.some(word => oneTypo(missing[0]!, word));
+  });
 }
 export function moveSelection(current: number, key: string, length: number) {
   if (!length) return 0;

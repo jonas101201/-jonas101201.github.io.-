@@ -79,7 +79,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
   const { state, enabled, ready, error, dispatch, allowTexts, textGeneration, readDraft, saveDraft, finishDraft } = useProgression();
   const [draft, setDraft] = useState<Draft | null>(() => sessionDrafts.get(task.id)?.draft ?? null);
   const [timer, setTimer] = useState(false);
-  const [manual, setManual] = useState(false);
+  const [manual, setManual] = useState(() => Object.keys(sessionDrafts.get(task.id)?.draft.ratings ?? {}).length > 0);
   const [hasEvaluation, setHasEvaluation] = useState(false);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [saving, setSaving] = useState(false);
@@ -131,6 +131,8 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
     sessionDrafts.delete(task.id);
     setDraft(null);
     setOutcome(null);
+    setManual(false);
+    setHasEvaluation(false);
     setPreviousText(null);
   }, [ready, textGeneration, task.id]);
 
@@ -146,6 +148,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
       draftGeneration.current = textGeneration;
       sessionDrafts.set(task.id, { draft: restored, generation: textGeneration });
       setDraft(restored);
+      if (Object.keys(restored.ratings).length) setManual(true);
     }).catch(() => { if (!cancelled) setDraftError(true); });
     return () => { cancelled = true; };
   }, [ready, allowTexts, textGeneration, task]);
@@ -278,7 +281,7 @@ function BlurtingSession({ task }: { task: BlurtingTask }) {
         setManual(true);
         manualHeading.current?.focus();
       }}
-      edit={() => { setManual(false); update({ ...draft, phase: 'write', ratings: {} }); }}
+      edit={() => { setManual(false); setHasEvaluation(false); update({ ...draft, phase: 'write', ratings: {} }); }}
     />}
     {phase === 'compare' && draft && (!smartRecallEnabled || manual) && <>
       <div className="blurting-comparison">

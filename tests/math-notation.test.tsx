@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { prepareLanguage } from '../src/i18n/translate';
 import { afterEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -69,3 +70,5 @@ describe('Gesetzte Formeln und nachvollziehbare Rechnungen', () => {
     expect(screen.getByRole('article', { name: 'Eine Tabellenzeile vollständig ausfüllen' })).toBeTruthy();
   });
 });
+
+await prepareLanguage('uk');

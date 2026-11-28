@@ -1,3 +1,4 @@
+import { prepareLanguage } from '../src/i18n/translate';
 import { describe, expect, it } from 'vitest';
 import { buildSearchIndex, moveSelection, searchIndex } from '../src/features/search';
 import { tasks } from '../src/features/blurting/tasks';
@@ -44,4 +45,14 @@ it('finds free recall exercises without using answers or private attempts', () =
   const results = searchIndex(index, 'Freier Wissensabruf Bindung');
   expect(index.filter(entry => entry.id.startsWith('blurting:'))).toHaveLength(tasks.length);
   expect(results.some(entry => entry.to === '/blurting/bk1-lf3-bindung' && entry.learningFieldId === 'bk1-lf3')).toBe(true);
+});
+
+await prepareLanguage('uk');
+
+it('prioritizes exact paths and falls back to German spellings and one title typo', () => {
+  expect(searchIndex(index, 'Prüfungstraining')[0]?.to).toBe('/pruefungstraining');
+  expect(searchIndex(index, 'Pruefungstraining')[0]?.to).toBe('/pruefungstraining');
+  expect(searchIndex(index, 'Feinfuehligkeit').some(entry => entry.to.includes('feinfuehligkeit'))).toBe(true);
+  expect(searchIndex(index, 'Feinfühlgikeit').some(entry => entry.to.includes('feinfuehligkeit'))).toBe(true);
+  expect(searchIndex(index, 'Fxyzlkeit')).toEqual([]);
 });

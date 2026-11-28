@@ -22,7 +22,7 @@ const answer = 'Beim Spielen verhandeln Kinder Regeln und lösen Konflikte.';
 const example: SmartRecallResult = {
   status: 'uncertain', taskId: task.id, version: 'test-version',
   sources: [{ id: topic.id, sheetId: sheetId!, sectionId: sectionId!, title: topic.title, to: topic.to }],
-  score: { earned: 0, maxEarned: 1, possible: task.concepts.length },
+  score: { earned: 0, maxEarned: task.concepts.length - 1, possible: task.concepts.length },
   feedback: 'Prüfe die Beispiele im zugeordneten Lernzettel.',
   criteria: task.concepts.map((concept, index) => ({
     id: concept.id, status: index === 0 ? 'wrong' : 'uncertain', sourceId: topic.id,
@@ -42,6 +42,11 @@ function show() {
 
 it('accepts the canonical source target and rejects invented excerpts, paths and scores', () => {
   expect(parseSmartRecallResult(example, task, answer)).toEqual(example);
+  const other = studyTopics.find(item => item.id !== topic.id)!;
+  expect(parseSmartRecallResult({ ...example, sources: [{ id: other.id, sheetId: other.parentId,
+    sectionId: other.topic.id, title: other.title, to: other.to }],
+    criteria: example.criteria.map(row => ({ ...row, sourceId: other.id })) }, task, answer)).toBeNull();
+  expect(parseSmartRecallResult({ ...example, score: { ...example.score, earned: 1 } }, task, answer)).toBeNull();
   expect(parseSmartRecallResult({ ...example, sources: [{ ...example.sources[0], to: 'https://example.org' }] }, task, answer)).toBeNull();
   expect(parseSmartRecallResult({ ...example, criteria: example.criteria.map(criterion => ({ ...criterion, excerpt: 'Erfundener Ausschnitt' })) }, task, answer)).toBeNull();
   expect(parseSmartRecallResult({ ...example, score: { earned: 4, maxEarned: 3, possible: 5 } }, task, answer)).toBeNull();
@@ -57,6 +62,7 @@ it('sends only after disclosure and transfers ratings only after the learner che
   await user.click(screen.getByRole('button', { name: 'Antwort senden und bewerten' }));
   await screen.findByText('Vorläufige Bewertung');
   expect(fetchMock).toHaveBeenCalledTimes(1);
+  expect(fetchMock.mock.calls[0]![1]).toMatchObject({ credentials: 'include', redirect: 'error', cache: 'no-store' });
   expect(JSON.parse(fetchMock.mock.calls[0]![1]!.body as string)).toEqual({ taskId: task.id, answer, attemptId: 'recall-ui-test', language: 'de' });
   expect(onEvaluated).toHaveBeenCalledOnce();
   const excerpt = screen.getAllByText('verhandeln Kinder Regeln')[0]!;
@@ -78,7 +84,9 @@ it('reports the budget error and keeps manual review available', async () => {
   const { showManual } = show();
   await user.click(screen.getByRole('button', { name: 'KI-Auswertung starten' }));
   await user.click(screen.getByRole('button', { name: 'Antwort senden und bewerten' }));
-  expect((await screen.findByRole('alert')).textContent).toContain('KI-Kontingent');
+  const alert = await screen.findByRole('alert');
+  expect(alert.textContent).toContain('KI-Kontingent');
+  expect(alert.textContent).toContain('SR-DAY-LIMIT');
   await user.click(screen.getByRole('button', { name: 'Selbst kontrollieren' }));
   expect(showManual).toHaveBeenCalledOnce();
 });

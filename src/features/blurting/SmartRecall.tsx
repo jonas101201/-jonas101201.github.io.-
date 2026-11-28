@@ -30,6 +30,20 @@ const errors: Record<SmartRecallError, string> = {
   timeout: 'Die KI-Auswertung hat zu lange gedauert. Deine Antwort bleibt erhalten.',
 };
 
+const errorCodes: Record<SmartRecallError, string> = {
+  access_connection: 'SR-CONNECTION',
+  unauthorized: 'SR-AUTH',
+  disabled: 'SR-DISABLED',
+  invalid_request: 'SR-REQUEST',
+  unsupported_task: 'SR-TASK',
+  busy: 'SR-BUSY',
+  user_budget: 'SR-USER-LIMIT',
+  budget: 'SR-DAY-LIMIT',
+  unavailable: 'SR-UNAVAILABLE',
+  invalid_result: 'SR-RESULT',
+  timeout: 'SR-TIMEOUT',
+};
+
 const suggestedRatings: Partial<Record<keyof typeof statusLabels, Rating>> = {
   correct: 'remembered', partial: 'partial', incomplete: 'partial', wrong: 'misunderstood', missing: 'missing',
 };
@@ -60,7 +74,7 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
   const [disclose, setDisclose] = useState(false);
   const [waiting, setWaiting] = useState(false);
   const [result, setResult] = useState<SmartRecallResult | null>(null);
-  const [problem, setProblem] = useState('');
+  const [problem, setProblem] = useState<SmartRecallError | null>(null);
   const request = useRef<AbortController | null>(null);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const [pilotOpen, setPilotOpen] = useState(() => !(smartRecallNotBefore > Date.now()));
@@ -69,16 +83,22 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
     const timer = window.setTimeout(() => setPilotOpen(true), smartRecallNotBefore - Date.now());
     return () => window.clearTimeout(timer);
   }, [pilotOpen]);
-  const eligible = answer.trim().length > 0 && answer.length <= smartRecallMaxAnswer;
+  const answerLength = answer.trim().length;
+  const eligible = answerLength > 0 && answerLength <= smartRecallMaxAnswer;
   useEffect(() => () => request.current?.abort(), []);
-  useEffect(() => { resultHeading.current?.focus(); }, [result]);
+  useEffect(() => { if (result) resultHeading.current?.focus(); }, [result]);
+  useEffect(() => {
+    if (!complete) return;
+    request.current?.abort();
+    request.current = null;
+  }, [complete]);
 
   async function evaluate() {
     if (!pilotOpen || !eligible || request.current || complete || result) return;
     const controller = new AbortController();
     request.current = controller;
     setWaiting(true);
-    setProblem('');
+    setProblem(null);
     const timeout = window.setTimeout(() => controller.abort('timeout'), 40_000);
     try {
       const output = await requestSmartRecall(task, answer, attemptId, language, controller.signal);
@@ -87,10 +107,10 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
         onEvaluated();
       }
     } catch (error) {
-      if (controller.signal.reason === 'timeout') setProblem(errors.timeout);
+      if (controller.signal.reason === 'timeout') setProblem('timeout');
       else if (!controller.signal.aborted) {
         const code = error instanceof Error ? error.message : 'unavailable';
-        setProblem(Object.hasOwn(errors, code) ? errors[code as SmartRecallError] : errors.unavailable);
+        setProblem(Object.hasOwn(errors, code) ? code as SmartRecallError : 'unavailable');
       }
     } finally {
       window.clearTimeout(timeout);
@@ -116,14 +136,15 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
     format.format(score.possible),
   ]);
   const next = result?.criteria.find(criterion => criterion.status === 'wrong') ??
-    result?.criteria.find(criterion => ['partial', 'incomplete', 'missing'].includes(criterion.status));
+    result?.criteria.find(criterion => ['partial', 'incomplete', 'missing'].includes(criterion.status)) ??
+    result?.criteria.find(criterion => criterion.status === 'uncertain');
   const nextTitle = task.concepts.find(concept => concept.id === next?.id)?.title;
   const nextSource = result?.sources.find(source => source.id === next?.sourceId);
   return <section className="glass dashboard-panel blurting-panel smart-recall" aria-labelledby="smart-recall-title">
     <h2 id="smart-recall-title" ref={resultHeading} tabIndex={-1}>{tr('Smart Recall · KI-Auswertung')}</h2>
     {!result && !complete && <>
       <div className="button-row">
-        {!disclose && <button className="button primary" onClick={() => { setProblem(''); setDisclose(true); }} disabled={!pilotOpen || !eligible}>{tr('KI-Auswertung starten')}</button>}
+        {!disclose && <button className="button primary" onClick={() => { setProblem(null); setDisclose(true); }} disabled={!pilotOpen || !eligible}>{tr('KI-Auswertung starten')}</button>}
         {!manual && <button className="button secondary" onClick={() => { cancel(); showManual(); }}>{tr('Selbst kontrollieren')}</button>}
         <button className="button secondary" onClick={() => { cancel(); edit(); }}>{tr('Antwort bearbeiten')}</button>
       </div>
@@ -140,7 +161,10 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
         </div>
       </div>}
       {waiting && <p role="status">{tr('Deine Antwort wird anhand der Lernzettel bewertet …')}</p>}
-      {problem && <p className="notice warning" role="alert">{tr(problem)}</p>}
+      {problem && <p className="notice warning" role="alert">
+        {tr(errors[problem])}
+        <small className="smart-recall-error-code">{tr('Fehlercode {0}', [errorCodes[problem]])}</small>
+      </p>}
     </>}
     {result && score && <>
       <div className="smart-recall-overview">
@@ -152,7 +176,7 @@ export function SmartRecall({ task, answer, attemptId, complete, manual, compani
         <p>{result.feedback}</p>
       </div>
       <ActiveCompanion context="completion" encouraging={Boolean(next) || result.status === 'uncertain'}>
-        <strong>{tr(result.status === 'uncertain' ? 'Schauen wir gemeinsam in die Lernzettel.' : next ? recallAdvice[companion as CompanionId] ?? recallAdvice.orbit : 'Das hast du anhand der Lernzettel gut erklärt.')}</strong>
+        <strong>{tr(next?.status === 'uncertain' ? 'Schauen wir gemeinsam in die Lernzettel.' : next ? recallAdvice[companion as CompanionId] ?? recallAdvice.orbit : 'Das hast du anhand der Lernzettel gut erklärt.')}</strong>
         {nextTitle && <span>{tr(nextTitle)}</span>}
         {nextSource && <ContentRouteLink className="text-link" to={nextSource.to} target="_blank" rel="noopener">{tr(nextSource.title)}</ContentRouteLink>}
       </ActiveCompanion>

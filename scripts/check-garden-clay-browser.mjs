@@ -15,7 +15,7 @@ const url = process.env.LERNHUB_TEST_URL ?? 'http://127.0.0.1:5194/';
 const fullGarden = process.env.GARDEN_FULL_SET === '1';
 const output = process.env.GARDEN_SCREENSHOT_DIR;
 const withLogo = process.env.GARDEN_LOGO === '1';
-const selectors = ['.home-heading', '.home-heading h1', '.home-date', '.brand-mark', '.home-bk-group', '.home-bk-heading', '.home-bk-heading h2', '.home-bk-fields', '.home-bk-fields a', '.topbar', '.mobile-dock', '.home-resume-card'];
+const selectors = ['.home-heading', '.home-heading h1', '.home-date', '.brand-mark', '.home-bk-group', '.home-bk-heading', '.home-bk-heading h2', '.home-bk-fields', '.home-bk-fields a', '.topbar', '.mobile-dock', '.home-resume .active-companion-home'];
 
 async function layout(page) {
   return page.evaluate(items => items.flatMap(selector => Array.from(globalThis.document.querySelectorAll(selector), element => {
@@ -48,6 +48,7 @@ async function equip(page, apply) {
   await page.reload();
   await page.locator(apply ? 'html[data-living-clay="garden-clay"]' : 'html:not([data-living-clay])').waitFor();
   await page.locator('.home-bk-group[data-subject="bk1"]').waitFor();
+  await page.locator('.home-resume .active-companion-home').waitFor();
   await page.evaluate(() => globalThis.document.fonts.ready.then(() => undefined));
 }
 try {
@@ -60,6 +61,13 @@ try {
       await page.addInitScript(mode => { localStorage.setItem('lernhub:theme:v1', mode); }, theme);
       await page.goto(url);
       await page.locator('.home-bk-group[data-subject="bk1"]').waitFor();
+      await page.evaluate(() => globalThis.document.fonts.ready.then(() => undefined));
+      await page.evaluate(async () => {
+        const { enableProgress } = await import('/src/features/progression/storage.ts');
+        await enableProgress();
+      });
+      await page.reload();
+      await page.locator('.home-resume .active-companion-home').waitFor();
       await page.evaluate(() => globalThis.document.fonts.ready.then(() => undefined));
       const baseline = await layout(page);
       const bk2 = page.locator('.home-bk-group[data-subject="bk2"]');
@@ -76,7 +84,7 @@ try {
       await equip(page, true);
       assert.equal((await asset).status(), 200);
       if (forest) assert.equal((await forest).status(), 200);
-      assert.match(await page.locator('.home-resume-card').evaluate(node => globalThis.getComputedStyle(node).backgroundImage), /garden-relief/);
+      assert.match(await page.locator('.home-resume .active-companion-home').evaluate(node => globalThis.getComputedStyle(node).backgroundImage), /garden-relief/);
       assert.deepEqual(await layout(page), baseline, width + ' ' + theme);
       assert.notEqual(await bk2.evaluate(node => globalThis.getComputedStyle(node).background), unchanged);
       assert.equal(await page.locator('html').getAttribute('data-studio-glass'), null);

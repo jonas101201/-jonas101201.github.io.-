@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useBackgroundPreference } from '../../theme/preferences';
 
 export function useStudioMotionPaused() {
@@ -21,12 +21,13 @@ export function useStudioMotionPaused() {
   return paused || reduced || !visible;
 }
 
-export function useCompanionGreeting(playOnMount = false) {
-  const [greeting, setGreeting] = useState(playOnMount ? 1 : 0);
+export function useCompanionGreeting() {
+  const [greeting, setGreeting] = useState(0);
   useEffect(() => {
     if (!greeting) return;
     const handle = window.setTimeout(() => setGreeting(0), 1800);
     return () => window.clearTimeout(handle);
   }, [greeting]);
-  return [greeting, () => setGreeting(previous => previous + 1)] as const;
+  const replay = useCallback(() => setGreeting(previous => previous + 1), []);
+  return [greeting, replay] as const;
 }

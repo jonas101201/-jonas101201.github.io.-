@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { assertNoProtectedMaterialAssets } from '../scripts/protected-materials';
 const temporary: string[] = [];
 afterEach(() => { for (const path of temporary.splice(0)) rmSync(path, { recursive: true, force: true }); });
 function fixture() {
@@ -13,9 +14,9 @@ function fixture() {
   const bytes = Buffer.from('%PDF-1.4\nUnterrichtsdatei\n');
   writeFileSync(join(source,'materials/bk1/test.pdf'), bytes);
   const file = { path:'materials/bk1/test.pdf', sizeBytes:bytes.length, sha256:createHash('sha256').update(bytes).digest('hex') };
-  function run(materials: unknown[] = [file]) {
+  function run(materials: unknown[] = [file], target = destination) {
     writeFileSync(catalogPath,JSON.stringify({materials}));
-    return execFileSync(process.execPath,[resolve('scripts/hydrate-materials.mjs'),'--source',source,'--destination',destination,'--catalog',catalogPath],{encoding:'utf8',stdio:'pipe'});
+    return execFileSync(process.execPath,[resolve('scripts/hydrate-materials.mjs'),'--source',source,'--destination',target,'--catalog',catalogPath],{encoding:'utf8',stdio:'pipe'});
   }
   return {root,source,destination,file,bytes,run};
 }
@@ -39,4 +40,16 @@ describe('Bereitstellung aus privater Materialablage', () => {
     expect(()=>f.run([{...f.file,sha256:undefined}])).toThrow();
     expect(existsSync(f.destination)).toBe(false);
   });
+});
+
+it('rejects a public hydration target and stops Vite when protected files are present', async () => {
+  const f = fixture();
+  for (const target of ['public', 'dist']) {
+    expect(() => f.run([f.file], resolve(target))).toThrow(/Öffentliches Ziel unzulässig/);
+  }
+  await expect(assertNoProtectedMaterialAssets(f.destination)).resolves.toBeUndefined();
+  mkdirSync(join(f.destination, 'materials/bk1'), { recursive: true });
+  await expect(assertNoProtectedMaterialAssets(f.destination)).resolves.toBeUndefined();
+  writeFileSync(join(f.destination, 'materials/bk1/private.pdf'), f.bytes);
+  await expect(assertNoProtectedMaterialAssets(f.destination)).rejects.toThrow(/Geschützte Materialien/);
 });

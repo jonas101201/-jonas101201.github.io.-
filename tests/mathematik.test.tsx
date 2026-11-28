@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { prepareLanguage } from '../src/i18n/translate';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -129,3 +130,5 @@ describe('Wertetabelle und gewichtete Mittelwerte aus dem Unterricht', () => {
     for (const language of ['de', 'uk'] as const) expect(JSON.stringify(translateTree(sheet, language))).not.toMatch(/\\Delta|Δx|Δy/);
   });
 });
+
+await prepareLanguage('uk');

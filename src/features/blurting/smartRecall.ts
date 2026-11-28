@@ -21,7 +21,7 @@ const schema = z.object({
   version: z.string().min(1).max(100),
   criteria: z.array(z.object({
     id: z.string(), status: z.enum(recallStatuses), reason: text,
-    excerpt: text.nullish(), sourceId: z.string().nullish(), sourceQuote: text.nullish(), correction: text.nullish(),
+    excerpt: text.nullish(), sourceId: z.string().min(1), sourceQuote: text.min(6), correction: text.nullish(),
   })).min(1).max(20),
   sources: z.array(z.object({
     id: z.string(), sheetId: z.string(), sectionId: z.string(), title: text, to: z.string(),
@@ -39,14 +39,30 @@ export function parseSmartRecallResult(raw: unknown, task: BlurtingTask, answer:
   if (!parsed.success) return null;
   const result = parsed.data;
   const { score } = result;
-  const concepts = new Set(task.concepts.map(concept => concept.id));
-  const sources = new Set(result.sources.map(source => source.id));
-  if (result.taskId !== task.id || score.earned > score.maxEarned || score.maxEarned > score.possible ||
-      result.criteria.length !== concepts.size || new Set(result.criteria.map(row => row.id)).size !== concepts.size ||
-      sources.size !== result.sources.length ||
-      result.criteria.some(row => !concepts.has(row.id) || (row.sourceId && !sources.has(row.sourceId)) || (row.excerpt && !answer.includes(row.excerpt))) ||
-      result.sources.some(source => !studyTopics.some(topic => topic.id === source.sheetId + '/' + source.sectionId && topic.to === source.to))
-  ) return null;
+  const concepts = new Map(task.concepts.map(concept => [concept.id, concept.weight]));
+  const topic = studyTopics.find(entry => entry.to === task.sourcePath);
+  if (result.taskId !== task.id || result.criteria.length !== concepts.size ||
+      new Set(result.criteria.map(row => row.id)).size !== concepts.size ||
+      !topic || result.sources.length !== 1) return null;
+  const [source] = result.sources;
+  if (!source || source.id !== topic.id || source.sheetId !== topic.parentId ||
+      source.sectionId !== topic.topic.id || source.to !== topic.to || source.title !== topic.title) return null;
+
+  let earned = 0, possible = 0, uncertain = 0;
+  for (const row of result.criteria) {
+    const weight = concepts.get(row.id);
+    if (weight === undefined || row.sourceId !== source.id ||
+        (row.excerpt && !answer.trim().includes(row.excerpt)) ||
+        (row.status === 'missing' && row.excerpt) ||
+        (!['missing', 'uncertain'].includes(row.status) && !row.excerpt) ||
+        (row.status === 'wrong' && !row.correction?.trim())) return null;
+    possible += weight;
+    if (row.status === 'correct') earned += weight;
+    if (row.status === 'partial') earned += weight / 2;
+    if (row.status === 'uncertain') uncertain += weight;
+  }
+  if (score.earned !== earned || score.possible !== possible || score.maxEarned !== earned + uncertain ||
+      result.status !== (uncertain ? 'uncertain' : 'evaluated')) return null;
   return result;
 }
 
@@ -58,7 +74,7 @@ export async function requestSmartRecall(task: BlurtingTask, answer: string, att
   const response = await fetch(`${apiOrigin}/api/recall/evaluate`, {
     method: 'POST', credentials: 'include', redirect: 'error', cache: 'no-store', signal,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ taskId: task.id, answer, attemptId, language }),
+    body: JSON.stringify({ taskId: task.id, answer: answer.trim(), attemptId, language }),
   }).catch((error: unknown) => {
     if (!signal.aborted && error instanceof TypeError && navigator.onLine) throw new Error('access_connection');
     throw error;

@@ -192,7 +192,7 @@
   }
 
   :root[data-theme][data-living-clay="garden-clay"] .app-shell
-  :is(.home-resume-card, .dashboard-panel, .classroom-info, .subject-header, .subject-card, .field-card, .home-subject-chip):not(.blurting-panel, .cosmetic-product, .garden-detail) {
+  :is(.home-resume-card, .home-resume .active-companion-home, .dashboard-panel, .classroom-info, .subject-header, .subject-card, .field-card, .home-subject-chip):not(.blurting-panel, .cosmetic-product, .garden-detail) {
     --garden-ornament: url('/worlds/garden-relief.webp');
     --garden-ornament-size: clamp(4rem, 28%, 11rem);
     --garden-ornament-position: right -1rem bottom -1.05rem;

@@ -12,7 +12,7 @@ function option(name, fallback) {
   return args[i + 1];
 }
 const source = await realpath(resolve(option('--source', process.env.MATERIALS_SOURCE_DIR || resolve(project, '.material-source'))));
-const destination = resolve(option('--destination', resolve(project, 'public')));
+const destination = resolve(option('--destination', resolve(project, '.material-check')));
 const catalogPath = resolve(option('--catalog', resolve(project, 'src/data/catalog.json')));
 const { materials } = JSON.parse(await readFile(catalogPath, 'utf8'));
 const files = new Map();
@@ -25,7 +25,7 @@ for (const material of materials) {
     files.set(file.path, file);
   }
 }
-// Check every expected file before copying anything into the public build directory.
+// Check every expected file before copying anything into the local verification directory.
 for (const [path, expected] of files) {
   const from = resolve(source, path);
   const canonical = await realpath(from);
@@ -37,6 +37,12 @@ for (const [path, expected] of files) {
 }
 await mkdir(destination, { recursive: true });
 const destinationRoot = await realpath(destination);
+const projectRoot = await realpath(project);
+const checkRoot = resolve(projectRoot, '.material-check');
+if ((destinationRoot === projectRoot || destinationRoot.startsWith(projectRoot + sep)) &&
+    destinationRoot !== checkRoot && !destinationRoot.startsWith(checkRoot + sep)) {
+  throw Error('Öffentliches Ziel unzulässig. Verwende .material-check oder ein Ziel außerhalb des Projekts.');
+}
 for (const [path] of files) {
   const to = resolve(destinationRoot, path);
   await mkdir(dirname(to), { recursive: true });
@@ -45,4 +51,4 @@ for (const [path] of files) {
   catch (error) { if (error.code !== 'ENOENT') throw error; }
   await copyFile(resolve(source, path), to);
 }
-console.log(`${files.size} geprüfte Materialdateien für die Veröffentlichung bereitgestellt.`);
+console.log(`${files.size} geprüfte Materialdateien für die lokale Integritätsprüfung bereitgestellt.`);

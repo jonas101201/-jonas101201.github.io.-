@@ -172,21 +172,24 @@ function LearningOverview({ state }: { state: State }) {
       </article>
       <article className="glass progress-stat-card">
         <h3><Target aria-hidden="true"/>{tr('Überprüfte Antworten')}</h3>
-        {stats.objective.total > 0 ? <>
-          <p className="progress-quiz-ratio"><strong>{stats.objective.correct}</strong><span> / {stats.objective.total}</span></p>
-          <progress className="progress-track" aria-label={tr('Überprüfte Antworten')} max={stats.objective.total} value={stats.objective.correct}/>
-          <p className="muted">{tr('Richtige Quizantworten')}</p>
-        </> : <p className="muted">{tr('Noch keine überprüften Antworten.')}</p>}
+        {[{ ...stats.quiz, label: tr('Richtige Quizantworten') }, { ...stats.exam, label: tr('Richtige Prüfungsantworten') }]
+          .filter(item => item.total > 0).map(item => <div className="progress-answer-stat" key={item.label}>
+            <p className="muted">{item.label}</p>
+            <p className="progress-quiz-ratio"><strong>{item.correct}</strong><span> / {item.total}</span></p>
+            <progress className="progress-track" aria-label={item.label} max={item.total} value={item.correct}/>
+          </div>)}
+        {!stats.objective.total && <p className="muted">{tr('Noch keine überprüften Antworten.')}</p>}
       </article>
       <article className="glass progress-stat-card">
         <h3><Brain aria-hidden="true"/>{tr('Selbstauswertung im Wissensabruf')}</h3>
-        <dl className="progress-stat-values progress-recall-values">
+        {stats.self.count > 0 ? <><dl className="progress-stat-values progress-recall-values">
           <div><dt>{tr('Vollständig')}</dt><dd>{stats.self.remembered}</dd></div>
           <div><dt>{tr('Teilweise')}</dt><dd>{stats.self.partial}</dd></div>
           <div><dt>{tr('Offen')}</dt><dd>{stats.self.missing}</dd></div>
           <div><dt>{tr('Falsch verstanden')}</dt><dd>{stats.self.misunderstood}</dd></div>
         </dl>
-        <p className="muted">{tr('{0} aufgearbeitete Kernaspekte', [stats.resolvedGaps])}</p>
+        <p className="muted">{tr('{0} aufgearbeitete Kernaspekte', [stats.resolvedGaps])}</p></>
+          : <p className="muted">{tr('Noch keine Selbstauswertungen.')}</p>}
       </article>
     </div>
     <details className="glass progress-stat-card"><summary><Layers3 size={18} aria-hidden="true"/> {tr('Fächer und Lernfelder')}</summary>

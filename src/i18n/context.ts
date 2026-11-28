@@ -4,6 +4,7 @@ export interface LanguageContextValue {
   language: Language;
   locale: 'de-DE' | 'uk-UA';
   count: (value: number, noun: Parameters<typeof formatCount>[1]) => string;
+  languageRequest?: { language: Language; status: 'loading' | 'failed' };
   setLanguage: (language: Language) => void;
   tr: (source: string | undefined, values?: readonly unknown[]) => string;
 }

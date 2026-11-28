@@ -220,3 +220,8 @@
   background: color-mix(in srgb, var(--clay-panel) 76%, var(--clay-ring));
   color: inherit;
 }
+
+.smart-recall-error-code {
+  display: block;
+  margin-block-start: .35rem;
+}

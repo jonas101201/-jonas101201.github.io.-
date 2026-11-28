@@ -56,3 +56,12 @@ it('resumes a visited standalone topic through Weiterlernen without implicit per
   expect(screen.getByRole('link', { name: /Lernzettel.*Hypothese, Operationalisierung und Indikatoren/ }).getAttribute('href')).toBe('#/lernzettel/bk2-lf2/hypothesen');
   expect(localStorage.getItem('lernhub:activity:v1')).toBeNull();
 });
+
+it('reaches the skip link on first Tab without stealing initial keyboard focus', async () => {
+  const user = userEvent.setup();
+  render(<LanguageProvider><App/></LanguageProvider>);
+  await user.tab();
+  expect(document.activeElement).toBe(screen.getByRole('link', { name: 'Zum Inhalt springen' }));
+  await user.keyboard('{Enter}');
+  expect(document.activeElement).toBe(screen.getByRole('main'));
+});

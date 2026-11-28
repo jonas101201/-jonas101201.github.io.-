@@ -4901,10 +4901,16 @@
   "Die Lernzettel öffnen sich in einem neuen Tab.": "Конспекти відкриваються в новій вкладці.",
   "KI-Auswertung verfügbar ab {0}. Du kannst deine Antwort jetzt selbst kontrollieren.": "Оцінювання ШІ доступне з {0}. Ти вже можеш самостійно перевірити відповідь.",
   "Der Browser konnte die geschützte Anfrage nicht öffnen. Melde dich bei Cloudflare Access an. Falls du im App-Browser bist, öffne LernHub in Safari. Deine Antwort bleibt hier erhalten.": "Браузер не зміг відкрити захищений запит. Увійди через Cloudflare Access. Якщо ти у вбудованому браузері застосунку, відкрий LernHub у Safari. Твоя відповідь залишиться тут.",
+  "Fehlercode {0}": "Код помилки {0}",
   "Qualifizierte Lernabschlüsse": "Зараховані навчальні завдання",
   "Zeitversetzte Wiederholungen": "Інтервальні повторення",
   "Verbesserte Quizergebnisse": "Покращені результати тестів",
   "Vollständig": "Повністю",
   "Teilweise": "Частково",
-  "Richtige Quizantworten": "Правильні відповіді в тестах"
+  "Richtige Quizantworten": "Правильні відповіді в тестах",
+  "Richtige Prüfungsantworten": "Правильні відповіді на іспиті",
+  "Noch keine Selbstauswertungen.": "Самооцінок ще немає.",
+  "Sprache wird geladen …": "Мова завантажується …",
+  "Die Sprache konnte nicht geladen werden. Lade die Seite neu und wähle sie erneut aus.": "Не вдалося завантажити мову. Перезавантаж сторінку й вибери мову ще раз.",
+  "Das Ergebnis bleibt bis zum Neuladen oder Schließen in diesem Tab.": "Результат залишиться в цій вкладці до її перезавантаження або закриття."
 }

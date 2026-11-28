@@ -3,7 +3,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { CurrentDate } from '../src/components/CurrentDate';
 import { LanguageProvider } from '../src/i18n/LanguageProvider';
-import { LANGUAGE_KEY } from '../src/i18n/translate';
+import { LANGUAGE_KEY, prepareLanguage } from '../src/i18n/translate';
 beforeEach(() => { localStorage.clear(); vi.useFakeTimers(); });
 afterEach(() => { cleanup(); vi.useRealTimers(); });
 const show = () => render(<LanguageProvider><CurrentDate/></LanguageProvider>);
@@ -21,10 +21,11 @@ it('refreshes when returning to an open tab after several days', () => {
   fireEvent(window, new Event('focus'));
   expect(screen.getByText('Freitag, 20. November 2026')).toBeTruthy();
 });
-it('formats the current device date using the selected language', () => {
+it('formats the current device date using the selected language after its translations load', async () => {
   localStorage.setItem(LANGUAGE_KEY, 'uk');
   vi.setSystemTime(new Date(2026, 10, 17, 1));
   const view = show();
   expect(view.container.querySelector('time')?.getAttribute('datetime')).toBe('2026-11-17');
+  await act(async () => { await prepareLanguage('uk'); });
   expect(view.container.textContent).toContain('листопада');
 });

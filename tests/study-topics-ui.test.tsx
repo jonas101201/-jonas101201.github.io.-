@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { prepareLanguage } from '../src/i18n/translate';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -76,3 +77,5 @@ describe('Lernzettel nach Ober- und Unterthemen', () => {
     expect(screen.getByRole('link', { name: 'Zur Themenübersicht' }).getAttribute('href')).toBe('/lernzettel/bk2-lf2');
   });
 });
+
+await prepareLanguage('uk');

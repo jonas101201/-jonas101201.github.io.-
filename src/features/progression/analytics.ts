@@ -30,6 +30,8 @@ export function statistics(state: State, at = new Date().toISOString()) {
   const data = eventCounts(state);
   const fields = new Map<string, { scope: string; subjectId: string; learningFieldId?: string; completed: number; objectiveChecks: number; successfulChecks: number; due: boolean; improvements: number }>();
   const objective = { count: 0, correct: 0, total: 0 };
+  const quiz = { correct: 0, total: 0 };
+  const exam = { correct: 0, total: 0 };
   const cardRatings = { count: 0, known: 0, attempted: 0 };
   const self = { count: 0, remembered: 0, partial: 0, missing: 0, misunderstood: 0 };
   for (const event of state.events) {
@@ -45,6 +47,9 @@ export function statistics(state: State, at = new Date().toISOString()) {
       objective.count++;
       objective.correct += event.correct;
       objective.total += event.total;
+      const result = event.kind === 'exam' ? exam : quiz;
+      result.correct += event.correct;
+      result.total += event.total;
       if (assessedWell(event)) field.successfulChecks++;
     }
     if (event.selfKnown !== undefined) {
@@ -60,7 +65,7 @@ export function statistics(state: State, at = new Date().toISOString()) {
   }
   return {
     methods: data.methods, completed: state.events.length, reviewed: data.reviewed, improved: data.improved,
-    resolvedGaps: state.resolvedGaps.length, objective, self, cardRatings,
+    resolvedGaps: state.resolvedGaps.length, objective, quiz, exam, self, cardRatings,
     fields: [...fields.values()].map(field => ({ ...field, status: field.due ? 'due' as const
       : field.successfulChecks >= 2 ? 'verified' as const : 'started' as const })),
   };

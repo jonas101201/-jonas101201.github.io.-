@@ -1,12 +1,22 @@
-import ukrainian from './uk.json';
 export type Language = 'de' | 'uk';
 export const LANGUAGE_KEY = 'lernhub:language:v1';
 export const isLanguage = (value: unknown): value is Language => value === 'de' || value === 'uk';
-const uk: Record<string, string> = ukrainian;
+let uk: Record<string, string> | undefined;
+let loading: Promise<void> | undefined;
+
+export function isLanguagePrepared(language: Language) {
+  return language === 'de' || uk !== undefined;
+}
+
+export function prepareLanguage(language: Language): Promise<void> {
+  if (isLanguagePrepared(language)) return Promise.resolve();
+  loading ??= import('./uk.json').then(module => { uk = module.default; }).finally(() => { loading = undefined; });
+  return loading;
+}
 export function translateText(source: string | undefined, language: Language, values: readonly unknown[] = []) {
   if (!source) return '';
   const trimmed = source.trim();
-  const translated = language === 'uk' ? uk[trimmed] ?? trimmed : trimmed;
+  const translated = language === 'uk' ? uk && Object.hasOwn(uk, trimmed) ? uk[trimmed]! : trimmed : trimmed;
   const result = source.slice(0, source.length - source.trimStart().length) + translated + source.slice(source.trimEnd().length);
   return result.replace(/\{(\d+)\}/g, (_, index: string) => String(values[Number(index)] ?? `{${index}}`));
 }

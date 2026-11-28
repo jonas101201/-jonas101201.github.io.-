@@ -150,6 +150,9 @@
   :root:not([data-studio-paused]) .companion-cloud::after {
     animation: companion-cloud-trail .4s .13s ease-out both;
   }
+  .active-companion-home:has(.companion-figure[data-visible="false"]) .companion-cloud {
+    animation-play-state: paused;
+  }
   @keyframes companion-cloud-rise {
     from { opacity: 0; transform: translateY(7px); }
   }

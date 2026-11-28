@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useCallback, useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useI18n } from '../../i18n/context';
@@ -12,7 +12,13 @@ import { useProgression } from './store';
 export function CompanionPlacement({ context, encouraging = false, fallback, children }: { context: 'home' | 'completion'; encouraging?: boolean; fallback?: ReactNode; children?: ReactNode }) {
   const { tr } = useI18n();
   const { enabled, state } = useProgression();
-  const [reaction, replay] = useCompanionGreeting(context === 'completion');
+  const [reaction, replay] = useCompanionGreeting();
+  const played = useRef(false);
+  const playCompletion = useCallback(() => {
+    if (context !== 'completion' || played.current) return;
+    played.current = true;
+    replay();
+  }, [context, replay]);
   const character = companions.find(item => item.id === state.activeCompanion);
   const development = character && companionProgress(state, character.id);
   const activeMission = state.missions.find(mission => mission.status === 'active');
@@ -43,7 +49,7 @@ export function CompanionPlacement({ context, encouraging = false, fallback, chi
     <button type="button" className="active-companion companion-greeting"
       aria-label={tr('Bewegung von {0} abspielen', [character.name])} onClick={replay}>
       <CompanionVisual key={reaction} id={character.id} stage={development.stage} look={look}
-        motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'idle'} interactive/>
+        motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'idle'} onVisible={playCompletion} interactive/>
       <span>{character.name}</span>
     </button>
     <div className="companion-speech companion-home-dialogue">
@@ -52,6 +58,6 @@ export function CompanionPlacement({ context, encouraging = false, fallback, chi
     </div>
   </div>;
   return <div className="active-companion active-companion-completion" aria-hidden="true">
-    <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'still'} interactive/>
+    <CompanionVisual id={character.id} stage={development.stage} look={look} motion={reaction ? encouraging ? 'greet' : 'celebrate' : 'idle'} onVisible={playCompletion} interactive/>
   </div>;
 }

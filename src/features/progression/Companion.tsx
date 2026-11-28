@@ -22,8 +22,8 @@ const spriteDurations: Record<CompanionId, Record<Exclude<CompanionMotion, 'stil
   pflanziska: { idle: '3.6s', greet: '1.16s', celebrate: '1.4s' },
 };
 
-export function CompanionVisual({ id, stage = 0, look = {}, motion = 'idle', expression, interactive = false, accessoryPreview }: {
-  id: CompanionId; stage?: number; look?: Look; motion?: CompanionMotion; expression?: CompanionExpression; interactive?: boolean; accessoryPreview?: string;
+export function CompanionVisual({ id, stage = 0, look = {}, motion = 'idle', expression, interactive = false, accessoryPreview, onVisible }: {
+  id: CompanionId; stage?: number; look?: Look; motion?: CompanionMotion; expression?: CompanionExpression; interactive?: boolean; accessoryPreview?: string; onVisible?: () => void;
 }) {
   const node = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -44,6 +44,9 @@ export function CompanionVisual({ id, stage = 0, look = {}, motion = 'idle', exp
     if (node.current) observer.observe(node.current);
     return () => observer.disconnect();
   }, [interactive]);
+  useEffect(() => {
+    if (visible && !paused) onVisible?.();
+  }, [visible, paused, onVisible]);
   useEffect(() => {
     if (!sprite) return;
     const image = new Image();

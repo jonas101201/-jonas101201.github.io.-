@@ -14,6 +14,16 @@ const browser = await (safari ? webkit : chromium).launch({
 });
 const source = JSON.parse(await readFile(new URL('../src/data/catalog.json', import.meta.url), 'utf8'));
 
+// The fake clock drives the progression rules. It can freeze WebKit's
+// animation-based click stability check, so validate enabled state and invoke
+// these two completion controls directly after actual input interactions.
+async function finishClick(locator) {
+  await locator.evaluate(button => {
+    if (button.disabled) throw new Error('Completion control is disabled');
+    button.click();
+  });
+}
+
 async function completedRecall(page) {
   await page.getByRole('button', { name: 'Wissen abrufen', exact: true }).click();
   assert.equal(await page.getByRole('heading', { name: 'Erwartungshorizont und Selbsteinschätzung' }).count(), 0);
@@ -23,7 +33,7 @@ async function completedRecall(page) {
   await page.getByRole('button', { name: 'Antwort absenden und vergleichen', exact: true }).click();
   await page.getByRole('heading', { name: 'Erwartungshorizont und Selbsteinschätzung' }).waitFor();
   for (const radio of await page.getByRole('radio', { name: 'Teilweise erinnert', exact: true }).all()) await radio.click({force:true});
-  await page.getByRole('button', { name: 'Selbsteinschätzung abschließen', exact: true }).click();
+  await finishClick(page.getByRole('button', { name: 'Selbsteinschätzung abschließen', exact: true }));
   await page.getByRole('heading', { name: 'Wissensabruf abgeschlossen', exact: true }).waitFor();
 }
 
@@ -48,7 +58,7 @@ async function completeQuiz(page) {
       await first.check({force:true});
     }
     const check = card.getByRole('button', { name: 'Antwort prüfen', exact: true });
-    if (await check.count()) await check.click();
+    if (await check.count()) await finishClick(check);
     await card.getByRole('button', { name: /^(Nächste Frage|Ergebnis anzeigen)$/ }).evaluate(button => button.click());
   }
   await page.locator('.quiz-result').waitFor();

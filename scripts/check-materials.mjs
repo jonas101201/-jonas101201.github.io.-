@@ -3,10 +3,11 @@ import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, extname } from 'node:path';
 const root = fileURLToPath(new URL('../', import.meta.url));
+const destination = resolve(process.env.MATERIALS_CHECK_DIR || resolve(root, '.material-check'));
 const { materials } = JSON.parse(await readFile(resolve(root,'src/data/catalog.json'),'utf8'));
 async function checkFile(file, fileType, label) {
   if (!/^materials\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(pdf|txt|pptx|docx|zip|png)$/.test(file.path)) throw Error(`Unsicherer Pfad: ${label}`);
-  const path=resolve(root,'public',file.path);
+  const path=resolve(destination,file.path);
   const info=await stat(path);
   if(!info.isFile() || !info.size) throw Error(`Datei fehlt oder ist leer: ${label}`);
   if(extname(path).slice(1).toUpperCase()!==fileType) throw Error(`Dateityp stimmt nicht: ${label}`);

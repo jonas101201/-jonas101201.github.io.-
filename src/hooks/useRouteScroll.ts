@@ -12,7 +12,7 @@ export function useRouteScroll(location: Location, action: NavigationType, main:
     const position = typeof restoreKey === 'string' ? positions.current.get(restoreKey) ?? 0
       : changedPage || changesView ? 0 : window.scrollY;
     previous.current = location;
-    if (changedPage) main.current?.focus({ preventScroll: true });
+    if (old && changedPage) main.current?.focus({ preventScroll: true });
     if (window.scrollY !== position || changedPage) window.scrollTo(0, position);
     const save = () => {
       const cache = positions.current;
